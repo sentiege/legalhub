@@ -246,7 +246,7 @@
             id: cap.id || `${titulo.id || 'titulo'}-cap${i}`,
             numero: cap.numero ?? (i+1),
             nombre: cap.nombre || 'Capítulo',
-            rangoArticulos: cap.rangoArticulos || '',
+            rangoArticulos: computeRango(arts, cap.rangoArticulos),
             articulos: arts
           };
         }).filter(cap => cap.articulos.length);
@@ -257,11 +257,23 @@
           id: `${titulo.id || 'titulo'}-directo`,
           numero: titulo.numero ?? '',
           nombre: titulo.nombre || 'Artículos',
-          rangoArticulos: titulo.rangoArticulos || '',
+          rangoArticulos: computeRango(direct, titulo.rangoArticulos),
           articulos: direct
         }];
       }
       return [];
+    }
+
+    function computeRango(arts, fallback){
+      /* Calcula el rango real "primero-último" a partir de los artículos
+         efectivamente cargados, en vez de confiar en un rangoArticulos
+         de metadata que puede haber quedado desactualizado en el JSON. */
+      if (!arts || !arts.length) return fallback || '';
+      const nums = arts.map(a => a.numero).filter(n => typeof n === 'number');
+      if (!nums.length) return fallback || '';
+      const min = Math.min(...nums);
+      const max = Math.max(...nums);
+      return min === max ? `${min}` : `${min}-${max}`;
     }
 
     /* === v9: buildFlat totalmente tolerante a variaciones de esquema === */
@@ -322,7 +334,8 @@
           const head=document.createElement('button');
           head.className='title-head';
           head.type='button';
-          head.innerHTML=`<div class="title-head-main"><span class="title-kicker">Título ${titulo.numero}</span><span class="title-name">${titulo.nombre}</span><span class="title-range">Arts. ${titulo.rangoArticulos}</span></div><span class="title-chevron">›</span>`;
+          const tituloRango = computeRango(capitulosRender.flatMap(c => c.articulos), titulo.rangoArticulos);
+          head.innerHTML=`<div class="title-head-main"><span class="title-kicker">Título ${titulo.numero}</span><span class="title-name">${titulo.nombre}</span><span class="title-range">Arts. ${tituloRango}</span></div><span class="title-chevron">›</span>`;
           head.addEventListener('click',()=>block.classList.toggle('open'));
           block.appendChild(head);
 
