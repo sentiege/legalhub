@@ -209,7 +209,38 @@
     hamburger.addEventListener('click',()=>sidebar.classList.toggle('open'));
     function normalize(str){return(str||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
     function highlight(str,query){if(!query)return str;const re=new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');return str.replace(re,'<mark class="search-highlight">$1</mark>');}
-    function buildFlat(data){const flat=[];(data.libros||[]).forEach(libro=>(libro.titulos||[]).forEach(titulo=>(titulo.capitulos||[]).forEach(capitulo=>(capitulo.articulos||[]).forEach(articulo=>flat.push({libro,titulo,capitulo,articulo})))));return flat;}
+
+    /* === PATCH: buildFlat ahora soporta títulos sin nivel "capitulos" === */
+    function buildFlat(data){
+      const flat = [];
+      (data.libros || []).forEach(libro => {
+        (libro.titulos || []).forEach(titulo => {
+
+          if (Array.isArray(titulo.capitulos) && titulo.capitulos.length) {
+            titulo.capitulos.forEach(capitulo => {
+              (capitulo.articulos || []).forEach(articulo => {
+                flat.push({ libro, titulo, capitulo, articulo });
+              });
+            });
+          }
+
+          if (Array.isArray(titulo.articulos) && titulo.articulos.length) {
+            const capituloVirtual = {
+              id: `${titulo.id || 'titulo'}-directo`,
+              numero: titulo.numero ?? '',
+              nombre: titulo.nombre || 'Artículos',
+              rangoArticulos: titulo.rangoArticulos || ''
+            };
+            titulo.articulos.forEach(articulo => {
+              flat.push({ libro, titulo, capitulo: capituloVirtual, articulo });
+            });
+          }
+
+        });
+      });
+      return flat;
+    }
+
     function getHashArtNum(){const h=window.location.hash.replace('#art-','').trim();return h?parseInt(h,10):null;}
     function setHashFromIdx(idx){if(!FLAT.length)return;history.replaceState(null,'','#art-'+FLAT[idx].articulo.numero);}
     function savePosition(idx){try{localStorage.setItem('cc_lastIdx',idx);}catch(e){}}
@@ -219,7 +250,59 @@
     function initVoices(){function populate(){voices=speechSynthesis.getVoices().filter(v=>v.lang.startsWith('es'));if(!voices.length)voices=speechSynthesis.getVoices();playerVoice.innerHTML='';voices.forEach((v,i)=>{const opt=document.createElement('option');opt.value=i;opt.textContent=v.name+(v.lang?` (${v.lang})`:'');playerVoice.appendChild(opt);});const pyIdx=voices.findIndex(v=>v.lang.startsWith('es-PY'));const esIdx=voices.findIndex(v=>v.lang.startsWith('es'));playerVoice.selectedIndex=pyIdx>=0?pyIdx:(esIdx>=0?esIdx:0);}if(speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=populate;populate();}
     function getSelectedVoice(){return voices[parseInt(playerVoice.value,10)]||null;}
     playerSpeed.addEventListener('input',()=>{playerSpeedVal.textContent=parseFloat(playerSpeed.value).toFixed(1)+'×';});
-    function renderSidebar(){sidebarTree.innerHTML='';DATA.libros.forEach(libro=>{const groupTitle=document.createElement('div');groupTitle.className='tree-group-title';groupTitle.textContent=libro.nombre;sidebarTree.appendChild(groupTitle);libro.titulos.forEach(titulo=>{const block=document.createElement('section');block.className='title-block';const head=document.createElement('button');head.className='title-head';head.type='button';head.innerHTML=`<div class="title-head-main"><span class="title-kicker">Título ${titulo.numero}</span><span class="title-name">${titulo.nombre}</span><span class="title-range">Arts. ${titulo.rangoArticulos}</span></div><span class="title-chevron">›</span>`;head.addEventListener('click',()=>block.classList.toggle('open'));block.appendChild(head);const chList=document.createElement('div');chList.className='chapter-list';titulo.capitulos.forEach(cap=>{const btn=document.createElement('button');btn.className='chapter-btn';btn.type='button';btn.dataset.capId=cap.id;btn.innerHTML=`<span class="chapter-name">Cap. ${cap.numero} — ${cap.nombre}</span><span class="chapter-range">Arts. ${cap.rangoArticulos}</span>`;btn.addEventListener('click',()=>{setActiveChapterBtn(btn);const flatIdx=FLAT.findIndex(e=>e.capitulo.id===cap.id);if(flatIdx!==-1)showArticleByIdx(flatIdx);if(window.innerWidth<=900)sidebar.classList.remove('open');});chList.appendChild(btn);});block.appendChild(chList);sidebarTree.appendChild(block);});});}
+
+    /* === PATCH: renderSidebar ahora renderiza capítulos virtuales cuando el título no tiene "capitulos" === */
+    function renderSidebar(){
+      sidebarTree.innerHTML='';
+      DATA.libros.forEach(libro=>{
+        const groupTitle=document.createElement('div');
+        groupTitle.className='tree-group-title';
+        groupTitle.textContent=libro.nombre;
+        sidebarTree.appendChild(groupTitle);
+
+        libro.titulos.forEach(titulo=>{
+          const block=document.createElement('section');
+          block.className='title-block';
+          const head=document.createElement('button');
+          head.className='title-head';
+          head.type='button';
+          head.innerHTML=`<div class="title-head-main"><span class="title-kicker">Título ${titulo.numero}</span><span class="title-name">${titulo.nombre}</span><span class="title-range">Arts. ${titulo.rangoArticulos}</span></div><span class="title-chevron">›</span>`;
+          head.addEventListener('click',()=>block.classList.toggle('open'));
+          block.appendChild(head);
+
+          const chList=document.createElement('div');
+          chList.className='chapter-list';
+
+          const capitulosRender = Array.isArray(titulo.capitulos) && titulo.capitulos.length
+            ? titulo.capitulos
+            : [{
+                id: `${titulo.id || 'titulo'}-directo`,
+                numero: titulo.numero ?? '',
+                nombre: titulo.nombre || 'Artículos',
+                rangoArticulos: titulo.rangoArticulos || ''
+              }];
+
+          capitulosRender.forEach(cap=>{
+            const btn=document.createElement('button');
+            btn.className='chapter-btn';
+            btn.type='button';
+            btn.dataset.capId=cap.id;
+            btn.innerHTML=`<span class="chapter-name">Cap. ${cap.numero} — ${cap.nombre}</span><span class="chapter-range">Arts. ${cap.rangoArticulos}</span>`;
+            btn.addEventListener('click',()=>{
+              setActiveChapterBtn(btn);
+              const flatIdx=FLAT.findIndex(e=>e.capitulo.id===cap.id);
+              if(flatIdx!==-1)showArticleByIdx(flatIdx);
+              if(window.innerWidth<=900)sidebar.classList.remove('open');
+            });
+            chList.appendChild(btn);
+          });
+
+          block.appendChild(chList);
+          sidebarTree.appendChild(block);
+        });
+      });
+    }
+
     function setActiveChapterBtn(activeBtn){document.querySelectorAll('.chapter-btn').forEach(b=>b.classList.remove('active'));if(activeBtn)activeBtn.classList.add('active');}
     function showArticleByIdx(idx,fromPlayer){if(!FLAT.length)return;idx=Math.max(0,Math.min(idx,FLAT.length-1));currentIdx=idx;savePosition(idx);const{libro,titulo,capitulo,articulo}=FLAT[idx];setHashFromIdx(idx);breadcrumbArticulo.textContent=`Art. ${articulo.numero}${articulo.epigrafe?' — '+articulo.epigrafe:''}`;articleNumber.textContent=`Artículo ${articulo.numero}`;articleTitle.textContent=articulo.epigrafe||`Artículo ${articulo.numero}`;articleMeta.textContent=`Título ${titulo.numero} — ${titulo.nombre} · Capítulo ${capitulo.numero} — ${capitulo.nombre}`;const textos=articulo.texto||[];if(!textos.length){articleBody.innerHTML=`<div class="article-empty"><div class="article-empty-icon">📄</div><p>El texto de este artículo aún no ha sido cargado en el JSON.</p></div>`;}else{articleBody.innerHTML=textos.map(p=>`<p>${p}</p>`).join('');}btnPrev.disabled=idx===0;btnNext.disabled=idx===FLAT.length-1;const capBtn=document.querySelector(`.chapter-btn[data-cap-id="${capitulo.id}"]`);setActiveChapterBtn(capBtn);if(capBtn){const block=capBtn.closest('.title-block');if(block)block.classList.add('open');if(!fromPlayer)capBtn.scrollIntoView({block:'nearest',behavior:'smooth'});}}
     btnPrev.addEventListener('click',()=>showArticleByIdx(currentIdx-1));
