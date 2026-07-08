@@ -15,10 +15,10 @@ const CATEGORIAS = [
         ley: 'Ley N° 1183/85',
         descripcion: 'Regula los derechos de las personas, obligaciones, contratos, bienes, herencias y las bases de las relaciones familiares.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigocivil/index.html' },
           { label: '📄 Texto Oficial (CONATEL)', url: 'https://www.conatel.gov.py/conatel/wp-content/uploads/2019/10/ley-1183_1985-cdigo-civil-paraguayo.pdf' },
           { label: '🔗 Embajada del Paraguay', url: 'https://embapar.jp/archivos/codigo-civil-ley-1183-85/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigocivil/index.html'
       },
       {
         id: 'codigo-ninez',
@@ -26,10 +26,10 @@ const CATEGORIAS = [
         ley: 'Ley N° 1680/01',
         descripcion: 'Establece la protección integral, los derechos y los deberes específicos de los menores de edad.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigoninez/index.html' },
           { label: '🔗 VLEX Paraguay', url: 'https://py.vlex.com/vid/ley-n-1-680-631747725' },
           { label: '📚 CEDUNA', url: 'https://ceduna.jimdofree.com/codigos-y-leyes/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigoninez/index.html'
       }
     ]
   },
@@ -44,9 +44,8 @@ const CATEGORIAS = [
         nombre: 'Código Penal',
         ley: 'Ley N° 1160/97',
         descripcion: 'Define los delitos, crímenes y las sanciones aplicables a los infractores en el territorio nacional.',
-        links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigopenal/index.html' }
-        ]
+        links: [],
+        internalUrl: 'codigos/codigopenal/index.html'
       },
       {
         id: 'codigo-ejecucion-penal',
@@ -54,10 +53,10 @@ const CATEGORIAS = [
         ley: 'Ley N° 5162/14',
         descripcion: 'Regula el cumplimiento de las penas y las condiciones de los reclusos en los centros penitenciarios.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigoejecucionpenal/index.html' },
           { label: '📚 BaseLegal.com.py', url: 'https://baselegal.com.py/' },
           { label: '📚 CEDUNA', url: 'https://ceduna.jimdofree.com/codigos-y-leyes/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigoejecucionpenal/index.html'
       }
     ]
   },
@@ -73,9 +72,9 @@ const CATEGORIAS = [
         ley: 'Ley N° 213/93',
         descripcion: 'Rige los derechos laborales mínimos, contratos de trabajo, salarios, descansos y la actividad sindical.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigolaboral/index.html' },
           { label: '📚 CEDUNA', url: 'https://ceduna.jimdofree.com/codigos-y-leyes/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigolaboral/index.html'
       }
     ]
   },
@@ -91,9 +90,9 @@ const CATEGORIAS = [
         ley: 'Ley N° 1337/88',
         descripcion: 'Dicta los pasos para tramitar demandas civiles, comerciales y de familia ante los juzgados.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigoprocesalcivil/index.html' },
           { label: '📄 Texto Oficial (Correo PY)', url: 'https://correoparaguayo.gov.py/sitio/wp-content/uploads/2023/09/Codigo-Procesal-Civil-1988.pdf' }
-        ]
+        ],
+        internalUrl: 'codigos/codigoprocesalcivil/index.html'
       },
       {
         id: 'codigo-procesal-penal',
@@ -101,9 +100,9 @@ const CATEGORIAS = [
         ley: 'Ley N° 1286/98',
         descripcion: 'Modela la investigación fiscal y las etapas de los juicios de carácter penal.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigoprocesalpenal/index.html' },
           { label: '📚 BaseLegal.com.py', url: 'https://baselegal.com.py/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigoprocesalpenal/index.html'
       },
       {
         id: 'codigo-procesal-laboral',
@@ -111,9 +110,9 @@ const CATEGORIAS = [
         ley: 'Ley N° 742/61',
         descripcion: 'Establece las normas de tramitación de los conflictos jurídicos entre empleadores y trabajadores.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigoprocesallaboral/index.html' },
           { label: '📚 CEDUNA', url: 'https://ceduna.jimdofree.com/codigos-y-leyes/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigoprocesallaboral/index.html'
       }
     ]
   },
@@ -129,9 +128,9 @@ const CATEGORIAS = [
         ley: 'Ley N° 879/81',
         descripcion: 'Regula la estructura interna del Poder Judicial, las facultades de los jueces y el ejercicio de abogados y escribanos.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigoorganizacionjudicial/index.html' },
           { label: '📚 BaseLegal.com.py', url: 'https://baselegal.com.py/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigoorganizacionjudicial/index.html'
       },
       {
         id: 'codigo-electoral',
@@ -139,9 +138,9 @@ const CATEGORIAS = [
         ley: 'Ley N° 834/96',
         descripcion: 'Organiza el sistema de votación, el funcionamiento de los partidos políticos y los procesos de elecciones públicas.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigoelectoral/index.html' },
           { label: '📚 BaseLegal.com.py', url: 'https://baselegal.com.py/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigoelectoral/index.html'
       }
     ]
   },
@@ -156,9 +155,8 @@ const CATEGORIAS = [
         nombre: 'Código de Navegación Fluvial y Marítima',
         ley: 'Ley N° 476/57',
         descripcion: 'Establece la legislación de las aguas interiores paraguayas, el tráfico fluvial, embarcaciones y la seguridad náutica.',
-        links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigonavegacion/index.html' }
-        ]
+        links: [],
+        internalUrl: 'codigos/codigonavegacion/index.html'
       },
       {
         id: 'codigo-aeronautico',
@@ -166,9 +164,9 @@ const CATEGORIAS = [
         ley: 'Ley N° 1860/02',
         descripcion: 'Regula las actividades de aviación civil, infraestructura aeroportuaria y el tránsito en el espacio aéreo nacional.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigoaeronautico/index.html' },
           { label: '🔗 Paraguay Justia', url: 'https://paraguay.justia.com/nacionales/leyes/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigoaeronautico/index.html'
       }
     ]
   },
@@ -183,9 +181,8 @@ const CATEGORIAS = [
         nombre: 'Código Rural',
         ley: 'Ley N° 1248/31',
         descripcion: 'Rige los asuntos de la vida en el campo, el ganado, límites de propiedades rurales y la agricultura.',
-        links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigorural/index.html' }
-        ]
+        links: [],
+        internalUrl: 'codigos/codigorural/index.html'
       },
       {
         id: 'codigo-aduanero',
@@ -193,27 +190,25 @@ const CATEGORIAS = [
         ley: 'Ley N° 2422/04',
         descripcion: 'Dicta las normas para la fiscalización, control del paso de mercancías por fronteras y el cobro de aranceles al comercio exterior.',
         links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigoaduanero/index.html' },
           { label: '📚 BaseLegal.com.py', url: 'https://baselegal.com.py/' }
-        ]
+        ],
+        internalUrl: 'codigos/codigoaduanero/index.html'
       },
       {
         id: 'codigo-mineria',
         nombre: 'Código de Minería',
         ley: 'Ley N° 3180/07',
         descripcion: 'Establece el marco jurídico para la exploración y explotación de los recursos minerales del suelo paraguayo.',
-        links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigomineria/index.html' }
-        ]
+        links: [],
+        internalUrl: 'codigos/codigomineria/index.html'
       },
       {
         id: 'codigo-sanitario',
         nombre: 'Código Sanitario',
         ley: 'Ley N° 836/80',
         descripcion: 'Fija los principios de la salud pública, control de enfermedades, alimentos, fármacos y la vigilancia médica nacional.',
-        links: [
-          { label: '📖 Leer en LegalHub', url: 'codigos/codigosanitario/index.html' }
-        ]
+        links: [],
+        internalUrl: 'codigos/codigosanitario/index.html'
       }
     ]
   }
