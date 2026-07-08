@@ -213,11 +213,22 @@
     /* === v9: helpers de normalización robusta de estructura === */
     function asArray(v){return Array.isArray(v)?v:[];}
 
+    function flattenArticulos(nodo, out){
+      out = out || [];
+      if (Array.isArray(nodo)) {
+        nodo.forEach(item => flattenArticulos(item, out));
+      } else if (nodo && typeof nodo === 'object' && 'numero' in nodo) {
+        out.push(nodo);
+      }
+      return out;
+    }
+
     function normalizeArticulos(nodo, fallbackPrefix){
-      /* Devuelve siempre un array de artículos válidos, sin importar
-         si vienen anidados en "articulos" o directamente en el propio nodo. */
-      if (Array.isArray(nodo)) return nodo.filter(a=>a && typeof a==='object' && 'numero' in a);
-      if (nodo && Array.isArray(nodo.articulos)) return nodo.articulos;
+      /* Devuelve siempre un array plano de artículos válidos, sin importar
+         cuántos niveles de arrays anidados haya (arrays dentro de arrays por
+         corchetes de más en ediciones manuales del JSON). */
+      if (Array.isArray(nodo)) return flattenArticulos(nodo);
+      if (nodo && Array.isArray(nodo.articulos)) return flattenArticulos(nodo.articulos);
       return [];
     }
 
@@ -230,13 +241,13 @@
       const caps = asArray(titulo.capitulos);
       if (caps.length) {
         return caps.map((cap, i) => {
-          const arts = normalizeArticulos(cap.articulos || cap.items || cap.arts || cap, null);
+          const arts = flattenArticulos(cap.articulos || cap.items || cap.arts || []);
           return {
             id: cap.id || `${titulo.id || 'titulo'}-cap${i}`,
             numero: cap.numero ?? (i+1),
             nombre: cap.nombre || 'Capítulo',
             rangoArticulos: cap.rangoArticulos || '',
-            articulos: arts.length ? arts : asArray(cap.articulos)
+            articulos: arts
           };
         }).filter(cap => cap.articulos.length);
       }
@@ -271,7 +282,16 @@
       /* Orden estable por número de artículo, evita que un árbol desordenado
          corte la navegación antes de llegar al final real del código. */
       flat.sort((a,b)=> (a.articulo.numero||0) - (b.articulo.numero||0));
-      return flat;
+      /* Deduplicado por número de artículo: si el mismo artículo quedó
+         registrado dos veces por anidamientos irregulares, nos quedamos
+         con la primera aparición. */
+      const seen = new Set();
+      return flat.filter(e => {
+        const n = e.articulo.numero;
+        if (seen.has(n)) return false;
+        seen.add(n);
+        return true;
+      });
     }
 
     function getHashArtNum(){const h=window.location.hash.replace('#art-','').trim();return h?parseInt(h,10):null;}
