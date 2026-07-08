@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LegalHub — Derecho Paraguayo</title>
+  <meta name="description" content="Plataforma de consulta de códigos legales vigentes del Paraguay para juristas y litigantes." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header__logo">
+        <span class="logo-icon">⚖️</span>
+        <span class="logo-text">LegalHub</span>
+        <span class="logo-sub">Derecho Paraguayo</span>
+      </div>
+      <nav class="header__nav">
+        <a href="#codigos">Códigos</a>
+        <a href="#buscar">Buscar</a>
+        <a href="#acerca">Acerca</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero__inner">
+      <h1 class="hero__title">Consulta los Códigos Legales del Paraguay</h1>
+      <p class="hero__sub">Accedé rápidamente a los textos normativos vigentes organizados por materia jurídica.</p>
+      <div class="search-bar" id="buscar">
+        <input type="search" id="searchInput" placeholder="Buscar código, ley o materia…" autocomplete="off" />
+        <button onclick="buscar()">🔍 Buscar</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="container" id="codigos">
+    <div id="categorias-grid" class="categorias-grid"></div>
+  </main>
+
+  <footer class="footer" id="acerca">
+    <div class="container">
+      <p><strong>LegalHub</strong> — Herramienta de consulta para juristas y litigantes del derecho paraguayo.</p>
+      <p>Los textos normativos son de acceso público. Esta plataforma no provee asesoramiento legal.</p>
+      <p style="margin-top:0.5rem;opacity:.6;font-size:.85rem">© 2026 LegalHub Paraguay</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
