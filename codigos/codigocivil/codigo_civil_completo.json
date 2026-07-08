@@ -24306,7 +24306,16 @@
   "rutasRelacionadas": [],
   "notas": []
 },
-                [
+  {
+    "numero": 2144,
+    "epigrafe": "Indemnización por mayor elevación",
+    "texto": [
+      "El propietario que llevare a cabo la mayor elevación en el caso del artículo anterior, abonará a los demás condóminos una indemnización igual al valor actual del área a ocuparse con la construcción, dividido por el número de pisos, comprendido el que va a edificarse, con detracción del importe de la cuota correspondiente a él. Estará obligado también a reconstruir la terraza de la que todos o parte de los condóminos tenían el derecho de usar."
+    ],
+    "palabrasClave": [],
+    "rutasRelacionadas": [],
+    "notas": []
+  },
   {
     "numero": 2145,
     "epigrafe": "Impuestos y tasas municipales",
@@ -25157,7 +25166,6 @@
     "rutasRelacionadas": [],
     "notas": []
   },
-                  [
   {
     "numero": 2230,
     "epigrafe": "Objeto del usufructo",
@@ -25898,7 +25906,6 @@
     "rutasRelacionadas": [],
     "notas": []
   },
-                    [
   {
     "numero": 2304,
     "epigrafe": "Uso indebido de la prenda por el acreedor",
@@ -31019,5 +31026,11 @@
     "rutasRelacionadas": [],
     "notas": []
   }
-]]]]
-}]}]}]}
+]
+}
+      ]
+    }
+  ]
+}
+]
+}
