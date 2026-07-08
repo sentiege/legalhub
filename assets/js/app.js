@@ -2,6 +2,16 @@
    LegalHub — Lógica Principal
    ============================================= */
 
+const LEGALHUB_HOST = 'sentiege.github.io/legalhub';
+
+/** Devuelve la URL directa si el código debe linkear sin modal, o null si debe abrir modal. */
+function getDirectUrl(codigo) {
+  if (codigo.links.length === 1 && codigo.links[0].url.includes(LEGALHUB_HOST)) {
+    return codigo.links[0].url;
+  }
+  return null;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   renderCategorias(CATEGORIAS);
   crearModal();
@@ -27,15 +37,29 @@ function renderCategorias(cats) {
         <h2>${cat.nombre}</h2>
       </div>
       <div class="categoria-card__body">
-        ${cat.codigos.map(c => `
-          <a href="#" class="codigo-item" data-id="${c.id}" onclick="abrirModal('${c.id}');return false;">
-            <span class="codigo-item__num">${c.ley}</span>
-            <span class="codigo-item__info">
-              <span class="codigo-item__nombre">${c.nombre}</span>
-              <span class="codigo-item__desc">${c.descripcion.substring(0, 80)}…</span>
-            </span>
-          </a>
-        `).join('')}
+        ${cat.codigos.map(c => {
+          const directUrl = getDirectUrl(c);
+          if (directUrl) {
+            return `
+              <a href="${directUrl}" class="codigo-item" data-id="${c.id}">
+                <span class="codigo-item__num">${c.ley}</span>
+                <span class="codigo-item__info">
+                  <span class="codigo-item__nombre">${c.nombre}</span>
+                  <span class="codigo-item__desc">${c.descripcion.substring(0, 80)}…</span>
+                </span>
+              </a>
+            `;
+          }
+          return `
+            <a href="#" class="codigo-item" data-id="${c.id}" onclick="abrirModal('${c.id}');return false;">
+              <span class="codigo-item__num">${c.ley}</span>
+              <span class="codigo-item__info">
+                <span class="codigo-item__nombre">${c.nombre}</span>
+                <span class="codigo-item__desc">${c.descripcion.substring(0, 80)}…</span>
+              </span>
+            </a>
+          `;
+        }).join('')}
       </div>
     `;
     grid.appendChild(card);
