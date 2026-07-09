@@ -402,7 +402,6 @@
     }
 
     // ─── Extracción de artículos del JSON jerárquico ──────────────────────
-    // Estructura: libros → titulos → capitulos → [secciones →] articulos → incisos
     function extractArticulos(data) {
       const flat = [];
       const libros = data.libros || [];
@@ -422,6 +421,16 @@
             numero: titulo.numero || ti + 1
           };
           const capitulos = titulo.capitulos || [];
+
+          // Artículos directos en el título (sin capítulos)
+          if (Array.isArray(titulo.articulos)) {
+            const capMeta = { id: `l${li}-t${ti}-direct`, nombre: titulo.nombre || titulo.titulo || '', numero: '' };
+            titulo.articulos.forEach(art => {
+              if (art && art.numero != null) {
+                flat.push({ libro: libroMeta, titulo: tituloMeta, capitulo: capMeta, seccion: null, articulo: art });
+              }
+            });
+          }
 
           capitulos.forEach((cap, ci) => {
             const capMeta = {
@@ -526,7 +535,7 @@
           caps.forEach(({ meta: cap, arts }) => {
             const btn = document.createElement('button');
             btn.className = 'chapter-btn'; btn.type = 'button'; btn.dataset.capId = cap.id;
-            btn.innerHTML = `<span class="chapter-name">Cap. ${cap.numero} — ${cap.nombre}</span><span class="chapter-range">Arts. ${computeRango(arts)}</span>`;
+            btn.innerHTML = `<span class="chapter-name">${cap.numero ? 'Cap. ' + cap.numero + ' — ' : ''}${cap.nombre}</span><span class="chapter-range">Arts. ${computeRango(arts)}</span>`;
             btn.addEventListener('click', () => {
               setActiveChapterBtn(btn);
               const flatIdx = FLAT.findIndex(e => e.capitulo.id === cap.id);
@@ -551,12 +560,10 @@
     function buildArticleHTML(articulo) {
       let html = '';
 
-      // Texto principal
       if (articulo.texto) {
         html += `<p>${articulo.texto}</p>`;
       }
 
-      // Incisos / literales
       if (Array.isArray(articulo.incisos) && articulo.incisos.length) {
         html += '<ol style="list-style-type:lower-alpha;">';
         articulo.incisos.forEach(inc => {
@@ -568,7 +575,6 @@
         html += '</ol>';
       }
 
-      // Badges de modificación / derogación
       if (articulo.modificado_por) {
         html += `<span class="article-badge badge-mod">✏️ Modificado por: ${articulo.modificado_por}</span>`;
       }
@@ -591,7 +597,8 @@
       articleNumber.textContent = `Artículo ${articulo.numero}`;
       articleTitle.textContent = `Artículo ${articulo.numero}`;
 
-      let metaParts = [titulo.nombre, `Cap. ${capitulo.numero} — ${capitulo.nombre}`];
+      let metaParts = [titulo.nombre];
+      if (capitulo.numero) metaParts.push(`Cap. ${capitulo.numero} — ${capitulo.nombre}`);
       if (seccion) metaParts.push(`Sección ${seccion.numero} — ${seccion.nombre}`);
       articleMeta.textContent = metaParts.join(' · ');
 
@@ -801,12 +808,31 @@
     playerSkipFwd.addEventListener('click', () => { if (ttsPlaying) speakArticle(Math.min(FLAT.length - 1, ttsReadIdx + 5)); });
 
     // ─── Carga del JSON ───────────────────────────────────────────────────
+    // Intentamos primero la ruta relativa (funciona en servidor local y Pages).
+    // Si falla, usamos raw.githubusercontent.com como fallback.
     async function loadData() {
+      const RAW_URL = 'https://raw.githubusercontent.com/sentiege/jurisparaguay/main/codigos/codigoorganizacionjudicial/codigo_organizacion_judicial_completo.json';
+      const LOCAL_URL = './codigo_organizacion_judicial_completo.json';
+
+      async function tryFetch(url) {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status + ' — ' + url);
+        const text = await res.text();
+        // Verificar que el texto no está truncado (debe terminar con }]}})
+        const trimmed = text.trimEnd();
+        if (!trimmed.endsWith('}')) throw new Error('JSON truncado en: ' + url);
+        return JSON.parse(text);
+      }
+
       try {
-        const jsonUrl = new URL('codigo_organizacion_judicial_completo.json', window.location.href).href;
-        const res = await fetch(jsonUrl, { cache: 'no-store' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        DATA = await res.json();
+        // Primer intento: ruta relativa
+        try {
+          DATA = await tryFetch(LOCAL_URL);
+        } catch (localErr) {
+          // Fallback: raw.githubusercontent.com
+          DATA = await tryFetch(RAW_URL);
+        }
+
         if (!DATA || typeof DATA !== 'object') throw new Error('JSON inválido.');
         FLAT = extractArticulos(DATA);
         if (!FLAT.length) throw new Error('No se encontraron artículos. Verificá la estructura del JSON.');
@@ -823,7 +849,7 @@
         showArticleByIdx(startIdx);
       } catch (err) {
         sidebarTree.innerHTML = `<div class="search-empty">⚠️ Error al cargar el JSON.<br><small>${err.message}</small></div>`;
-        articleBody.innerHTML = `<div class="article-empty"><div class="article-empty-icon">⚠️</div><p>No se pudo cargar <code>codigo_organizacion_judicial_completo.json</code>.<br><small>${err.message}</small></p></div>`;
+        articleBody.innerHTML = `<div class="article-empty"><div class="article-empty-icon">⚠️</div><p>No se pudo cargar el JSON del Código.<br><small>${err.message}</small></p></div>`;
       }
     }
 
