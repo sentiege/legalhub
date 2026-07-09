@@ -1,4 +1,4 @@
-const CACHE = 'legalhub-codigocivil-v2';
+const CACHE = 'legalhub-codigocivil-v3';
 const ASSETS = ['./', './index.html'];
 
 self.addEventListener('install', e => {
@@ -17,6 +17,13 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   if (e.request.url.includes('codigo_civil_completo.json')) {
+    e.respondWith(
+      fetch(e.request).catch(() => caches.match(e.request))
+    );
+    return;
+  }
+  // Para index.html y assets: network-first para siempre tener la versión más reciente
+  if (e.request.mode === 'navigate' || e.request.url.endsWith('index.html')) {
     e.respondWith(
       fetch(e.request).catch(() => caches.match(e.request))
     );
