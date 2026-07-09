@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Código Civil del Paraguay — LegalHub</title>
+  <title>Código Civil del Paraguay — JurisParaguay</title>
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#1f3147" />
   <style>
@@ -309,7 +309,7 @@
   <!-- ── SIDEBAR ── -->
   <aside class="sidebar" id="sidebar" aria-label="Índice del Código Civil">
     <header class="sidebar-header">
-      <img class="sidebar-logo" src="../../logo.png" alt="LegalHub Paraguay" onerror="this.style.display='none'" />
+      <img class="sidebar-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" />
       <a class="back-link" href="../../index.html">&#8592; Volver al Hub de Códigos</a>
       <div class="app-title">Código Civil</div>
       <div class="app-subtitle">Ley N° 1183/1985 · República del Paraguay</div>
@@ -344,7 +344,7 @@
       <button class="hamburger" id="hamburger" type="button" aria-label="Mostrar/ocultar índice">☰</button>
       <div class="breadcrumbs" id="breadcrumbs">
         <a href="../../index.html">🏠 Inicio</a> ›
-        <span id="breadcrumbArticulo">Seleccioná un artículo del índice</span>
+        <span id="breadcrumbArticulo">Selecioná un artículo del índice</span>
       </div>
     </div>
     <div class="header-actions">
@@ -359,23 +359,23 @@
   <main class="main">
     <section class="reader" aria-label="Artículo seleccionado">
       <div class="print-header">
-        <img class="print-logo" src="../../logo.png" alt="LegalHub" onerror="this.style.display='none'" />
+        <img class="print-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" />
         <div class="print-org">
           <strong>Código Civil del Paraguay</strong>
           Ley N° 1183/1985 · República del Paraguay<br>
-          Fuente: CSJ – IIJ, edición digital · LegalHub 2026
+          Fuente: CSJ – IIJ, edición digital · JurisParaguay 2026
         </div>
       </div>
       <header class="article-header">
         <div class="article-number" id="articleNumber">—</div>
         <h1 class="article-title" id="articleTitle">Código Civil del Paraguay</h1>
-        <p class="article-subtitle" id="articleMeta">Seleccioná un capítulo del índice lateral para comenzar.</p>
+        <p class="article-subtitle" id="articleMeta">Selecioná un capítulo del índice lateral para comenzar.</p>
       </header>
       <div class="article-body" id="articleBody">
         <div class="loading-state"><div class="spinner"></div> Cargando datos del Código Civil…</div>
       </div>
       <footer class="article-footer">
-        <div id="articleSource">Fuente: CSJ - IIJ, edición digital · LegalHub 2026</div>
+        <div id="articleSource">Fuente: CSJ - IIJ, edición digital · JurisParaguay 2026</div>
         <div class="pager">
           <button id="btnPrev" type="button" disabled>← Art. anterior</button>
           <button id="btnNext" type="button" disabled>Art. siguiente →</button>
@@ -458,7 +458,7 @@
     const playerSpeedVal = document.getElementById('playerSpeedVal');
     const playerVoice    = document.getElementById('playerVoice');
 
-    // ─── PWA ─────────────────────────────────────────────────
+    // ─── PWA ──────────────────────────────────────────────────────────────
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').catch(() => {});
     }
@@ -516,10 +516,6 @@
       const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
       return str.replace(re, '<mark class="search-highlight">$1</mark>');
     }
-
-    // ─── buildFlat ultra-robusto para el JSON del Código Civil ───────────────
-    // Recorre el JSON de forma recursiva buscando artículos en CUALQUIER nivel
-    // de anidamiento y bajo CUALQUIER nombre de clave, sin asumir estructura fija.
 
     function asArray(v) { return Array.isArray(v) ? v : (v != null ? [v] : []); }
 
@@ -632,7 +628,6 @@
       });
     }
 
-    // ─── renderSidebar ────────────────────────────────────────────────────────
     function renderSidebar() {
       sidebarTree.innerHTML = '';
       const libros = new Map();
