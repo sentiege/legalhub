@@ -700,7 +700,7 @@
         if (isNumeric) return String(articulo.numero) === rawQuery.trim();
         return normalize(articulo.epigrafe).includes(q) ||
                (articulo.texto || []).some(t => normalize(t).includes(q)) ||
-               (articulo.palabrasClave || []).some(p => normalize(p).includes(q);
+               (articulo.palabrasClave || []).some(p => normalize(p).includes(q));
       });
       showSearchResults(matches, rawQuery);
     }
