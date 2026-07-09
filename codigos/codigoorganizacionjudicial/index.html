@@ -3,167 +3,831 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Código de Organización Judicial del Paraguay — JurisParaguay</title>
+  <title>Código de Organización Judicial — JurisParaguay</title>
   <meta name="theme-color" content="#1f3147" />
   <style>
     :root {
       --bg: #f7f3ea;
-      --panel: #ffffff;
-      --sidebar: #1f3147;
-      --sidebar-alt: #223650;
-      --border: #dde0e5;
-      --text: #1f2329;
-      --muted: #62666f;
-      --inverse: #f7f3ea;
-      --gold: #c9a227;
-      --gold-soft: #f0d9a0;
-      --blue: #34557f;
-      --radius: 16px;
-      --shadow: 0 10px 30px rgba(15,23,42,0.12);
+      --bg-panel: #ffffff;
+      --bg-sidebar: #1f3147;
+      --bg-sidebar-alt: #223650;
+      --border-soft: #dde0e5;
+      --text-main: #1f2329;
+      --text-muted: #62666f;
+      --text-inverse: #f7f3ea;
+      --accent-gold: #c9a227;
+      --accent-gold-soft: #f0d9a0;
+      --accent-blue: #34557f;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-md: 0 10px 30px rgba(15,23,42,0.12);
       --sidebar-width: 320px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      min-height: 100vh;
+      height: 100vh;
       background: var(--bg);
-      color: var(--text);
+      color: var(--text-main);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       display: grid;
       grid-template-columns: var(--sidebar-width) 1fr;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
     }
+
+    /* ── Sidebar ── */
     .sidebar {
       grid-column: 1; grid-row: 1 / -1;
-      background: linear-gradient(180deg, var(--sidebar), var(--sidebar-alt));
-      color: var(--inverse);
-      padding: 18px;
-      border-right: 1px solid rgba(148,163,184,0.45);
+      background: linear-gradient(180deg, var(--bg-sidebar), var(--bg-sidebar-alt));
+      color: var(--text-inverse);
+      padding: 18px 18px 16px;
+      border-right: 1px solid rgba(148,163,184,0.6);
+      display: flex; flex-direction: column; overflow: hidden;
     }
-    .sidebar-logo {
-      display: block; width: 100%; max-width: 200px; height: auto;
-      margin: 0 auto 12px; object-fit: contain;
-    }
+    .sidebar-header { margin-bottom: 14px; text-align: center; }
+    .sidebar-logo { display: block; width: 100%; max-width: 200px; height: auto; margin: 0 auto 12px; object-fit: contain; }
     .back-link {
       display: inline-flex; align-items: center; gap: .35rem;
-      font-size: 11px; color: var(--gold); text-decoration: none; margin-bottom: 10px;
+      font-size: 11px; color: var(--accent-gold); text-decoration: none;
+      margin-bottom: 10px; opacity: .9; transition: opacity .15s;
     }
-    .back-link:hover { text-decoration: underline; }
-    .app-title { font-size: 19px; font-weight: 700; }
-    .app-subtitle { font-size: 11px; color: rgba(248,250,252,0.75); margin-top: 4px; }
-    .status-card {
-      margin-top: 18px; padding: 14px; border-radius: 12px;
-      background: rgba(15,23,42,0.52); border: 1px solid rgba(148,163,184,0.35);
-      font-size: 12px; line-height: 1.65;
+    .back-link:hover { opacity: 1; text-decoration: underline; }
+    .app-title { font-size: 18px; font-weight: 600; letter-spacing: 0.03em; }
+    .app-subtitle { font-size: 11px; color: rgba(248,250,252,0.75); margin-top: 3px; }
+    .search-box { margin-top: 12px; position: relative; text-align: left; }
+    .search-input {
+      width: 100%; padding: 8px 32px 8px 10px;
+      border-radius: 999px; border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.55); color: var(--text-inverse); font-size: 12px;
     }
-    .status-card strong { color: var(--gold-soft); }
+    .search-input::placeholder { color: rgba(226,232,240,0.7); }
+    .search-clear {
+      position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; color: rgba(226,232,240,0.6);
+      cursor: pointer; font-size: 14px; display: none; line-height: 1;
+    }
+    .search-clear.visible { display: block; }
+    .search-results { display: none; flex-direction: column; gap: 4px; margin-top: 8px; flex: 1; overflow-y: auto; }
+    .search-results.visible { display: flex; }
+    .search-result-item {
+      padding: 8px 9px; border-radius: 8px;
+      background: rgba(15,23,42,0.55); border: 1px solid rgba(148,163,184,0.3);
+      cursor: pointer; font-size: 11px; color: var(--text-inverse); transition: background 0.15s;
+    }
+    .search-result-item:hover { background: rgba(15,23,42,0.85); }
+    .search-result-num { font-weight: 700; color: var(--accent-gold); }
+    .search-result-ctx { font-size: 10px; color: rgba(226,232,240,0.65); display: block; margin-top: 1px; }
+    .search-highlight { background: rgba(201,162,39,0.45); border-radius: 2px; padding: 0 1px; }
+    .search-empty { font-size: 12px; color: rgba(226,232,240,0.6); text-align: center; padding: 20px 0; }
+    .search-count { font-size: 10px; color: rgba(226,232,240,0.5); margin-bottom: 6px; padding-left: 2px; }
+    .sidebar-scroll { margin-top: 12px; padding-right: 4px; overflow-y: auto; flex: 1; }
+    .tree-group-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(226,232,240,0.85); margin-bottom: 8px; }
+    .title-block { border-radius: 12px; border: 1px solid rgba(148,163,184,0.5); background: rgba(15,23,42,0.65); margin-bottom: 8px; }
+    .title-head {
+      width: 100%; padding: 8px 9px; display: flex;
+      align-items: center; justify-content: space-between;
+      font-size: 12px; text-align: left; cursor: pointer;
+      border: none; background: transparent; color: var(--text-inverse);
+    }
+    .title-head-main { display: flex; flex-direction: column; }
+    .title-kicker { font-size: 10px; color: rgba(226,232,240,0.8); text-transform: uppercase; letter-spacing: 0.08em; }
+    .title-name { font-size: 12px; font-weight: 600; margin-top: 2px; }
+    .title-range { font-size: 10px; color: rgba(226,232,240,0.75); margin-top: 1px; }
+    .title-chevron { font-size: 11px; color: rgba(226,232,240,0.75); transition: transform 0.15s ease; }
+    .title-block.open .title-chevron { transform: rotate(90deg); }
+    .chapter-list { display: none; border-top: 1px solid rgba(148,163,184,0.45); padding: 4px 5px 6px; }
+    .title-block.open .chapter-list { display: block; }
+    .chapter-btn {
+      width: 100%; padding: 6px; border-radius: 8px;
+      border: none; background: transparent; color: var(--text-inverse);
+      text-align: left; font-size: 11px; cursor: pointer;
+    }
+    .chapter-btn:hover, .chapter-btn.active { background: rgba(15,23,42,0.9); }
+    .chapter-name { font-weight: 500; display: block; }
+    .chapter-range { font-size: 10px; color: rgba(226,232,240,0.7); display: block; }
+
+    /* ── Hamburger ── */
+    .hamburger {
+      display: none; background: none;
+      border: 1px solid var(--border-soft); border-radius: 8px;
+      padding: 5px 8px; font-size: 18px; cursor: pointer;
+      color: var(--text-main); line-height: 1; flex-shrink: 0;
+    }
+
+    /* ── Header ── */
     .header {
       grid-column: 2; grid-row: 1;
-      padding: 12px 18px; border-bottom: 1px solid var(--border);
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border-soft);
       background: rgba(247,243,234,0.94);
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 12px; min-width: 0;
     }
-    .breadcrumbs { font-size: 11px; color: var(--muted); }
-    .breadcrumbs a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    .breadcrumbs { font-size: 11px; color: var(--text-muted); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .breadcrumbs a { color: var(--accent-blue); font-weight: 600; text-decoration: none; }
     .breadcrumbs a:hover { text-decoration: underline; }
-    .badge {
+    .header-actions { display: flex; gap: 6px; align-items: center; flex-shrink: 0; flex-wrap: wrap; }
+    .header-btn {
       font-size: 11px; padding: 6px 10px; border-radius: 999px;
-      border: 1px solid var(--border); background: var(--panel); color: var(--muted);
+      border: 1px solid var(--border-soft); background: var(--bg-panel);
+      color: var(--text-muted); cursor: pointer; white-space: nowrap;
+      transition: background 0.15s, border-color 0.15s;
     }
+    .header-btn:hover { background: var(--accent-gold-soft); border-color: var(--accent-gold); color: #4b3410; }
+
+    /* ── Main / Reader ── */
     .main {
       grid-column: 2; grid-row: 2;
-      padding: 20px;
+      padding: 16px 18px; overflow-y: auto;
       background: radial-gradient(circle at top left, rgba(201,162,39,0.12), transparent 60%), var(--bg);
     }
     .reader {
-      max-width: 860px; margin: 0 auto; background: var(--panel);
-      border-radius: var(--radius); border: 1px solid var(--border);
-      box-shadow: var(--shadow); padding: 22px;
+      max-width: 860px; margin: 0 auto;
+      background: var(--bg-panel);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-md);
+      padding: 18px 20px 20px;
     }
-    .eyebrow {
-      font-size: 11px; text-transform: uppercase; letter-spacing: .12em;
-      color: var(--blue); font-weight: 700; margin-bottom: 8px;
+    .article-header { border-bottom: 1px solid #e5e7eb; padding-bottom: 10px; margin-bottom: 10px; }
+    .article-number { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-blue); font-weight: 600; }
+    .article-title { font-size: 20px; margin-top: 4px; color: var(--accent-blue); letter-spacing: -0.01em; }
+    .article-subtitle { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .article-body { font-size: 13px; line-height: 1.85; color: var(--text-main); margin-top: 4px; }
+    .article-body p { margin-bottom: 8px; }
+    .article-body ol { margin: 6px 0 10px 20px; }
+    .article-body ol li { margin-bottom: 5px; }
+    .article-badge {
+      display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 999px;
+      margin-top: 10px; border: 1px solid;
     }
-    h1 {
-      font-size: 28px; line-height: 1.2; color: var(--blue); margin-bottom: 8px;
+    .badge-mod { background: #fff8e1; border-color: #f59e0b; color: #92400e; }
+    .badge-der { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .article-empty {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; padding: 24px 0; color: var(--text-muted); font-size: 13px; text-align: center;
     }
-    .lead {
-      font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 18px;
+    .article-empty-icon { font-size: 32px; opacity: 0.4; }
+    .loading-state { display: flex; align-items: center; gap: 10px; padding: 40px 20px; color: var(--text-muted); font-size: 13px; }
+    .spinner { width: 18px; height: 18px; border: 2px solid var(--border-soft); border-top-color: var(--accent-blue); border-radius: 50%; animation: spin 0.7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .article-footer {
+      border-top: 1px solid #e5e7eb; margin-top: 10px; padding-top: 8px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--text-muted);
     }
-    .section {
-      border-top: 1px solid #e5e7eb; padding-top: 16px; margin-top: 16px;
+    .pager { display: flex; gap: 6px; }
+    .pager button {
+      font-size: 11px; padding: 4px 9px; border-radius: 999px;
+      border: 1px solid var(--border-soft); background: #f9fafb;
+      cursor: pointer; transition: background 0.15s, border-color 0.15s;
     }
-    .section h2 {
-      font-size: 16px; color: var(--blue); margin-bottom: 8px;
+    .pager button:hover:not(:disabled) { background: var(--accent-gold-soft); border-color: var(--accent-gold); }
+    .pager button:disabled { opacity: 0.35; cursor: default; }
+
+    /* ── Audio Player ── */
+    .audio-player {
+      grid-column: 2; grid-row: 3;
+      background: linear-gradient(135deg, #1a2d45, #243650);
+      border-top: 1px solid rgba(148,163,184,0.3);
+      padding: 10px 18px;
+      display: flex; flex-direction: column; gap: 7px;
+      box-shadow: 0 -4px 16px rgba(15,23,42,0.18);
     }
-    .section p, .section li {
-      font-size: 14px; line-height: 1.8; color: var(--text);
+    .player-top { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .player-controls { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
+    .player-btn {
+      width: 32px; height: 32px; border-radius: 50%; border: none;
+      background: rgba(255,255,255,0.1); color: #f7f3ea; font-size: 14px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, transform 0.1s; flex-shrink: 0;
     }
-    ul { padding-left: 18px; }
-    li + li { margin-top: 6px; }
-    .note {
-      margin-top: 16px; padding: 12px 14px; border-radius: 12px;
-      background: #f8fafc; border: 1px solid var(--border); color: var(--muted); font-size: 13px; line-height: 1.7;
+    .player-btn:hover { background: rgba(255,255,255,0.2); }
+    .player-btn:active { transform: scale(0.92); }
+    .player-btn.play-btn { width: 40px; height: 40px; font-size: 17px; background: var(--accent-gold); color: #1a2d45; }
+    .player-btn.play-btn:hover { background: #dbb835; }
+    .player-btn:disabled { opacity: 0.35; cursor: default; }
+    .player-info { flex: 1; min-width: 0; }
+    .player-title { font-size: 12px; font-weight: 600; color: #f7f3ea; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .player-subtitle { font-size: 10px; color: rgba(247,243,234,0.6); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .player-counter { font-size: 10px; color: rgba(247,243,234,0.5); flex-shrink: 0; text-align: right; }
+    .player-bottom { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .player-progress { flex: 1; min-width: 80px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 999px; overflow: hidden; }
+    .player-progress-fill { height: 100%; background: var(--accent-gold); border-radius: 999px; width: 0%; transition: width 0.4s linear; }
+    .player-speed-wrap { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+    .player-speed-label { font-size: 10px; color: rgba(247,243,234,0.55); }
+    .player-speed { -webkit-appearance: none; appearance: none; width: 70px; height: 4px; border-radius: 999px; background: rgba(255,255,255,0.15); outline: none; cursor: pointer; }
+    .player-speed::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-gold); cursor: pointer; }
+    .player-speed-val { font-size: 10px; color: var(--accent-gold); min-width: 26px; text-align: right; }
+    .player-voice-wrap { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+    .player-voice-label { font-size: 10px; color: rgba(247,243,184,0.55); }
+    .player-voice { font-size: 10px; padding: 2px 5px; border-radius: 6px; border: 1px solid rgba(148,163,184,0.35); background: rgba(15,23,42,0.5); color: #f7f3ea; cursor: pointer; max-width: 130px; }
+
+    /* ── Print ── */
+    @media print {
+      body { display: block !important; height: auto !important; overflow: visible !important; background: #fff !important; }
+      .sidebar, .header, .audio-player, .article-footer .pager { display: none !important; }
+      .main { padding: 0 !important; overflow: visible !important; }
+      .reader { box-shadow: none !important; border: none !important; border-radius: 0 !important; max-width: 100% !important; padding: 0 !important; }
+      .print-header { display: flex !important; align-items: center; gap: 14px; border-bottom: 2px solid #1f3147; padding-bottom: 10px; margin-bottom: 16px; }
+      .print-logo { width: 120px; height: auto; }
+      .print-org { font-size: 11px; color: #1f3147; line-height: 1.5; }
+      .print-org strong { font-size: 13px; display: block; }
+      .article-body { font-size: 12px !important; line-height: 1.7 !important; }
     }
+    .print-header { display: none; }
+
+    /* ── Responsive ── */
     @media (max-width: 900px) {
-      body { display: block; }
-      .sidebar, .header, .main { grid-column: auto; grid-row: auto; }
-      .sidebar { border-right: none; }
-      .main { padding: 12px; }
-      .reader { padding: 16px; }
-      h1 { font-size: 24px; }
+      body { display: flex; flex-direction: column; height: auto; min-height: 100vh; overflow-x: hidden; overflow-y: auto; }
+      .sidebar { order: 2; width: 100%; border-right: none; border-top: 1px solid rgba(148,163,184,0.4); max-height: 0; padding: 0 18px; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+      .sidebar.open { max-height: 420px; padding: 18px 18px 16px; overflow-y: auto; }
+      .header { order: 1; width: 100%; flex-wrap: wrap; padding: 8px 12px; }
+      .main { order: 3; width: 100%; padding: 12px; padding-bottom: 130px; }
+      .audio-player { order: 4; width: 100%; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; padding: 8px 12px; }
+      .hamburger { display: inline-flex; align-items: center; }
+      .reader { border-radius: 10px; padding: 14px 14px 16px; }
+      .article-title { font-size: 17px; }
     }
   </style>
 </head>
 <body>
-  <aside class="sidebar" aria-label="Información del Código de Organización Judicial">
-    <img class="sidebar-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" />
-    <a class="back-link" href="../../index.html">&#8592; Volver al Hub de Códigos</a>
-    <div class="app-title">Código de Organización Judicial</div>
-    <div class="app-subtitle">Ley N° 879/1981 · República del Paraguay</div>
-    <div class="status-card">
-      <strong>Estado actual:</strong> esta vista ya deja publicado el acceso web del código dentro de JurisParaguay.<br /><br />
-      El siguiente paso recomendado es cargar el JSON estructurado del texto legal para habilitar navegación por artículos, búsqueda interna, lectura continua y herramientas de consulta avanzadas.
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar" id="sidebar" aria-label="Índice del Código de Organización Judicial">
+    <header class="sidebar-header">
+      <img class="sidebar-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" />
+      <a class="back-link" href="../../index.html">&#8592; Volver al Hub de Códigos</a>
+      <div class="app-title">Código de Organización Judicial</div>
+      <div class="app-subtitle">Ley N° 879/1981 · República del Paraguay</div>
+      <div class="search-box">
+        <input class="search-input" type="search" id="searchInput"
+               placeholder="Buscar por artículo o palabra clave…" autocomplete="off" />
+        <button class="search-clear" id="searchClear" type="button" title="Limpiar búsqueda">✕</button>
+      </div>
+    </header>
+    <div class="search-results" id="searchResults" aria-live="polite"></div>
+    <div class="sidebar-scroll" id="sidebarTree">
+      <div class="tree-group-title">Estructura</div>
+      <div class="loading-state"><div class="spinner"></div> Cargando estructura…</div>
     </div>
   </aside>
 
+  <!-- ── HEADER ── -->
   <header class="header">
-    <div class="breadcrumbs">
-      <a href="../../index.html">🏠 Inicio</a> ›
-      <span>Código de Organización Judicial</span>
+    <div style="display:flex;align-items:center;gap:10px;min-width:0;flex:1;">
+      <button class="hamburger" id="hamburger" type="button" aria-label="Mostrar/ocultar índice">☰</button>
+      <div class="breadcrumbs" id="breadcrumbs">
+        <a href="../../index.html">🏠 Inicio</a> ›
+        <span id="breadcrumbArticulo">Seleccioná un artículo del índice</span>
+      </div>
     </div>
-    <div class="badge">Índice base publicado</div>
+    <div class="header-actions">
+      <button class="header-btn" id="btnPDF" type="button" title="Exportar artículo como PDF">📄 PDF</button>
+      <button class="header-btn" id="btnCopyText" type="button">Copiar texto</button>
+    </div>
   </header>
 
+  <!-- ── MAIN / READER ── -->
   <main class="main">
-    <section class="reader" aria-label="Presentación del Código de Organización Judicial">
-      <div class="eyebrow">JurisParaguay</div>
-      <h1>Ley N° 879/81 — Código de Organización Judicial</h1>
-      <p class="lead">Esta página ya deja disponible el punto de entrada del Código de Organización Judicial dentro del sitio. La estructura del texto fue identificada a partir del documento fuente y se presta bien a una normalización jerárquica por libros, títulos, capítulos, secciones y artículos.</p>
-
-      <div class="section">
-        <h2>Estructura detectada</h2>
-        <ul>
-          <li>Ley.</li>
-          <li>Libros.</li>
-          <li>Títulos.</li>
-          <li>Capítulos.</li>
-          <li>Secciones opcionales.</li>
-          <li>Artículos con posibles incisos, numerales y notas de modificación o derogación.</li>
-        </ul>
+    <section class="reader" aria-label="Artículo seleccionado">
+      <div class="print-header">
+        <img class="print-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" />
+        <div class="print-org">
+          <strong>Código de Organización Judicial del Paraguay</strong>
+          Ley N° 879/1981 · República del Paraguay<br>
+          Fuente: CSJ – IIJ, edición digital · JurisParaguay 2026
+        </div>
       </div>
-
-      <div class="section">
-        <h2>Qué conviene cargar luego</h2>
-        <p>Para activar el lector completo, esta carpeta debería incluir un JSON del código con metadatos mínimos como número de ley, nombre, país y una colección de artículos navegables. También conviene separar en campos propios las referencias del tipo “modificado por” o “derogado por”, para que después puedan mostrarse sin ensuciar el texto principal.</p>
+      <header class="article-header">
+        <div class="article-number" id="articleNumber">—</div>
+        <h1 class="article-title" id="articleTitle">Código de Organización Judicial</h1>
+        <p class="article-subtitle" id="articleMeta">Seleccioná un capítulo del índice lateral para comenzar.</p>
+      </header>
+      <div class="article-body" id="articleBody">
+        <div class="loading-state"><div class="spinner"></div> Cargando datos del Código de Organización Judicial…</div>
       </div>
-
-      <div class="section">
-        <h2>Próxima etapa recomendada</h2>
-        <p>Una vez que el JSON esté cargado, este index puede evolucionar al mismo formato interactivo que usan los otros códigos del repositorio, con panel lateral, navegación por capítulos, búsqueda por artículo y lectura en secuencia. Así mantenés coherencia visual y funcional dentro de todo JurisParaguay.</p>
-      </div>
-
-      <div class="note">Fuente de trabajo: Ley N° 879/81, Código de Organización Judicial, en proceso de estructuración digital para JurisParaguay.</div>
+      <footer class="article-footer">
+        <div id="articleSource">Fuente: CSJ - IIJ, edición digital · JurisParaguay 2026</div>
+        <div class="pager">
+          <button id="btnPrev" type="button" disabled>← Art. anterior</button>
+          <button id="btnNext" type="button" disabled>Art. siguiente →</button>
+        </div>
+      </footer>
     </section>
   </main>
+
+  <!-- ── AUDIO PLAYER ── -->
+  <div class="audio-player" id="audioPlayer" aria-label="Reproductor de lectura">
+    <div class="player-top">
+      <div class="player-controls">
+        <button class="player-btn" id="playerSkipBack" title="-5 artículos" disabled>⏮</button>
+        <button class="player-btn" id="playerPrev" title="Artículo anterior" disabled>⏪</button>
+        <button class="player-btn play-btn" id="playerPlay" title="Reproducir / Pausar">▶</button>
+        <button class="player-btn" id="playerNext" title="Artículo siguiente" disabled>⏩</button>
+        <button class="player-btn" id="playerSkipFwd" title="+5 artículos" disabled>⏭</button>
+        <button class="player-btn" id="playerStop" title="Detener" disabled>⏹</button>
+      </div>
+      <div class="player-info">
+        <div class="player-title" id="playerTitle">Sin reproducción activa</div>
+        <div class="player-subtitle" id="playerSubtitle">Presioná ▶ para comenzar</div>
+      </div>
+      <div class="player-counter" id="playerCounter"></div>
+    </div>
+    <div class="player-bottom">
+      <div class="player-progress">
+        <div class="player-progress-fill" id="playerProgressFill"></div>
+      </div>
+      <div class="player-speed-wrap">
+        <span class="player-speed-label">Vel.</span>
+        <input class="player-speed" type="range" id="playerSpeed" min="0.5" max="2" step="0.1" value="1" />
+        <span class="player-speed-val" id="playerSpeedVal">1×</span>
+      </div>
+      <div class="player-voice-wrap">
+        <span class="player-voice-label">Voz</span>
+        <select class="player-voice" id="playerVoice"></select>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ─── Estado global ────────────────────────────────────────────────────
+    let DATA = null, FLAT = [], currentIdx = 0;
+    let ttsPlaying = false, ttsPaused = false, ttsReadIdx = 0;
+    let voices = [];
+
+    const sidebar            = document.getElementById('sidebar');
+    const hamburger          = document.getElementById('hamburger');
+    const sidebarTree        = document.getElementById('sidebarTree');
+    const searchInput        = document.getElementById('searchInput');
+    const searchClear        = document.getElementById('searchClear');
+    const searchResults      = document.getElementById('searchResults');
+    const breadcrumbArticulo = document.getElementById('breadcrumbArticulo');
+    const articleNumber      = document.getElementById('articleNumber');
+    const articleTitle       = document.getElementById('articleTitle');
+    const articleMeta        = document.getElementById('articleMeta');
+    const articleBody        = document.getElementById('articleBody');
+    const btnPrev            = document.getElementById('btnPrev');
+    const btnNext            = document.getElementById('btnNext');
+    const btnCopyText        = document.getElementById('btnCopyText');
+    const btnPDF             = document.getElementById('btnPDF');
+    const playerPlay         = document.getElementById('playerPlay');
+    const playerStop         = document.getElementById('playerStop');
+    const playerPrev         = document.getElementById('playerPrev');
+    const playerNext         = document.getElementById('playerNext');
+    const playerSkipBack     = document.getElementById('playerSkipBack');
+    const playerSkipFwd      = document.getElementById('playerSkipFwd');
+    const playerTitle        = document.getElementById('playerTitle');
+    const playerSubtitle     = document.getElementById('playerSubtitle');
+    const playerCounter      = document.getElementById('playerCounter');
+    const playerProgressFill = document.getElementById('playerProgressFill');
+    const playerSpeed        = document.getElementById('playerSpeed');
+    const playerSpeedVal     = document.getElementById('playerSpeedVal');
+    const playerVoice        = document.getElementById('playerVoice');
+
+    hamburger.addEventListener('click', () => sidebar.classList.toggle('open'));
+    btnPDF.addEventListener('click', () => window.print());
+    playerSpeed.addEventListener('input', () => {
+      playerSpeedVal.textContent = parseFloat(playerSpeed.value).toFixed(1) + '×';
+    });
+
+    // ─── Normalización / búsqueda ─────────────────────────────────────────
+    function normalize(str) {
+      return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+    function highlight(str, query) {
+      if (!query) return str;
+      const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return str.replace(re, '<mark class="search-highlight">$1</mark>');
+    }
+
+    // ─── Extracción de artículos del JSON jerárquico ──────────────────────
+    // Estructura: libros → titulos → capitulos → [secciones →] articulos → incisos
+    function extractArticulos(data) {
+      const flat = [];
+      const libros = data.libros || [];
+
+      libros.forEach((libro, li) => {
+        const libroMeta = {
+          id: `libro-${li}`,
+          nombre: libro.titulo ? `Libro ${libro.numero || li + 1}: ${libro.titulo}` : `Libro ${libro.numero || li + 1}`,
+          numero: libro.numero || li + 1
+        };
+        const titulos = libro.titulos || [];
+
+        titulos.forEach((titulo, ti) => {
+          const tituloMeta = {
+            id: `l${li}-t${ti}`,
+            nombre: titulo.titulo || `Título ${titulo.numero || ti + 1}`,
+            numero: titulo.numero || ti + 1
+          };
+          const capitulos = titulo.capitulos || [];
+
+          capitulos.forEach((cap, ci) => {
+            const capMeta = {
+              id: `l${li}-t${ti}-c${ci}`,
+              nombre: cap.titulo ? `${cap.titulo}` : `Capítulo ${cap.numero || ci + 1}`,
+              numero: cap.numero || ci + 1
+            };
+
+            // Artículos directos en el capítulo
+            if (Array.isArray(cap.articulos)) {
+              cap.articulos.forEach(art => {
+                if (art && art.numero != null) {
+                  flat.push({ libro: libroMeta, titulo: tituloMeta, capitulo: capMeta, seccion: null, articulo: art });
+                }
+              });
+            }
+
+            // Artículos dentro de secciones
+            if (Array.isArray(cap.secciones)) {
+              cap.secciones.forEach((sec, si) => {
+                const secMeta = {
+                  id: `l${li}-t${ti}-c${ci}-s${si}`,
+                  nombre: sec.titulo || `Sección ${sec.numero || si + 1}`,
+                  numero: sec.numero || si + 1
+                };
+                if (Array.isArray(sec.articulos)) {
+                  sec.articulos.forEach(art => {
+                    if (art && art.numero != null) {
+                      flat.push({ libro: libroMeta, titulo: tituloMeta, capitulo: capMeta, seccion: secMeta, articulo: art });
+                    }
+                  });
+                }
+              });
+            }
+          });
+        });
+      });
+
+      // Ordenar por número de artículo y deduplicar
+      flat.sort((a, b) => (a.articulo.numero || 0) - (b.articulo.numero || 0));
+      const seen = new Set();
+      return flat.filter(e => {
+        const n = e.articulo.numero;
+        if (seen.has(n)) return false;
+        seen.add(n);
+        return true;
+      });
+    }
+
+    // ─── Rango de artículos ───────────────────────────────────────────────
+    function computeRango(arts) {
+      const nums = arts.map(a => a.numero).filter(n => typeof n === 'number');
+      if (!nums.length) return '';
+      const min = Math.min(...nums), max = Math.max(...nums);
+      return min === max ? `${min}` : `${min}–${max}`;
+    }
+
+    // ─── Renderizar sidebar ───────────────────────────────────────────────
+    function renderSidebar() {
+      sidebarTree.innerHTML = '';
+      const libros = new Map();
+
+      FLAT.forEach(entry => {
+        const lid = entry.libro.id;
+        const tid = entry.titulo.id;
+        const cid = entry.capitulo.id;
+        if (!libros.has(lid)) libros.set(lid, { meta: entry.libro, titulos: new Map() });
+        const tMap = libros.get(lid).titulos;
+        if (!tMap.has(tid)) tMap.set(tid, { meta: entry.titulo, caps: new Map() });
+        const cMap = tMap.get(tid).caps;
+        if (!cMap.has(cid)) cMap.set(cid, { meta: entry.capitulo, arts: [] });
+        cMap.get(cid).arts.push(entry.articulo);
+      });
+
+      libros.forEach(({ meta: libro, titulos }) => {
+        const groupTitle = document.createElement('div');
+        groupTitle.className = 'tree-group-title';
+        groupTitle.textContent = libro.nombre;
+        sidebarTree.appendChild(groupTitle);
+
+        titulos.forEach(({ meta: titulo, caps }) => {
+          const allArts = [];
+          caps.forEach(({ arts }) => allArts.push(...arts));
+          if (!allArts.length) return;
+
+          const block = document.createElement('section');
+          block.className = 'title-block';
+
+          const head = document.createElement('button');
+          head.className = 'title-head'; head.type = 'button';
+          head.innerHTML = `<div class="title-head-main">
+            <span class="title-kicker">Título ${titulo.numero}</span>
+            <span class="title-name">${titulo.nombre}</span>
+            <span class="title-range">Arts. ${computeRango(allArts)}</span>
+          </div><span class="title-chevron">›</span>`;
+          head.addEventListener('click', () => block.classList.toggle('open'));
+          block.appendChild(head);
+
+          const chList = document.createElement('div');
+          chList.className = 'chapter-list';
+
+          caps.forEach(({ meta: cap, arts }) => {
+            const btn = document.createElement('button');
+            btn.className = 'chapter-btn'; btn.type = 'button'; btn.dataset.capId = cap.id;
+            btn.innerHTML = `<span class="chapter-name">Cap. ${cap.numero} — ${cap.nombre}</span><span class="chapter-range">Arts. ${computeRango(arts)}</span>`;
+            btn.addEventListener('click', () => {
+              setActiveChapterBtn(btn);
+              const flatIdx = FLAT.findIndex(e => e.capitulo.id === cap.id);
+              if (flatIdx !== -1) showArticleByIdx(flatIdx);
+              if (window.innerWidth <= 900) sidebar.classList.remove('open');
+            });
+            chList.appendChild(btn);
+          });
+
+          block.appendChild(chList);
+          sidebarTree.appendChild(block);
+        });
+      });
+    }
+
+    function setActiveChapterBtn(btn) {
+      document.querySelectorAll('.chapter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+
+    // ─── Mostrar artículo ─────────────────────────────────────────────────
+    function buildArticleHTML(articulo) {
+      let html = '';
+
+      // Texto principal
+      if (articulo.texto) {
+        html += `<p>${articulo.texto}</p>`;
+      }
+
+      // Incisos / literales
+      if (Array.isArray(articulo.incisos) && articulo.incisos.length) {
+        html += '<ol style="list-style-type:lower-alpha;">';
+        articulo.incisos.forEach(inc => {
+          if (inc && inc.texto) {
+            const label = inc.letra ? `<strong>${inc.letra})</strong> ` : '';
+            html += `<li>${label}${inc.texto}</li>`;
+          }
+        });
+        html += '</ol>';
+      }
+
+      // Badges de modificación / derogación
+      if (articulo.modificado_por) {
+        html += `<span class="article-badge badge-mod">✏️ Modificado por: ${articulo.modificado_por}</span>`;
+      }
+      if (articulo.derogado_por) {
+        html += `<span class="article-badge badge-der">🚫 Derogado por: ${articulo.derogado_por}</span>`;
+      }
+
+      return html || '<p><em>(Texto no disponible)</em></p>';
+    }
+
+    function showArticleByIdx(idx, fromPlayer) {
+      if (!FLAT.length) return;
+      idx = Math.max(0, Math.min(idx, FLAT.length - 1));
+      currentIdx = idx;
+      savePosition(idx);
+      const { libro, titulo, capitulo, seccion, articulo } = FLAT[idx];
+
+      history.replaceState(null, '', '#art-' + articulo.numero);
+      breadcrumbArticulo.textContent = `Art. ${articulo.numero}`;
+      articleNumber.textContent = `Artículo ${articulo.numero}`;
+      articleTitle.textContent = `Artículo ${articulo.numero}`;
+
+      let metaParts = [titulo.nombre, `Cap. ${capitulo.numero} — ${capitulo.nombre}`];
+      if (seccion) metaParts.push(`Sección ${seccion.numero} — ${seccion.nombre}`);
+      articleMeta.textContent = metaParts.join(' · ');
+
+      articleBody.innerHTML = buildArticleHTML(articulo);
+
+      btnPrev.disabled = idx === 0;
+      btnNext.disabled = idx === FLAT.length - 1;
+
+      const capBtn = document.querySelector(`.chapter-btn[data-cap-id="${capitulo.id}"]`);
+      setActiveChapterBtn(capBtn);
+      if (capBtn) {
+        const block = capBtn.closest('.title-block');
+        if (block) block.classList.add('open');
+        if (!fromPlayer) capBtn.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }
+
+    btnPrev.addEventListener('click', () => showArticleByIdx(currentIdx - 1));
+    btnNext.addEventListener('click', () => showArticleByIdx(currentIdx + 1));
+    window.addEventListener('hashchange', () => {
+      const h = window.location.hash.replace('#art-', '').trim();
+      const hashNum = h ? parseInt(h, 10) : null;
+      if (hashNum !== null && FLAT.length) {
+        const found = FLAT.findIndex(e => e.articulo.numero === hashNum);
+        if (found !== -1 && found !== currentIdx) showArticleByIdx(found);
+      }
+    });
+
+    // ─── Persistencia de posición ─────────────────────────────────────────
+    function savePosition(idx) { try { localStorage.setItem('coj_lastIdx', idx); } catch(e) {} }
+    function loadPosition()    { try { return parseInt(localStorage.getItem('coj_lastIdx'), 10) || 0; } catch(e) { return 0; } }
+
+    // ─── Copiar texto ─────────────────────────────────────────────────────
+    btnCopyText.addEventListener('click', () => {
+      if (!FLAT.length) return;
+      const { articulo } = FLAT[currentIdx];
+      let txt = `Artículo ${articulo.numero}\n\n${articulo.texto || ''}`;
+      if (Array.isArray(articulo.incisos) && articulo.incisos.length) {
+        articulo.incisos.forEach(inc => {
+          if (inc && inc.texto) txt += `\n${inc.letra ? inc.letra + ') ' : ''}${inc.texto}`;
+        });
+      }
+      navigator.clipboard.writeText(txt.trim()).then(() => {
+        btnCopyText.textContent = '✅ Copiado';
+        setTimeout(() => { btnCopyText.textContent = 'Copiar texto'; }, 2000);
+      }).catch(() => alert('No se pudo copiar al portapapeles.'));
+    });
+
+    // ─── Búsqueda ─────────────────────────────────────────────────────────
+    let searchDebounce = null;
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim();
+      searchClear.classList.toggle('visible', q.length > 0);
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => runSearch(q), 200);
+    });
+    searchClear.addEventListener('click', () => {
+      searchInput.value = ''; searchClear.classList.remove('visible');
+      hideSearchResults(); searchInput.focus();
+    });
+    function runSearch(rawQuery) {
+      if (!rawQuery || !FLAT.length) { hideSearchResults(); return; }
+      const q = normalize(rawQuery);
+      const isNumeric = /^\d+$/.test(rawQuery.trim());
+      const matches = FLAT.filter(({ articulo }) => {
+        if (isNumeric) return String(articulo.numero) === rawQuery.trim();
+        const inTexto = articulo.texto ? normalize(articulo.texto).includes(q) : false;
+        const inIncisos = Array.isArray(articulo.incisos)
+          ? articulo.incisos.some(inc => inc && normalize(inc.texto).includes(q))
+          : false;
+        return inTexto || inIncisos;
+      });
+      showSearchResults(matches, rawQuery);
+    }
+    function showSearchResults(matches, rawQuery) {
+      sidebarTree.style.display = 'none';
+      searchResults.classList.add('visible');
+      searchResults.innerHTML = '';
+      if (!matches.length) {
+        searchResults.innerHTML = `<div class="search-empty">Sin resultados para "<strong>${rawQuery}</strong>"</div>`;
+        return;
+      }
+      const count = document.createElement('div');
+      count.className = 'search-count';
+      count.textContent = `${matches.length} resultado${matches.length !== 1 ? 's' : ''}`;
+      searchResults.appendChild(count);
+      matches.slice(0, 60).forEach(({ articulo, titulo, capitulo }) => {
+        const flatIdx = FLAT.findIndex(e => e.articulo.numero === articulo.numero);
+        const item = document.createElement('div');
+        item.className = 'search-result-item';
+        item.setAttribute('role', 'button'); item.setAttribute('tabindex', '0');
+        const q = normalize(rawQuery);
+        const matchedText = articulo.texto && normalize(articulo.texto).includes(q) ? articulo.texto : '';
+        let snippet = '';
+        if (matchedText) {
+          const start = Math.max(0, normalize(matchedText).indexOf(q) - 30);
+          snippet = (start > 0 ? '…' : '') + matchedText.slice(start, start + 90) + '…';
+        }
+        item.innerHTML = `<span class="search-result-num">Art. ${articulo.numero}</span><span class="search-result-ctx">${highlight(snippet, rawQuery) || `${titulo.nombre} · Cap. ${capitulo.numero}`}</span>`;
+        const go = () => {
+          showArticleByIdx(flatIdx);
+          searchInput.value = ''; searchClear.classList.remove('visible');
+          hideSearchResults();
+          if (window.innerWidth <= 900) sidebar.classList.remove('open');
+        };
+        item.addEventListener('click', go);
+        item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') go(); });
+        searchResults.appendChild(item);
+      });
+    }
+    function hideSearchResults() {
+      searchResults.classList.remove('visible');
+      searchResults.innerHTML = '';
+      sidebarTree.style.display = '';
+    }
+
+    // ─── TTS / Reproductor ────────────────────────────────────────────────
+    function initVoices() {
+      function populate() {
+        voices = speechSynthesis.getVoices().filter(v => v.lang.startsWith('es'));
+        if (!voices.length) voices = speechSynthesis.getVoices();
+        playerVoice.innerHTML = '';
+        voices.forEach((v, i) => {
+          const opt = document.createElement('option');
+          opt.value = i;
+          opt.textContent = v.name + (v.lang ? ` (${v.lang})` : '');
+          playerVoice.appendChild(opt);
+        });
+        const pyIdx = voices.findIndex(v => v.lang.startsWith('es-PY'));
+        const esIdx = voices.findIndex(v => v.lang.startsWith('es'));
+        playerVoice.selectedIndex = pyIdx >= 0 ? pyIdx : (esIdx >= 0 ? esIdx : 0);
+      }
+      if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = populate;
+      populate();
+    }
+    function getSelectedVoice() { return voices[parseInt(playerVoice.value, 10)] || null; }
+
+    function speakArticle(idx) {
+      if (!window.speechSynthesis) return;
+      speechSynthesis.cancel();
+      if (idx >= FLAT.length) { ttsStop(); return; }
+      ttsReadIdx = idx;
+      const { articulo } = FLAT[idx];
+      showArticleByIdx(idx, true);
+      updatePlayerInfo(idx);
+      let textToRead = `Artículo ${articulo.numero}. ${articulo.texto || ''}`;
+      if (Array.isArray(articulo.incisos) && articulo.incisos.length) {
+        articulo.incisos.forEach(inc => {
+          if (inc && inc.texto) textToRead += `. ${inc.letra ? inc.letra + '. ' : ''}${inc.texto}`;
+        });
+      }
+      const utt = new SpeechSynthesisUtterance(textToRead);
+      utt.rate = parseFloat(playerSpeed.value); utt.pitch = 1;
+      const voice = getSelectedVoice();
+      if (voice) utt.voice = voice; else utt.lang = 'es';
+      utt.onend = () => { if (ttsPlaying) speakArticle(idx + 1); };
+      utt.onerror = e => { if (e.error === 'interrupted' || e.error === 'canceled') return; if (ttsPlaying) speakArticle(idx + 1); };
+      speechSynthesis.speak(utt);
+    }
+    function ttsPlay(startIdx) {
+      if (!window.speechSynthesis) { alert('Tu navegador no soporta Text-to-Speech.'); return; }
+      ttsPlaying = true; ttsPaused = false;
+      playerPlay.textContent = '⏸'; playerPlay.title = 'Pausar';
+      playerStop.disabled = false; playerPrev.disabled = false;
+      playerNext.disabled = false; playerSkipBack.disabled = false; playerSkipFwd.disabled = false;
+      speakArticle(startIdx !== undefined ? startIdx : currentIdx);
+    }
+    function ttsPause() {
+      if (speechSynthesis.speaking && !speechSynthesis.paused) {
+        speechSynthesis.pause(); ttsPaused = true;
+        playerPlay.textContent = '▶'; playerPlay.title = 'Reanudar';
+      }
+    }
+    function ttsResume() {
+      if (speechSynthesis.paused) {
+        speechSynthesis.resume(); ttsPaused = false;
+        playerPlay.textContent = '⏸'; playerPlay.title = 'Pausar';
+      }
+    }
+    function ttsStop() {
+      speechSynthesis.cancel(); ttsPlaying = false; ttsPaused = false;
+      playerPlay.textContent = '▶'; playerPlay.title = 'Reproducir';
+      playerStop.disabled = true; playerPrev.disabled = true;
+      playerNext.disabled = true; playerSkipBack.disabled = true; playerSkipFwd.disabled = true;
+      playerProgressFill.style.width = '0%';
+      playerTitle.textContent = 'Sin reproducción activa';
+      playerSubtitle.textContent = 'Presioná ▶ para comenzar';
+      playerCounter.textContent = '';
+    }
+    function updatePlayerInfo(idx) {
+      if (!FLAT.length) return;
+      const { articulo, titulo, capitulo } = FLAT[idx];
+      playerTitle.textContent = `Art. ${articulo.numero}`;
+      playerSubtitle.textContent = `${titulo.nombre} · Cap. ${capitulo.numero} — ${capitulo.nombre}`;
+      playerCounter.textContent = `${idx + 1} / ${FLAT.length}`;
+      playerProgressFill.style.width = (FLAT.length > 1 ? (idx / (FLAT.length - 1)) * 100 : 100).toFixed(1) + '%';
+    }
+    playerPlay.addEventListener('click', () => {
+      if (!ttsPlaying) ttsPlay(currentIdx);
+      else if (ttsPaused) ttsResume();
+      else ttsPause();
+    });
+    playerStop.addEventListener('click', ttsStop);
+    playerPrev.addEventListener('click', () => { if (ttsPlaying) speakArticle(Math.max(0, ttsReadIdx - 1)); });
+    playerNext.addEventListener('click', () => { if (ttsPlaying) speakArticle(Math.min(FLAT.length - 1, ttsReadIdx + 1)); });
+    playerSkipBack.addEventListener('click', () => { if (ttsPlaying) speakArticle(Math.max(0, ttsReadIdx - 5)); });
+    playerSkipFwd.addEventListener('click', () => { if (ttsPlaying) speakArticle(Math.min(FLAT.length - 1, ttsReadIdx + 5)); });
+
+    // ─── Carga del JSON ───────────────────────────────────────────────────
+    async function loadData() {
+      try {
+        const jsonUrl = new URL('codigo_organizacion_judicial_completo.json', window.location.href).href;
+        const res = await fetch(jsonUrl, { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        DATA = await res.json();
+        if (!DATA || typeof DATA !== 'object') throw new Error('JSON inválido.');
+        FLAT = extractArticulos(DATA);
+        if (!FLAT.length) throw new Error('No se encontraron artículos. Verificá la estructura del JSON.');
+        renderSidebar();
+        initVoices();
+        const h = window.location.hash.replace('#art-', '').trim();
+        const hashNum = h ? parseInt(h, 10) : null;
+        let startIdx = loadPosition();
+        if (hashNum !== null) {
+          const found = FLAT.findIndex(e => e.articulo.numero === hashNum);
+          if (found !== -1) startIdx = found;
+        }
+        startIdx = Math.max(0, Math.min(startIdx, FLAT.length - 1));
+        showArticleByIdx(startIdx);
+      } catch (err) {
+        sidebarTree.innerHTML = `<div class="search-empty">⚠️ Error al cargar el JSON.<br><small>${err.message}</small></div>`;
+        articleBody.innerHTML = `<div class="article-empty"><div class="article-empty-icon">⚠️</div><p>No se pudo cargar <code>codigo_organizacion_judicial_completo.json</code>.<br><small>${err.message}</small></p></div>`;
+      }
+    }
+
+    loadData();
+  </script>
 </body>
 </html>
