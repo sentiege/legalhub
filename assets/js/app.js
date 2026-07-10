@@ -2,11 +2,24 @@
    JurisParaguay — Lógica Principal
    ============================================= */
 
-// JSON habilitados para búsqueda global (ampliable)
+// JSON habilitados para búsqueda global — todos los códigos del repositorio
 const JSON_CODIGOS = [
-  { id: 'codigo-civil',  nombre: 'Código Civil',                      path: 'codigos/codigocivil/codigo_civil_completo.json' },
-  { id: 'codigo-penal',  nombre: 'Código Penal',                      path: 'codigos/codigopenal/codigo_penal_completo.json' },
-  { id: 'codigo-ninez',  nombre: 'Código de la Niñez y Adolescencia', path: 'codigos/codigoninez/codigo_ninez_completo.json' },
+  { id: 'codigo-civil',               nombre: 'Código Civil',                          path: 'codigos/codigocivil/codigo_civil_completo.json' },
+  { id: 'codigo-penal',               nombre: 'Código Penal',                          path: 'codigos/codigopenal/codigo_penal_completo.json' },
+  { id: 'codigo-ninez',               nombre: 'Código de la Niñez y Adolescencia',     path: 'codigos/codigoninez/codigo_ninez_completo.json' },
+  { id: 'codigo-ejecucion-penal',     nombre: 'Código de Ejecución Penal',             path: 'codigos/codigoejecucionpenal/codigo_ejecucionpenal_completo.json' },
+  { id: 'codigo-laboral',             nombre: 'Código Laboral',                        path: 'codigos/codigolaboral/codigo_laboral_completo.json' },
+  { id: 'codigo-procesal-civil',      nombre: 'Código Procesal Civil',                 path: 'codigos/codigoprocesalcivil/codigo_procesal_civil_completo.json' },
+  { id: 'codigo-procesal-penal',      nombre: 'Código Procesal Penal',                 path: 'codigos/codigoprocesalpenal/codigo_procesalpenal_completo.json' },
+  { id: 'codigo-procesal-laboral',    nombre: 'Código Procesal Laboral',               path: 'codigos/codigoprocesallaboral/codigo_procesallaboral_completo.json' },
+  { id: 'codigo-organizacion-judicial', nombre: 'Código de Organización Judicial',     path: 'codigos/codigoorganizacionjudicial/codigo_organizacion_judicial_completo.json' },
+  { id: 'codigo-electoral',           nombre: 'Código Electoral',                      path: 'codigos/codigoelectoral/codigo_electoral_completo.json' },
+  { id: 'codigo-navegacion',          nombre: 'Código de Navegación Fluvial y Marítima', path: 'codigos/codigonavegacion/codigo_navegacion_completo.json' },
+  { id: 'codigo-aeronautico',         nombre: 'Código Aeronáutico',                    path: 'codigos/codigoaeronautico/codigo_aeronautico_completo.json' },
+  { id: 'codigo-rural',               nombre: 'Código Rural',                          path: 'codigos/codigorural/codigo_rural_completo.json' },
+  { id: 'codigo-aduanero',            nombre: 'Código Aduanero',                       path: 'codigos/codigoaduanero/codigo_aduanero_completo.json' },
+  { id: 'codigo-mineria',             nombre: 'Código de Minería',                     path: 'codigos/codigomineria/codigo_minero_completo.json' },
+  { id: 'codigo-sanitario',           nombre: 'Código Sanitario',                      path: 'codigos/codigosanitario/codigo_sanitario_completo.json' },
 ];
 
 // Índice global: array de artículos de todos los códigos cargados
@@ -151,7 +164,7 @@ async function buscar() {
   const loadingEl = document.createElement('div');
   loadingEl.id = 'resultados-globales';
   loadingEl.style.cssText = 'text-align:center;padding:1.5rem;color:#888;font-size:.92rem';
-  loadingEl.innerHTML = '⏳ Buscando en artículos del Código Civil, Penal y de la Niñez…';
+  loadingEl.innerHTML = '⏳ Buscando en todos los artículos de los 16 códigos…';
   main.appendChild(loadingEl);
 
   // 3) Esperar índice y buscar
