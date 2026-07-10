@@ -2,7 +2,6 @@
    JurisParaguay — Lógica Principal
    ============================================= */
 
-// JSON habilitados para búsqueda global — todos los códigos del repositorio
 const JSON_CODIGOS = [
   { id: 'codigo-civil',               nombre: 'Código Civil',                            path: 'codigos/codigocivil/codigo_civil_completo.json' },
   { id: 'codigo-penal',               nombre: 'Código Penal',                            path: 'codigos/codigopenal/codigo_penal_completo.json' },
@@ -22,12 +21,11 @@ const JSON_CODIGOS = [
   { id: 'codigo-sanitario',           nombre: 'Código Sanitario',                        path: 'codigos/codigosanitario/codigo_sanitario_completo.json' },
 ];
 
-// Índice global: array de artículos de todos los códigos cargados
 let INDICE_GLOBAL = [];
 let indiceListoPromise = null;
 let cargaProgreso = { total: JSON_CODIGOS.length, listos: 0, fallidos: [] };
 
-/* ─── Utilidades ──────────────────────────────────────────────── */
+/* ─── Utilidades ─────────────────────────────────────────── */
 function normalize(str) {
   return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
@@ -38,67 +36,69 @@ function highlight(str, query) {
   return str.replace(re, '<mark>$1</mark>');
 }
 
+/* ─── Extracción de artículos ────────────────────────────── */
+// Extrae TODOS los artículos de cualquier nivel de anidamiento,
+// incluyendo claves no canónicas (disposiciones, etc.)
 function extractArticulos(node, out) {
   if (!node || typeof node !== 'object') return;
-  if ('numero' in node && (node.texto || node.epigrafe !== undefined)) {
+
+  // Nodo artículo: tiene numero y (texto o epigrafe)
+  if ('numero' in node && (node.texto !== undefined || node.epigrafe !== undefined)) {
     out.push(node);
     return;
   }
-  const knownKeys = [
-    'articulos','articulo','arts','artículos',
-    'capitulos','capitulo','subcapitulos','subcapitulo',
-    'titulos','titulo','libros','libro',
-    'partes','parte','secciones','seccion','items'
-  ];
-  let handled = false;
-  for (const k of knownKeys) {
-    if (Array.isArray(node[k]) && node[k].length) {
-      node[k].forEach(c => extractArticulos(c, out));
-      handled = true;
-    }
-  }
-  if (!handled) {
-    for (const k of Object.keys(node)) {
-      if (Array.isArray(node[k])) node[k].forEach(c => extractArticulos(c, out));
+
+  // Recorrer TODOS los valores que sean arrays (sin lista blanca),
+  // así se capturan claves como disposiciones_comunes_transitorias_y_finales, etc.
+  for (const key of Object.keys(node)) {
+    const val = node[key];
+    if (Array.isArray(val)) {
+      val.forEach(child => extractArticulos(child, out));
+    } else if (val && typeof val === 'object') {
+      extractArticulos(val, out);
     }
   }
 }
 
-/* ─── Ranking de relevancia ───────────────────────────────────── */
-// Devuelve un score numérico: mayor = más relevante
-// Criterios (de mayor a menor peso):
-//   10 — coincidencia exacta en epígrafe
-//    5 — coincidencia en palabras clave
-//    3 — coincidencia en texto (primer párrafo)
-//    1 — coincidencia en texto (párrafos siguientes)
-//  +2 — la query aparece como palabra entera (no solo subcadena)
+/* ─── Ranking de relevancia ──────────────────────────────── */
 function calcScore(art, qn) {
   let score = 0;
-  const epNorm   = normalize(art.epigrafe);
-  const kwNorms  = (art.palabrasClave || []).map(normalize);
-  const texNorms = (art.texto || []).map(normalize);
+  const epNorm  = normalize(art.epigrafe);
+  const kwNorms = (art.palabrasClave || []).map(normalize);
+  const txNorms = (art.texto || []).map(normalize);
+  const wordRe  = new RegExp(`\\b${qn}\\b`);
 
-  // Epígrafe
   if (epNorm.includes(qn)) {
     score += 10;
-    if (new RegExp(`\\b${qn}\\b`).test(epNorm)) score += 2;
+    if (wordRe.test(epNorm)) score += 2;
   }
-  // Palabras clave
   if (kwNorms.some(k => k.includes(qn))) {
     score += 5;
-    if (kwNorms.some(k => new RegExp(`\\b${qn}\\b`).test(k))) score += 2;
+    if (kwNorms.some(k => wordRe.test(k))) score += 2;
   }
-  // Texto — primer párrafo vale más
-  texNorms.forEach((t, i) => {
+  txNorms.forEach((t, i) => {
     if (t.includes(qn)) {
       score += i === 0 ? 3 : 1;
-      if (new RegExp(`\\b${qn}\\b`).test(t)) score += 1;
+      if (wordRe.test(t)) score += 1;
     }
   });
   return score;
 }
 
-/* ─── Barra de progreso ───────────────────────────────────────── */
+/* ─── Barra de progreso ─────────────────────────────────── */
+function mostrarBarraProgreso() {
+  if (document.getElementById('jp-progress-wrap')) return;
+  const wrap = document.createElement('div');
+  wrap.id = 'jp-progress-wrap';
+  wrap.innerHTML = `
+    <span id="jp-progress-text">Cargando índice… 0/${cargaProgreso.total} códigos</span>
+    <div class="jp-progress-track"><div id="jp-progress-bar" style="width:0%"></div></div>
+  `;
+  const hero = document.querySelector('.hero');
+  if (hero && hero.nextSibling) hero.parentNode.insertBefore(wrap, hero.nextSibling);
+  else document.body.appendChild(wrap);
+}
+
 function actualizarBarraProgreso() {
   const barra = document.getElementById('jp-progress-bar');
   const texto = document.getElementById('jp-progress-text');
@@ -116,29 +116,11 @@ function actualizarBarraProgreso() {
     setTimeout(() => {
       const wrap = document.getElementById('jp-progress-wrap');
       if (wrap) wrap.classList.add('jp-progress--done');
-    }, 1200);
+    }, 1400);
   }
 }
 
-function mostrarBarraProgreso() {
-  let wrap = document.getElementById('jp-progress-wrap');
-  if (wrap) return; // ya existe
-  wrap = document.createElement('div');
-  wrap.id = 'jp-progress-wrap';
-  wrap.innerHTML = `
-    <span id="jp-progress-text">Cargando índice… 0/${cargaProgreso.total} códigos</span>
-    <div class="jp-progress-track"><div id="jp-progress-bar" style="width:0%"></div></div>
-  `;
-  // Insertarlo debajo del hero
-  const hero = document.querySelector('.hero');
-  if (hero && hero.nextSibling) {
-    hero.parentNode.insertBefore(wrap, hero.nextSibling);
-  } else {
-    document.body.appendChild(wrap);
-  }
-}
-
-/* ─── Carga e indexado ────────────────────────────────────────── */
+/* ─── Carga e indexado ──────────────────────────────────── */
 async function cargarIndiceGlobal() {
   mostrarBarraProgreso();
   cargaProgreso = { total: JSON_CODIGOS.length, listos: 0, fallidos: [] };
@@ -150,7 +132,6 @@ async function cargarIndiceGlobal() {
       const data = await res.json();
       const arts = [];
       extractArticulos(data, arts);
-      // Actualizar progreso en tiempo real (cada JSON al terminar)
       cargaProgreso.listos++;
       actualizarBarraProgreso();
       return { cod, arts };
@@ -160,7 +141,7 @@ async function cargarIndiceGlobal() {
   INDICE_GLOBAL = [];
   resultados.forEach(r => {
     if (r.status !== 'fulfilled') {
-      cargaProgreso.fallidos.push(r.reason?.message || 'Error desconocido');
+      cargaProgreso.fallidos.push(r.reason?.message || 'Error');
       console.warn('⚠️ JSON no cargado:', r.reason?.message);
       return;
     }
@@ -168,12 +149,12 @@ async function cargarIndiceGlobal() {
     const cat = CATEGORIAS.flatMap(c => c.codigos).find(c => c.id === cod.id);
     arts.forEach(art => {
       INDICE_GLOBAL.push({
-        codigoId:      cod.id,
-        codigoNombre:  cod.nombre,
-        codigoUrl:     cat ? cat.internalUrl : '#',
-        numero:        art.numero,
-        epigrafe:      art.epigrafe || '',
-        texto:         art.texto || [],
+        codigoId:     cod.id,
+        codigoNombre: cod.nombre,
+        codigoUrl:    cat ? cat.internalUrl : '#',
+        numero:       art.numero,
+        epigrafe:     art.epigrafe || '',
+        texto:        art.texto || [],
         palabrasClave: art.palabrasClave || [],
       });
     });
@@ -181,22 +162,19 @@ async function cargarIndiceGlobal() {
   actualizarBarraProgreso();
 }
 
-/* ─── Renderizado de categorías ───────────────────────────────── */
+/* ─── Renderizado de categorías ─────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   renderCategorias(CATEGORIAS);
-  // Precargar índice en background inmediatamente
   indiceListoPromise = cargarIndiceGlobal().catch(() => {});
 });
 
 function renderCategorias(cats) {
   const grid = document.getElementById('categorias-grid');
   grid.innerHTML = '';
-
   if (!cats.length) {
-    grid.innerHTML = '<div class="empty-state"><div class="big">🔎</div><p>No se encontraron resultados para esa búsqueda.</p></div>';
+    grid.innerHTML = '<div class="empty-state"><div class="big">🔎</div><p>No se encontraron resultados.</p></div>';
     return;
   }
-
   cats.forEach(cat => {
     if (!cat.codigos.length) return;
     const card = document.createElement('div');
@@ -222,37 +200,28 @@ function renderCategorias(cats) {
   });
 }
 
-/* ─── Búsqueda ────────────────────────────────────────────────── */
+/* ─── Búsqueda en tiempo real ───────────────────────────── */
 let debounceTimer = null;
 
-// Búsqueda en tiempo real — se dispara automáticamente al escribir
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('searchInput');
   if (!input) return;
-
   input.addEventListener('input', () => {
     clearTimeout(debounceTimer);
     const q = input.value.trim();
     if (!q) {
-      // Limpiar resultados y restaurar grid de categorías
       renderCategorias(CATEGORIAS);
       ocultarResultadosGlobales();
       return;
     }
-    // Búsqueda instantánea en metadatos (sin esperar)
     buscarMetadatos(q);
-    // Búsqueda profunda con debounce de 400 ms
     debounceTimer = setTimeout(() => buscarArticulos(q), 400);
   });
 });
 
 async function buscar() {
   const q = document.getElementById('searchInput').value.trim();
-  if (!q) {
-    renderCategorias(CATEGORIAS);
-    ocultarResultadosGlobales();
-    return;
-  }
+  if (!q) { renderCategorias(CATEGORIAS); ocultarResultadosGlobales(); return; }
   buscarMetadatos(q);
   await buscarArticulos(q);
 }
@@ -272,23 +241,18 @@ function buscarMetadatos(q) {
 
 async function buscarArticulos(q) {
   const qn = normalize(q);
-
-  // Mostrar indicador de búsqueda en artículos si el índice aún carga
   if (INDICE_GLOBAL.length === 0) {
     ocultarResultadosGlobales();
-    const main = document.getElementById('codigos');
-    const loadingEl = document.createElement('div');
-    loadingEl.id = 'resultados-globales';
-    loadingEl.className = 'jp-search-loading';
-    loadingEl.innerHTML = '⏳ Esperando que termine de cargar el índice…';
-    main.appendChild(loadingEl);
+    const loading = document.createElement('div');
+    loading.id = 'resultados-globales';
+    loading.className = 'jp-search-loading';
+    loading.innerHTML = '⏳ Esperando que termine de cargar el índice…';
+    document.getElementById('codigos').appendChild(loading);
   }
-
   await indiceListoPromise;
   ocultarResultadosGlobales();
   if (!INDICE_GLOBAL.length) return;
 
-  // Filtrar con score
   const matches = INDICE_GLOBAL
     .map(art => ({ art, score: calcScore(art, qn) }))
     .filter(({ score }) => score > 0)
@@ -298,79 +262,91 @@ async function buscarArticulos(q) {
   mostrarResultadosGlobales(matches, q);
 }
 
-function mostrarResultadosGlobales(matches, rawQuery) {
-  if (!matches.length) return;
+/* ─── Render de resultados ──────────────────────────────── */
+const PREVIEW_POR_GRUPO = 5;   // artículos visibles por defecto por código
 
+function mostrarResultadosGlobales(matches, rawQuery) {
   const qn = normalize(rawQuery);
 
-  // Agrupar por código (preservando orden de primera aparición = mayor score)
-  const grupos = {};
+  // Chips de resumen por código
+  const resumen = {};
   const orden = [];
   matches.forEach(m => {
-    if (!grupos[m.codigoId]) {
-      grupos[m.codigoId] = { nombre: m.codigoNombre, url: m.codigoUrl, arts: [] };
+    if (!resumen[m.codigoId]) {
+      resumen[m.codigoId] = { nombre: m.codigoNombre, url: m.codigoUrl, total: 0, arts: [] };
       orden.push(m.codigoId);
     }
-    grupos[m.codigoId].arts.push(m);
+    resumen[m.codigoId].total++;
+    resumen[m.codigoId].arts.push(m);
   });
 
   const container = document.createElement('div');
   container.id = 'resultados-globales';
 
-  const totalCodigos = orden.length;
-  container.innerHTML = `
+  // ── Encabezado + chips de resumen ──
+  const header = document.createElement('div');
+  header.className = 'jp-resultados-header';
+  header.innerHTML = `
     <h2 class="jp-resultados-titulo">
-      🔎 ${matches.length} artículo${matches.length !== 1 ? 's' : ''} encontrado${matches.length !== 1 ? 's' : ''}
-      en ${totalCodigos} código${totalCodigos !== 1 ? 's' : ''}
+      🔎 <strong>${matches.length}</strong> artículo${matches.length !== 1 ? 's' : ''}
+      en <strong>${orden.length}</strong> código${orden.length !== 1 ? 's' : ''}
       para "<em>${rawQuery}</em>"
     </h2>
+    <div class="jp-chips">
+      ${orden.map(id => `
+        <a href="#jp-grupo-${id}" class="jp-chip">
+          ${resumen[id].nombre}
+          <span class="jp-chip__count">${resumen[id].total}</span>
+        </a>
+      `).join('')}
+    </div>
   `;
+  container.appendChild(header);
 
+  // ── Grupos por código ──
   orden.forEach(id => {
-    const grupo = grupos[id];
+    const grupo = resumen[id];
     const section = document.createElement('div');
     section.className = 'jp-grupo';
+    section.id = `jp-grupo-${id}`;
 
-    const header = document.createElement('div');
-    header.className = 'jp-grupo__header';
-    header.innerHTML = `
+    // Cabecera del grupo
+    const grpHeader = document.createElement('div');
+    grpHeader.className = 'jp-grupo__header';
+    grpHeader.innerHTML = `
       <span class="jp-grupo__nombre">${grupo.nombre}</span>
       <span class="jp-grupo__meta">
-        <span class="jp-grupo__count">${grupo.arts.length} resultado${grupo.arts.length !== 1 ? 's' : ''}</span>
+        <span class="jp-grupo__count">${grupo.total} resultado${grupo.total !== 1 ? 's' : ''}</span>
         <a href="${grupo.url}" class="jp-grupo__link">Abrir código →</a>
       </span>
     `;
-    section.appendChild(header);
+    section.appendChild(grpHeader);
 
-    grupo.arts.slice(0, 10).forEach(art => {
-      const matchedParr = art.texto.find(t => normalize(t).includes(qn));
-      let snippet = '';
-      if (matchedParr) {
-        const idx = normalize(matchedParr).indexOf(qn);
-        const start = Math.max(0, idx - 60);
-        snippet = (start > 0 ? '…' : '') +
-          matchedParr.slice(start, start + 180) +
-          (matchedParr.length > start + 180 ? '…' : '');
-      }
+    // Lista de artículos
+    const lista = document.createElement('div');
+    lista.className = 'jp-art-lista';
+    renderArts(lista, grupo.arts, qn, rawQuery, 0, PREVIEW_POR_GRUPO);
+    section.appendChild(lista);
 
-      const item = document.createElement('a');
-      item.href = `${grupo.url}#art-${art.numero}`;
-      item.className = 'jp-art-item';
-      item.innerHTML = `
-        <div class="jp-art-item__header">
-          <span class="jp-art-item__num">Art. ${art.numero}</span>
-          <span class="jp-art-item__epigrafe">${highlight(art.epigrafe || '(sin epígrafe)', rawQuery)}</span>
-        </div>
-        ${snippet ? `<div class="jp-art-item__snippet">${highlight(snippet, rawQuery)}</div>` : ''}
-      `;
-      section.appendChild(item);
-    });
-
-    if (grupo.arts.length > 10) {
-      const more = document.createElement('div');
-      more.className = 'jp-grupo__more';
-      more.textContent = `… y ${grupo.arts.length - 10} artículos más. Abrí el código para buscar dentro de él.`;
-      section.appendChild(more);
+    // Botón "Ver más" si hay más de PREVIEW_POR_GRUPO
+    if (grupo.total > PREVIEW_POR_GRUPO) {
+      const verMas = document.createElement('button');
+      verMas.className = 'jp-ver-mas';
+      verMas.dataset.shown = PREVIEW_POR_GRUPO;
+      verMas.textContent = `▼ Ver ${Math.min(grupo.total - PREVIEW_POR_GRUPO, 20)} artículos más (${grupo.total - PREVIEW_POR_GRUPO} restantes)`;
+      verMas.addEventListener('click', () => {
+        const shown = parseInt(verMas.dataset.shown);
+        const next = shown + 20;
+        renderArts(lista, grupo.arts, qn, rawQuery, shown, next);
+        verMas.dataset.shown = next;
+        const restantes = grupo.total - next;
+        if (restantes <= 0) {
+          verMas.remove();
+        } else {
+          verMas.textContent = `▼ Ver ${Math.min(restantes, 20)} artículos más (${restantes} restantes)`;
+        }
+      });
+      section.appendChild(verMas);
     }
 
     container.appendChild(section);
@@ -379,12 +355,41 @@ function mostrarResultadosGlobales(matches, rawQuery) {
   document.getElementById('codigos').appendChild(container);
 }
 
+function renderArts(lista, arts, qn, rawQuery, desde, hasta) {
+  arts.slice(desde, hasta).forEach(art => {
+    // Encontrar TODOS los párrafos con coincidencia
+    const matchedParrafos = art.texto.filter(t => normalize(t).includes(qn));
+
+    // Construir snippets de cada párrafo coincidente (máx 3 por artículo)
+    const snippets = matchedParrafos.slice(0, 3).map(parr => {
+      const idx = normalize(parr).indexOf(qn);
+      const start = Math.max(0, idx - 80);
+      const raw = (start > 0 ? '…' : '') +
+        parr.slice(start, start + 220) +
+        (parr.length > start + 220 ? '…' : '');
+      return `<div class="jp-art-item__snippet">${highlight(raw, rawQuery)}</div>`;
+    }).join('');
+
+    const item = document.createElement('a');
+    item.href = `${art.codigoUrl}#art-${art.numero}`;
+    item.className = 'jp-art-item';
+    item.innerHTML = `
+      <div class="jp-art-item__header">
+        <span class="jp-art-item__num">Art. ${art.numero}</span>
+        <span class="jp-art-item__epigrafe">${highlight(art.epigrafe || '(sin epígrafe)', rawQuery)}</span>
+      </div>
+      ${snippets}
+    `;
+    lista.appendChild(item);
+  });
+}
+
 function ocultarResultadosGlobales() {
   const el = document.getElementById('resultados-globales');
   if (el) el.remove();
 }
 
-/* ─── Enter en el buscador ────────────────────────────────────── */
+/* ─── Enter ─────────────────────────────────────────────── */
 document.addEventListener('keydown', e => {
   if (e.key === 'Enter' && document.activeElement.id === 'searchInput') buscar();
 });

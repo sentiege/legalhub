@@ -86,14 +86,14 @@ body {
 }
 .search-bar button:hover { background: #b8943b; }
 
-/* --- Barra de Progreso de Carga --- */
+/* --- Barra de progreso de carga --- */
 #jp-progress-wrap {
   background: var(--clr-primary);
   padding: .5rem 1.25rem .6rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  transition: opacity .4s ease, max-height .5s ease;
+  transition: opacity .4s ease, max-height .5s ease, padding .5s ease;
   max-height: 60px;
   overflow: hidden;
 }
@@ -140,7 +140,6 @@ body {
   transition: transform var(--transition), box-shadow var(--transition);
 }
 .categoria-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
-
 .categoria-card__header {
   display: flex;
   align-items: center;
@@ -150,7 +149,6 @@ body {
 }
 .categoria-card__header .icon { font-size: 1.5rem; }
 .categoria-card__header h2 { font-size: 1rem; font-weight: 700; line-height: 1.3; }
-
 .categoria-card__body { padding: .75rem 1.2rem 1rem; }
 
 /* --- Código Item --- */
@@ -180,14 +178,51 @@ body {
 .codigo-item__nombre { font-weight: 600; font-size: .92rem; }
 .codigo-item__desc { font-size: .8rem; color: var(--clr-text-muted); margin-top: .15rem; }
 
-/* --- Resultados de búsqueda en artículos --- */
-.jp-resultados-titulo {
+/* --- Encabezado de resultados --- */
+.jp-resultados-header {
   margin: 2rem 0 1rem;
-  font-size: 1.05rem;
+}
+.jp-resultados-titulo {
+  font-size: 1rem;
   color: var(--clr-primary);
+  margin-bottom: .75rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.jp-resultados-titulo strong { font-weight: 800; }
+.jp-resultados-titulo em { font-style: italic; color: var(--clr-accent); }
+
+/* --- Chips de resumen por código --- */
+.jp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: 1.2rem;
+}
+.jp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: var(--clr-primary);
+  color: #fff;
+  text-decoration: none;
+  padding: .28rem .7rem;
+  border-radius: 50px;
+  font-size: .75rem;
+  font-weight: 600;
+  transition: background var(--transition);
+}
+.jp-chip:hover { background: var(--clr-primary-light); }
+.jp-chip__count {
+  background: var(--clr-accent);
+  color: #fff;
+  border-radius: 50px;
+  padding: .05rem .4rem;
+  font-size: .7rem;
   font-weight: 700;
 }
 
+/* --- Loading de búsqueda --- */
 .jp-search-loading {
   text-align: center;
   padding: 1.5rem;
@@ -195,6 +230,7 @@ body {
   font-size: .92rem;
 }
 
+/* --- Grupo de código en resultados --- */
 .jp-grupo {
   background: var(--clr-card);
   border-radius: var(--radius);
@@ -203,7 +239,6 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow);
 }
-
 .jp-grupo__header {
   background: var(--clr-primary);
   color: #fff;
@@ -224,51 +259,83 @@ body {
   font-weight: 600;
   transition: opacity var(--transition);
 }
-.jp-grupo__link:hover { opacity: .8; }
+.jp-grupo__link:hover { opacity: .75; }
+
+/* --- Lista de artículos --- */
+.jp-art-lista { display: flex; flex-direction: column; }
 
 .jp-art-item {
   display: block;
-  padding: .6rem 1rem;
+  padding: .65rem 1rem;
   border-top: 1px solid #f0f0f0;
   text-decoration: none;
   color: inherit;
   transition: background var(--transition);
 }
 .jp-art-item:hover { background: #f5f8ff; }
+
 .jp-art-item__header {
   display: flex;
   align-items: baseline;
   gap: .5rem;
   flex-wrap: wrap;
+  margin-bottom: .15rem;
 }
 .jp-art-item__num {
   font-size: .72rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--clr-primary);
+  background: #e8f0fb;
+  padding: .1rem .45rem;
+  border-radius: 4px;
   white-space: nowrap;
   flex-shrink: 0;
 }
-.jp-art-item__epigrafe { font-size: .85rem; font-weight: 600; }
-.jp-art-item__snippet {
-  font-size: .78rem;
-  color: var(--clr-text-muted);
-  margin-top: 3px;
-  line-height: 1.55;
+.jp-art-item__epigrafe {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--clr-text);
 }
-.jp-art-item__snippet mark, .jp-art-item__epigrafe mark {
-  background: rgba(200,168,75,.4);
+.jp-art-item__snippet {
+  font-size: .79rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  margin-top: .2rem;
+  padding-left: .1rem;
+}
+.jp-art-item__snippet + .jp-art-item__snippet {
+  margin-top: .1rem;
+  padding-top: .1rem;
+  border-top: 1px dashed #eaeaea;
+}
+
+/* Highlight de términos buscados */
+.jp-art-item__snippet mark,
+.jp-art-item__epigrafe mark,
+.jp-resultados-titulo mark {
+  background: rgba(200, 168, 75, 0.35);
   border-radius: 2px;
   padding: 0 2px;
   font-style: normal;
+  font-weight: 600;
+  color: #7a5800;
 }
 
-.jp-grupo__more {
-  padding: .45rem 1rem;
-  font-size: .78rem;
-  color: var(--clr-text-muted);
-  border-top: 1px solid #f0f0f0;
-  font-style: italic;
+/* --- Botón Ver más --- */
+.jp-ver-mas {
+  width: 100%;
+  background: #f4f6f9;
+  border: none;
+  border-top: 1px solid var(--clr-border);
+  padding: .6rem 1rem;
+  font-size: .8rem;
+  color: var(--clr-primary);
+  cursor: pointer;
+  font-weight: 600;
+  text-align: left;
+  transition: background var(--transition);
 }
+.jp-ver-mas:hover { background: #e8eef7; }
 
 /* --- Modal --- */
 .modal-overlay {
@@ -299,10 +366,7 @@ body {
   border-bottom: 1px solid var(--clr-border);
 }
 .modal__header h3 { font-size: 1.1rem; color: var(--clr-primary); }
-.modal__close {
-  background: none; border: none; font-size: 1.4rem;
-  cursor: pointer; color: var(--clr-text-muted); line-height: 1;
-}
+.modal__close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--clr-text-muted); line-height: 1; }
 .modal__body { padding: 1.5rem; }
 .modal__body .ley-badge {
   display: inline-block;
@@ -356,4 +420,6 @@ body {
   .header__nav { display: none; }
   .categorias-grid { grid-template-columns: 1fr; }
   #jp-progress-text { min-width: unset; font-size: .72rem; }
+  .jp-chips { gap: .3rem; }
+  .jp-chip { font-size: .7rem; }
 }
