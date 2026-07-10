@@ -1,0 +1,993 @@
+{
+  "codigo": "Ley de Minería",
+  "ley": "3180/2007",
+  "pais": "Paraguay",
+  "fecha": "2007",
+  "titulos": [
+    {
+      "id": "t1",
+      "numero": "I",
+      "nombre": "DEL DOMINIO DE LAS SUSTANCIAS MINERALES, FASES DE LA ACTIVIDAD MINERA Y LAS COMPLEMENTARIAS, ÁMBITO DE APLICACIÓN DE LA LEY, Y FISCALIZACIÓN",
+      "rangoArticulos": "1-7",
+      "capitulos": [
+        {
+          "id": "t1-c1",
+          "numero": "I",
+          "nombre": "PRINCIPIOS GENERALES DEL DOMINIO",
+          "rangoArticulos": "1-3",
+          "articulos": [
+            {
+              "numero": 1,
+              "epigrafe": "DOMINIO DEL ESTADO",
+              "texto": [
+                "Todos los recursos minerales en estado natural pertenecen al dominio del Estado, con excepción de las sustancias pétreas, terrosas y calcáreas; el derecho de propiedad del Estado sobre dichos recursos es imprescriptible, inalienable e inembargable, pudiendo ser objeto de permisos y concesiones previstos en esta Ley, por tiempo limitado."
+              ],
+              "palabrasClave": ["recursos minerales", "dominio del Estado", "imprescriptible", "inalienable", "inembargable", "permisos", "concesiones"]
+            },
+            {
+              "numero": 2,
+              "epigrafe": "FASES DE LA ACTIVIDAD MINERA",
+              "texto": [
+                "A los efectos de la presente Ley, son fases de la actividad minera:",
+                "a) Prospección: Es la búsqueda de indicios de áreas mineralizadas.",
+                "b) Exploración: Son los trabajos conducentes a la determinación del tamaño y forma del yacimiento, así como el contenido y calidad del mineral en el existente. La exploración incluye también la evaluación económica del yacimiento.",
+                "c) Explotación: Es el conjunto de operaciones, trabajos y labores mineras destinados a la preparación y desarrollo de la extracción de sustancias minerales y su refinación y comercialización.",
+                "Son actividades complementarias:",
+                "a) Beneficios: Es el tratamiento de los minerales explotados para elevar el contenido útil de los mismos.",
+                "b) Fundición: Son los procedimientos técnicos destinados a separar los metales de los correspondientes minerales o concentrados producidos en el beneficio.",
+                "c) Refinación: Son los procedimientos técnicos destinados a convertir las sustancias minerales en otras de mayor pureza.",
+                "d) Transporte Minero: Es todo sistema utilizado para el transporte masivo de productos minerales, por métodos no convencionales. Los sistemas a utilizarse podrán ser: fajas transportadoras, tuberías, cables carriles, además de aquellos que sean necesarios y adecuados en el futuro.",
+                "e) Comercialización: Es la compra-venta de minerales o la celebración de otros contratos que tengan por objeto la negociación de cualquier producto resultante de la actividad minera."
+              ],
+              "palabrasClave": ["prospección", "exploración", "explotación", "beneficios", "fundición", "refinación", "transporte minero", "comercialización"]
+            },
+            {
+              "numero": 3,
+              "epigrafe": "UTILIDAD PÚBLICA",
+              "texto": [
+                "La actividad minera se declara de utilidad pública."
+              ],
+              "palabrasClave": ["utilidad pública"]
+            }
+          ]
+        },
+        {
+          "id": "t1-c2",
+          "numero": "II",
+          "nombre": "ÁMBITO DE APLICACIÓN DE LA LEY",
+          "rangoArticulos": "4-6",
+          "articulos": [
+            {
+              "numero": 4,
+              "epigrafe": "ÁMBITO DE APLICACIÓN",
+              "texto": [
+                "La presente Ley de Minería norma las relaciones del Estado con las personas físicas y jurídicas, nacionales o extranjeras y las de estas entre sí, respecto de la obtención de derechos y de la ejecución de actividades mineras:",
+                "a) aquellas actividades mineras y complementarias que se desarrollan en el suelo y subsuelo, incluyendo los lechos de los ríos, arroyos y lagos, del territorio nacional. Se exceptúan del ámbito de aplicación de esta Ley, el petróleo, sus derivados y demás hidrocarburos;",
+                "b) sobre los carbones minerales, las rocas bituminosas, minerales radiactivos y los xilópalos;",
+                "c) las sustancias pétreas, terrosas y calcáreas quedarán sujetas a las disposiciones del Título IV de la presente Ley y las reglamentaciones."
+              ],
+              "palabrasClave": ["suelo y subsuelo", "petróleo", "hidrocarburos", "carbones minerales", "rocas bituminosas", "minerales radiactivos", "sustancias pétreas", "terrosas", "calcáreas"]
+            },
+            {
+              "numero": 5,
+              "epigrafe": "MINERALES RADIACTIVOS",
+              "texto": [
+                "La prospección, exploración y el aprovechamiento de minerales radiactivos se regirán por esta Ley en los aspectos que no estuvieran específicamente establecidos en las normas internacionales. Corresponderá al Ministerio de Obras Públicas y Comunicaciones (MOPC) interpretar si un mineral es radiactivo o no, fundamentando su resolución en la evidencia científica."
+              ],
+              "palabrasClave": ["minerales radiactivos", "MOPC", "evidencia científica"]
+            },
+            {
+              "numero": 6,
+              "epigrafe": "NORMAS SUPLETORIAS",
+              "texto": [
+                "Son aplicables en materia de minería las disposiciones del Código Civil y las demás leyes que integran la legislación positiva, en todo lo que corresponda y no esté expresamente regulado por la presente Ley."
+              ],
+              "palabrasClave": ["Código Civil", "legislación positiva", "normas supletorias"]
+            }
+          ]
+        },
+        {
+          "id": "t1-c3",
+          "numero": "III",
+          "nombre": "FISCALIZACIÓN DE LAS FASES DE LA ACTIVIDAD MINERA Y LAS COMPLEMENTARIAS",
+          "rangoArticulos": "7",
+          "articulos": [
+            {
+              "numero": 7,
+              "epigrafe": "AUTORIDAD DE APLICACIÓN",
+              "texto": [
+                "El Ministerio de Obras Públicas y Comunicaciones (M.O.P.C), será la autoridad técnica de aplicación, normará y fiscalizará en exclusividad las fases de la actividad minera correspondientes a la prospección, exploración y explotación minera, así como también las actividades complementarias.",
+                "A tal efecto el Ministerio de Obras Públicas y Comunicaciones (M.O.P.C) tendrá las siguientes atribuciones:",
+                "a) representar los intereses del Estado en las fases de la actividad minera y las complementarias de acuerdo con esta Ley, y celebrar todo tipo de contratos y convenios de inversión destinados a la realización de dichas actividades;",
+                "b) ejecutar y dar cumplimiento a la política establecida por el Poder Ejecutivo para las fases de la actividad minera y las complementarias;",
+                "c) otorgar los permisos para la prospección y exploración de recursos minerales y afines;",
+                "d) negociar y suscribir los contratos de concesión;",
+                "e) promover inversiones privadas nacionales y extranjeras en proyectos mineros y relacionados;",
+                "f) celebrar convenios de cooperación, asistencia técnica y económica con organismos nacionales, internacionales y multilaterales;",
+                "g) proporcionar asistencia técnica a la pequeña minería y a la artesanal;",
+                "h) coordinar con las autoridades nacionales correspondientes el cumplimiento de la legislación ambiental relacionada a la minería."
+              ],
+              "palabrasClave": ["MOPC", "autoridad técnica", "fiscalización", "prospección", "exploración", "explotación", "inversiones", "legislación ambiental"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "numero": "II",
+      "nombre": "DERECHOS MINEROS, SUJETOS DEL DERECHO MINERO, DE LA TRANSMISIÓN DEL DERECHO MINERO, LA PEQUEÑA MINERÍA Y LA MINERÍA ARTESANAL",
+      "rangoArticulos": "8-29",
+      "capitulos": [
+        {
+          "id": "t2-c1",
+          "numero": "I",
+          "nombre": "DE LOS DERECHOS MINEROS",
+          "rangoArticulos": "8-10",
+          "articulos": [
+            {
+              "numero": 8,
+              "epigrafe": "NATURALEZA DE LOS DERECHOS MINEROS",
+              "texto": [
+                "Los permisos y las concesiones que el Estado otorgue para el aprovechamiento de los recursos minerales y afines no confieren la propiedad sobre las minas y el terreno en el que se encuentren. Solo otorga el derecho para la prospección, exploración y explotación de dichos recursos por tiempo determinado."
+              ],
+              "palabrasClave": ["permisos", "concesiones", "prospección", "exploración", "explotación", "tiempo determinado"]
+            },
+            {
+              "numero": 9,
+              "epigrafe": "DERECHO MINERO",
+              "texto": [
+                "Por derecho minero se entiende aquellos que emanan de los permisos y las concesiones otorgados por el Estado, que deberán ser debidamente inscriptos en el Registro de Minas."
+              ],
+              "palabrasClave": ["derecho minero", "permisos", "concesiones", "Registro de Minas"]
+            },
+            {
+              "numero": 10,
+              "epigrafe": "DOMICILIO DE EXTRANJEROS",
+              "texto": [
+                "Para ser titulares de derechos mineros, las personas físicas extranjeras deberán constituir domicilio en el territorio nacional o designar un representante residente en el país. Las personas jurídicas extranjeras deberán ajustarse a lo dispuesto en el Código Civil y demás leyes nacionales."
+              ],
+              "palabrasClave": ["extranjeros", "domicilio", "representante", "Código Civil"]
+            }
+          ]
+        },
+        {
+          "id": "t2-c2",
+          "numero": "II",
+          "nombre": "SUJETOS DEL DERECHO MINERO",
+          "rangoArticulos": "11-12",
+          "articulos": [
+            {
+              "numero": 11,
+              "epigrafe": "SUJETOS DE DERECHO MINERO",
+              "texto": [
+                "Son sujetos de derecho minero toda persona física o jurídica, ya sea de naturaleza privada, pública o mixta, nacionales o extranjeras en virtud de los permisos o concesiones otorgados por el Estado. Éstas deberán demostrar y justificar solvencia financiera, prestar garantía suficiente al cumplimiento de la presente Ley y su reglamentación."
+              ],
+              "palabrasClave": ["sujetos de derecho minero", "persona física", "persona jurídica", "solvencia financiera", "garantía"]
+            },
+            {
+              "numero": 12,
+              "epigrafe": "INHABILITACIONES",
+              "texto": [
+                "No pueden obtener derechos mineros:",
+                "a) los que han incurrido en quiebras culposas o fraudulentas, los fallidos por quiebra casual hasta cinco años después de su rehabilitación, los condenados para ejercer cargos públicos, los condenados contra el patrimonio y contra la fe pública, los condenados por delitos cometidos en la constitución, funcionamiento y liquidación de sociedades, mientras duren sus condenas;",
+                "b) los que por razón de su cargo no pueden ejercer el comercio, ni los funcionarios de la administración pública cuyo desempeño se relacione con el objeto de esta Ley. Esta prohibición se extiende al cónyuge, hijos y menores bajo la patria potestad o tutela de dichos funcionarios;",
+                "c) las personas inhabilitadas no pueden obtener derechos mineros, mientras se encuentren en el ejercicio de su cargo y un año después al cese de sus funciones;",
+                "d) esta prohibición no comprende los derechos mineros adquiridos con anterioridad al nombramiento del funcionario. Tampoco se extiende a los derechos adquiridos por los cónyuges de dichos funcionarios antes de su matrimonio."
+              ],
+              "palabrasClave": ["inhabilitaciones", "quiebras", "funcionarios públicos", "cónyuge", "hijos"]
+            }
+          ]
+        },
+        {
+          "id": "t2-c3",
+          "numero": "III",
+          "nombre": "DE LA TRANSMISIÓN DE DERECHOS MINEROS",
+          "rangoArticulos": "13-14",
+          "articulos": [
+            {
+              "numero": 13,
+              "epigrafe": "TRANSMISIÓN POR CESION",
+              "texto": [
+                "Los derechos mineros podrán ser transmitidos por cesión, con sujeción a los siguientes requisitos:",
+                "a) que el cesionario acredite los extremos que la presente Ley exige para el otorgamiento de los permisos o concesiones respectivas;",
+                "b) que la cesión se formalice por escritura pública; y,",
+                "c) que el cedente y el cesionario se encuentren al día con sus obligaciones con el Estado paraguayo."
+              ],
+              "palabrasClave": ["cesión", "escritura pública", "obligaciones con el Estado"]
+            },
+            {
+              "numero": 14,
+              "epigrafe": "AUTORIZACIÓN DE CESION",
+              "texto": [
+                "Los derechos mineros pueden ser cedidos a favor de quienes reúnan los requisitos y cumplan las condiciones exigidas por esta Ley, previa autorización del Ministerio de Obras Públicas y Comunicaciones (MOPC) e inscribirse en el Registro de Minas.",
+                "Cedente y cesionario serán solidariamente responsables ante el Estado de las obligaciones asumidas en el respectivo contrato de cesión."
+              ],
+              "palabrasClave": ["autorización", "MOPC", "Registro de Minas", "solidaridad"]
+            }
+          ]
+        },
+        {
+          "id": "t2-c4",
+          "numero": "IV",
+          "nombre": "DE LA PEQUEÑA MINERÍA Y LA MINERÍA ARTESANAL",
+          "rangoArticulos": "15-29",
+          "articulos": [
+            {
+              "numero": 15,
+              "epigrafe": "DEFINICIÓN",
+              "texto": [
+                "A los efectos de esta Ley, la pequeña minería y la minería artesanal son actividades que se sustentan en la utilización intensiva de mano de obra. Las mismas comprenden las labores de extracción y recuperación de sustancias metálicas y no metálicas, del suelo y subsuelo, desarrollándose en forma personal o como conjunto de personas físicas o jurídicas que buscan maximizar ingresos de subsistencia."
+              ],
+              "palabrasClave": ["pequeña minería", "minería artesanal", "mano de obra", "ingresos de subsistencia"]
+            },
+            {
+              "numero": 16,
+              "epigrafe": "SUPERFICIE",
+              "texto": [
+                "La pequeña minería es la actividad ejercida por personas físicas de nacionalidad paraguaya para la explotación de oro, minerales y piedras preciosas, durante un período que no excederá de diez años, en áreas y según normas previamente establecidas mediante resolución del Ministerio de Obras Públicas y Comunicaciones (MOPC), a propuesta del Viceministerio de Minas y Energía. Todo pequeño minero podrá ejercer su actividad, acorde a lo dispuesto en este Capítulo, en superficies que no serán mayores a 10 (diez) hectáreas."
+              ],
+              "palabrasClave": ["10 hectáreas", "oro", "piedras preciosas", "10 años", "nacionalidad paraguaya"]
+            },
+            {
+              "numero": 17,
+              "epigrafe": "ÁREA DE PEQUEÑA MINERÍA",
+              "texto": [
+                "Para someter un área al régimen de la pequeña minería, el Ministerio de Obras Públicas y Comunicaciones (MOPC) tomará en cuenta la potencialidad de la misma para este régimen de pequeña minería, la existencia de pequeños mineros en el área y la necesidad social emergente."
+              ],
+              "palabrasClave": ["potencialidad", "necesidad social"]
+            },
+            {
+              "numero": 18,
+              "epigrafe": "CARÁCTER PRECARIO",
+              "texto": [
+                "El derecho de explotación que se deriva del ejercicio de la actividad de la pequeña minería es a título precario, se otorga a la persona en forma intransferible y, en consecuencia, no confiere derechos de propiedad, por lo que no podrá ser enajenado, gravado, arrendado, traspasado ni cedido."
+              ],
+              "palabrasClave": ["título precario", "intransferible", "no confiere propiedad"]
+            },
+            {
+              "numero": 19,
+              "epigrafe": "NORMATIVA AMBIENTAL",
+              "texto": [
+                "La explotación mediante pequeña minería deberá ejercerse con acatamiento a la normativa ambiental vigente y está sujeta a las disposiciones tributarias previstas en esta Ley."
+              ],
+              "palabrasClave": ["normativa ambiental", "disposiciones tributarias"]
+            },
+            {
+              "numero": 20,
+              "epigrafe": "OTORGAMIENTO",
+              "texto": [
+                "Las concesiones para la pequeña minería se otorgarán de conformidad a lo establecido en el Artículo 33 de la presente Ley y siguiendo las disposiciones del presente Capítulo; y exclusivamente al propietario del inmueble donde se realizarán las actividades mineras, o al arrendatario del inmueble, cuando el objeto del arrendamiento sea de esta actividad."
+              ],
+              "palabrasClave": ["propietario", "arrendatario"]
+            },
+            {
+              "numero": 21,
+              "epigrafe": "REVOCACIÓN",
+              "texto": [
+                "El Poder Ejecutivo puede revocar en cualquier momento la resolución que autoriza el ejercicio de dicha actividad, en caso en que se desnaturalice el objeto para el cual fue dictado."
+              ],
+              "palabrasClave": ["revocación", "desnaturalización"]
+            },
+            {
+              "numero": 22,
+              "epigrafe": "SOLICITUD",
+              "texto": [
+                "Los interesados en obtener una autorización de explotación como pequeño minero deberán presentar al Ministerio de Obras Públicas y Comunicaciones (MOPC) una solicitud acompañada con un plano de ubicación de la parcela de hasta 10 (diez) donde pretenda llevar a cabo labores mineras."
+              ],
+              "palabrasClave": ["solicitud", "plano de ubicación", "10 hectáreas"]
+            },
+            {
+              "numero": 23,
+              "epigrafe": "PUBLICACIÓN",
+              "texto": [
+                "Recibida la solicitud, el Ministerio de Obras Públicas y Comunicaciones (MOPC) publicará la solicitud en la Gaceta Oficial y el interesado deberá publicarla en dos diarios de alcance nacional durante tres días consecutivos antes de treinta días calendario de presentada la solicitud."
+              ],
+              "palabrasClave": ["Gaceta Oficial", "dos diarios", "3 días", "30 días"]
+            },
+            {
+              "numero": 24,
+              "epigrafe": "OPOSICIÓN",
+              "texto": [
+                "Cualquier tercero que vea sus derechos mineros afectados, podrá presentar oposición al permiso precario del pequeño minero hasta un plazo de quince días calendario, a partir de la última publicación realizada por el interesado."
+              ],
+              "palabrasClave": ["oposición", "15 días", "terceros"]
+            },
+            {
+              "numero": 25,
+              "epigrafe": "RESOLUCIÓN DE OPOSICIÓN",
+              "texto": [
+                "De haber oposición, el Ministerio de Obras Públicas y Comunicaciones (MOPC) decidirá en un plazo de quince días calendario de recibida la misma. Vencido este plazo, de no responder se dará por aprobado el permiso precario a favor del pequeño minero. Con esta decisión se agota la vía administrativa; procediéndose posteriormente, a remitir dicho pedido al Congreso Nacional para su aprobación, conforme lo establecido en el Artículo 202 numeral 11) de la Constitución Nacional."
+              ],
+              "palabrasClave": ["15 días", "aprobación ficta", "Congreso Nacional", "Artículo 202"]
+            },
+            {
+              "numero": 26,
+              "epigrafe": "PROYECTO MINERO",
+              "texto": [
+                "De no haber oposición o cuando fuere rechazada formalmente o en forma ficta, el interesado deberá presentar el Proyecto Minero dentro de un lapso máximo de tiempo de noventa días calendario. Si no lo hiciere, habrá perdido su derecho y deberá reiniciar el trámite, si pretendiera hacerlo nuevamente. Pasados los noventa días sin que el interesado recibiere notificación, se dará por aprobado el Proyecto Minero, remitiendo posteriormente al Congreso Nacional para su aprobación, conforme lo establecido en el Artículo 202 numeral 11) de la Constitución Nacional."
+              ],
+              "palabrasClave": ["Proyecto Minero", "90 días", "aprobación ficta", "Congreso Nacional"]
+            },
+            {
+              "numero": 27,
+              "epigrafe": "CONTENIDO DEL PROYECTO MINERO",
+              "texto": [
+                "El Proyecto Minero será sencillo, aunque deberá garantizar la seguridad de los trabajadores y un impacto ambiental mínimo. El Ministerio de Obras Públicas y Comunicaciones (MOPC), a través de una resolución, indicará que condiciones mínimas debe cumplir."
+              ],
+              "palabrasClave": ["seguridad de los trabajadores", "impacto ambiental mínimo"]
+            },
+            {
+              "numero": 28,
+              "epigrafe": "SUBSANACIÓN",
+              "texto": [
+                "En caso de que el Proyecto Minero presente fallas o esté incompleto, el Ministerio de Obras Públicas y Comunicaciones (MOPC) comunicará cuáles son los documentos faltantes o las fallas a subsanar en un plazo máximo de treinta días calendario, contados a partir de la notificación al interesado. Si el interesado no subsanara las fallas indicadas o no arrimara los documentos solicitados, su derecho habrá decaído y deberá reiniciar el trámite."
+              ],
+              "palabrasClave": ["subsanación", "30 días", "decaimiento del derecho"]
+            },
+            {
+              "numero": 29,
+              "epigrafe": "RESOLUCIÓN APROBATORIA",
+              "texto": [
+                "Subsanadas las fallas y/o completada la presentación de documentos, o transcurrido el plazo indicado en el Artículo 26, in fine, el Ministerio de Obras Públicas y Comunicaciones (MOPC) tendrá treinta días calendario para dictar resolución aprobatoria, la cual contendrá la autorización de explotación correspondiente."
+              ],
+              "palabrasClave": ["30 días", "resolución aprobatoria", "autorización de explotación"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "numero": "III",
+      "nombre": "PERMISOS Y CONCESIONES MINERAS",
+      "rangoArticulos": "30-35",
+      "capitulos": [
+        {
+          "id": "t3-c1",
+          "numero": "I",
+          "nombre": "DE LA PROSPECCIÓN",
+          "rangoArticulos": "30-31",
+          "articulos": [
+            {
+              "numero": 30,
+              "epigrafe": "PERMISO DE PROSPECCIÓN",
+              "texto": [
+                "Cada permiso de prospección confiere a su titular la facultad de prospectar áreas determinadas con el objeto de buscar sustancias minerales.",
+                "El Ministerio de Obras Públicas y Comunicaciones (MOPC) otorgará a pedido del interesado, hasta dos áreas de prospección por cada permiso. El permisionario que ha culminado la fase de prospección podrá realizar la selección de uno o más lotes de exploración dentro del área de prospección, conforme a lo establecido en la presente Ley y su reglamentación."
+              ],
+              "palabrasClave": ["permiso de prospección", "dos áreas", "lotes de exploración"]
+            },
+            {
+              "numero": 31,
+              "epigrafe": "PLAZO Y SUPERFICIE",
+              "texto": [
+                "El permiso de prospección será otorgado por un período de un año, prorrogable por única y exclusiva vez por un plazo que no excederá de seis meses. Según las circunstancias fundamentadas y debidamente justificadas el pedido de prórroga podrá ser otorgado solo en aquellos casos que estén debidamente basados, como ser casos fortuitos o de fuerza mayor; y deberá ser solicitado dos meses antes del vencimiento del permiso.",
+                "El permisionario deberá estar al día con sus compromisos contractuales para solicitar la prórroga. El permiso y la prórroga deberán ser autorizadas por resolución del Ministerio de Obras Públicas y Comunicaciones (MOPC).",
+                "Cada permiso de prospección podrá tener una superficie máxima de 100.000 (cien mil) hectáreas mineras."
+              ],
+              "palabrasClave": ["1 año", "prórroga 6 meses", "2 meses", "100.000 hectáreas", "caso fortuito", "fuerza mayor"]
+            }
+          ]
+        },
+        {
+          "id": "t3-c2",
+          "numero": "II",
+          "nombre": "DE LA EXPLORACIÓN",
+          "rangoArticulos": "32",
+          "articulos": [
+            {
+              "numero": 32,
+              "epigrafe": "PERMISO DE EXPLORACIÓN",
+              "texto": [
+                "Cada permiso de exploración confiere a su titular el derecho exclusivo de explorar el área de su permiso durante el plazo de dos años, prorrogable por única vez por un plazo que no excederá de un año. El pedido de prórroga deberá ajustarse a lo dispuesto en el Artículo 31, en lo pertinente y ser solicitado dos meses antes del vencimiento del permiso.",
+                "El permisionario deberá estar al día con sus compromisos contractuales para solicitar la prórroga. El permiso y la prórroga deberán ser autorizadas por resolución del Ministerio de Obras Públicas y Comunicaciones (MOPC).",
+                "Cada permiso de exploración podrá tener una superficie máxima de 50.000 (cincuenta mil) hectáreas.",
+                "Los minerales obtenidos como resultado de los trabajos de prospección y exploración se considerarán como extracciones mineras de investigación. Estas extracciones estarán bajo la fiscalización del Ministerio de Obras Públicas y Comunicaciones (MOPC).",
+                "El concesionario tendrá preferencia para la selección de uno o más lotes de explotación dentro del área de exploración, conforme con el artículo de la presente Ley."
+              ],
+              "palabrasClave": ["2 años", "prórroga 1 año", "2 meses", "50.000 hectáreas", "extracciones de investigación", "preferencia"]
+            }
+          ]
+        },
+        {
+          "id": "t3-c3",
+          "numero": "III",
+          "nombre": "DE LAS CONCESIONES",
+          "rangoArticulos": "33-34",
+          "articulos": [
+            {
+              "numero": 33,
+              "epigrafe": "CONCESIONES MINERAS",
+              "texto": [
+                "Las concesiones mineras respecto a una superficie o área determinada serán autorizadas por el Congreso Nacional, previa suscripción de un Contrato que establezca las condiciones previstas en esta Ley y en las reglamentaciones. La suscripción del contrato será autorizada por decreto del Poder Ejecutivo."
+              ],
+              "palabrasClave": ["Congreso Nacional", "Contrato", "decreto del Poder Ejecutivo"]
+            },
+            {
+              "numero": 34,
+              "epigrafe": "TIPOS DE CONCESIÓN",
+              "texto": [
+                "A pedido del interesado, se podrá otorgar la Concesión:",
+                "a) De la prospección, exploración y explotación: En este caso el concesionario tiene derecho a pasar de una fase a otra, una vez cumplidos los requisitos previstos en esta Ley y en sus reglamentaciones.",
+                "b) De la exploración y explotación: Una vez aprobada la fase de prospección por el Ministerio de Obras Públicas y Comunicaciones (MOPC).",
+                "c) De la explotación: Una vez aprobadas las fases de prospección y exploración por el Ministerio de Obras Públicas y Comunicaciones (MOPC).",
+                "Ninguna persona física o jurídica, podrá ser simultáneamente titular de más de dos concesiones mineras. El inicio de los trabajos de prospección, exploración y explotación otorgados por concesión será autorizado por resolución del Ministerio de Obras Públicas y Comunicaciones (MOPC). Las áreas concesionadas para prospectar y explorar tendrán las mismas normativas que los otorgados por permiso."
+              ],
+              "palabrasClave": ["prospección-exploración-explotación", "exploración-explotación", "explotación", "más de dos concesiones", "resolución MOPC"]
+            }
+          ]
+        },
+        {
+          "id": "t3-c4",
+          "numero": "IV",
+          "nombre": "DE LA EXPLOTACIÓN",
+          "rangoArticulos": "35",
+          "articulos": [
+            {
+              "numero": 35,
+              "epigrafe": "CONCESIÓN DE EXPLOTACIÓN",
+              "texto": [
+                "Cada concesión de explotación confiere a su titular el derecho exclusivo de explotar el área de su concesión y de beneficiar, fundir, refinar, transportar y comercializar todas las sustancias minerales que obtenga de la misma, durante un plazo que no podrá exceder de veinte años, prorrogable cada cinco años.",
+                "El concesionario deberá estar al día con los compromisos establecidos en la presente Ley, para solicitar la prórroga. La extensión máxima por cada concesión podrá ser 25.000 (veinticinco mil) hectáreas. Para llegar a la obtención de la concesión de explotación será imprescindible tener aprobadas por el Ministerio de Obras Públicas y Comunicaciones (MOPC) las fases de prospección y exploración."
+              ],
+              "palabrasClave": ["20 años", "prórroga 5 años", "25.000 hectáreas", "prospección y exploración aprobadas"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "numero": "IV",
+      "nombre": "SUSTANCIAS PÉTREAS, TERROSAS Y CALCÁREAS",
+      "rangoArticulos": "36",
+      "capitulos": [
+        {
+          "id": "t4-c1",
+          "numero": "I",
+          "nombre": "DE LAS SUSTANCIAS PÉTREAS, TERROSAS Y CALCÁREAS",
+          "rangoArticulos": "36",
+          "articulos": [
+            {
+              "numero": 36,
+              "epigrafe": "SUSTANCIAS PÉTREAS, TERROSAS Y CALCÁREAS",
+              "texto": [
+                "La actividad minera con relación a las sustancias pétreas, terrosas y calcáreas no está sujeta a concesión por Ley, pero sí al permiso, control y fiscalización por parte del Ministerio de Obras Públicas y Comunicaciones (MOPC), conforme a lo establecido en la presente Ley y a la legislación ambiental vigente. Corresponderá al Ministerio de Obras Públicas y Comunicaciones (MOPC) interpretar cuál es una sustancia pétrea, terrosa o calcárea."
+              ],
+              "palabrasClave": ["sustancias pétreas", "terrosas", "calcáreas", "permiso", "control", "fiscalización", "MOPC"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "numero": "V",
+      "nombre": "DERECHOS Y OBLIGACIONES",
+      "rangoArticulos": "37-41",
+      "capitulos": [
+        {
+          "id": "t5-c1",
+          "numero": "I",
+          "nombre": "DE LOS DERECHOS",
+          "rangoArticulos": "37-40",
+          "articulos": [
+            {
+              "numero": 37,
+              "epigrafe": "RENUNCIA",
+              "texto": [
+                "Los permisionarios y concesionarios podrán renunciar a un permiso o a una concesión por comunicación elevada al Ministerio de Obras Públicas y Comunicaciones (MOPC), una vez cumplidas las obligaciones establecidas en esta Ley."
+              ],
+              "palabrasClave": ["renuncia", "comunicación", "MOPC"]
+            },
+            {
+              "numero": 38,
+              "epigrafe": "ACTIVIDADES COMPLEMENTARIAS",
+              "texto": [
+                "Una vez autorizada por el Ministerio de Obras Públicas y Comunicaciones (MOPC) a pasar a la fase de exploración se podrán desarrollar las actividades complementarias como ser: instalación y operación de plantas de beneficio, fundición, refinación y transporte, previa autorización del Ministerio de Obras Públicas y Comunicaciones (MOPC)."
+              ],
+              "palabrasClave": ["actividades complementarias", "beneficio", "fundición", "refinación", "transporte"]
+            },
+            {
+              "numero": 39,
+              "epigrafe": "OPOSICIÓN",
+              "texto": [
+                "Los peticionarios, permisionarios y concesionarios pueden formular oposición cuando se presenten nuevas peticiones que lesionen en algún caso sus derechos."
+              ],
+              "palabrasClave": ["oposición", "nuevas peticiones", "lesión de derechos"]
+            },
+            {
+              "numero": 40,
+              "epigrafe": "PROTECCIÓN DEL ESTADO",
+              "texto": [
+                "El Estado a través de la autoridad competente brindará protección a los permisionarios y concesionarios en los casos de intrusión, ocupación ilegal, despojo u otro acto que impida el ejercicio normal de las actividades mineras."
+              ],
+              "palabrasClave": ["protección", "intrusión", "ocupación ilegal", "despojo"]
+            }
+          ]
+        },
+        {
+          "id": "t5-c2",
+          "numero": "II",
+          "nombre": "DE LAS OBLIGACIONES",
+          "rangoArticulos": "41",
+          "articulos": [
+            {
+              "numero": 41,
+              "epigrafe": "OBLIGACIONES DE LOS PERMISIONARIOS/CONCESIONARIOS",
+              "texto": [
+                "Los permisionarios/concesionarios están obligados a:",
+                "Presentar un Plan de Inversión para cada fase, de prospección, exploración y explotación cuya aprobación por el Ministerio de Obras Públicas y Comunicaciones (MOPC) será requisito ineludible para el otorgamiento de la autorización correspondiente. Dicho Plan de Inversión se regirá de acuerdo a la siguiente escala:",
+                "a) para la fase de prospección de minerales metálicos: - 15 US$ por cada hectárea.",
+                "b) para la fase de exploración de minerales metálicos: - 45 US$ por cada hectárea. En la prórroga se implementará un aumento del Plan de Inversión, a razón de un 20 % (veinte por ciento) calculado sobre la escala correspondiente a la superficie que siga prospectando o explorando.",
+                "Para la fase de explotación de minerales metálicos, se mantendrá un Plan de Inversión anual mínimo correspondiente al 30% (treinta por ciento) calculado del monto declarado en el Plan de Inversión de la fase de exploración.",
+                "c) para las fases de prospección, exploración y explotación de minerales no metálicos:",
+                "Para la elaboración del plan de inversión de minerales no metálicos se tendrá en cuenta una reducción del 30% (treinta por ciento) de los montos correspondientes a las fases de prospección y exploración de minerales metálicos.",
+                "Para la fase de explotación de minerales no metálicos, se mantendrá un Plan de Inversión anual mínimo correspondiente al 30% (treinta por ciento) calculado del monto declarado en el Plan de Inversión de la fase de exploración.",
+                "d) el permisionario o concesionario en las fases de exploración y explotación tendrá la obligación de garantizar al Estado contra todo riesgo. En garantía de esta obligación deberá asegurar adecuadamente a la orden del Ministerio de Obras Públicas y Comunicaciones (M.O.P.C) equivalente al doble del monto declarado y aprobado en el plan de inversión. La póliza de seguro deberá ser presentada al Ministerio de Obras Públicas y Comunicaciones (MOPC) para la autorización respectiva. En aquellos casos de incumplimiento de los contratos suscritos con referencia a la actividad minera, será efectivizada la garantía.",
+                "e) cumplir con la legislación ambiental respetando los plazos establecidos por la autoridad de aplicación.",
+                "f) presentar trimestralmente un Informe Técnico Geológico al Ministerio de Obras Públicas y Comunicaciones (M.O.P.C) conteniendo un detalle de los trabajos realizados en cualquiera de las fases de la actividad minera, inversiones efectuadas, los resultados y producción obtenidos además de los avances tecnológicos logrados. Las concentraciones de mineral en muestra deberán ser respaldadas por certificaciones laboratoriales. Dicho informe debe ser elaborado y avalado por la firma de un profesional de la rama de la geología o minería.",
+                "g) una vez cumplida la fase de prospección, el titular del derecho minero deberá proponer no más de dos minerales en la que centrará su atención en la fase de exploración.",
+                "h) los permisionarios y concesionarios están obligados a facilitar el acceso a funcionarios del Ministerio de Obras Públicas y Comunicaciones (M.O.P.C), ya sea en la planta de procesamiento como en las oficinas administrativas, a los efectos de fiscalizar y evaluar todo lo relacionado a la actividad minera, caso contrario el Ministerio de Obras Públicas y Comunicaciones (M.O.P.C) entenderá como ocultación de datos y consecuentemente será pasible de la aplicación de causal de caducidad.",
+                "i) los permisionarios y concesionarios están obligados a presentar un plan de trabajo, mantener Programas de Formación y Capacitación de funcionarios técnicos del Viceministerio de Minas y Energía, y brindar apoyo logístico para el acompañamiento de las diferentes fases de las actividades mineras, de acuerdo a lo establecido en esta Ley y sus reglamentaciones."
+              ],
+              "palabrasClave": ["Plan de Inversión", "15 US$/Ha", "45 US$/Ha", "20%", "30%", "garantía", "seguro", "Informe Técnico Geológico", "acceso a funcionarios", "Programas de Formación y Capacitación"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "numero": "VI",
+      "nombre": "CÁNONES Y TRIBUTOS",
+      "rangoArticulos": "42-49",
+      "capitulos": [
+        {
+          "id": "t6-c1",
+          "numero": "I",
+          "nombre": "DE LOS CÁNONES",
+          "rangoArticulos": "42-47",
+          "articulos": [
+            {
+              "numero": 42,
+              "epigrafe": "PAGO DE CÁNONES",
+              "texto": [
+                "Los cánones que establece esta Ley deberán ser pagados por los titulares de derechos mineros, en un solo pago a inicio del año o fraccionado hasta en doce meses."
+              ],
+              "palabrasClave": ["cánones", "pago anual", "fraccionado"]
+            },
+            {
+              "numero": 43,
+              "epigrafe": "CÁNONES DE PROSPECCIÓN - METÁLICOS",
+              "texto": [
+                "Los permisionarios o concesionarios de prospección de minerales metálicos pagarán un canon por año, o fracción de año, según la siguiente escala:",
+                "Desde 1 hasta 500: 0,55 US$/Ha",
+                "Desde 501 hasta 1.500: 0,50 US$/Ha",
+                "Desde 1.501 hasta 10.000: 0,45 US$/Ha",
+                "Desde 10.001 hasta 50.000: 0,40 US$/Ha",
+                "Desde 50.001 hasta 100.000: 0,35 US$/Ha"
+              ],
+              "palabrasClave": ["prospección", "0,55 US$/Ha", "0,50 US$/Ha", "0,45 US$/Ha", "0,40 US$/Ha", "0,35 US$/Ha"]
+            },
+            {
+              "numero": 44,
+              "epigrafe": "CÁNONES DE EXPLORACIÓN - METÁLICOS",
+              "texto": [
+                "Los permisionarios o concesionarios de exploración de minerales metálicos pagarán un canon por año o fracción de año, según la siguiente escala:",
+                "Desde 1 hasta 500: 0,55 US$/Ha",
+                "Desde 501 hasta 1.500: 0,70 US$/Ha",
+                "Desde 1.501 hasta 10.000: 0,85 US$/Ha",
+                "Desde 10.001 hasta 50.000: 1,00 US$/Ha"
+              ],
+              "palabrasClave": ["exploración", "0,55 US$/Ha", "0,70 US$/Ha", "0,85 US$/Ha", "1,00 US$/Ha"]
+            },
+            {
+              "numero": 45,
+              "epigrafe": "CÁNONES DE EXPLOTACIÓN - METÁLICOS",
+              "texto": [
+                "Los concesionarios de explotación de minerales metálicos pagarán un canon por año o fracción de año, según la siguiente escala:",
+                "Desde 1 hasta 500: 1,50 US$/Ha",
+                "Desde 501 hasta 1.500: 1,75 US$/Ha",
+                "Desde 1.501 hasta 10.000: 2,00 US$/Ha",
+                "Desde 10.001 hasta 25.000: 2,25 US$/Ha"
+              ],
+              "palabrasClave": ["explotación", "1,50 US$/Ha", "1,75 US$/Ha", "2,00 US$/Ha", "2,25 US$/Ha"]
+            },
+            {
+              "numero": 46,
+              "epigrafe": "AUMENTO EN PRÓRROGA",
+              "texto": [
+                "En la prórroga el canon aumentará a razón de un 30 % (treinta por ciento) calculado sobre el canon correspondiente a la superficie que siga prospectando, explorando o explotando."
+              ],
+              "palabrasClave": ["prórroga", "30%"]
+            },
+            {
+              "numero": 47,
+              "epigrafe": "CÁNONES PARA NO METÁLICOS",
+              "texto": [
+                "Los permisos y las concesiones de minerales no metálicos y de gemas minerales tendrán una reducción de 30 % (treinta por ciento) de los cánones establecidos en este Capítulo, a excepción del diamante. Corresponderá al Ministerio de Obras Públicas y Comunicaciones (MOPC) interpretar si un mineral es metálico o no."
+              ],
+              "palabrasClave": ["minerales no metálicos", "gemas", "reducción 30%", "diamante"]
+            }
+          ]
+        },
+        {
+          "id": "t6-c2",
+          "numero": "II",
+          "nombre": "DE LOS TRIBUTOS",
+          "rangoArticulos": "48-49",
+          "articulos": [
+            {
+              "numero": 48,
+              "epigrafe": "EXENCIÓN DE IMPUESTOS",
+              "texto": [
+                "Durante el plazo de la prospección y exploración, los titulares de derechos quedan exentos del pago de todo impuesto fiscal, departamental o municipal, salvo lo previsto en esta Ley. Este régimen no regirá en la etapa de explotación, y el concesionario se someterá a las disposiciones de la Ley Nº 2421/04 'DE REORDENAMIENTO ADMINISTRATIVO Y DE ADECUACIÓN FISCAL'. Las tasas serán pagadas por los servicios efectivamente prestados."
+              ],
+              "palabrasClave": ["exención", "impuestos", "prospección", "exploración", "Ley 2421/04"]
+            },
+            {
+              "numero": 49,
+              "epigrafe": "EXENCIÓN DE IMPORTACIÓN",
+              "texto": [
+                "Todas las maquinarias, vehículos, útiles, insumos, implementos y materiales que no se produzcan en el país y que sean necesarios para la prospección y exploración, están exentos de derechos de importación, del Impuesto al Valor Agregado y de todo otro impuesto fiscal, departamental o municipal vigente o que se creen en el futuro, por todo el tiempo que dure el permiso o la concesión en su etapa de prospección y exploración."
+              ],
+              "palabrasClave": ["exención de importación", "maquinarias", "IVA", "prospección", "exploración"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "numero": "VII",
+      "nombre": "PROTECCIÓN DEL MEDIO AMBIENTE",
+      "rangoArticulos": "50",
+      "capitulos": [
+        {
+          "id": "t7-c1",
+          "numero": "ÚNICO",
+          "nombre": "PROTECCIÓN DEL MEDIO AMBIENTE",
+          "rangoArticulos": "50",
+          "articulos": [
+            {
+              "numero": 50,
+              "epigrafe": "CUMPLIMIENTO AMBIENTAL",
+              "texto": [
+                "Los permisionarios o concesionarios deberán cumplir la legislación sobre Protección del Medio Ambiente. En caso de incumplimiento de las citadas disposiciones, el Ministerio de Obras Públicas y Comunicaciones (MOPC) podrá participar a la autoridad de aplicación ambiental e impondrá las sanciones correspondientes, sin perjuicio de lo previsto en esta Ley y sus reglamentaciones."
+              ],
+              "palabrasClave": ["medio ambiente", "legislación ambiental", "sanciones", "MOPC"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "numero": "VIII",
+      "nombre": "RELACIÓN DE LOS TITULARES DE LOS DERECHOS MINEROS ENTRE SI Y CON LOS PROPIETARIOS DEL SUELO, DE LA EXPROPIACIÓN Y DE LAS SERVIDUMBRES MINERAS",
+      "rangoArticulos": "51-54",
+      "capitulos": [
+        {
+          "id": "t8-c1",
+          "numero": "I",
+          "nombre": "DE LA RELACIÓN DE LOS TITULARES DE DERECHOS MINEROS ENTRE SI Y CON LOS PROPIETARIOS DEL SUELO",
+          "rangoArticulos": "51-52",
+          "articulos": [
+            {
+              "numero": 51,
+              "epigrafe": "NOTIFICACIÓN AL PROPIETARIO",
+              "texto": [
+                "Todo permiso o concesión será notificado por el permisionario o concesionario al propietario u ocupante afectado, a fin de darle conocimiento de los trabajos que realizará el titular del derecho minero, so pena de caducidad."
+              ],
+              "palabrasClave": ["notificación", "propietario", "ocupante", "caducidad"]
+            },
+            {
+              "numero": 52,
+              "epigrafe": "CONVENIO CON PROPIETARIOS",
+              "texto": [
+                "Los titulares de derechos mineros pueden convenir con los propietarios del suelo, la utilización, servidumbre o compra-venta de suelos y del subsuelo útil, en su caso, y sus retribuciones correspondientes, para el desarrollo de sus actividades mineras."
+              ],
+              "palabrasClave": ["convenio", "servidumbre", "compra-venta", "retribuciones"]
+            }
+          ]
+        },
+        {
+          "id": "t8-c2",
+          "numero": "II",
+          "nombre": "DE LA EXPROPIACIÓN",
+          "rangoArticulos": "53",
+          "articulos": [
+            {
+              "numero": 53,
+              "epigrafe": "EXPROPIACIÓN",
+              "texto": [
+                "Los titulares de derechos mineros que no lleguen a un acuerdo con el propietario del suelo sobre el uso, aprovechamiento, precio o la extensión del terreno necesaria para la realización de sus actividades mineras, podrá solicitar al Poder Ejecutivo la remisión al Congreso del proyecto de Ley de expropiación del área correspondiente al perímetro de su permiso o concesión, y de las superficies que requieran para erigir las construcciones e instalaciones necesarias para la realización de sus actividades. El titular del derecho minero a quien beneficie la expropiación pagará al propietario del suelo la indemnización correspondiente y los gastos que deriven de esa expropiación."
+              ],
+              "palabrasClave": ["expropiación", "indemnización", "Congreso", "Poder Ejecutivo"]
+            }
+          ]
+        },
+        {
+          "id": "t8-c3",
+          "numero": "III",
+          "nombre": "DE LAS SERVIDUMBRES MINERAS",
+          "rangoArticulos": "54",
+          "articulos": [
+            {
+              "numero": 54,
+              "epigrafe": "SERVIDUMBRES MINERAS",
+              "texto": [
+                "Los permisionarios/concesionarios, para el desarrollo de sus actividades pueden constituir servidumbres conforme al Código Civil y las demás legislaciones."
+              ],
+              "palabrasClave": ["servidumbres", "Código Civil"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "numero": "IX",
+      "nombre": "PROCEDIMIENTO PARA LA OBTENCIÓN DE PERMISOS O CONCESIONES",
+      "rangoArticulos": "55-60",
+      "capitulos": [
+        {
+          "id": "t9-c1",
+          "numero": "I",
+          "nombre": "DISPOSICIONES GENERALES",
+          "rangoArticulos": "55-56",
+          "articulos": [
+            {
+              "numero": 55,
+              "epigrafe": "PRESENTACIÓN DE EXPEDIENTES",
+              "texto": [
+                "La presentación de los expedientes será efectuada ante la Secretaría General del Ministerio de Obras Públicas y Comunicaciones (M.O.P.C), en una versión original, y dos copias. Será tramitada en el Gabinete del Viceministerio de Minas y Energía (GVME), a través del Comité Evaluador, que dictaminará técnica, económica y jurídicamente sobre los antecedentes que guardan relación con la solicitud presentada, estableciendo si la presentación reúne las condiciones necesarias para que sea tenida por válida, quedando en este caso establecido en forma definitiva el orden de precedencia de las presentaciones.",
+                "Las solicitudes de permisos y las concesiones serán aprobadas en el orden de presentación, toda vez que el proyecto de inversión presentado con la solicitud garantice el trabajo de prospección, exploración y explotación, sobre la totalidad del área permisionada/concesionada en el plazo establecido en la Ley, siempre que se reúnan los requisitos legales."
+              ],
+              "palabrasClave": ["expedientes", "Comité Evaluador", "orden de presentación", "proyecto de inversión"]
+            },
+            {
+              "numero": 56,
+              "epigrafe": "HECTÁREA MINERA",
+              "texto": [
+                "La hectárea minera constituye un volumen en forma piramidal cuyo vértice es el centro de la tierra; su límite exterior es la superficie de la tierra y corresponde planimétricamente a un cuadrado de 100 (cien) metros por lado, medido y orientado de acuerdo con un sistema de Cuadrícula de Proyección Transversal Universal de Mercator (UTM) de uso en la Carta Topográfica Nacional u otro de mayor avance tecnológico a ser adoptado en el futuro por el Ministerio de Obras Públicas y Comunicaciones (MOPC)."
+              ],
+              "palabrasClave": ["hectárea minera", "100 metros", "UTM", "Carta Topográfica Nacional"]
+            }
+          ]
+        },
+        {
+          "id": "t9-c2",
+          "numero": "II",
+          "nombre": "DEL PERMISO DE LA PROSPECCIÓN Y DE LA EXPLORACIÓN",
+          "rangoArticulos": "57-58",
+          "articulos": [
+            {
+              "numero": 57,
+              "epigrafe": "REQUISITOS DE SOLICITUD",
+              "texto": [
+                "Deberán ser presentados:",
+                "a) datos personales y generales del solicitante, incluyendo la copia autenticada de la Constitución de Sociedad debidamente inscripta en el Registro Público de Comercio en el caso de una empresa minera, y la copia autenticada de la Cédula de Identidad, en caso de una persona física;",
+                "b) individualización precisa del área solicitada, con determinación exacta de las coordenadas UTM;",
+                "c) la solicitud deberá llevar la nomenclatura específica clasificándola en 'minerales metálicos' o 'minerales no metálicos'; y,",
+                "d) el Ministerio de Obras Públicas y Comunicaciones (MOPC), comunicará al solicitante la aprobación o el rechazo de la solicitud y el motivo causante."
+              ],
+              "palabrasClave": ["datos personales", "Constitución de Sociedad", "coordenadas UTM", "minerales metálicos", "minerales no metálicos"]
+            },
+            {
+              "numero": 58,
+              "epigrafe": "ABANDONO DE TRÁMITE",
+              "texto": [
+                "Quedará sin efecto todo expediente de solicitud, que presente un estado de abandono en los trámites, por responsabilidad del recurrente en el término de dos meses, a partir de la fecha de la última notificación emitida por el Ministerio de Obras Públicas y Comunicaciones (MOPC)."
+              ],
+              "palabrasClave": ["abandono de trámite", "2 meses"]
+            }
+          ]
+        },
+        {
+          "id": "t9-c3",
+          "numero": "III",
+          "nombre": "DE LAS CONCESIONES EN GENERAL",
+          "rangoArticulos": "59-60",
+          "articulos": [
+            {
+              "numero": 59,
+              "epigrafe": "OTORGAMIENTO DE CONCESIONES",
+              "texto": [
+                "Las concesiones podrán solicitarse para la prospección, exploración y explotación, a una superficie o área determinada, será otorgada por Ley, previa suscripción de un contrato autorizado por decreto del Poder Ejecutivo."
+              ],
+              "palabrasClave": ["concesión por Ley", "contrato", "decreto del Poder Ejecutivo"]
+            },
+            {
+              "numero": 60,
+              "epigrafe": "SOLICITUD DE CONCESIÓN",
+              "texto": [
+                "El interesado podrá solicitar la concesión desde la fase de prospección para luego pasar de una fase a otra, previo cumplimiento de lo que establece esta Ley y su reglamentación."
+              ],
+              "palabrasClave": ["fase de prospección", "fases sucesivas"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t10",
+      "numero": "X",
+      "nombre": "EXTINCIÓN DE LOS PERMISOS/CONCESIONES",
+      "rangoArticulos": "61-64",
+      "capitulos": [
+        {
+          "id": "t10-c1",
+          "numero": "I",
+          "nombre": "DE LA EXTINCIÓN DE LOS PERMISOS/CONCESIONES",
+          "rangoArticulos": "61-64",
+          "articulos": [
+            {
+              "numero": 61,
+              "epigrafe": "CAUSALES DE EXTINCIÓN",
+              "texto": [
+                "Los permisos/concesiones mineras se extinguen:",
+                "a) por el vencimiento de los plazos:",
+                "b) por renuncia de su titular, la que podrá referirse a todo o parte del área respectiva. Para renunciar al permiso o concesión, el titular deberá acreditar el cumplimiento de todas sus obligaciones exigibles a esa fecha. La renuncia debe constar en escritura pública y da lugar a la cancelación de los respectivos registros, quedando libre el área minera;",
+                "c) por caducidad:",
+                "d) por nulidad:",
+                "e) por extinción de la Personería Jurídica del permisionario/concesionario."
+              ],
+              "palabrasClave": ["extinción", "vencimiento", "renuncia", "caducidad", "nulidad", "personería jurídica"]
+            },
+            {
+              "numero": 62,
+              "epigrafe": "CAUSAS DE CADUCIDAD",
+              "texto": [
+                "a) por falta de pago de los cánones y regalías, dentro de los plazos establecidos en la presente Ley;",
+                "b) por no proporcionar al Ministerio de Obras Públicas y Comunicaciones (MOPC) las informaciones que fueren necesarias para el cumplimiento de sus obligaciones;",
+                "c) por el incumplimiento por parte del permisionario/concesionario, con las obligaciones dispuestas en esta Ley;",
+                "d) incumplimiento de la Legislación Ambiental:",
+                "e) por abandono de la actividad minera sin autorización o consentimiento del Ministerio de Obras Públicas y Comunicaciones (MOPC);",
+                "f) por falta de notificación por parte del permisionario/concesionario al propietario u ocupante de áreas afectadas en las actividades mineras a ser desarrolladas, conforme a lo establecido en el Artículo 51 de la presente Ley."
+              ],
+              "palabrasClave": ["caducidad", "cánones", "regalías", "legislación ambiental", "abandono", "notificación"]
+            },
+            {
+              "numero": 63,
+              "epigrafe": "REMEDIO DE CADUCIDAD",
+              "texto": [
+                "El permisionario/concesionario tendrá derecho de remediar, normalizar o corregir las causales de caducidad dentro de un plazo de sesenta días, a partir de la fecha de recepción de la notificación por escrito que indica las causales de caducidad."
+              ],
+              "palabrasClave": ["remedio", "60 días", "normalización", "corrección"]
+            },
+            {
+              "numero": 64,
+              "epigrafe": "CAUSALES DE NULIDAD",
+              "texto": [
+                "Son nulos:",
+                "a) otorgados en violación del Artículo 12 de la presente Ley;",
+                "b) adquirido de modo distinto al previsto en esta Ley;",
+                "c) que las áreas solicitadas para la actividad minera se superpongan parcial o totalmente a otras otorgadas con anterioridad;",
+                "d) por las causas previstas en el Código Civil y demás leyes nacionales."
+              ],
+              "palabrasClave": ["nulidad", "Artículo 12", "superposición de áreas", "Código Civil"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t11",
+      "numero": "XI",
+      "nombre": "RECURSOS ADMINISTRATIVOS",
+      "rangoArticulos": "65-66",
+      "capitulos": [
+        {
+          "id": "t11-c1",
+          "numero": "I",
+          "nombre": "DEL RECURSO DE RECONSIDERACIÓN",
+          "rangoArticulos": "65-66",
+          "articulos": [
+            {
+              "numero": 65,
+              "epigrafe": "RECURSO DE RECONSIDERACIÓN",
+              "texto": [
+                "Las determinaciones tomadas por el Ministerio de Obras Públicas y Comunicaciones (M.O.P.C) como autoridad de aplicación en materia minera podrán ser objetadas ante la misma autoridad mediante el recurso de reconsideración que deberá presentarse dentro de los diez días calendario, a partir de la fecha de la notificación a la parte interesada."
+              ],
+              "palabrasClave": ["recurso de reconsideración", "10 días"]
+            },
+            {
+              "numero": 66,
+              "epigrafe": "PROCEDIMIENTO DEL RECURSO",
+              "texto": [
+                "El recurso de reconsideración se impondrá de manera fundada. El Viceministerio de Minas y Energía reconsiderará el dictamen objeto del recurso en presencia del interesado y se labrará un acta. El Ministerio de Obras Públicas y Comunicaciones (M.O.P.C), en consecuencia, podrá revocar, modificar o confirmar la determinación objetada, por lo que queda agotada la vía administrativa.",
+                "Agotado el recurso administrativo, se podrá apelar al ámbito judicial correspondiente dentro de un plazo de diez días hábiles, contados a partir de su comunicación."
+              ],
+              "palabrasClave": ["vía administrativa", "apelación judicial", "10 días hábiles", "acta"]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "disposiciones_comunes_transitorias_y_finales": [
+    {
+      "numero": 67,
+      "epigrafe": "REGISTRO DE MINAS",
+      "texto": [
+        "Créase el Registro de Minas, que dependerá de la Dirección de Recursos Minerales del Viceministerio de Minas y Energía y su funcionamiento será reglamentado por el Poder Ejecutivo."
+      ],
+      "palabrasClave": ["Registro de Minas", "Viceministerio de Minas y Energía", "Poder Ejecutivo"]
+    },
+    {
+      "numero": 68,
+      "epigrafe": "TRÁMITES EN CURSO",
+      "texto": [
+        "Los trámites mineros que se encuentren en curso al entrar en vigencia la presente Ley deberán adecuarse a sus disposiciones."
+      ],
+      "palabrasClave": ["trámites en curso", "adecuación"]
+    },
+    {
+      "numero": 69,
+      "epigrafe": "PRIORIDAD DE CONCESIONES",
+      "texto": [
+        "Los permisos mineros de exploración en trámite a la fecha de vigencia de esta Ley, mantendrán su prioridad de obtener concesiones mineras mediante el procedimiento establecido en la presente Ley."
+      ],
+      "palabrasClave": ["prioridad", "permisos en trámite"]
+    },
+    {
+      "numero": 70,
+      "epigrafe": "REGISTRO DE EXPLOTACIONES EXISTENTES",
+      "texto": [
+        "Las explotaciones de sustancias pétreas, terrosas y calcáreas existentes antes de la vigencia de esta Ley deberán ser registradas en el Registro de Minas con carácter obligatorio y perentorio dentro del plazo de seis meses y cumplir con lo dispuesto en esta Ley y su reglamentación."
+      ],
+      "palabrasClave": ["registro obligatorio", "6 meses", "sustancias pétreas", "terrosas", "calcáreas"]
+    },
+    {
+      "numero": 71,
+      "epigrafe": "CREACIÓN DEL SEGEMIP",
+      "texto": [
+        "Modifícase el inciso a) del Artículo 26 del Decreto-Ley N° 5, de fecha 27 de marzo de 1991 'QUE ESTABLECE LA ESTRUCTURA ORGÁNICA Y FUNCIONES DEL MINISTERIO DE OBRAS PUBLICAS Y COMUNICACIONES', aprobado por Ley N° 167 del 25 de mayo de 1993, y créase con la nueva denominación de Servicio Geológico y Minero del Paraguay (SEGEMIP)."
+      ],
+      "palabrasClave": ["SEGEMIP", "Servicio Geológico y Minero del Paraguay", "Decreto-Ley N° 5", "Ley N° 167"]
+    },
+    {
+      "numero": 72,
+      "epigrafe": "CUENTA ESPECIAL MINERA",
+      "texto": [
+        "Los fondos provenientes de los cánones, regalías y de las prestaciones de servicios serán depositados en el Banco Central del Paraguay en la Cuenta Especial Minera y estarán destinados exclusivamente a la ejecución de proyectos desarrollados por la autoridad de aplicación."
+      ],
+      "palabrasClave": ["Cuenta Especial Minera", "Banco Central del Paraguay", "cánones", "regalías"]
+    },
+    {
+      "numero": 73,
+      "epigrafe": "REGLAMENTACIÓN DEL SEGEMIP",
+      "texto": [
+        "El Poder Ejecutivo reglamentará las funciones y la estructura del Servicio Geológico y Minero del Paraguay (SEGEMIP)."
+      ],
+      "palabrasClave": ["SEGEMIP", "Poder Ejecutivo"]
+    },
+    {
+      "numero": 74,
+      "epigrafe": "ABROGACIONES",
+      "texto": [
+        "Se abrogan las Leyes Nº 93/14, Nº 698/24 y los Decretos Nº 5.085/44, 10.123/55 y 28.138/63 y todas las disposiciones contrarias a esta Ley."
+      ],
+      "palabrasClave": ["abrogaciones", "Ley 93/14", "Ley 698/24", "Decreto 5.085/44", "Decreto 10.123/55", "Decreto 28.138/63"]
+    },
+    {
+      "numero": 75,
+      "epigrafe": "REGLAMENTACIÓN",
+      "texto": [
+        "El Poder Ejecutivo reglamentará la presente Ley."
+      ],
+      "palabrasClave": ["reglamentación", "Poder Ejecutivo"]
+    },
+    {
+      "numero": 76,
+      "epigrafe": "COMUNICACIÓN",
+      "texto": [
+        "Comuníquese al Poder Ejecutivo. Aprobado el Proyecto de Ley por la Honorable Cámara de Diputados, a los veintiocho días del mes de setiembre del año dos mil seis, y por la Honorable Cámara de Senadores, a los veintidós días del mes de marzo del año dos mil siete, quedando sancionado el mismo, de conformidad con lo dispuesto en el Artículo 204 de la Constitución Nacional."
+      ],
+      "palabrasClave": ["comunicación", "2006", "2007", "Artículo 204"]
+    }
+  ]
+}
