@@ -4,90 +4,145 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JurisParaguay — Derecho Paraguayo</title>
-  <meta name="description" content="Plataforma de consulta de códigos legales vigentes del Paraguay." />
+  <meta name="description" content="Plataforma de consulta de códigos legales vigentes del Paraguay para juristas y litigantes." />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     /* ── Hero ── */
     .hero {
-      background: linear-gradient(135deg, var(--clr-primary,#1a3a5c) 0%, var(--clr-primary-light,#2a5a8c) 100%);
-      color:#fff; padding:3.5rem 0 3rem; text-align:center;
+      background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-light) 100%);
+      color: #fff;
+      padding: 3.5rem 0 3rem;
+      text-align: center;
     }
-    .hero__logo { display:block; width:90%; max-width:600px; height:auto; margin:0 auto 1.4rem;
-      filter:drop-shadow(0 4px 20px rgba(0,0,0,.3)); transition:opacity .2s,transform .2s; }
+    .hero__logo { display:block; width:90%; max-width:580px; height:auto;
+      margin:0 auto 1.2rem; filter:drop-shadow(0 4px 20px rgba(0,0,0,.3));
+      transition:opacity .2s,transform .2s; }
     .hero__logo-link { display:block; width:fit-content; margin:0 auto; cursor:pointer; }
-    .hero__logo-link:hover .hero__logo { opacity:.88; transform:scale(1.02); }
-    .hero__tagline { font-size:clamp(1rem,2.5vw,1.2rem); opacity:.9; font-style:italic;
-      letter-spacing:.3px; margin-bottom:2rem; }
+    .hero__logo-link:hover .hero__logo { opacity:.88; transform:scale(1.015); }
+    .hero__tagline { font-size:clamp(.95rem,2.5vw,1.15rem); opacity:.85;
+      font-style:italic; letter-spacing:.3px; margin-bottom:2rem; }
 
-    /* ── Barra progreso ── */
-    #jp-progress-wrap {
-      background:#f0f4f8; border-bottom:1px solid #d1dce8;
-      padding:.6rem 1.2rem; font-size:.82rem; color:#1a3a5c;
-      display:flex; align-items:center; gap:1rem;
+    /* ── Grid re-diseñado ── */
+    .categorias-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2.5rem 0 3rem;
     }
-    .jp-progress-track { flex:1; height:6px; background:#c9d8e8; border-radius:3px; overflow:hidden; }
-    #jp-progress-bar   { height:100%; background:#1a3a5c; border-radius:3px; transition:width .3s; }
-    #jp-progress-wrap.done { display:none; }
 
-    /* ── Grid categorías ── */
-    .categorias-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-      gap:1.5rem; padding:2rem 0; }
-    .categoria-card { border-radius:10px; overflow:hidden;
-      box-shadow:0 2px 12px rgba(0,0,0,.1); background:#fff; }
-    .categoria-card__header { padding:1rem 1.2rem; display:flex; align-items:center; gap:.7rem; }
-    .categoria-card__header .icon { font-size:1.6rem; }
-    .categoria-card__header h2 { margin:0; font-size:1rem; color:#fff; font-weight:700; }
-    .categoria-card__body { padding:.4rem 0; }
-    .codigo-item { display:flex; align-items:flex-start; gap:.8rem; padding:.6rem 1.2rem;
-      text-decoration:none; color:inherit; border-bottom:1px solid #f0f0f0;
-      transition:background .15s; }
-    .codigo-item:last-child { border-bottom:none; }
-    .codigo-item:hover { background:#f5f8ff; }
-    .codigo-item__num { font-size:.72rem; color:#fff; background:#1a3a5c;
-      border-radius:4px; padding:.2rem .5rem; white-space:nowrap; flex-shrink:0; margin-top:2px; }
-    .codigo-item__nombre { display:block; font-weight:600; font-size:.9rem; color:#1a3a5c; }
-    .codigo-item__desc { display:block; font-size:.78rem; color:#666; margin-top:2px; }
+    /* Tarjeta horizontal */
+    .cat-card {
+      display: flex;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.07);
+      overflow: hidden;
+      border: 1px solid var(--clr-border);
+      transition: box-shadow .2s;
+    }
+    .cat-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.11); }
 
-    /* ── Resultados artículos ── */
-    #resultados-container { padding-bottom:3rem; }
-    .jp-search-status { padding:1.5rem; color:#555; font-size:.95rem; text-align:center; }
-    .jp-resultados-header { padding:1.2rem 0 .8rem; border-bottom:2px solid #e0e8f0; margin-bottom:1rem; }
-    .jp-resultados-titulo { font-size:1.1rem; color:#1a3a5c; margin:0 0 .7rem; }
-    .jp-chips { display:flex; flex-wrap:wrap; gap:.4rem; }
-    .jp-chip { background:#1a3a5c; color:#fff; border-radius:20px; padding:.25rem .75rem;
-      font-size:.78rem; text-decoration:none; display:flex; align-items:center; gap:.4rem; }
-    .jp-chip:hover { background:#2a5a8c; }
-    .jp-chip__count { background:rgba(255,255,255,.25); border-radius:10px;
-      padding:.05rem .4rem; font-size:.72rem; }
-    .jp-grupo { margin-bottom:2rem; border:1px solid #e0e8f0; border-radius:8px; overflow:hidden; }
-    .jp-grupo__header { background:#f0f4f8; padding:.8rem 1.2rem;
-      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem; }
-    .jp-grupo__nombre { font-weight:700; color:#1a3a5c; font-size:.95rem; }
-    .jp-grupo__meta { display:flex; align-items:center; gap:1rem; font-size:.82rem; }
-    .jp-grupo__count { color:#555; }
-    .jp-grupo__link { color:#1a3a5c; text-decoration:none; font-weight:600; }
-    .jp-grupo__link:hover { text-decoration:underline; }
-    .jp-art-lista { padding:.4rem 0; }
-    .jp-art-item { display:block; padding:.7rem 1.2rem; border-bottom:1px solid #f0f0f0;
-      text-decoration:none; color:inherit; transition:background .15s; }
-    .jp-art-item:last-child { border-bottom:none; }
-    .jp-art-item:hover { background:#f5f8ff; }
-    .jp-art-item__header { display:flex; align-items:baseline; gap:.7rem; margin-bottom:.3rem; }
-    .jp-art-item__num { font-size:.78rem; color:#fff; background:#7b1d1d;
-      border-radius:4px; padding:.15rem .45rem; white-space:nowrap; flex-shrink:0; }
-    .jp-art-item__epigrafe { font-weight:600; font-size:.88rem; color:#1a3a5c; }
-    .jp-art-item__snippet { font-size:.82rem; color:#444; line-height:1.5;
-      background:#fffbe6; border-left:3px solid #f0c040;
-      padding:.25rem .6rem; border-radius:0 4px 4px 0; margin-top:.25rem; }
-    .jp-art-item__snippet mark { background:#ffe566; color:inherit; border-radius:2px; padding:0 2px; }
-    .jp-ver-mas { display:block; width:100%; padding:.7rem; background:#f0f4f8;
-      border:none; border-top:1px solid #e0e8f0; cursor:pointer; font-size:.85rem;
-      color:#1a3a5c; font-weight:600; text-align:center; }
-    .jp-ver-mas:hover { background:#e0e8f0; }
+    /* Franja lateral de color con ícono SVG */
+    .cat-card__side {
+      width: 68px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: 1.2rem .4rem;
+      color: #fff;
+    }
+    .cat-card__side svg {
+      width: 22px;
+      height: 22px;
+      opacity: .9;
+    }
+    .cat-card__side-label {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .75;
+      line-height: 1;
+    }
+
+    /* Cuerpo de la tarjeta */
+    .cat-card__body {
+      flex: 1;
+      padding: .8rem 0;
+      min-width: 0;
+    }
+    .cat-card__title {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--clr-text-muted);
+      padding: 0 1.2rem .6rem;
+      border-bottom: 1px solid var(--clr-border);
+      margin-bottom: .2rem;
+    }
+
+    /* Lista de códigos en columnas */
+    .cat-codigos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    .cat-codigo-link {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .7rem 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid #f4f4f4;
+      border-left: 3px solid transparent;
+      transition: border-left-color .15s, background .15s;
+    }
+    .cat-codigo-link:hover {
+      background: #fafbff;
+      border-left-color: var(--clr-accent);
+    }
+    .cat-codigo-link:last-child { border-bottom: none; }
+    .cat-codigo-ley {
+      flex-shrink: 0;
+      font-size: .68rem;
+      font-weight: 700;
+      color: var(--clr-accent);
+      background: rgba(200,168,75,.1);
+      border: 1px solid rgba(200,168,75,.3);
+      border-radius: 4px;
+      padding: .15rem .45rem;
+      margin-top: .15rem;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+    .cat-codigo-info { display:flex; flex-direction:column; min-width:0; }
+    .cat-codigo-nombre {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--clr-text);
+      line-height: 1.35;
+    }
+    .cat-codigo-link:hover .cat-codigo-nombre { color: var(--clr-primary-light); }
+    .cat-codigo-desc {
+      font-size: .75rem;
+      color: var(--clr-text-muted);
+      margin-top: .2rem;
+      line-height: 1.45;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     /* ── Empty state ── */
-    .empty-state { text-align:center; padding:3rem 1rem; color:#888; }
-    .empty-state .big { font-size:3rem; margin-bottom:.5rem; }
+    .empty-state { text-align:center; padding:3rem 1rem; color:var(--clr-text-muted); }
+    .empty-state svg { width:48px; height:48px; opacity:.35; margin-bottom:.75rem; display:block; margin-inline:auto; }
 
     /* ── Diagnóstico flotante ── */
     #jp-diag { position:fixed; bottom:1rem; right:1rem; z-index:9999;

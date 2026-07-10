@@ -1,8 +1,7 @@
 /* =================================================
-   JurisParaguay — app.js (reescritura desde cero)
+   JurisParaguay — app.js
    ================================================= */
 
-/* ── Service Worker ── */
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
     .register('/jurisparaguay/sw.js', { scope: '/jurisparaguay/' })
@@ -10,7 +9,6 @@ if ('serviceWorker' in navigator) {
     .catch(e => console.warn('SW error:', e));
 }
 
-/* ── Constantes ── */
 const BASE = 'https://sentiege.github.io/jurisparaguay';
 const CODIGOS = [
   { id:'codigo-civil',                 nombre:'Código Civil',                            path:'codigos/codigocivil/codigo_civil_completo.json' },
@@ -30,10 +28,9 @@ const CODIGOS = [
   { id:'codigo-mineria',               nombre:'Código de Minería',                       path:'codigos/codigomineria/codigo_minero_completo.json' },
   { id:'codigo-sanitario',             nombre:'Código Sanitario',                        path:'codigos/codigosanitario/codigo_sanitario_completo.json' },
 ];
-const PREVIEW = 20; // artículos iniciales por código
+const PREVIEW = 20;
 
-/* ── Estado global ── */
-let INDICE = [];        // [{ codigoId, codigoNombre, codigoUrl, numero, epigrafe, texto[], palabrasClave[] }]
+let INDICE = [];
 let LISTO  = false;
 let QUERY_PENDIENTE = '';
 
@@ -48,25 +45,22 @@ function hl(text, q) {
   );
 }
 
-/* ── Extracción recursiva de artículos ── */
+/* ── Extracción recursiva ── */
 const STRUCT_KEYS = ['libros','libro','partes','parte','titulos','titulo',
   'secciones','seccion','capitulos','capitulo','subcapitulos','subcapitulo',
   'articulos','articulo','arts','items','artículos','libros_internos'];
 
 function extraerArticulos(node, out) {
   if (!node || typeof node !== 'object') return;
-  // Si es artículo hoja, agregarlo
   if ('numero' in node) out.push(node);
-  // Recorrer claves estructurales conocidas
   for (const k of STRUCT_KEYS) {
     if (Array.isArray(node[k])) node[k].forEach(c => extraerArticulos(c, out));
   }
-  // Fallback: otras claves objeto/array no visitadas
   const visitadas = new Set(STRUCT_KEYS);
   for (const k of Object.keys(node)) {
     if (visitadas.has(k)) continue;
     const v = node[k];
-    if (Array.isArray(v))             v.forEach(c => extraerArticulos(c, out));
+    if (Array.isArray(v))              v.forEach(c => extraerArticulos(c, out));
     else if (v && typeof v==='object') extraerArticulos(v, out);
   }
 }
@@ -92,114 +86,88 @@ function setProgreso(done, total, errores) {
   bar.style.width = pct + '%';
   if (txt) {
     if (done < total) txt.textContent = `Cargando índice… ${done}/${total} códigos`;
-    else if (errores) txt.textContent = `⚠️ ${done} cargados, ${errores} con error`;
-    else              txt.textContent = `✅ ${total} códigos listos`;
+    else if (errores)  txt.textContent = `⚠️ ${done} cargados, ${errores} con error`;
+    else               txt.textContent = `✅ ${total} códigos listos para búsqueda`;
   }
-  if (pct === 100 && wrap) setTimeout(() => wrap.classList.add('done'), 1500);
+  if (pct === 100 && wrap) setTimeout(() => wrap.classList.add('jp-progress--done'), 1500);
 }
 
-/* ── Carga del índice global ── */
+/* ── Carga ── */
 async function cargarIndice() {
   let done = 0, errores = 0;
   setProgreso(0, CODIGOS.length, 0);
-
   const todos = await Promise.allSettled(
     CODIGOS.map(async cod => {
-      const url = `${BASE}/${cod.path}`;
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`HTTP ${res.status}: ${url}`);
+      const res = await fetch(`${BASE}/${cod.path}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${cod.path}`);
       const data = await res.json();
-      const arts = [];
-      extraerArticulos(data, arts);
-      done++;
-      setProgreso(done, CODIGOS.length, errores);
-      console.log(`✔ ${cod.nombre}: ${arts.length} artículos`);
+      const arts = []; extraerArticulos(data, arts);
+      done++; setProgreso(done, CODIGOS.length, errores);
+      console.log(`✔ ${cod.nombre}: ${arts.length}`);
       return { cod, arts };
     })
   );
-
   INDICE = [];
   todos.forEach(r => {
     if (r.status !== 'fulfilled') {
-      errores++;
-      done++;
-      console.error('❌', r.reason?.message);
-      diag('❌ ' + (r.reason?.message || 'Error'), 'error');
-      return;
+      errores++; console.error('❌', r.reason?.message);
+      diag('❌ ' + (r.reason?.message||'Error'), 'error'); return;
     }
     const { cod, arts } = r.value;
-    // Buscar internalUrl en CATEGORIAS (de data.js)
-    const meta = (typeof CATEGORIAS !== 'undefined')
-      ? CATEGORIAS.flatMap(c => c.codigos).find(c => c.id === cod.id)
-      : null;
-    const codigoUrl = meta ? meta.internalUrl : '#';
-    arts.forEach(art => {
-      INDICE.push({
-        codigoId:     cod.id,
-        codigoNombre: cod.nombre,
-        codigoUrl,
-        numero:       art.numero,
-        epigrafe:     art.epigrafe  || '',
-        texto:        Array.isArray(art.texto) ? art.texto : (art.texto ? [art.texto] : []),
-        palabrasClave: Array.isArray(art.palabrasClave) ? art.palabrasClave : [],
-      });
-    });
+    const meta = (typeof CATEGORIAS!=='undefined')
+      ? CATEGORIAS.flatMap(c=>c.codigos).find(c=>c.id===cod.id) : null;
+    arts.forEach(art => INDICE.push({
+      codigoId:     cod.id,
+      codigoNombre: cod.nombre,
+      codigoUrl:    meta ? meta.internalUrl : '#',
+      numero:       art.numero,
+      epigrafe:     art.epigrafe  || '',
+      texto:        Array.isArray(art.texto) ? art.texto : (art.texto ? [art.texto] : []),
+      palabrasClave: Array.isArray(art.palabrasClave) ? art.palabrasClave : [],
+    }));
   });
-
   LISTO = true;
   setProgreso(CODIGOS.length, CODIGOS.length, errores);
-  diag(`✅ Índice listo: ${INDICE.length} artículos (${errores} errores)`, INDICE.length > 0 ? 'ok' : 'error');
-  console.log('INDICE_GLOBAL cargado:', INDICE.length, 'artículos');
-
-  // Si el usuario ya tenía una búsqueda pendiente, ejecutarla ahora
-  if (QUERY_PENDIENTE) {
-    const q = QUERY_PENDIENTE;
-    QUERY_PENDIENTE = '';
-    ejecutarBusqueda(q);
-  }
+  diag(`✅ Índice: ${INDICE.length} artículos`, 'ok');
+  if (QUERY_PENDIENTE) { const q=QUERY_PENDIENTE; QUERY_PENDIENTE=''; ejecutarBusqueda(q); }
 }
 
-/* ── Render grid de categorías ── */
+/* ── Render grid ── */
 function renderGrid(cats) {
   const grid = document.getElementById('categorias-grid');
   if (!grid) return;
   const filtradas = cats.filter(c => c.codigos && c.codigos.length);
   if (!filtradas.length) {
-    grid.innerHTML = '<div class="empty-state"><div class="big">🔎</div><p>Sin resultados en los metadatos.</p></div>';
+    grid.innerHTML = `<div class="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <p>Sin resultados en los metadatos.</p></div>`;
     return;
   }
   grid.innerHTML = filtradas.map(cat => `
-    <div class="categoria-card">
-      <div class="categoria-card__header" style="background:${cat.color}">
-        <span class="icon">${cat.icono}</span>
-        <h2>${esc(cat.nombre)}</h2>
+    <div class="cat-card">
+      <div class="cat-card__side" style="background:${cat.color}">
+        ${cat.svgIcon || ''}
+        <span class="cat-card__side-label">${esc(cat.nombre)}</span>
       </div>
-      <div class="categoria-card__body">
-        ${cat.codigos.map(c => `
-          <a href="${c.internalUrl}" class="codigo-item" data-id="${c.id}">
-            <span class="codigo-item__num">${esc(c.ley)}</span>
-            <span class="codigo-item__info">
-              <span class="codigo-item__nombre">${esc(c.nombre)}</span>
-              <span class="codigo-item__desc">${esc((c.descripcion||'').substring(0,80))}…</span>
-            </span>
-          </a>
-        `).join('')}
+      <div class="cat-card__body">
+        <div class="cat-card__title">${esc(cat.nombre)}</div>
+        <div class="cat-codigos">
+          ${cat.codigos.map(c => `
+            <a href="${c.internalUrl}" class="cat-codigo-link" data-id="${c.id}">
+              <span class="cat-codigo-ley">${esc(c.ley)}</span>
+              <span class="cat-codigo-info">
+                <span class="cat-codigo-nombre">${esc(c.nombre)}</span>
+                <span class="cat-codigo-desc">${esc((c.descripcion||'').substring(0,90))}</span>
+              </span>
+            </a>
+          `).join('')}
+        </div>
       </div>
     </div>
   `).join('');
 }
 
-/* ── Limpiar resultados ── */
-function limpiar() {
-  const c = document.getElementById('resultados-container');
-  if (c) c.innerHTML = '';
-}
-function setStatus(html) {
-  const c = document.getElementById('resultados-container');
-  if (c) c.innerHTML = `<div class="jp-search-status">${html}</div>`;
-}
-
-/* ── Búsqueda de metadatos (filtra tarjetas) ── */
+/* ── Búsqueda metadatos ── */
 function buscarMetadatos(qn) {
   renderGrid(CATEGORIAS.map(cat => ({
     ...cat,
@@ -211,46 +179,35 @@ function buscarMetadatos(qn) {
   })));
 }
 
-/* ── Búsqueda de artículos ── */
+/* ── Limpiar ── */
+function limpiar() { const c=document.getElementById('resultados-container'); if(c) c.innerHTML=''; }
+function setStatus(html) { const c=document.getElementById('resultados-container'); if(c) c.innerHTML=`<div class="jp-search-status">${html}</div>`; }
+
+/* ── Búsqueda artículos ── */
 function buscarArticulos(q, qn) {
-  // Filtrar: la palabra debe aparecer en epígrafe, palabrasClave o algún párrafo de texto
-  const matches = [];
-  for (const art of INDICE) {
-    const enEpigrafe = norm(art.epigrafe).includes(qn);
-    const enKw = art.palabrasClave.some(k => norm(k).includes(qn));
-    const enTexto = art.texto.some(t => norm(t).includes(qn));
-    if (enEpigrafe || enKw || enTexto) matches.push(art);
-  }
-
-  console.log(`Búsqueda "${q}": ${matches.length} artículos encontrados en INDICE de ${INDICE.length}`);
-
+  const matches = INDICE.filter(art =>
+    norm(art.epigrafe).includes(qn) ||
+    art.palabrasClave.some(k => norm(k).includes(qn)) ||
+    art.texto.some(t => norm(t).includes(qn))
+  );
+  console.log(`"${q}": ${matches.length} resultados de ${INDICE.length}`);
   if (!matches.length) {
-    setStatus(`🔍 No se encontraron artículos que mencionen «<strong>${esc(q)}</strong>».
-      <br><small>Índice cargado: ${INDICE.length} artículos.</small>`);
+    setStatus(`🔍 No se encontraron artículos que mencionen «<strong>${esc(q)}</strong>».<br><small>Índice: ${INDICE.length} artículos.</small>`);
     return;
   }
-
   renderResultados(matches, q, qn);
 }
 
-/* ── Render resultados por código ── */
+/* ── Render resultados ── */
 function renderResultados(matches, rawQ, qn) {
   const c = document.getElementById('resultados-container');
   if (!c) return;
   c.innerHTML = '';
-
-  // Agrupar por código
-  const grupos = {};
-  const orden  = [];
+  const grupos={}, orden=[];
   for (const art of matches) {
-    if (!grupos[art.codigoId]) {
-      grupos[art.codigoId] = { nombre: art.codigoNombre, url: art.codigoUrl, arts: [] };
-      orden.push(art.codigoId);
-    }
+    if (!grupos[art.codigoId]) { grupos[art.codigoId]={nombre:art.codigoNombre,url:art.codigoUrl,arts:[]}; orden.push(art.codigoId); }
     grupos[art.codigoId].arts.push(art);
   }
-
-  // Header con total y chips
   const hdr = document.createElement('div');
   hdr.className = 'jp-resultados-header';
   hdr.innerHTML = `
@@ -260,48 +217,34 @@ function renderResultados(matches, rawQ, qn) {
       para &ldquo;<em>${esc(rawQ)}</em>&rdquo;
     </h2>
     <div class="jp-chips">
-      ${orden.map(id=>`
-        <a href="#grp-${id}" class="jp-chip">
-          ${esc(grupos[id].nombre)}
-          <span class="jp-chip__count">${grupos[id].arts.length}</span>
-        </a>`).join('')}
+      ${orden.map(id=>`<a href="#grp-${id}" class="jp-chip">${esc(grupos[id].nombre)}<span class="jp-chip__count">${grupos[id].arts.length}</span></a>`).join('')}
     </div>`;
   c.appendChild(hdr);
-
-  // Un bloque por código
   for (const id of orden) {
     const g = grupos[id];
     const sec = document.createElement('div');
-    sec.className = 'jp-grupo';
-    sec.id = `grp-${id}`;
-
-    sec.innerHTML = `
-      <div class="jp-grupo__header">
-        <span class="jp-grupo__nombre">${esc(g.nombre)}</span>
-        <span class="jp-grupo__meta">
-          <span class="jp-grupo__count">${g.arts.length} resultado${g.arts.length!==1?'s':''}</span>
-          <a href="${g.url}" class="jp-grupo__link">Abrir código →</a>
-        </span>
-      </div>`;
-
-    const lista = document.createElement('div');
-    lista.className = 'jp-art-lista';
+    sec.className='jp-grupo'; sec.id=`grp-${id}`;
+    sec.innerHTML=`<div class="jp-grupo__header">
+      <span class="jp-grupo__nombre">${esc(g.nombre)}</span>
+      <span class="jp-grupo__meta">
+        <span class="jp-grupo__count">${g.arts.length} resultado${g.arts.length!==1?'s':''}</span>
+        <a href="${g.url}" class="jp-grupo__link">Abrir código →</a>
+      </span></div>`;
+    const lista = document.createElement('div'); lista.className='jp-art-lista';
     pintarArts(lista, g.arts, qn, rawQ, 0, PREVIEW);
     sec.appendChild(lista);
-
     if (g.arts.length > PREVIEW) {
-      const btn = document.createElement('button');
-      btn.className = 'jp-ver-mas';
+      const btn = document.createElement('button'); btn.className='jp-ver-mas';
       let shown = PREVIEW;
       const rest0 = g.arts.length - shown;
-      btn.textContent = `▼ Ver ${Math.min(rest0, 20)} artículos más (${rest0} restantes)`;
+      btn.textContent = `▼ Ver ${Math.min(rest0,20)} artículos más (${rest0} restantes)`;
       btn.onclick = () => {
         const next = shown + 20;
         pintarArts(lista, g.arts, qn, rawQ, shown, next);
         shown = next;
         const rest = g.arts.length - shown;
-        if (rest <= 0) btn.remove();
-        else btn.textContent = `▼ Ver ${Math.min(rest, 20)} artículos más (${rest} restantes)`;
+        if (rest<=0) btn.remove();
+        else btn.textContent = `▼ Ver ${Math.min(rest,20)} artículos más (${rest} restantes)`;
       };
       sec.appendChild(btn);
     }
@@ -312,71 +255,47 @@ function renderResultados(matches, rawQ, qn) {
 function pintarArts(lista, arts, qn, rawQ, desde, hasta) {
   for (const art of arts.slice(desde, hasta)) {
     const parrafos = art.texto.filter(t => norm(t).includes(qn));
-    const snippets = parrafos.slice(0, 3).map(p => {
-      const idx   = norm(p).indexOf(qn);
-      const start = Math.max(0, idx - 80);
-      const frag  = (start > 0 ? '…' : '') +
-        p.slice(start, start + 220) +
-        (p.length > start + 220 ? '…' : '');
-      return `<div class="jp-art-item__snippet">${hl(frag, rawQ)}</div>`;
+    const snippets = parrafos.slice(0,3).map(p => {
+      const idx=norm(p).indexOf(qn), start=Math.max(0,idx-80);
+      const frag=(start>0?'…':'')+p.slice(start,start+220)+(p.length>start+220?'…':'');
+      return `<div class="jp-art-item__snippet">${hl(frag,rawQ)}</div>`;
     }).join('');
-
-    const a = document.createElement('a');
-    a.href      = `${art.codigoUrl}#art-${art.numero}`;
-    a.className = 'jp-art-item';
-    a.innerHTML = `
-      <div class="jp-art-item__header">
-        <span class="jp-art-item__num">Art. ${art.numero}</span>
-        <span class="jp-art-item__epigrafe">${hl(art.epigrafe || '(sin epígrafe)', rawQ)}</span>
-      </div>
-      ${snippets}`;
+    const a=document.createElement('a');
+    a.href=`${art.codigoUrl}#art-${art.numero}`; a.className='jp-art-item';
+    a.innerHTML=`<div class="jp-art-item__header">
+      <span class="jp-art-item__num">Art. ${art.numero}</span>
+      <span class="jp-art-item__epigrafe">${hl(art.epigrafe||'(sin epígrafe)',rawQ)}</span>
+    </div>${snippets}`;
     lista.appendChild(a);
   }
 }
 
-/* ── Ejecutar búsqueda completa ── */
+/* ── Ejecutar búsqueda ── */
 function ejecutarBusqueda(q) {
   const qn = norm(q);
-  limpiar();
-  buscarMetadatos(qn);
-  if (!LISTO) {
-    setStatus('⏳ Cargando artículos… los resultados aparecerán automáticamente.');
-    QUERY_PENDIENTE = q;
-    return;
-  }
+  limpiar(); buscarMetadatos(qn);
+  if (!LISTO) { setStatus('⏳ Cargando artículos… aparecerán automáticamente.'); QUERY_PENDIENTE=q; return; }
   buscarArticulos(q, qn);
 }
 
-/* ── Botón buscar (llamado desde HTML) ── */
 function buscar() {
-  const q = (document.getElementById('searchInput')?.value || '').trim();
-  if (!q) {
-    limpiar();
-    renderGrid(CATEGORIAS);
-    return;
-  }
+  const q = (document.getElementById('searchInput')?.value||'').trim();
+  if (!q) { limpiar(); renderGrid(CATEGORIAS); return; }
   ejecutarBusqueda(q);
 }
 
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', () => {
   renderGrid(CATEGORIAS);
-  cargarIndice().catch(e => {
-    console.error(e);
-    diag('❌ Error fatal cargando índice: ' + e.message, 'error');
-  });
-
+  cargarIndice().catch(e => { console.error(e); diag('❌ Error: '+e.message,'error'); });
   const input = document.getElementById('searchInput');
   if (!input) return;
-
-  let timer = null;
+  let timer=null;
   input.addEventListener('input', () => {
     clearTimeout(timer);
-    const q = input.value.trim();
+    const q=input.value.trim();
     if (!q) { limpiar(); renderGrid(CATEGORIAS); return; }
-    timer = setTimeout(() => ejecutarBusqueda(q), 350);
+    timer=setTimeout(()=>ejecutarBusqueda(q), 350);
   });
-  input.addEventListener('keydown', e => {
-    if (e.key === 'Enter') { clearTimeout(timer); buscar(); }
-  });
+  input.addEventListener('keydown', e => { if(e.key==='Enter'){clearTimeout(timer);buscar();} });
 });
