@@ -48,23 +48,36 @@ function highlight(str, query) {
 }
 
 /* ─── deepExtractArticulos ───────────────────────────────── */
+// FIX #1: eliminado `return` prematuro — se recorren TODAS las claves
+// conocidas sin cortarse al encontrar la primera, y el nodo hoja no
+// hace `return` para permitir sub-artículos anidados.
 const _LIBRO_KEYS  = ['libros','libro'];
 const _TITULO_KEYS = ['titulos','titulo','partes','parte','secciones','seccion','libros_internos'];
 const _CAP_KEYS    = ['capitulos','capitulo','subcapitulos','subcapitulo'];
 const _ART_KEYS    = ['articulos','articulo','arts','items','artículos'];
+const _ALL_KNOWN_KEYS = [..._LIBRO_KEYS, ..._TITULO_KEYS, ..._CAP_KEYS, ..._ART_KEYS];
 
 function deepExtractArticulos(node, out) {
   if (!node || typeof node !== 'object') return;
+
+  // Nodo hoja: es un artículo — lo agregamos pero NO hacemos return
+  // (podría tener sub-artículos anidados en algunas estructuras)
   if ('numero' in node && (node.texto !== undefined || node.epigrafe !== undefined)) {
-    out.push(node); return;
+    out.push(node);
   }
-  for (const k of [..._LIBRO_KEYS, ..._TITULO_KEYS, ..._CAP_KEYS, ..._ART_KEYS]) {
+
+  // Recorrer TODAS las claves conocidas (sin return temprano)
+  const visitados = new Set();
+  for (const k of _ALL_KNOWN_KEYS) {
     if (Array.isArray(node[k]) && node[k].length) {
+      visitados.add(k);
       node[k].forEach(child => deepExtractArticulos(child, out));
-      return;
     }
   }
+
+  // Fallback genérico: claves no reconocidas
   for (const key of Object.keys(node)) {
+    if (visitados.has(key)) continue;
     const val = node[key];
     if (Array.isArray(val))                  val.forEach(child => deepExtractArticulos(child, out));
     else if (val && typeof val === 'object') deepExtractArticulos(val, out);
@@ -166,8 +179,11 @@ async function cargarIndiceGlobal() {
       const data = await res.json();
       const arts = [];
       deepExtractArticulos(data, arts);
+      // FIX #2: incrementar DESPUÉS de extraer, para que el contador
+      // refleje códigos realmente indexados y no solo descargados.
       cargaProgreso.listos++;
       actualizarBarraProgreso();
+      console.log(`📄 ${cod.nombre}: ${arts.length} artículos extraídos`);
       return { cod, arts };
     })
   );
@@ -209,10 +225,12 @@ async function cargarIndiceGlobal() {
     total > 0 ? 'ok' : 'error'
   );
 
-  // Si el usuario ya tenia algo escrito, lanzar la busqueda ahora que el indice esta listo
+  // Relanzar búsqueda si el usuario ya había escrito algo (input) o
+  // había pulsado el botón antes de que el índice estuviera listo (FIX #3: _pendingSearch)
   const inputEl = document.getElementById('searchInput');
-  const qActual = inputEl ? inputEl.value.trim() : '';
+  const qActual = inputEl ? (inputEl.value.trim() || inputEl._pendingSearch || '') : '';
   if (qActual) {
+    if (inputEl) inputEl._pendingSearch = '';
     buscarMetadatos(qActual);
     buscarArticulos(qActual);
   }
@@ -293,12 +311,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/* ─── Búsqueda desde botón ───────────────────────────────── */
+// FIX #3: si el índice aún no cargó, guardar la query en _pendingSearch
+// para relanzarla automáticamente al finalizar cargarIndiceGlobal().
 async function buscar() {
-  const q = (document.getElementById('searchInput')?.value || '').trim();
+  const inputEl = document.getElementById('searchInput');
+  const q = (inputEl?.value || '').trim();
   limpiarResultados();
   if (!q) { renderCategorias(CATEGORIAS); return; }
   buscarMetadatos(q);
-  buscarArticulos(q);
+  if (INDICE_LISTO) {
+    buscarArticulos(q);
+  } else {
+    mostrarEstadoBusqueda('⏳ Cargando artículos… los resultados aparecerán automáticamente.');
+    if (inputEl) inputEl._pendingSearch = q;
+  }
 }
 
 /* ─── Búsqueda metadatos ─────────────────────────────────── */
