@@ -27,6 +27,7 @@ const CODIGOS = [
   { id:'codigo-aduanero',              nombre:'Código Aduanero',                         path:'codigos/codigoaduanero/codigo_aduanero_completo.json' },
   { id:'codigo-mineria',               nombre:'Código de Minería',                       path:'codigos/codigomineria/codigo_minero_completo.json' },
   { id:'codigo-sanitario',             nombre:'Código Sanitario',                        path:'codigos/codigosanitario/codigo_sanitario_completo.json' },
+  // NUEVO: Constitución Nacional en el índice global
   { id:'constitucion-nacional',        nombre:'Constitución Nacional',                   path:'codigos/constitucion/constitucion_nacional.json' },
 ];
 const PREVIEW = 20;
@@ -118,12 +119,12 @@ async function cargarIndice() {
     const meta = (typeof CATEGORIAS!=='undefined')
       ? CATEGORIAS.flatMap(c=>c.codigos).find(c=>c.id===cod.id) : null;
     arts.forEach(art => INDICE.push({
-      codigoId:     cod.id,
-      codigoNombre: cod.nombre,
-      codigoUrl:    meta ? meta.internalUrl : '#',
-      numero:       art.numero,
-      epigrafe:     art.epigrafe  || '',
-      texto:        Array.isArray(art.texto) ? art.texto : (art.texto ? [art.texto] : []),
+      codigoId:      cod.id,
+      codigoNombre:  cod.nombre,
+      codigoUrl:     meta ? meta.internalUrl : '#',
+      numero:        art.numero,
+      epigrafe:      art.epigrafe  || '',
+      texto:         Array.isArray(art.texto) ? art.texto : (art.texto ? [art.texto] : []),
       palabrasClave: Array.isArray(art.palabrasClave) ? art.palabrasClave : [],
     }));
   });
@@ -170,15 +171,21 @@ function buscarMetadatos(qn) {
 }
 
 /* ── Limpiar ── */
-function limpiar() { const c=document.getElementById('resultados-container'); if(c) c.innerHTML=''; }
-function setStatus(html) { const c=document.getElementById('resultados-container'); if(c) c.innerHTML=`<div class="jp-search-status">${html}</div>`; }
+function limpiar() {
+  const c = document.getElementById('resultados-container');
+  if (c) c.innerHTML = '';
+}
+function setStatus(html) {
+  const c = document.getElementById('resultados-container');
+  if (c) c.innerHTML = `<div class="jp-search-status">${html}</div>`;
+}
 
 /* ── Búsqueda artículos ── */
 function buscarArticulos(q, qn) {
   const matches = INDICE.filter(art =>
     norm(art.epigrafe).includes(qn) ||
     art.palabrasClave.some(k => norm(k).includes(qn)) ||
-    art.texto.some(t => norm(t).includes(qn)
+    art.texto.some(t => norm(t).includes(qn))  // ← paréntesis cerrado
   );
   console.log(`"${q}": ${matches.length} resultados de ${INDICE.length}`);
   if (!matches.length) {
@@ -193,9 +200,12 @@ function renderResultados(matches, rawQ, qn) {
   const c = document.getElementById('resultados-container');
   if (!c) return;
   c.innerHTML = '';
-  const grupos={}, orden=[];
+  const grupos = {}, orden = [];
   for (const art of matches) {
-    if (!grupos[art.codigoId]) { grupos[art.codigoId]={nombre:art.codigoNombre,url:art.codigoUrl,arts:[]}; orden.push(art.codigoId); }
+    if (!grupos[art.codigoId]) {
+      grupos[art.codigoId] = { nombre: art.codigoNombre, url: art.codigoUrl, arts: [] };
+      orden.push(art.codigoId);
+    }
     grupos[art.codigoId].arts.push(art);
   }
   const hdr = document.createElement('div');
@@ -213,18 +223,21 @@ function renderResultados(matches, rawQ, qn) {
   for (const id of orden) {
     const g = grupos[id];
     const sec = document.createElement('div');
-    sec.className='jp-grupo'; sec.id=`grp-${id}`;
-    sec.innerHTML=`<div class="jp-grupo__header">
+    sec.className = 'jp-grupo';
+    sec.id = `grp-${id}`;
+    sec.innerHTML = `<div class="jp-grupo__header">
       <span class="jp-grupo__nombre">${esc(g.nombre)}</span>
       <span class="jp-grupo__meta">
         <span class="jp-grupo__count">${g.arts.length} resultado${g.arts.length!==1?'s':''}</span>
         <a href="${g.url}" class="jp-grupo__link">Abrir código →</a>
       </span></div>`;
-    const lista = document.createElement('div'); lista.className='jp-art-lista';
+    const lista = document.createElement('div');
+    lista.className = 'jp-art-lista';
     pintarArts(lista, g.arts, qn, rawQ, 0, PREVIEW);
     sec.appendChild(lista);
     if (g.arts.length > PREVIEW) {
-      const btn = document.createElement('button'); btn.className='jp-ver-mas';
+      const btn = document.createElement('button');
+      btn.className = 'jp-ver-mas';
       let shown = PREVIEW;
       const rest0 = g.arts.length - shown;
       btn.textContent = `▼ Ver ${Math.min(rest0,20)} artículos más (${rest0} restantes)`;
@@ -233,7 +246,7 @@ function renderResultados(matches, rawQ, qn) {
         pintarArts(lista, g.arts, qn, rawQ, shown, next);
         shown = next;
         const rest = g.arts.length - shown;
-        if (rest<=0) btn.remove();
+        if (rest <= 0) btn.remove();
         else btn.textContent = `▼ Ver ${Math.min(rest,20)} artículos más (${rest} restantes)`;
       };
       sec.appendChild(btn);
@@ -246,13 +259,15 @@ function pintarArts(lista, arts, qn, rawQ, desde, hasta) {
   for (const art of arts.slice(desde, hasta)) {
     const parrafos = art.texto.filter(t => norm(t).includes(qn));
     const snippets = parrafos.slice(0,3).map(p => {
-      const idx=norm(p).indexOf(qn), start=Math.max(0,idx-80);
-      const frag=(start>0?'…':'')+p.slice(start,start+220)+(p.length>start+220?'…':'');
+      const idx = norm(p).indexOf(qn),
+            start = Math.max(0, idx - 80);
+      const frag = (start>0?'…':'') + p.slice(start, start+220) + (p.length>start+220?'…':'');
       return `<div class="jp-art-item__snippet">${hl(frag,rawQ)}</div>`;
     }).join('');
-    const a=document.createElement('a');
-    a.href=`${art.codigoUrl}#art-${art.numero}`; a.className='jp-art-item';
-    a.innerHTML=`<div class="jp-art-item__header">
+    const a = document.createElement('a');
+    a.href = `${art.codigoUrl}#art-${art.numero}`;
+    a.className = 'jp-art-item';
+    a.innerHTML = `<div class="jp-art-item__header">
       <span class="jp-art-item__num">Art. ${art.numero}</span>
       <span class="jp-art-item__epigrafe">${hl(art.epigrafe||'(sin epígrafe)',rawQ)}</span>
     </div>${snippets}`;
@@ -264,7 +279,11 @@ function pintarArts(lista, arts, qn, rawQ, desde, hasta) {
 function ejecutarBusqueda(q) {
   const qn = norm(q);
   limpiar(); buscarMetadatos(qn);
-  if (!LISTO) { setStatus('⏳ Cargando artículos… aparecerán automáticamente.'); QUERY_PENDIENTE=q; return; }
+  if (!LISTO) {
+    setStatus('⏳ Cargando artículos… aparecerán automáticamente.');
+    QUERY_PENDIENTE = q;
+    return;
+  }
   buscarArticulos(q, qn);
 }
 
@@ -280,12 +299,17 @@ document.addEventListener('DOMContentLoaded', () => {
   cargarIndice().catch(e => { console.error(e); diag('❌ Error: '+e.message,'error'); });
   const input = document.getElementById('searchInput');
   if (!input) return;
-  let timer=null;
+  let timer = null;
   input.addEventListener('input', () => {
     clearTimeout(timer);
-    const q=input.value.trim();
+    const q = input.value.trim();
     if (!q) { limpiar(); renderGrid(CATEGORIAS); return; }
-    timer=setTimeout(()=>ejecutarBusqueda(q), 350);
+    timer = setTimeout(() => ejecutarBusqueda(q), 350);
   });
-  input.addEventListener('keydown', e => { if(e.key==='Enter'){clearTimeout(timer);buscar();} });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      clearTimeout(timer);
+      buscar();
+    }
+  });
 });
