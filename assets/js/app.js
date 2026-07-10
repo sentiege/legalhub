@@ -140,7 +140,7 @@ function renderGrid(cats) {
   if (!grid) return;
   const filtradas = cats.filter(c => c.codigos && c.codigos.length);
   if (!filtradas.length) {
-    grid.innerHTML = '<div class="empty-state"><p>Sin resultados.</p></div>';
+    grid.innerHTML = '';
     return;
   }
   grid.innerHTML = filtradas.map(cat => `
@@ -158,16 +158,14 @@ function renderGrid(cats) {
   `).join('');
 }
 
-/* ── Búsqueda metadatos ── */
-function buscarMetadatos(qn) {
-  renderGrid(CATEGORIAS.map(cat => ({
-    ...cat,
-    codigos: cat.codigos.filter(c =>
-      norm(c.nombre).includes(qn) ||
-      norm(c.ley).includes(qn) ||
-      norm(c.descripcion).includes(qn)
-    )
-  })));
+/* ── Mostrar / ocultar grid ── */
+function mostrarGrid() {
+  const grid = document.getElementById('categorias-grid');
+  if (grid) grid.style.display = '';
+}
+function ocultarGrid() {
+  const grid = document.getElementById('categorias-grid');
+  if (grid) grid.style.display = 'none';
 }
 
 /* ── Limpiar ── */
@@ -185,7 +183,7 @@ function buscarArticulos(q, qn) {
   const matches = INDICE.filter(art =>
     norm(art.epigrafe).includes(qn) ||
     art.palabrasClave.some(k => norm(k).includes(qn)) ||
-    art.texto.some(t => norm(t).includes(qn))  // ← paréntesis cerrado
+    art.texto.some(t => norm(t).includes(qn))
   );
   console.log(`"${q}": ${matches.length} resultados de ${INDICE.length}`);
   if (!matches.length) {
@@ -278,7 +276,9 @@ function pintarArts(lista, arts, qn, rawQ, desde, hasta) {
 /* ── Ejecutar búsqueda ── */
 function ejecutarBusqueda(q) {
   const qn = norm(q);
-  limpiar(); buscarMetadatos(qn);
+  limpiar();
+  // Ocultar el grid de categorías mientras hay búsqueda activa
+  ocultarGrid();
   if (!LISTO) {
     setStatus('⏳ Cargando artículos… aparecerán automáticamente.');
     QUERY_PENDIENTE = q;
@@ -289,7 +289,7 @@ function ejecutarBusqueda(q) {
 
 function buscar() {
   const q = (document.getElementById('searchInput')?.value||'').trim();
-  if (!q) { limpiar(); renderGrid(CATEGORIAS); return; }
+  if (!q) { limpiar(); mostrarGrid(); renderGrid(CATEGORIAS); return; }
   ejecutarBusqueda(q);
 }
 
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
   input.addEventListener('input', () => {
     clearTimeout(timer);
     const q = input.value.trim();
-    if (!q) { limpiar(); renderGrid(CATEGORIAS); return; }
+    if (!q) { limpiar(); mostrarGrid(); renderGrid(CATEGORIAS); return; }
     timer = setTimeout(() => ejecutarBusqueda(q), 350);
   });
   input.addEventListener('keydown', e => {
