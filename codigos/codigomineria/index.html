@@ -159,7 +159,7 @@
     .player-speed::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-gold); cursor: pointer; }
     .player-speed-val { font-size: 10px; color: var(--accent-gold); min-width: 26px; text-align: right; }
     .player-voice-wrap { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
-    .player-voice-label { font-size: 10px; color: rgba(247,243,184,0.55); }
+    .player-voice-label { font-size: 10px; color: rgba(247,243,234,0.55); }
     .player-voice { font-size: 10px; padding: 2px 5px; border-radius: 6px; border: 1px solid rgba(148,163,184,0.35); background: rgba(15,23,42,0.5); color: #f7f3ea; cursor: pointer; max-width: 130px; }
     @media print {
       body { display: block !important; height: auto !important; overflow: visible !important; background: #fff !important; }
@@ -207,8 +207,8 @@
         <img class="sidebar-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" />
       </a>
       <a class="back-link" href="../../index.html">&#8592; Volver al Hub de Códigos</a>
-      <div class="app-title">Código de Minería</div>
-      <div class="app-subtitle">Ley N° 3180/2007 · República del Paraguay</div>
+      <div class="app-title" id="appTitle">Código de Minería</div>
+      <div class="app-subtitle" id="appSubtitle">Ley N° 3180/2007 · República del Paraguay</div>
       <div class="search-box">
         <input class="search-input" type="search" id="searchInput" placeholder="Buscar por artículo o palabra clave…" autocomplete="off" />
         <button class="search-clear" id="searchClear" type="button" title="Limpiar búsqueda">✕</button>
@@ -254,14 +254,14 @@
         <div class="print-header">
           <img class="print-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" />
           <div class="print-org">
-            <strong>Código de Minería del Paraguay</strong>
-            Ley N° 3180/2007 · República del Paraguay<br>
+            <strong id="printOrgName">Código de Minería del Paraguay</strong>
+            <span id="printOrgLaw">Ley N° 3180/2007 · República del Paraguay</span><br>
             Fuente: CSJ – IIJ, edición digital · JurisParaguay 2026
           </div>
         </div>
         <header class="article-header">
           <div class="article-number">—</div>
-          <h1 class="article-title">Código de Minería del Paraguay</h1>
+          <h1 class="article-title" id="mainTitle">Código de Minería del Paraguay</h1>
           <p class="article-subtitle">Seleccioná un capítulo del índice lateral para comenzar.</p>
         </header>
         <div class="article-body">
@@ -393,6 +393,17 @@
       return str.replace(re, '<mark class="search-highlight">$1</mark>');
     }
 
+    // Convierte una clave tipo "disposiciones_comunes_transitorias_y_finales"
+    // en un título legible: "Disposiciones Comunes Transitorias y Finales"
+    function humanize(key) {
+      const small = new Set(['y', 'de', 'del', 'la', 'los', 'las', 'en', 'el', 'a']);
+      return key.split('_').map((w, i) => {
+        const lw = w.toLowerCase();
+        if (i > 0 && small.has(lw)) return lw;
+        return lw.charAt(0).toUpperCase() + lw.slice(1);
+      }).join(' ');
+    }
+
     function deepExtractArticulos(node, ctx, out) {
       if (!node || typeof node !== 'object') return;
       if ('numero' in node && (node.texto || node.epigrafe !== undefined)) { out.push({ ...ctx, articulo: node }); return; }
@@ -442,11 +453,31 @@
 
     function buildFlat(data) {
       const raw = [];
+      const libroRoot = { id: 'libro-1', nombre: data.codigo || 'Código de Minería', numero: 1 };
       deepExtractArticulos(data, {
-        libro: { id: 'libro-1', nombre: 'Código de Minería', numero: 1 },
+        libro: libroRoot,
         titulo: { id: 'titulo-1', nombre: 'General', numero: 1 },
         capitulo: { id: 'cap-1', nombre: 'General', numero: 1 }
       }, raw);
+
+      // FIX: algunos JSON traen secciones finales (p. ej. "disposiciones_comunes_
+      // transitorias_y_finales") como un array de artículos suelto en el nivel
+      // raíz del documento, fuera de "titulos". Como deepExtractArticulos corta
+      // su recorrido apenas encuentra la clave "titulos", esas secciones nunca
+      // se recorrían y esos artículos desaparecían silenciosamente del lector.
+      // Acá los detectamos aparte y los sumamos como un grupo propio.
+      const KNOWN_TOP_KEYS = new Set(['codigo', 'ley', 'pais', 'fecha', 'titulos', 'libros', 'titulo', 'libro', 'capitulos', 'capitulo', 'articulos', 'articulo']);
+      Object.keys(data).forEach(key => {
+        if (KNOWN_TOP_KEYS.has(key)) return;
+        const val = data[key];
+        if (Array.isArray(val) && val.length && val.every(a => a && typeof a === 'object' && 'numero' in a)) {
+          const nombre = humanize(key);
+          const tituloMeta = { id: `extra-${key}`, nombre, numero: null, kicker: 'Sección' };
+          const capMeta = { id: `extra-${key}-c1`, nombre, numero: 1 };
+          val.forEach(art => raw.push({ libro: libroRoot, titulo: tituloMeta, capitulo: capMeta, articulo: art }));
+        }
+      });
+
       raw.sort((a, b) => (a.articulo.numero || 0) - (b.articulo.numero || 0));
       const seen = new Set();
       return raw.filter(e => { const n = e.articulo.numero; if (seen.has(n)) return false; seen.add(n); return true; });
@@ -466,7 +497,7 @@
       card.innerHTML = `
         ${ isPrimary ? `<div class="print-header">
           <img class="print-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" />
-          <div class="print-org"><strong>Código de Minería del Paraguay</strong><br>Ley N° 3180/2007 · República del Paraguay<br>Fuente: CSJ – IIJ · JurisParaguay 2026</div>
+          <div class="print-org"><strong>${codeFullTitle()}</strong><br>${codeSubtitle()}<br>Fuente: CSJ – IIJ · JurisParaguay 2026</div>
         </div>` : '' }
         <header class="article-header">
           <div class="article-number">Artículo ${articulo.numero}</div>
@@ -523,18 +554,19 @@
           if (!allArts.length) return;
 
           const block = document.createElement('section'); block.className = 'title-block';
-          const head = document.createElement('button'); head.className = 'title-head'; head.type = 'button';
-          head.innerHTML = `<div class="title-head-main"><span class="title-kicker">Título ${titulo.numero}</span><span class="title-name">${titulo.nombre}</span><span class="title-range">Arts. ${computeRango(allArts, '')}</span></div><span class="title-chevron">›</span>`;
-          head.addEventListener('click', () => block.classList.toggle('open'));
+          const head = document.createElement('button'); head.className = 'title-head'; head.type = 'button'; head.setAttribute('aria-expanded', 'false');
+          const kickerLabel = titulo.kicker ? titulo.kicker : `Título ${titulo.numero}`;
+          head.innerHTML = `<div class="title-head-main"><span class="title-kicker">${kickerLabel}</span><span class="title-name">${titulo.nombre}</span><span class="title-range">Arts. ${computeRango(allArts, '')}</span></div><span class="title-chevron">›</span>`;
+          head.addEventListener('click', () => { const open = block.classList.toggle('open'); head.setAttribute('aria-expanded', String(open)); });
           block.appendChild(head);
 
           const chList = document.createElement('div'); chList.className = 'chapter-list';
 
           caps.forEach(({ meta: cap, entries }) => {
             const capBlock = document.createElement('div'); capBlock.className = 'chapter-block';
-            const capHead = document.createElement('button'); capHead.className = 'chapter-head'; capHead.type = 'button';
+            const capHead = document.createElement('button'); capHead.className = 'chapter-head'; capHead.type = 'button'; capHead.setAttribute('aria-expanded', 'false');
             capHead.innerHTML = `<div class="chapter-head-main"><span class="chapter-name">Cap. ${cap.numero} — ${cap.nombre}</span><span class="chapter-range">Arts. ${computeRango(entries.map(e => e.articulo), '')}</span></div><span class="chapter-chevron">›</span>`;
-            capHead.addEventListener('click', () => capBlock.classList.toggle('open'));
+            capHead.addEventListener('click', () => { const open = capBlock.classList.toggle('open'); capHead.setAttribute('aria-expanded', String(open)); });
             capBlock.appendChild(capHead);
 
             const artGroupList = document.createElement('div'); artGroupList.className = 'art-group-list';
@@ -585,10 +617,38 @@
 
     function getHashArtNum() { const h = window.location.hash.replace('#art-', '').trim(); return h ? parseInt(h, 10) : null; }
     function setHashFromIdx(idx) { if (!FLAT.length) return; history.replaceState(null, '', '#art-' + FLAT[idx].articulo.numero); }
-    function savePosition(idx) { try { localStorage.setItem('cm_lastIdx', idx); } catch(e) {} }
-    function loadPosition() { try { return parseInt(localStorage.getItem('cm_lastIdx'), 10) || 0; } catch(e) { return 0; } }
+    // FIX: la clave de localStorage estaba fija ("cm_lastIdx"). Como todos los
+    // códigos de JurisParaguay comparten el mismo dominio/origen, esa clave se
+    // pisaba entre un código y otro (la última posición leída en Minería
+    // sobreescribía la de Civil, por ejemplo). Ahora se deriva del propio
+    // JSON (número de ley) para que cada código guarde su propia posición.
+    function storageKey() { return 'lastIdx_' + (DATA && DATA.ley ? DATA.ley : window.location.pathname); }
+    function savePosition(idx) { try { localStorage.setItem(storageKey(), idx); } catch(e) {} }
+    function loadPosition() { try { return parseInt(localStorage.getItem(storageKey()), 10) || 0; } catch(e) { return 0; } }
 
     const jsonUrl = new URL('codigo_minero_completo.json', window.location.href).href;
+
+    // Título/subtítulo se arman a partir del propio JSON (codigo/ley/pais) en
+    // vez de quedar escritos a mano, así esta misma plantilla sirve para
+    // cualquier otro código sin tener que retocar textos sueltos por HTML.
+    function codeFullTitle() {
+      if (DATA && DATA.codigo) return `${DATA.codigo}${DATA.pais ? ' del Paraguay' : ''}`;
+      return 'Código de Minería del Paraguay';
+    }
+    function codeSubtitle() {
+      if (DATA && DATA.ley) return `Ley N° ${DATA.ley} · República del ${DATA.pais || 'Paraguay'}`;
+      return 'Ley N° 3180/2007 · República del Paraguay';
+    }
+    function applyMeta() {
+      if (!DATA) return;
+      const fullTitle = codeFullTitle(), subtitle = codeSubtitle();
+      document.title = `${DATA.codigo || 'Código'} — JurisParaguay`;
+      const elAppTitle = document.getElementById('appTitle'); if (elAppTitle) elAppTitle.textContent = DATA.codigo || elAppTitle.textContent;
+      const elAppSub = document.getElementById('appSubtitle'); if (elAppSub) elAppSub.textContent = subtitle;
+      const elPrintName = document.getElementById('printOrgName'); if (elPrintName) elPrintName.textContent = fullTitle;
+      const elPrintLaw = document.getElementById('printOrgLaw'); if (elPrintLaw) elPrintLaw.textContent = subtitle;
+      const elMainTitle = document.getElementById('mainTitle'); if (elMainTitle) elMainTitle.textContent = fullTitle;
+    }
 
     async function loadData() {
       try {
@@ -596,6 +656,7 @@
         if (!res.ok) throw new Error('HTTP ' + res.status);
         DATA = await res.json();
         if (!DATA || typeof DATA !== 'object') throw new Error('JSON inválido.');
+        applyMeta();
         FLAT = buildFlat(DATA);
         if (!FLAT.length) throw new Error('No se encontraron artículos en el JSON.');
         renderSidebar(); initVoices();
