@@ -27,6 +27,8 @@ const CODIGOS = [
   { id:'codigo-aduanero',              nombre:'Código Aduanero',                         path:'codigos/codigoaduanero/codigo_aduanero_completo.json' },
   { id:'codigo-mineria',               nombre:'Código de Minería',                       path:'codigos/codigomineria/codigo_minero_completo.json' },
   { id:'codigo-sanitario',             nombre:'Código Sanitario',                        path:'codigos/codigosanitario/codigo_sanitario_completo.json' },
+  // NUEVO: Constitución Nacional en el índice global
+  { id:'constitucion-nacional',        nombre:'Constitución Nacional',                   path:'codigos/constitucion/constitucion_nacional.json' },
 ];
 const PREVIEW = 20;
 
@@ -177,7 +179,7 @@ function buscarArticulos(q, qn) {
   const matches = INDICE.filter(art =>
     norm(art.epigrafe).includes(qn) ||
     art.palabrasClave.some(k => norm(k).includes(qn)) ||
-    art.texto.some(t => norm(t).includes(qn))
+    art.texto.some(t => norm(t).includes(qn)
   );
   console.log(`"${q}": ${matches.length} resultados de ${INDICE.length}`);
   if (!matches.length) {
