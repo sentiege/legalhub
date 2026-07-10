@@ -138,30 +138,19 @@ function renderGrid(cats) {
   if (!grid) return;
   const filtradas = cats.filter(c => c.codigos && c.codigos.length);
   if (!filtradas.length) {
-    grid.innerHTML = `<div class="empty-state">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <p>Sin resultados en los metadatos.</p></div>`;
+    grid.innerHTML = '<div class="empty-state"><p>Sin resultados.</p></div>';
     return;
   }
   grid.innerHTML = filtradas.map(cat => `
-    <div class="cat-card">
-      <div class="cat-card__side" style="background:${cat.color}">
-        ${cat.svgIcon || ''}
-        <span class="cat-card__side-label">${esc(cat.nombre)}</span>
-      </div>
-      <div class="cat-card__body">
-        <div class="cat-card__title">${esc(cat.nombre)}</div>
-        <div class="cat-codigos">
-          ${cat.codigos.map(c => `
-            <a href="${c.internalUrl}" class="cat-codigo-link" data-id="${c.id}">
-              <span class="cat-codigo-ley">${esc(c.ley)}</span>
-              <span class="cat-codigo-info">
-                <span class="cat-codigo-nombre">${esc(c.nombre)}</span>
-                <span class="cat-codigo-desc">${esc((c.descripcion||'').substring(0,90))}</span>
-              </span>
-            </a>
-          `).join('')}
-        </div>
+    <div class="cat-section">
+      <div class="cat-section__title" style="background:${cat.color}">${esc(cat.nombre)}</div>
+      <div class="cat-list">
+        ${cat.codigos.map(c => `
+          <a href="${c.internalUrl}" class="cat-item" data-id="${c.id}">
+            <span class="cat-item__nombre">${esc(c.nombre)}</span>
+            <span class="cat-item__ley">${esc(c.ley)}</span>
+          </a>
+        `).join('')}
       </div>
     </div>
   `).join('');
