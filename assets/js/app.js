@@ -9,7 +9,6 @@ if ('serviceWorker' in navigator) {
     .catch(e => console.warn('SW no registrado:', e));
 }
 
-// URL base absoluta — hardcodeada para GitHub Pages
 const BASE_URL = 'https://sentiege.github.io/jurisparaguay';
 
 const JSON_CODIGOS = [
@@ -36,7 +35,7 @@ let indiceListoResolve;
 const indiceListoPromise = new Promise(res => { indiceListoResolve = res; });
 let cargaProgreso = { total: JSON_CODIGOS.length, listos: 0, fallidos: [] };
 
-/* ─── Utilidades ──────────────────────────────────────────── */
+/* ─── Utilidades ─────────────────────────────────────────── */
 function normalize(str) {
   return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
@@ -50,16 +49,38 @@ function highlight(str, query) {
   return escaped.replace(re, '<mark>$1</mark>');
 }
 
-/* ─── Extracción recursiva ─────────────────────────────────── */
-function extractArticulos(node, out) {
+/* ─── deepExtractArticulos ───────────────────────────────────
+   Misma lógica que usan los index.html individuales.
+   Maneja: titulos[] → capitulos[] → articulos[]
+   y cualquier variante de claves (libros, partes, secciones…)
+   ─────────────────────────────────────────────────────────── */
+const _LIBRO_KEYS  = ['libros','libro'];
+const _TITULO_KEYS = ['titulos','titulo','partes','parte','secciones','seccion','libros_internos'];
+const _CAP_KEYS    = ['capitulos','capitulo','subcapitulos','subcapitulo'];
+const _ART_KEYS    = ['articulos','articulo','arts','items','artículos'];
+
+function deepExtractArticulos(node, out) {
   if (!node || typeof node !== 'object') return;
+
+  // Nodo hoja: es un artículo
   if ('numero' in node && (node.texto !== undefined || node.epigrafe !== undefined)) {
-    out.push(node); return;
+    out.push(node);
+    return;
   }
+
+  // Intentar claves conocidas en orden de jerarquía
+  for (const k of [..._LIBRO_KEYS, ..._TITULO_KEYS, ..._CAP_KEYS, ..._ART_KEYS]) {
+    if (Array.isArray(node[k]) && node[k].length) {
+      node[k].forEach(child => deepExtractArticulos(child, out));
+      return;
+    }
+  }
+
+  // Fallback: recorrer todas las claves
   for (const key of Object.keys(node)) {
     const val = node[key];
-    if (Array.isArray(val)) val.forEach(child => extractArticulos(child, out));
-    else if (val && typeof val === 'object') extractArticulos(val, out);
+    if (Array.isArray(val))              val.forEach(child => deepExtractArticulos(child, out));
+    else if (val && typeof val === 'object') deepExtractArticulos(val, out);
   }
 }
 
@@ -113,7 +134,7 @@ function actualizarBarraProgreso() {
   }
 }
 
-/* ─── Diagnóstico visible en pantalla ─────────────────────── */
+/* ─── Diagnóstico visible en pantalla ───────────────────── */
 function mostrarDiag(msg, tipo = 'info') {
   let diag = document.getElementById('jp-diag');
   if (!diag) {
@@ -148,7 +169,7 @@ async function cargarIndiceGlobal() {
       if (!res.ok) throw new Error(`HTTP ${res.status} — ${url}`);
       const data = await res.json();
       const arts = [];
-      extractArticulos(data, arts);
+      deepExtractArticulos(data, arts);   // ← usa deepExtractArticulos
       cargaProgreso.listos++;
       actualizarBarraProgreso();
       return { cod, arts };
