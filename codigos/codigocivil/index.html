@@ -438,7 +438,6 @@
       if (!items.length) return;
       const paragraphs = Array.from(bodyEl.querySelectorAll('p'));
       items.forEach(item => {
-        // compatibilidad con formato antiguo (string suelto sin índice de párrafo)
         const isLegacy = typeof item === 'string';
         const txt = isLegacy ? item : item.text;
         if (!txt) return;
@@ -449,14 +448,12 @@
             p.innerHTML = p.innerHTML.replace(re, `<mark class="text-highlight" data-hl="${encodeURIComponent(txt)}">${txt}</mark>`);
           }
         } else {
-          // legacy: buscar en todos los párrafos
           paragraphs.forEach(p => {
             if (!p.textContent.includes(txt)) return;
             p.innerHTML = p.innerHTML.replace(re, `<mark class="text-highlight" data-hl="${encodeURIComponent(txt)}">${txt}</mark>`);
           });
         }
       });
-      // click en resaltado para quitarlo
       bodyEl.querySelectorAll('.text-highlight').forEach(el => {
         el.addEventListener('click', e => {
           e.stopPropagation();
@@ -493,7 +490,6 @@
       const sel = window.getSelection();
       if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
       const range = sel.getRangeAt(0);
-      // determinar en qué tarjeta (artículo) se hizo la selección, sin asumir que es la activa
       const startEl = range.startContainer.nodeType === 1 ? range.startContainer : range.startContainer.parentElement;
       const card = startEl ? startEl.closest('[data-art-num]') : null;
       if (!card) { sel.removeAllRanges(); return; }
@@ -504,7 +500,6 @@
       const nuevos = [];
       paragraphs.forEach((p, pIndex) => {
         if (!range.intersectsNode(p)) return;
-        // recortar la selección a lo que corresponde a este párrafo puntual
         const pRange = document.createRange();
         pRange.selectNodeContents(p);
         if (range.compareBoundaryPoints(Range.START_TO_START, pRange) > 0) pRange.setStart(range.startContainer, range.startOffset);
@@ -586,9 +581,7 @@
       const bodyHtml=textos.length?textos.map(p=>`<p>${p}</p>`).join(''):`<div class="article-empty"><div class="article-empty-icon">📄</div><p>El texto de este artículo aún no ha sido cargado en el JSON.</p></div>`;
       const marcarLabel = isMarked(articulo.numero) ? '🔖 Guardado' : '🔖 Marcar';
       card.innerHTML=`${isPrimary?`<div class="print-header"><img class="print-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'"/><div class="print-org"><strong>${codeFullTitle()}</strong><br>${codeSubtitle()}<br>Fuente: CSJ – IIJ · JurisParaguay 2026</div></div>`:''}<header class="article-header"><div class="article-number">Artículo ${articulo.numero}</div><h2 class="article-title">${articulo.epigrafe||`Artículo ${articulo.numero}`}</h2><p class="article-subtitle">${titulo.nombre} · Capítulo ${capitulo.numero} — ${capitulo.nombre}</p></header><div class="article-body">${bodyHtml}</div><footer class="article-footer"><div>Fuente: CSJ – IIJ · JurisParaguay 2026</div><button class="header-btn btn-marcar" type="button" style="font-size:11px;padding:4px 10px;">${marcarLabel}</button></footer>`;
-      // bind marcar button
       card.querySelector('.btn-marcar').addEventListener('click', () => { toggleMarcador(articulo.numero); });
-      // apply saved highlights
       applyResaltados(articulo.numero, card.querySelector('.article-body'));
       return card;
     }
@@ -662,8 +655,21 @@
       }
     }
     function initVoices() {
-      function populate() { voices=speechSynthesis.getVoices().filter(v=>v.lang.startsWith('es')); if(!voices.length) voices=speechSynthesis.getVoices(); playerVoice.innerHTML=''; voices.forEach((v,i)=>{ const opt=document.createElement('option'); opt.value=i; opt.textContent=v.name+(v.lang?` (${v.lang})`:'')); playerVoice.appendChild(opt); }); const pyIdx=voices.findIndex(v=>v.lang.startsWith('es-PY')), esIdx=voices.findIndex(v=>v.lang.startsWith('es')); playerVoice.selectedIndex=pyIdx>=0?pyIdx:(esIdx>=0?esIdx:0); }
-      if(speechSynthesis.onvoiceschanged!==undefined) speechSynthesis.onvoiceschanged=populate;
+      function populate() {
+        voices = speechSynthesis.getVoices().filter(v => v.lang.startsWith('es'));
+        if (!voices.length) voices = speechSynthesis.getVoices();
+        playerVoice.innerHTML = '';
+        voices.forEach((v, i) => {
+          const opt = document.createElement('option');
+          opt.value = i;
+          opt.textContent = v.name + (v.lang ? ` (${v.lang})` : '');
+          playerVoice.appendChild(opt);
+        });
+        const pyIdx = voices.findIndex(v => v.lang.startsWith('es-PY'));
+        const esIdx = voices.findIndex(v => v.lang.startsWith('es'));
+        playerVoice.selectedIndex = pyIdx >= 0 ? pyIdx : (esIdx >= 0 ? esIdx : 0);
+      }
+      if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = populate;
       populate();
     }
     function getSelectedVoice() { return voices[parseInt(playerVoice.value,10)]||null; }
