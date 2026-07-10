@@ -10,9 +10,7 @@
     /* ── Hero ── */
     .hero {
       background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-light) 100%);
-      color: #fff;
-      padding: 3.5rem 0 3rem;
-      text-align: center;
+      color: #fff; padding: 3.5rem 0 3rem; text-align: center;
     }
     .hero__logo { display:block; width:90%; max-width:580px; height:auto;
       margin:0 auto 1.2rem; filter:drop-shadow(0 4px 20px rgba(0,0,0,.3));
@@ -22,129 +20,107 @@
     .hero__tagline { font-size:clamp(.95rem,2.5vw,1.15rem); opacity:.85;
       font-style:italic; letter-spacing:.3px; margin-bottom:2rem; }
 
-    /* ── Grid re-diseñado ── */
+    /* ── Grid ── */
     .categorias-grid {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      padding: 2.5rem 0 3rem;
+      gap: .6rem;
+      padding: 2rem 0 3rem;
     }
 
-    /* Tarjeta horizontal */
+    /* Tarjeta horizontal compacta */
     .cat-card {
       display: flex;
       background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 1px 6px rgba(0,0,0,.07);
-      overflow: hidden;
+      border-radius: 6px;
       border: 1px solid var(--clr-border);
-      transition: box-shadow .2s;
+      overflow: hidden;
+      transition: box-shadow .15s;
     }
-    .cat-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.11); }
+    .cat-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.09); }
 
-    /* Franja lateral de color con ícono SVG */
+    /* Franja lateral */
     .cat-card__side {
-      width: 68px;
+      width: 8px;
       flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      padding: 1.2rem .4rem;
-      color: #fff;
-    }
-    .cat-card__side svg {
-      width: 22px;
-      height: 22px;
-      opacity: .9;
-    }
-    .cat-card__side-label {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      transform: rotate(180deg);
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      opacity: .75;
-      line-height: 1;
     }
 
-    /* Cuerpo de la tarjeta */
-    .cat-card__body {
-      flex: 1;
-      padding: .8rem 0;
-      min-width: 0;
-    }
+    /* Cuerpo */
+    .cat-card__body { flex:1; padding: .5rem 0; min-width:0; }
+
     .cat-card__title {
-      font-size: .78rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .72rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: .06em;
+      letter-spacing: .07em;
       color: var(--clr-text-muted);
-      padding: 0 1.2rem .6rem;
+      padding: .25rem .9rem .4rem;
       border-bottom: 1px solid var(--clr-border);
-      margin-bottom: .2rem;
+      margin-bottom: 0;
+    }
+    .cat-card__title svg {
+      width: 13px; height: 13px;
+      flex-shrink: 0;
+      opacity: .6;
     }
 
-    /* Lista de códigos en columnas */
+    /* Grid de códigos — 3 columnas en desktop */
     .cat-codigos {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
     }
+    @media (max-width: 900px) { .cat-codigos { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 540px) { .cat-codigos { grid-template-columns: 1fr; } }
+
+    /* Fila de código — una sola línea, sin descripción */
     .cat-codigo-link {
       display: flex;
-      align-items: flex-start;
-      gap: .75rem;
-      padding: .7rem 1.2rem;
+      align-items: center;
+      gap: .5rem;
+      padding: .38rem .9rem;
       text-decoration: none;
       color: inherit;
-      border-bottom: 1px solid #f4f4f4;
-      border-left: 3px solid transparent;
-      transition: border-left-color .15s, background .15s;
+      border-bottom: 1px solid #f2f2f2;
+      border-left: 2px solid transparent;
+      transition: border-left-color .12s, background .12s;
+      min-width: 0;
     }
     .cat-codigo-link:hover {
-      background: #fafbff;
+      background: #f7f9ff;
       border-left-color: var(--clr-accent);
     }
     .cat-codigo-link:last-child { border-bottom: none; }
+
     .cat-codigo-ley {
       flex-shrink: 0;
-      font-size: .68rem;
+      font-size: .62rem;
       font-weight: 700;
       color: var(--clr-accent);
       background: rgba(200,168,75,.1);
-      border: 1px solid rgba(200,168,75,.3);
-      border-radius: 4px;
-      padding: .15rem .45rem;
-      margin-top: .15rem;
+      border: 1px solid rgba(200,168,75,.28);
+      border-radius: 3px;
+      padding: .1rem .35rem;
       white-space: nowrap;
-      line-height: 1.4;
+      line-height: 1.5;
     }
-    .cat-codigo-info { display:flex; flex-direction:column; min-width:0; }
     .cat-codigo-nombre {
-      font-size: .88rem;
+      font-size: .82rem;
       font-weight: 600;
       color: var(--clr-text);
-      line-height: 1.35;
-    }
-    .cat-codigo-link:hover .cat-codigo-nombre { color: var(--clr-primary-light); }
-    .cat-codigo-desc {
-      font-size: .75rem;
-      color: var(--clr-text-muted);
-      margin-top: .2rem;
-      line-height: 1.45;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: 1.3;
     }
+    .cat-codigo-link:hover .cat-codigo-nombre { color: var(--clr-primary-light); }
 
     /* ── Empty state ── */
     .empty-state { text-align:center; padding:3rem 1rem; color:var(--clr-text-muted); }
-    .empty-state svg { width:48px; height:48px; opacity:.35; margin-bottom:.75rem; display:block; margin-inline:auto; }
 
-    /* ── Diagnóstico flotante ── */
+    /* ── Diagnóstico ── */
     #jp-diag { position:fixed; bottom:1rem; right:1rem; z-index:9999;
       max-width:360px; font-size:.78rem; font-family:monospace;
       display:flex; flex-direction:column; gap:.3rem; pointer-events:none; }
