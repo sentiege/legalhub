@@ -6,6 +6,7 @@
   <title>JurisParaguay — Derecho Paraguayo</title>
   <meta name="description" content="Plataforma de consulta de códigos legales vigentes del Paraguay para juristas y litigantes." />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/leyes.css" />
   <style>
     .hero {
       background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-light) 100%);
@@ -45,6 +46,48 @@
     <div id="resultados-container"></div>
   </main>
 
+  <!-- ══ SECCIÓN LEYES DEL CONGRESO ══════════════════════════════════════ -->
+  <section id="seccion-leyes">
+    <div class="container">
+      <h2 class="leyes__titulo">&#9878; Leyes del Congreso Nacional</h2>
+      <p class="leyes__subtitulo">
+        Listado de leyes promulgadas, actualizado diariamente desde el
+        <a href="https://datos.congreso.gov.py/opendata" target="_blank" rel="noopener">Portal de Datos Abiertos Legislativos</a>
+        del Congreso Nacional (CC BY 4.0).
+      </p>
+
+      <!-- Filtros -->
+      <div class="leyes-filtros" role="search" aria-label="Filtrar leyes">
+        <input
+          type="search"
+          id="leyes-buscar"
+          placeholder="Buscar por número o título…"
+          autocomplete="off"
+          aria-label="Buscar ley"
+        />
+        <select id="leyes-anio" aria-label="Filtrar por año">
+          <option value="">Todos los años</option>
+        </select>
+        <select id="leyes-tipo" aria-label="Filtrar por tipo de promulgación">
+          <option value="">Todos los tipos</option>
+          <option value="NORMAL">Promulgación normal</option>
+          <option value="AUTOMATICA">Promulgación automática</option>
+        </select>
+        <button id="leyes-buscar-btn" aria-label="Aplicar filtros">&#128269; Filtrar</button>
+      </div>
+
+      <p class="leyes-contador" id="leyes-contador" aria-live="polite"></p>
+      <p class="leyes-estado" id="leyes-estado">Cargando leyes del Congreso…</p>
+
+      <!-- Lista de tarjetas -->
+      <div class="leyes-lista" id="leyes-lista" role="list" aria-label="Listado de leyes"></div>
+
+      <!-- Paginación -->
+      <div id="leyes-paginacion" aria-label="Navegación de páginas"></div>
+    </div>
+  </section>
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+
   <footer class="footer">
     <div class="container">
       <p><strong>JurisParaguay</strong> — Herramienta de consulta para juristas y litigantes del derecho paraguayo.</p>
@@ -57,5 +100,6 @@
 
   <script src="assets/js/data.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/leyes.js"></script>
 </body>
 </html>
