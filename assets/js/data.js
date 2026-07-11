@@ -242,15 +242,6 @@ const CATEGORIAS = [
         internalUrl: 'codigos/codigoelectoral/index.html'
       },
       {
-        id: 'ley-1337',
-        esLey: true,
-        nombre: 'Ley Orgánica del Poder Ejecutivo',
-        ley: 'Ley N° 1337/99',
-        descripcion: 'Organiza la estructura del Poder Ejecutivo, los Ministerios, Secretarías y entidades del Estado central.',
-        links: [],
-        internalUrl: 'codigos/leyes/ley-1337/index.html'
-      },
-      {
         id: 'ley-1535',
         esLey: true,
         nombre: 'Ley de Administración Financiera del Estado',
@@ -393,7 +384,7 @@ const CATEGORIAS = [
       {
         id: 'ley-1863',
         esLey: true,
-        nombre: 'Estatuto Agrario',
+        nombre: 'Ley de Reforma Agraria (Estatuto Agrario)',
         ley: 'Ley N° 1863/02',
         descripcion: 'Regula el régimen de la tierra rural, la reforma agraria, el acceso a la tierra y las relaciones agrarias en el Paraguay.',
         links: [],
