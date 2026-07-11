@@ -1,0 +1,1180 @@
+{
+  "id": "ley-205-03",
+  "nombre": "Ley N° 205/03 – DE CONTRATACIONES PÚBLICAS",
+  "ley": "Ley N° 205/03",
+  "vigente": true,
+  "promulgacion": "12/12/2002",
+  "capitulos": [
+    {
+      "numero": "I",
+      "titulo": "DISPOSICIONES GENERALES",
+      "articulos": [
+        {
+          "numero": "1",
+          "epigrafe": "Objeto y ámbito de aplicación",
+          "texto": [
+            "Establece el Sistema de Contrataciones del Sector Público.",
+            "Regula planeamiento, programación, presupuesto, contratación, ejecución, erogación y control de adquisiciones y locaciones de bienes, servicios en general, consultoría, obras públicas y servicios relacionados.",
+            "Aplica a: a) Administración Central (Poderes Legislativo, Ejecutivo y Judicial, Contraloría, Defensoría, Procuraduría, Ministerio Público, Consejo de la Magistratura, Jurado de Enjuiciamiento de Magistrados); b) Gobiernos departamentales, universidades nacionales, entes autónomos, autárquicos, de regulación, empresas públicas y mixtas, sociedades anónimas con mayoría estatal, entidades financieras oficiales, Banca Central; c) Municipalidades.",
+            "Las entidades y municipalidades se sujetan a esta ley, sin perjuicio de sus leyes orgánicas en forma supletoria.",
+            "Los organismos se abstendrán de celebrar actos que evadan el cumplimiento de esta ley."
+          ],
+          "palabrasClave": ["objeto", "ámbito de aplicación", "contrataciones públicas", "sector público", "administración central", "municipalidades"]
+        },
+        {
+          "numero": "2",
+          "epigrafe": "Contrataciones excluidas",
+          "texto": [
+            "Servicios personales regulados por la Ley de la Función Pública.",
+            "Concesiones de obras y servicios públicos, permisos, licencias o autorizaciones para uso de bienes de dominio público.",
+            "Contrataciones por tratados internacionales o con fondos de organismos multilaterales de crédito (se aplica supletoriamente).",
+            "Actos, convenios y contratos entre organismos, entidades y municipalidades entre sí (excepto si se hace a través de un tercero particular).",
+            "Operaciones de crédito público, regulación monetaria, financiera y cambiaria.",
+            "Transporte de correo internacional e interno."
+          ],
+          "palabrasClave": ["exclusiones", "servicios personales", "concesiones", "tratados internacionales", "operaciones financieras"]
+        },
+        {
+          "numero": "3",
+          "epigrafe": "Definiciones",
+          "texto": [
+            "Adquisiciones: acto jurídico oneroso que transfiere la propiedad de un bien mueble o inmueble.",
+            "Auditoría General: auditorías del Poder Ejecutivo, Legislativo, Judicial, internas y municipales.",
+            "Bienes: muebles e inmuebles por naturaleza, destino o disposición legal.",
+            "Contratación Pública: acuerdo, convenio o declaración de voluntad común a título oneroso.",
+            "Contratante: organismo, entidad o municipalidad que suscribe contratos.",
+            "Contratista: persona física o jurídica que suscribe contratos de obras, locaciones o servicios.",
+            "Convocante: organismo, entidad o municipalidad que inicia procedimientos de contratación.",
+            "Consultor: persona física o jurídica que presta servicios profesionales de consultoría.",
+            "Entidades: mencionadas en inciso b) del Artículo 1.",
+            "Ley: esta Ley de Contrataciones Públicas.",
+            "Locador: persona que concede uso o goce temporal de bienes.",
+            "Locaciones: actos jurídicos para uso y goce temporal de bienes.",
+            "Licitante: convoca a participar en procedimientos de adjudicación.",
+            "Municipalidades: consideradas en la Ley Orgánica Municipal.",
+            "Oferente: persona que presenta oferta para vender, realizar obra, dar en locación o suministrar servicio.",
+            "Obras Públicas: construcción, reconstrucción, demolición, reparación, instalación, ampliación, remodelación, restauración, conservación, mantenimiento, modificación o renovación.",
+            "Organismos: entes del inciso a) del Artículo 1.",
+            "Protesta: presentación para manifestar, denunciar o impugnar actos ante la UCNT.",
+            "Proveedor: persona que suscribe contrato para provisión o locación de bienes o servicios.",
+            "Reglamento: reglamento de la ley establecido por el Poder Ejecutivo.",
+            "Servicios en General: servicios de cualquier naturaleza.",
+            "Servicios relacionados con Obras Públicas: trabajos de concepción, diseño, cálculo, investigación, estudios, asesorías, consultorías, dirección o supervisión.",
+            "Sistema de Información de las Contrataciones Públicas (SICP): sistema informático que automatiza los procesos de contrataciones.",
+            "Unidad Central Normativa y Técnica (UCNT): unidad administrativa facultada para dictar disposiciones.",
+            "Unidades Operativas de Contratación (UOC): unidades que ejecutan los procedimientos."
+          ],
+          "palabrasClave": ["definiciones", "SICP", "UCNT", "UOC", "obra pública", "contratista", "proveedor"]
+        },
+        {
+          "numero": "4",
+          "epigrafe": "Principios generales",
+          "texto": [
+            "Economía y Eficiencia: planificar para satisfacer necesidades con oportunidad, calidad y costo.",
+            "Igualdad y Libre Competencia: participación sin restricción en igualdad de oportunidades.",
+            "Transparencia y Publicidad: acceso a información de todo el proceso.",
+            "Simplificación y Modernización Administrativa: acceso sencillo y transparente.",
+            "Desconcentración de Funciones: resolver en los lugares donde se originan."
+          ],
+          "palabrasClave": ["principios", "economía", "eficiencia", "igualdad", "libre competencia", "transparencia", "publicidad", "modernización"]
+        },
+        {
+          "numero": "5",
+          "epigrafe": "Autoridad normativa",
+          "texto": [
+            "Crea la Unidad Central Normativa y Técnica (UCNT), dependiente de la Subsecretaría de Administración Financiera del Ministerio de Hacienda.",
+            "Dicta disposiciones administrativas para el cumplimiento de la ley y su reglamento.",
+            "Atribuciones: dictar normas generales, diseñar políticas, crear y mantener el SICP, asesorar y capacitar a las UOC, realizar revisiones técnico-normativas, sancionar proveedores, mantener registro de inhabilitados, realizar procedimientos de avenimiento, fomentar capacitación."
+          ],
+          "palabrasClave": ["UCNT", "autoridad normativa", "Ministerio de Hacienda", "SICP", "sanciones", "registro"]
+        },
+        {
+          "numero": "6",
+          "epigrafe": "Unidades Operativas de Contratación",
+          "texto": [
+            "Los organismos, entidades o municipalidades pueden constituir más de una UOC.",
+            "Mantienen relación funcional y técnica con la UCNT."
+          ],
+          "palabrasClave": ["UOC", "unidades operativas", "desconcentración"]
+        },
+        {
+          "numero": "7",
+          "epigrafe": "Fomento a las micro, pequeñas y medianas empresas",
+          "texto": [
+            "Los organismos, entidades y municipalidades deben promover la participación de empresas nacionales, especialmente micro, pequeñas y medianas."
+          ],
+          "palabrasClave": ["MIPYMES", "fomento", "empresas nacionales"]
+        },
+        {
+          "numero": "8",
+          "epigrafe": "Legislación supletoria",
+          "texto": [
+            "En todo lo no previsto: Código Civil, Ley de Procedimiento Contencioso Administrativo y Código Procesal Civil."
+          ],
+          "palabrasClave": ["legislación supletoria", "Código Civil", "contencioso administrativo"]
+        },
+        {
+          "numero": "9",
+          "epigrafe": "Régimen de solución de controversias",
+          "texto": [
+            "Las controversias pueden resolverse por arbitraje conforme a la Ley de Arbitraje y Mediación.",
+            "Debe constar cláusula compromisoria en el contrato o convenio independiente.",
+            "Sin perjuicio de protestas ante la UCNT o solicitudes de avenimiento."
+          ],
+          "palabrasClave": ["arbitraje", "controversias", "cláusula compromisoria", "avenimiento"]
+        },
+        {
+          "numero": "10",
+          "epigrafe": "Nulidad de los actos, contratos y convenios",
+          "texto": [
+            "Los actos, contratos y convenios en contravención a la ley y su reglamento serán nulos, previa determinación de la autoridad competente."
+          ],
+          "palabrasClave": ["nulidad", "contravención", "actos nulos"]
+        }
+      ]
+    },
+    {
+      "numero": "II",
+      "titulo": "DEL PLANEAMIENTO, PROGRAMACIÓN Y PRESUPUESTO",
+      "subtitulo": "Capítulo Único",
+      "articulos": [
+        {
+          "numero": "11",
+          "epigrafe": "Planeamiento de las contrataciones",
+          "texto": [
+            "Deben ajustarse a: a) objetivos, metas, prioridades del Plan Estratégico; b) previsiones del Presupuesto General de la Nación; c) calendarización de recursos presupuestarios."
+          ],
+          "palabrasClave": ["planeamiento", "plan estratégico", "presupuesto", "calendarización"]
+        },
+        {
+          "numero": "12",
+          "epigrafe": "Programa Anual de Contrataciones",
+          "texto": [
+            "Elaborado antes del 28 de febrero de cada año.",
+            "Debe ser puesto a disposición en oficinas y en el SICP.",
+            "No constituye compromiso de contratación, pero es obligatorio para ejecución del presupuesto.",
+            "Puede ser adicionado, modificado, suspendido o cancelado por causas justificadas."
+          ],
+          "palabrasClave": ["programa anual", "contrataciones", "SICP", "presupuesto"]
+        },
+        {
+          "numero": "13",
+          "epigrafe": "Consolidación de las adquisiciones",
+          "texto": [
+            "Las UOC pueden consolidar requerimientos de bienes y servicios de uso generalizado para mejores condiciones de calidad, precio y oportunidad."
+          ],
+          "palabrasClave": ["consolidación", "adquisiciones", "UOC"]
+        },
+        {
+          "numero": "14",
+          "epigrafe": "Disponibilidad presupuestaria",
+          "texto": [
+            "No puede comprometerse pago no previsto en el presupuesto.",
+            "Solo se adjudican contratos con saldo disponible en la partida presupuestaria.",
+            "Se puede señalar en pliegos que la validez queda sujeta a aprobación de partida."
+          ],
+          "palabrasClave": ["disponibilidad presupuestaria", "partida presupuestaria", "adjudicación"]
+        },
+        {
+          "numero": "15",
+          "epigrafe": "Estimación de costo",
+          "texto": [
+            "Se realiza estimación del costo para determinar procedimiento y afectación de créditos.",
+            "Incluye: costo principal, mantenimiento, refacciones, insumos, fletes, seguros, comisiones, costos financieros, tributos, derechos, primas.",
+            "Para contratos de plazo superior a 2 ejercicios: pago mensual x 24.",
+            "Para obras: todo el plazo de duración.",
+            "Se debe contar con estudios, diseños, planos, especificaciones, programación, presupuestos."
+          ],
+          "palabrasClave": ["estimación de costo", "presupuesto", "contratos", "obras públicas", "estudios previos"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DE LOS PROCEDIMIENTOS DE CONTRATACIÓN",
+      "subtitulo": "Capítulo I - Generalidades",
+      "articulos": [
+        {
+          "numero": "16",
+          "epigrafe": "Tipos de procedimientos",
+          "texto": [
+            "Licitación Pública: para contrataciones que superen 10,000 jornales mínimos.",
+            "Licitación por Concurso de Ofertas: entre 2,000 y 10,000 jornales mínimos.",
+            "Contratación Directa: inferior a 2,000 jornales mínimos.",
+            "Con Fondo Fijo: para adquisiciones menores según Artículo 35.",
+            "Prohibido fraccionar o subdividir para eludir tipos de procedimientos.",
+            "Deben establecerse mismos requisitos para todos.",
+            "Las convocantes deben comunicar a la UCNT a través del SICP."
+          ],
+          "palabrasClave": ["procedimientos", "licitación pública", "concurso de ofertas", "contratación directa", "fondo fijo", "jornales mínimos"]
+        },
+        {
+          "numero": "17",
+          "epigrafe": "Modalidades complementarias",
+          "texto": [
+            "Se pueden introducir: precalificación, procedimientos con dos o más etapas, subasta a la baja, financiamiento del proveedor, etc."
+          ],
+          "palabrasClave": ["modalidades complementarias", "precalificación", "subasta", "financiamiento"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DE LOS PROCEDIMIENTOS DE CONTRATACIÓN",
+      "subtitulo": "Capítulo II - De la licitación pública",
+      "articulos": [
+        {
+          "numero": "18",
+          "epigrafe": "Clasificación de las licitaciones públicas",
+          "texto": [
+            "Nacionales: solo personas domiciliadas en el país.",
+            "Internacionales: personas domiciliadas y no domiciliadas.",
+            "Causales para internacional: obligación por tratados, convenios de empréstito, inexistencia de oferta nacional, o cuando no se presente oferta en licitación nacional.",
+            "Preferencia del 10% para bienes con contenido nacional superior al 50%."
+          ],
+          "palabrasClave": ["licitación nacional", "licitación internacional", "tratados", "preferencia nacional", "10%"]
+        },
+        {
+          "numero": "19",
+          "epigrafe": "Convocatorias o llamados a licitación pública",
+          "texto": [
+            "Se publican en diario de circulación nacional mínimo 3 días y en órgano oficial.",
+            "La resolución se publica íntegramente en el SICP.",
+            "Contiene: nombre, descripción, clasificación, fuente de financiamiento, costo, lugar y fechas de juntas y apertura, lugar y plazo de entrega, forma de pago, moneda, prohibiciones, etc."
+          ],
+          "palabrasClave": ["convocatorias", "publicación", "SICP", "requisitos de convocatoria"]
+        },
+        {
+          "numero": "20",
+          "epigrafe": "Bases o pliegos de requisitos de la licitación pública",
+          "texto": [
+            "Requisito indispensable: pago de derechos (30% menos por SICP).",
+            "Contenido mínimo: nombre, forma de acreditar personalidad, fechas de apertura, idioma (castellano), moneda, criterios de evaluación, descripción de bienes, plazo y condiciones de entrega, forma de presentación, condiciones de precio y pago, métodos de reajuste, garantías, penalidades, pro-forma de contrato, declaratoria de integridad.",
+            "No se pueden exigir requisitos distintos a los señalados por la ley.",
+            "Especificaciones técnicas con mayor amplitud para mayor concurrencia."
+          ],
+          "palabrasClave": ["bases", "pliegos de requisitos", "SICP", "declaratoria de integridad", "especificaciones técnicas"]
+        },
+        {
+          "numero": "21",
+          "epigrafe": "Plazos de la licitación pública",
+          "texto": [
+            "Licitación pública nacional: 20 días calendario.",
+            "Licitación pública internacional: 40 días calendario."
+          ],
+          "palabrasClave": ["plazos", "20 días", "40 días", "licitación nacional", "licitación internacional"]
+        },
+        {
+          "numero": "22",
+          "epigrafe": "Modificaciones a las bases de la licitación",
+          "texto": [
+            "Se pueden modificar hasta el quinto día hábil previo a la apertura.",
+            "Se publican por los mismos medios.",
+            "No pueden sustituir bienes, obras o servicios convocados originalmente."
+          ],
+          "palabrasClave": ["modificaciones", "bases", "publicación", "quinto día hábil"]
+        },
+        {
+          "numero": "23",
+          "epigrafe": "Junta de aclaraciones",
+          "texto": [
+            "Las convocantes pueden celebrar juntas de aclaraciones.",
+            "Hasta 5 días hábiles previos a la apertura.",
+            "Las respuestas constan en acta y forman parte de las bases."
+          ],
+          "palabrasClave": ["junta de aclaraciones", "acta", "bases", "5 días hábiles"]
+        },
+        {
+          "numero": "24",
+          "epigrafe": "Presentación y apertura de ofertas",
+          "texto": [
+            "Las ofertas técnicas y económicas se entregan en sobre cerrado.",
+            "Se pueden entregar directamente, por mensajería, correo o a través del SICP.",
+            "La apertura es un acto formal y público.",
+            "Se verifica cumplimiento de requisitos formales."
+          ],
+          "palabrasClave": ["presentación", "apertura", "ofertas", "sobre cerrado", "SICP", "acto público"]
+        },
+        {
+          "numero": "25",
+          "epigrafe": "Oferentes en consorcio",
+          "texto": [
+            "Pueden participar oferentes en consorcio sin crear persona jurídica.",
+            "Deben precisar partes a que cada uno se obliga y solidaridad.",
+            "Designan un gestor como líder."
+          ],
+          "palabrasClave": ["consorcio", "gestor", "solidaridad", "oferentes"]
+        },
+        {
+          "numero": "26",
+          "epigrafe": "Evaluación de las ofertas",
+          "texto": [
+            "Se lleva a cabo por comités de evaluación según metodología y parámetros.",
+            "No se evalúan condiciones para facilitar presentación.",
+            "Defectos de forma pueden subsanarse.",
+            "No se pueden usar mecanismos de puntos o porcentajes excepto en servicios.",
+            "Se utilizan criterios combinados (transporte, plazos, costos de operación)."
+          ],
+          "palabrasClave": ["evaluación", "comités de evaluación", "criterios combinados", "subsanación", "puntos"]
+        },
+        {
+          "numero": "27",
+          "epigrafe": "Comités de Evaluación",
+          "texto": [
+            "Las convocantes constituyen un Comité de Evaluación.",
+            "Evalúan ofertas y emiten dictamen para adjudicación.",
+            "Intentar influir en la decisión es falta grave."
+          ],
+          "palabrasClave": ["comité de evaluación", "dictamen", "falta grave", "independencia"]
+        },
+        {
+          "numero": "28",
+          "epigrafe": "Adjudicación",
+          "texto": [
+            "Se adjudica al participante con oferta solvente que cumpla requisitos.",
+            "Si dos o más ofertas son solventes, se adjudica al precio más bajo.",
+            "La máxima autoridad resuelve la adjudicación.",
+            "Plazo máximo: 20 días calendario desde la apertura, prorrogable por 20 días.",
+            "Se notifica por acto público o por escrito a cada participante."
+          ],
+          "palabrasClave": ["adjudicación", "precio más bajo", "máxima autoridad", "20 días", "notificación"]
+        },
+        {
+          "numero": "29",
+          "epigrafe": "Notificación de los actos",
+          "texto": [
+            "Las copias de actas se ponen a disposición en las UOC y en el SICP.",
+            "Sustituye a la notificación personal."
+          ],
+          "palabrasClave": ["notificación", "actas", "SICP", "UOC"]
+        },
+        {
+          "numero": "30",
+          "epigrafe": "Declaración de licitación desierta",
+          "texto": [
+            "Se declara desierta por: a) no presentación de ofertas; b) ofertas que no reúnen condiciones; c) precios inaceptables.",
+            "Se puede convocar a nuevo procedimiento modificando bases.",
+            "Si segunda vez desierta, se puede adjudicar directamente."
+          ],
+          "palabrasClave": ["licitación desierta", "precios inaceptables", "segunda convocatoria", "adjudicación directa"]
+        },
+        {
+          "numero": "31",
+          "epigrafe": "Cancelación de la licitación",
+          "texto": [
+            "Por caso fortuito o fuerza mayor.",
+            "Por extinción de la necesidad o posible daño.",
+            "La UCNT puede ordenar cancelación por resolución de protesta.",
+            "Los oferentes no tienen derecho a reembolso ni indemnización."
+          ],
+          "palabrasClave": ["cancelación", "caso fortuito", "fuerza mayor", "UCNT", "sin indemnización"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DE LOS PROCEDIMIENTOS DE CONTRATACIÓN",
+      "subtitulo": "Capítulo III - De la licitación por concurso de ofertas",
+      "articulos": [
+        {
+          "numero": "32",
+          "epigrafe": "Regulación",
+          "texto": [
+            "Aplica disposiciones del Capítulo II, excepto publicación en medios impresos.",
+            "Se pueden reducir plazos hasta en 50%.",
+            "Se invita directamente a no menos de 5 participantes.",
+            "Se publica simultáneamente en el SICP."
+          ],
+          "palabrasClave": ["concurso de ofertas", "plazos reducidos", "5 participantes", "SICP"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DE LOS PROCEDIMIENTOS DE CONTRATACIÓN",
+      "subtitulo": "Capítulo IV - De las excepciones a la licitación",
+      "articulos": [
+        {
+          "numero": "33",
+          "epigrafe": "Casos de excepción",
+          "texto": [
+            "Contrato solo con determinada persona (arte, patentes, derechos de autor).",
+            "Desastres por fenómenos naturales que peligren orden social, economía, servicios, salubridad, seguridad o ambiente.",
+            "Fines de garantizar seguridad de la Nación.",
+            "Caso fortuito o fuerza mayor.",
+            "Rescisión de contrato por causa imputable al proveedor (se puede adjudicar al siguiente con precio hasta 10% superior).",
+            "Dos licitaciones declaradas desiertas.",
+            "Razones técnicas o urgencias impostergables.",
+            "Dación en pago a favor del Estado."
+          ],
+          "palabrasClave": ["excepciones", "contratación directa", "desastres", "seguridad nacional", "urgencias", "dación en pago"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DE LOS PROCEDIMIENTOS DE CONTRATACIÓN",
+      "subtitulo": "Capítulo V - Contratación directa",
+      "articulos": [
+        {
+          "numero": "34",
+          "epigrafe": "Procedimiento",
+          "texto": [
+            "Se invita por escrito y SICP a potenciales oferentes.",
+            "Apertura puede hacerse sin presencia de oferentes.",
+            "Mínimo 3 ofertas, salvo imposibilidad justificada.",
+            "Se indican: cantidad, descripción, especificaciones, plazo, lugar, condiciones de pago.",
+            "Plazos según tipo de bienes.",
+            "Se debe contar con especificaciones técnicas y presupuesto referencial."
+          ],
+          "palabrasClave": ["contratación directa", "3 ofertas", "SICP", "presupuesto referencial"]
+        },
+        {
+          "numero": "35",
+          "epigrafe": "Contrataciones con fondos fijos",
+          "texto": [
+            "Para erogaciones de cuantía y naturaleza que no necesitan procedimientos.",
+            "Máximo 20 jornales mínimos por operación.",
+            "No para pagar cuentas anteriores, adquirir activos fijos o inventarios.",
+            "Deben respetar principios del Artículo 4."
+          ],
+          "palabrasClave": ["fondos fijos", "20 jornales mínimos", "activos fijos", "principios"]
+        }
+      ]
+    },
+    {
+      "numero": "IV",
+      "titulo": "DE LOS CONTRATOS",
+      "subtitulo": "Capítulo I - De los requisitos para contratar",
+      "articulos": [
+        {
+          "numero": "36",
+          "epigrafe": "Plazo para la formalización de contratos",
+          "texto": [
+            "El contrato debe formalizarse dentro de los 20 días hábiles siguientes a la notificación.",
+            "Si el interesado no firma, se puede adjudicar al siguiente oferente (precio hasta 10% superior).",
+            "Se hace efectiva la garantía de sostenimiento de oferta.",
+            "Si la UOC no suscribe por causas imputables, no se obliga al oferente.",
+            "El atraso en formalización prorroga el plazo de cumplimiento."
+          ],
+          "palabrasClave": ["formalización", "20 días hábiles", "garantía de sostenimiento", "10% superior"]
+        },
+        {
+          "numero": "37",
+          "epigrafe": "Requisitos de los contratos",
+          "texto": [
+            "Identificación del crédito presupuestario.",
+            "Procedimiento de adjudicación.",
+            "Precio unitario y total.",
+            "Plazo, lugar y condiciones.",
+            "Programa de ejecución.",
+            "Porcentaje y fechas de anticipos.",
+            "Garantías.",
+            "Penas convencionales.",
+            "Descripción pormenorizada.",
+            "Causales de terminación.",
+            "Mecanismos de solución de controversias.",
+            "En consultorías, los derechos de autor son de la contratante."
+          ],
+          "palabrasClave": ["requisitos", "crédito presupuestario", "garantías", "penas convencionales", "derechos de autor"]
+        },
+        {
+          "numero": "38",
+          "epigrafe": "Supuestos de la subcontratación",
+          "texto": [
+            "Solo cuando las bases o el contrato lo permitan o la contratante lo autorice.",
+            "El subcontratista solo tiene derechos frente al proveedor principal.",
+            "El contratista principal responde siempre frente a la contratante.",
+            "Las obligaciones subcontratadas son solidarias."
+          ],
+          "palabrasClave": ["subcontratación", "solidaridad", "contratista principal"]
+        },
+        {
+          "numero": "39",
+          "epigrafe": "Garantías",
+          "texto": [
+            "Garantía de mantenimiento de oferta: 3-5% del monto total.",
+            "Garantía de anticipos: totalidad del monto.",
+            "Garantía de cumplimiento: 5-10% del monto total.",
+            "En obra pública: 5% de cada pago para fondo de reparos (devuelto a los 10 días de recepción).",
+            "Plazo para garantía de cumplimiento: 10 días calendario desde firma de contrato.",
+            "Falta de garantía es causal de rescisión."
+          ],
+          "palabrasClave": ["garantías", "mantenimiento de oferta", "cumplimiento", "anticipos", "fondo de reparos", "5%"]
+        },
+        {
+          "numero": "40",
+          "epigrafe": "Prohibiciones y limitaciones para presentar propuestas o para contratar",
+          "texto": [
+            "Funcionarios que intervienen en el procedimiento con interés personal.",
+            "Quienes conforme a la Ley de la Función Pública estén imposibilitados.",
+            "Oferentes con más de 1 rescisión en 2 años.",
+            "Inhabilitados por la UCNT.",
+            "En mora en entregas o servicios.",
+            "En convocatoria de acreedores, quiebra o liquidación.",
+            "Más de 1 oferta sobre misma partida.",
+            "Que hayan realizado trabajos de análisis, especificaciones o presupuestos.",
+            "Con conflictos de interés en fiscalizaciones.",
+            "Sin derechos de propiedad intelectual.",
+            "En mora como deudores del fisco o seguridad social.",
+            "Impedidos por disposición judicial o legal."
+          ],
+          "palabrasClave": ["prohibiciones", "conflicto de intereses", "inhabilitados", "rescisión", "mora", "quiebra"]
+        },
+        {
+          "numero": "41",
+          "epigrafe": "Contribución sobre contratos suscriptos",
+          "texto": [
+            "Retención del 0.5% sobre cada factura o certificado de obra.",
+            "Destinado al SICP.",
+            "Depositado en el Ministerio de Hacienda en cuenta especial."
+          ],
+          "palabrasClave": ["contribución", "0.5%", "SICP", "Ministerio de Hacienda"]
+        }
+      ]
+    },
+    {
+      "numero": "IV",
+      "titulo": "DE LOS CONTRATOS",
+      "subtitulo": "Capítulo II - De las contrataciones especiales",
+      "secciones": [
+        {
+          "nombre": "Del régimen de la obra pública",
+          "articulos": [
+            {
+              "numero": "42",
+              "epigrafe": "Régimen de la obra pública",
+              "texto": [
+                "Se aplica lo que dispone esta ley y su reglamento.",
+                "La Ley N° 1533/2000 se aplica solo para: responsabilidades (Arts. 40, 41), medición y pago (Arts. 42, 43), ejecución y recepción (Arts. 44, 45), fiscalización (Art. 46)."
+              ],
+              "palabrasClave": ["obra pública", "Ley 1533/2000", "responsabilidades", "fiscalización"]
+            }
+          ]
+        },
+        {
+          "nombre": "De la adquisición de bienes inmuebles",
+          "articulos": [
+            {
+              "numero": "43",
+              "epigrafe": "Procedimiento",
+              "texto": [
+                "Cuando sea el único idóneo, se prescinde de licitación y se inicia expropiación.",
+                "La adquisición en el extranjero se somete a leyes del lugar."
+              ],
+              "palabrasClave": ["bienes inmuebles", "expropiación", "utilidad pública"]
+            }
+          ]
+        },
+        {
+          "nombre": "De la locación de bienes inmuebles",
+          "articulos": [
+            {
+              "numero": "44",
+              "epigrafe": "Disposiciones generales",
+              "texto": [
+                "Canon mensual > 1,000 jornales mínimos: licitación pública.",
+                "Canon mensual < 1,000 jornales mínimos: adjudicación directa."
+              ],
+              "palabrasClave": ["locación", "bienes inmuebles", "1.000 jornales", "licitación pública"]
+            },
+            {
+              "numero": "45",
+              "epigrafe": "Terminación de contratos",
+              "texto": [
+                "Las contratantes pueden dar por terminados unilateralmente con 30 días calendario de anticipación."
+              ],
+              "palabrasClave": ["terminación unilateral", "30 días", "locación"]
+            },
+            {
+              "numero": "46",
+              "epigrafe": "Reajuste de canon en contratos con particulares",
+              "texto": [
+                "Se puede prever reajuste anual no superior a la variación del índice de precios del costo de la vivienda del BCP."
+              ],
+              "palabrasClave": ["reajuste", "canon", "IPC", "BCP"]
+            },
+            {
+              "numero": "47",
+              "epigrafe": "Renovación de los contratos",
+              "texto": [
+                "Se pueden renovar hasta por 2 periodos consecutivos."
+              ],
+              "palabrasClave": ["renovación", "2 periodos", "locación"]
+            }
+          ]
+        },
+        {
+          "nombre": "Locación de bienes muebles",
+          "articulos": [
+            {
+              "numero": "48",
+              "epigrafe": "Procedimiento aplicable",
+              "texto": [
+                "Se sigue licitación pública, concurso de ofertas o adjudicación directa según montos."
+              ],
+              "palabrasClave": ["bienes muebles", "leasing", "locación"]
+            },
+            {
+              "numero": "49",
+              "epigrafe": "Arrendamientos financieros o leasing",
+              "texto": [
+                "Se deben realizar estudios de factibilidad.",
+                "Al cumplimiento se decide la adquisición al valor residual."
+              ],
+              "palabrasClave": ["leasing", "arrendamiento financiero", "estudios de factibilidad"]
+            },
+            {
+              "numero": "50",
+              "epigrafe": "Cuantificación de la locación",
+              "texto": [
+                "Con opción de compra: valor mensual x tiempo de duración.",
+                "Sin opción de compra con renovación automática: total de alquileres de 24 meses."
+              ],
+              "palabrasClave": ["cuantificación", "leasing", "24 meses"]
+            }
+          ]
+        },
+        {
+          "nombre": "Contratación de servicios de terceros",
+          "articulos": [
+            {
+              "numero": "51",
+              "epigrafe": "Procedimiento de contratación de servicios de terceros",
+              "texto": [
+                "Se contratan mediante procedimientos del Artículo 16 según umbrales."
+              ],
+              "palabrasClave": ["servicios de terceros", "contratación"]
+            },
+            {
+              "numero": "52",
+              "epigrafe": "Relaciones laborales",
+              "texto": [
+                "No origina relación de empleo público entre el organismo y el proveedor."
+              ],
+              "palabrasClave": ["relaciones laborales", "no empleo público"]
+            }
+          ]
+        },
+        {
+          "nombre": "Contratación de servicios de consultoría",
+          "articulos": [
+            {
+              "numero": "53",
+              "epigrafe": "De la contratación de consultoría",
+              "texto": [
+                "Se basa en méritos, aptitudes, especialización, experiencia, honorabilidad y capacidad técnica.",
+                "No requieren garantía de mantenimiento ni cumplimiento, pero sí seguro de responsabilidad profesional.",
+                "Contienen cláusulas de prohibición de reemplazo del personal clave."
+              ],
+              "palabrasClave": ["consultoría", "méritos", "seguro de responsabilidad", "personal clave"]
+            },
+            {
+              "numero": "54",
+              "epigrafe": "Utilización de criterios de evaluación",
+              "texto": [
+                "En calidad y costo: criterios técnicos y financieros.",
+                "En calidad: para servicios de suma complejidad (precio = 0).",
+                "En precio: para consultorías simples.",
+                "En presupuesto fijo: calificación solo técnico-profesional.",
+                "En antecedentes del Consultor: para contrataciones de menor cuantía."
+              ],
+              "palabrasClave": ["evaluación consultoría", "calidad y costo", "presupuesto fijo", "antecedentes"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": "IV",
+      "titulo": "DE LOS CONTRATOS",
+      "subtitulo": "Capítulo III - Derechos y obligaciones",
+      "articulos": [
+        {
+          "numero": "55",
+          "epigrafe": "Derechos de las contratantes",
+          "texto": [
+            "A ejecución de contratos en sus términos.",
+            "A modificar unilateralmente por razones de interés público.",
+            "A suspender o rescindir por razones de interés público.",
+            "A declarar resolución o rescisión.",
+            "A imponer sanciones y ejecutar garantías."
+          ],
+          "palabrasClave": ["derechos contratantes", "modificación unilateral", "rescisión", "garantías"]
+        },
+        {
+          "numero": "56",
+          "epigrafe": "Derechos de los proveedores y contratistas",
+          "texto": [
+            "A plena ejecución de lo pactado.",
+            "Al reajuste de precios por variaciones sustanciales.",
+            "A intereses financieros por mora en pago. Si mora > 60 días, pueden solicitar suspensión."
+          ],
+          "palabrasClave": ["derechos proveedores", "reajuste", "intereses", "mora"]
+        },
+        {
+          "numero": "57",
+          "epigrafe": "Terminación de los contratos",
+          "texto": [
+            "Por cumplimiento de obligaciones.",
+            "Por mutuo acuerdo.",
+            "Por sentencia ejecutoriada.",
+            "Por decisión unilateral de la contratante.",
+            "Por muerte del proveedor o disolución de persona jurídica."
+          ],
+          "palabrasClave": ["terminación", "cumplimiento", "mutuo acuerdo", "muerte", "disolución"]
+        },
+        {
+          "numero": "58",
+          "epigrafe": "Terminación por mutuo acuerdo",
+          "texto": [
+            "Cuando no sea posible o conveniente ejecutar total o parcialmente el contrato.",
+            "No implica renuncia a derechos causados."
+          ],
+          "palabrasClave": ["mutuo acuerdo", "extinción", "derechos causados"]
+        },
+        {
+          "numero": "59",
+          "epigrafe": "Rescisión del contrato",
+          "texto": [
+            "Por incumplimiento.",
+            "Por quiebra o insolvencia.",
+            "Cuando el valor de multas supera la garantía.",
+            "Por suspensión > 60 días imputable al contratista.",
+            "Por fraude o colusión.",
+            "Por contrato contra expresa prohibición.",
+            "Se inicia procedimiento dentro de 15 días de agotado el plazo de penas.",
+            "El procedimiento incluye comunicación al proveedor, plazo de 10 días para alegar, y resolución en 15 días."
+          ],
+          "palabrasClave": ["rescisión", "incumplimiento", "quiebra", "fraude", "procedimiento"]
+        },
+        {
+          "numero": "60",
+          "epigrafe": "Terminación por causas imputables a la contratante",
+          "texto": [
+            "Por incumplimiento > 60 días.",
+            "Por suspensión > 60 días dispuesta por la contratante.",
+            "Cuando diseños sean técnicamente inejecutables y no se hubiesen solucionado en 60 días."
+          ],
+          "palabrasClave": ["terminación", "imputable a contratante", "incumplimiento", "suspensión"]
+        },
+        {
+          "numero": "61",
+          "epigrafe": "Del reajuste de precios",
+          "texto": [
+            "Los contratos están sujetos a reajuste si está previsto en el contrato.",
+            "Si hay variación sustancial ≥ 15% sobre inflación oficial esperada."
+          ],
+          "palabrasClave": ["reajuste", "precios", "15%", "inflación"]
+        }
+      ]
+    },
+    {
+      "numero": "IV",
+      "titulo": "DE LOS CONTRATOS",
+      "subtitulo": "Capítulo IV - Modalidades de los contratos",
+      "articulos": [
+        {
+          "numero": "62",
+          "epigrafe": "Convenios modificatorios en obras públicas",
+          "texto": [
+            "Se pueden celebrar por causas imprevistas o técnicas.",
+            "Con informe previo favorable de la Auditoría General.",
+            "No pueden exceder el 20% del monto y plazo original.",
+            "No pueden otorgar condiciones más favorables."
+          ],
+          "palabrasClave": ["convenios modificatorios", "obras públicas", "20%", "Auditoría General"]
+        },
+        {
+          "numero": "63",
+          "epigrafe": "Convenios modificatorios en adquisiciones, locaciones y servicios",
+          "texto": [
+            "Pueden acordar incremento de cantidad dentro de 12 meses.",
+            "No puede rebasar el 20% del monto o cantidad.",
+            "Precio unitario igual al pactado originalmente.",
+            "No se pueden cambiar precios, anticipos, especificaciones."
+          ],
+          "palabrasClave": ["convenios modificatorios", "adquisiciones", "20%", "12 meses"]
+        }
+      ]
+    },
+    {
+      "numero": "V",
+      "titulo": "SISTEMA DE INFORMACIÓN DE LAS CONTRATACIONES PÚBLICAS (SICP)",
+      "subtitulo": "Capítulo Único",
+      "articulos": [
+        {
+          "numero": "64",
+          "epigrafe": "De la difusión a través del sistema",
+          "texto": [
+            "La UCNT pondrá a disposición pública la información sobre convocatorias, bases, proceso, adjudicaciones, cancelaciones y modificaciones.",
+            "El SICP es la meta del sistema y su uso será incrementado paulatinamente."
+          ],
+          "palabrasClave": ["SICP", "difusión", "transparencia", "información pública"]
+        },
+        {
+          "numero": "65",
+          "epigrafe": "De la consulta y compra de las bases",
+          "texto": [
+            "Los interesados pueden consultar y adquirir pliegos de bases por medios electrónicos."
+          ],
+          "palabrasClave": ["bases", "consulta", "compra electrónica", "SICP"]
+        },
+        {
+          "numero": "66",
+          "epigrafe": "Del envío de ofertas por vía electrónica",
+          "texto": [
+            "Los sobres pueden entregarse por medios remotos de comunicación electrónica.",
+            "Se generan con tecnologías que resguarden confidencialidad.",
+            "Producen mismos efectos que los instrumentos privados con firma autógrafa."
+          ],
+          "palabrasClave": ["ofertas electrónicas", "confidencialidad", "firma electrónica", "SICP"]
+        },
+        {
+          "numero": "67",
+          "epigrafe": "De la certificación de los medios de identificación electrónica",
+          "texto": [
+            "La UCNT creará, operará y mantendrá el sistema de certificación.",
+            "Es responsable del control salvaguardando la confidencialidad."
+          ],
+          "palabrasClave": ["certificación", "identificación electrónica", "UCNT"]
+        },
+        {
+          "numero": "68",
+          "epigrafe": "Disposiciones reglamentarias",
+          "texto": [
+            "El reglamento establecerá los lineamientos técnicos y administrativos para uso de medios electrónicos."
+          ],
+          "palabrasClave": ["reglamento", "medios electrónicos", "lineamientos"]
+        }
+      ]
+    },
+    {
+      "numero": "VI",
+      "titulo": "DE LA INFORMACIÓN Y VERIFICACIÓN",
+      "subtitulo": "Capítulo Único",
+      "articulos": [
+        {
+          "numero": "69",
+          "epigrafe": "Conservación de la información",
+          "texto": [
+            "Las UOC conservan documentación por el plazo de prescripción.",
+            "Llevan registro de contrataciones a través de archivos físicos y electrónicos."
+          ],
+          "palabrasClave": ["conservación", "archivos", "registro", "UOC"]
+        },
+        {
+          "numero": "70",
+          "epigrafe": "Facultades de verificación",
+          "texto": [
+            "La Auditoría General correspondiente puede verificar en cualquier tiempo.",
+            "Puede realizar visitas, inspecciones y solicitar información.",
+            "La negación de información es falta grave."
+          ],
+          "palabrasClave": ["verificación", "Auditoría General", "inspección", "falta grave"]
+        },
+        {
+          "numero": "71",
+          "epigrafe": "Constatación de la calidad",
+          "texto": [
+            "La Auditoría General puede verificar calidad a través de laboratorios e instituciones.",
+            "El resultado consta en dictamen firmado por quien hizo la comprobación, proveedor y representante."
+          ],
+          "palabrasClave": ["calidad", "laboratorios", "dictamen", "constatación"]
+        }
+      ]
+    },
+    {
+      "numero": "VII",
+      "titulo": "DE LAS INFRACCIONES Y SANCIONES",
+      "subtitulo": "Capítulo I - De las sanciones a los proveedores y contratistas",
+      "articulos": [
+        {
+          "numero": "72",
+          "epigrafe": "Sanción administrativa",
+          "texto": [
+            "La UCNT puede inhabilitar temporalmente por 3 meses a 3 años por:",
+            "a) proveedores en supuesto del inciso c) del Artículo 40 respecto de 2 o más entidades;",
+            "b) incumplimiento contractual que cause daños;",
+            "c) información falsa o dolo en procedimientos de contratación."
+          ],
+          "palabrasClave": ["inhabilitación", "sanciones", "proveedores", "UCNT", "3 meses a 3 años"]
+        },
+        {
+          "numero": "73",
+          "epigrafe": "Calificación de las infracciones",
+          "texto": [
+            "Se consideran: daños producidos, carácter intencional, gravedad y reincidencia."
+          ],
+          "palabrasClave": ["calificación", "infracciones", "daños", "intencional", "reincidencia"]
+        },
+        {
+          "numero": "74",
+          "epigrafe": "Procedimiento para imponer sanciones",
+          "texto": [
+            "La UCNT: a) comunica por escrito al presunto infractor, otorga plazo de 10 días hábiles para descargo; b) emite resolución fundada."
+          ],
+          "palabrasClave": ["procedimiento sancionador", "descargo", "10 días hábiles"]
+        },
+        {
+          "numero": "75",
+          "epigrafe": "Registro de inhabilitados para contratar con el Estado",
+          "texto": [
+            "La UCNT mantiene actualizado el registro de personas impedidas.",
+            "Todos los organismos proveen información necesaria."
+          ],
+          "palabrasClave": ["registro", "inhabilitados", "SICP", "UCNT"]
+        }
+      ]
+    },
+    {
+      "numero": "VII",
+      "titulo": "DE LAS INFRACCIONES Y SANCIONES",
+      "subtitulo": "Capítulo II - Sanciones a funcionarios y empleados públicos",
+      "articulos": [
+        {
+          "numero": "76",
+          "epigrafe": "Responsabilidades administrativas",
+          "texto": [
+            "Los funcionarios que infrinjan la ley serán sancionados según la Ley de la Función Pública."
+          ],
+          "palabrasClave": ["funcionarios", "sanciones", "Ley de la Función Pública"]
+        }
+      ]
+    },
+    {
+      "numero": "VII",
+      "titulo": "DE LAS INFRACCIONES Y SANCIONES",
+      "subtitulo": "Capítulo III - Disposiciones comunes",
+      "articulos": [
+        {
+          "numero": "77",
+          "epigrafe": "Sanciones civiles y penales",
+          "texto": [
+            "Las responsabilidades son independientes de las de orden civil o penal."
+          ],
+          "palabrasClave": ["responsabilidades", "civil", "penal", "independencia"]
+        },
+        {
+          "numero": "78",
+          "epigrafe": "Eximentes de responsabilidad",
+          "texto": [
+            "No se imponen sanciones por fuerza mayor, caso fortuito, o cumplimiento espontáneo antes del descubrimiento."
+          ],
+          "palabrasClave": ["eximentes", "fuerza mayor", "caso fortuito", "cumplimiento espontáneo"]
+        }
+      ]
+    },
+    {
+      "numero": "VIII",
+      "titulo": "MECANISMOS DE IMPUGNACIÓN Y SOLUCIÓN DE DIFERENDOS",
+      "subtitulo": "Capítulo I - Protestas",
+      "articulos": [
+        {
+          "numero": "79",
+          "epigrafe": "Procedencia",
+          "texto": [
+            "Las personas interesadas pueden protestar ante la UCNT por actos que contravengan la ley.",
+            "Plazo: 10 días hábiles desde el acto o conocimiento.",
+            "Transcurrido el plazo precluye el derecho.",
+            "La falta de acreditación de personería es motivo de rechazo."
+          ],
+          "palabrasClave": ["protestas", "UCNT", "10 días hábiles", "personería", "preclusión"]
+        },
+        {
+          "numero": "80",
+          "epigrafe": "Formalidades",
+          "texto": [
+            "Se presenta por escrito o medios electrónicos.",
+            "Debe manifestar bajo fe de juramento los hechos y acompañar documentación.",
+            "La falta de manifestación o hechos falsos son causales de rechazo."
+          ],
+          "palabrasClave": ["formalidades", "fe de juramento", "hechos falsos", "rechazo"]
+        },
+        {
+          "numero": "81",
+          "epigrafe": "Protestas por medios electrónicos remotos",
+          "texto": [
+            "Utilizando el SICP con identificación electrónica de la UCNT.",
+            "La identificación electrónica reemplaza la firma autógrafa."
+          ],
+          "palabrasClave": ["protestas electrónicas", "SICP", "identificación electrónica"]
+        },
+        {
+          "numero": "82",
+          "epigrafe": "Investigaciones de oficio",
+          "texto": [
+            "La Auditoría General puede investigar de oficio o a pedido de parte.",
+            "Plazo para iniciar: 15 días calendario; para resolver: 30 días hábiles.",
+            "Pueden suspender el procedimiento si hay indicios serios de irregularidades.",
+            "El promotor debe garantizar daños con caución al solicitar suspensión."
+          ],
+          "palabrasClave": ["investigaciones de oficio", "Auditoría General", "suspensión", "caución"]
+        },
+        {
+          "numero": "83",
+          "epigrafe": "Efectos de la resolución de protesta",
+          "texto": [
+            "La UCNT resuelve en 10 días hábiles.",
+            "Silencio se reputa denegación.",
+            "Efectos: a) nulidad del acto; b) nulidad total; c) rechazo de la protesta."
+          ],
+          "palabrasClave": ["resolución", "nulidad", "rechazo", "10 días hábiles"]
+        },
+        {
+          "numero": "84",
+          "epigrafe": "Impugnación",
+          "texto": [
+            "La resolución de la UCNT se puede impugnar ante el Tribunal de Cuentas."
+          ],
+          "palabrasClave": ["impugnación", "Tribunal de Cuentas", "UCNT"]
+        }
+      ]
+    },
+    {
+      "numero": "VIII",
+      "titulo": "MECANISMOS DE IMPUGNACIÓN Y SOLUCIÓN DE DIFERENDOS",
+      "subtitulo": "Capítulo II - Del procedimiento de avenimiento",
+      "articulos": [
+        {
+          "numero": "85",
+          "epigrafe": "Solicitud de intervención",
+          "texto": [
+            "Los contratistas pueden solicitar intervención de la UCNT por incumplimiento.",
+            "La UCNT señala audiencia dentro de 15 días hábiles.",
+            "La asistencia es obligatoria; inasistencia del proveedor lo tiene por desistido."
+          ],
+          "palabrasClave": ["avenimiento", "intervención", "audiencia", "15 días hábiles"]
+        },
+        {
+          "numero": "86",
+          "epigrafe": "Desarrollo del procedimiento",
+          "texto": [
+            "La UCNT determina elementos comunes y puntos de controversia.",
+            "Exhorta a conciliar intereses.",
+            "El procedimiento no debe exceder 60 días hábiles desde la primera sesión.",
+            "Se labra acta circunstanciada."
+          ],
+          "palabrasClave": ["procedimiento", "conciliación", "acta", "60 días hábiles"]
+        },
+        {
+          "numero": "87",
+          "epigrafe": "Convenio de avenimiento",
+          "texto": [
+            "Si hay avenimiento, el convenio obliga a las partes.",
+            "No se pueden variar condiciones básicas de contratación."
+          ],
+          "palabrasClave": ["convenio de avenimiento", "obligatorio", "condiciones básicas"]
+        }
+      ]
+    },
+    {
+      "numero": "VIII",
+      "titulo": "MECANISMOS DE IMPUGNACIÓN Y SOLUCIÓN DE DIFERENDOS",
+      "subtitulo": "Capítulo III - Arbitraje",
+      "articulos": [
+        {
+          "numero": "88",
+          "epigrafe": "Arbitraje",
+          "texto": [
+            "Las partes pueden someter a arbitraje cualquier diferencia durante la ejecución del contrato.",
+            "El reglamento fija términos y condiciones para cláusulas compromisorias."
+          ],
+          "palabrasClave": ["arbitraje", "cláusula compromisoria", "ejecución del contrato"]
+        }
+      ]
+    },
+    {
+      "numero": "IX",
+      "titulo": "DISPOSICIONES TRANSITORIAS Y FINALES",
+      "subtitulo": "Capítulo Único",
+      "articulos": [
+        {
+          "numero": "89",
+          "epigrafe": "Aplicación y vigencia de la legislación",
+          "texto": [
+            "Vigencia: 180 días de su promulgación.",
+            "Procedimientos iniciados antes: se sujetan a leyes vigentes al momento de la convocatoria."
+          ],
+          "palabrasClave": ["vigencia", "180 días", "procedimientos anteriores"]
+        },
+        {
+          "numero": "90",
+          "epigrafe": "Vigencia de normas anteriores",
+          "texto": [
+            "Contratos sin acta de recepción definitiva se sujetan a reajuste de precios vigente a la fecha de convocatoria."
+          ],
+          "palabrasClave": ["normas anteriores", "reajuste", "recepción definitiva"]
+        },
+        {
+          "numero": "91",
+          "epigrafe": "Implementación del Sistema de Información",
+          "texto": [
+            "La UCNT debe completar implementación del SICP en 2 años.",
+            "En primeros 6 meses se dará a conocer información sobre convocatorias y bases."
+          ],
+          "palabrasClave": ["implementación SICP", "2 años", "6 meses"]
+        },
+        {
+          "numero": "92",
+          "epigrafe": "Del reglamento",
+          "texto": [
+            "El Presidente dictará el reglamento en 120 días calendario."
+          ],
+          "palabrasClave": ["reglamento", "120 días", "Presidente"]
+        },
+        {
+          "numero": "93",
+          "epigrafe": "Disposiciones derogadas",
+          "texto": [
+            "Ley N° 1533/2000 (excepto Arts. 41-46).",
+            "Ley de Organización Administrativa.",
+            "Ley N° 25/91 y Ley N° 26/91.",
+            "Orgánicas de organismos y entidades del Estado.",
+            "Demás leyes y decretos que se opongan."
+          ],
+          "palabrasClave": ["derogaciones", "Ley 1533/2000", "Ley 25/91", "Ley 26/91"]
+        },
+        {
+          "numero": "94",
+          "epigrafe": "Comunicación al Poder Ejecutivo",
+          "texto": [
+            "Comuníquese al Poder Ejecutivo."
+          ],
+          "palabrasClave": ["comunicación", "Poder Ejecutivo"]
+        }
+      ]
+    }
+  ],
+  "resumen_ejecutivo": {
+    "objeto": "Establecer el Sistema de Contrataciones del Sector Público, regulando planeamiento, programación, presupuesto, contratación, ejecución, erogación y control de adquisiciones, locaciones, servicios, consultoría y obras públicas.",
+    "alcance": "Aplica a Administración Central, gobiernos departamentales, entes autónomos, empresas públicas, sociedades con mayoría estatal, entidades financieras oficiales, Banca Central y municipalidades.",
+    "exclusiones": "Servicios personales de la Función Pública, concesiones, tratados internacionales, contratos entre entidades públicas, operaciones financieras y transporte de correo.",
+    "principios_rectores": ["Economía y Eficiencia", "Igualdad y Libre Competencia", "Transparencia y Publicidad", "Simplificación y Modernización", "Desconcentración de Funciones"],
+    "procedimientos": [
+      "Licitación Pública (> 10,000 jornales mínimos)",
+      "Licitación por Concurso de Ofertas (2,000 - 10,000 jornales)",
+      "Contratación Directa (< 2,000 jornales)",
+      "Fondo Fijo (≤ 20 jornales por operación)"
+    ],
+    "autoridades": {
+      "UCNT": "Unidad Central Normativa y Técnica, dependiente del Ministerio de Hacienda. Dicta normas, políticas, mantiene SICP, sanciona proveedores.",
+      "UOC": "Unidades Operativas de Contratación en cada entidad. Ejecutan los procedimientos."
+    },
+    "plazos_clave": {
+      "licitacion_nacional": "20 días calendario",
+      "licitacion_internacional": "40 días calendario",
+      "formalizacion_contrato": "20 días hábiles",
+      "programa_anual": "28 de febrero"
+    },
+    "garantias": {
+      "sostenimiento_oferta": "3-5% del monto",
+      "cumplimiento": "5-10% del monto",
+      "anticipos": "100% del monto",
+      "fondo_reparos": "5% en obras públicas"
+    },
+    "modificaciones_contractuales": "Máximo 20% del monto y plazo original",
+    "sistema_informacion": "SICP - plataforma electrónica para todo el proceso de contrataciones",
+    "sanciones": "Inhabilitación de 3 meses a 3 años para proveedores; sanciones según Ley de la Función Pública para funcionarios"
+  }
+}
