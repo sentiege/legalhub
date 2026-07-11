@@ -19,65 +19,6 @@
     .hero__tagline { font-size:clamp(.95rem,2.5vw,1.15rem); opacity:.85;
       font-style:italic; letter-spacing:.3px; margin-bottom:2rem; }
 
-    /* ── Sección Leyes ── */
-    #seccion-leyes { margin-top: 2.5rem; }
-    #seccion-leyes h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--clr-primary, #1a3a5c);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
-    .leyes-filtros {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;
-      margin-bottom: 1rem;
-      align-items: center;
-    }
-    .leyes-filtros input, .leyes-filtros select {
-      padding: .45rem .7rem;
-      border: 1px solid #c5d0e0;
-      border-radius: 6px;
-      font-size: .9rem;
-      background: #fff;
-    }
-    .leyes-filtros input { flex: 1 1 220px; }
-    .leyes-filtros select { flex: 0 0 auto; }
-    .leyes-filtros button {
-      padding: .45rem 1rem;
-      background: var(--clr-primary, #1a3a5c);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: .9rem;
-    }
-    .leyes-filtros button:hover { opacity: .85; }
-    #leyes-contador {
-      font-size: .85rem;
-      color: #555;
-      margin-bottom: .6rem;
-    }
-    #leyes-lista { display: grid; gap: 1rem; }
-    .leyes-pag {
-      display: flex; gap: .8rem; align-items: center;
-      justify-content: center; margin-top: 1rem;
-    }
-    .leyes-pag button {
-      padding: .4rem .9rem;
-      border: 1px solid #c5d0e0;
-      border-radius: 6px;
-      background: #fff;
-      cursor: pointer;
-      font-size: .88rem;
-    }
-    .leyes-pag button:hover { background: #eef3f9; }
-    .leyes-pag span { font-size: .88rem; color: #555; }
-    #leyes-estado { color: #777; font-size: .9rem; margin: .5rem 0; }
-
     /* Resultados de leyes dentro de la búsqueda global */
     .jp-leyes-resultados { margin-top: 2rem; }
     .jp-leyes-resultados h3 {
@@ -129,25 +70,6 @@
   <main class="container" id="principal">
     <div id="categorias-grid" class="categorias-grid"></div>
     <div id="resultados-container"></div>
-
-    <!-- Sección Leyes del Congreso -->
-    <section id="seccion-leyes">
-      <h2>📜 Leyes del Congreso Nacional</h2>
-      <div class="leyes-filtros">
-        <input type="search" id="leyes-buscar" placeholder="Buscar por número o título…" autocomplete="off" />
-        <select id="leyes-anio"><option value="">Todos los años</option></select>
-        <select id="leyes-tipo">
-          <option value="">Todos los tipos</option>
-          <option value="AUTOMATICA">Promulgación automática</option>
-          <option value="DECRETO">Decreto</option>
-        </select>
-        <button id="leyes-buscar-btn">Buscar</button>
-      </div>
-      <p id="leyes-estado">Cargando leyes del Congreso…</p>
-      <p id="leyes-contador"></p>
-      <div id="leyes-lista"></div>
-      <div id="leyes-paginacion"></div>
-    </section>
   </main>
 
   <footer class="footer">

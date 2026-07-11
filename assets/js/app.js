@@ -158,19 +158,14 @@ function renderGrid(cats) {
   `).join('');
 }
 
-/* ── Mostrar / ocultar grid y sección leyes ── */
+/* ── Mostrar / ocultar grid ── */
 function mostrarGrid() {
   const grid = document.getElementById('categorias-grid');
   if (grid) grid.style.display = '';
-  const secLeyes = document.getElementById('seccion-leyes');
-  if (secLeyes) secLeyes.style.display = '';
 }
 function ocultarGrid() {
   const grid = document.getElementById('categorias-grid');
   if (grid) grid.style.display = 'none';
-  // La sección de leyes se oculta en modo búsqueda; los resultados van en #resultados-container
-  const secLeyes = document.getElementById('seccion-leyes');
-  if (secLeyes) secLeyes.style.display = 'none';
 }
 
 /* ── Limpiar ── */
