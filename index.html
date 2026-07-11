@@ -45,6 +45,23 @@
     .jp-ley-item__titulo { font-size: .95rem; margin-top: .2rem; }
     .jp-ley-item__meta { font-size: .8rem; color: #777; margin-top: .3rem; }
     .jp-leyes-no-resultados { color: #888; font-size: .9rem; }
+
+    /* Footer links */
+    .footer__links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .3rem 1rem;
+      margin-top: .75rem;
+      font-size: .82rem;
+    }
+    .footer__links a {
+      color: rgba(255,255,255,.65);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer__links a:hover { color: #fff; text-decoration: underline; }
+    .footer__links span { color: rgba(255,255,255,.3); }
   </style>
 </head>
 <body>
@@ -76,7 +93,12 @@
     <div class="container">
       <p><strong>JurisParaguay</strong> — Herramienta de consulta para juristas y litigantes del derecho paraguayo.</p>
       <p>Los textos normativos son de acceso público. Esta plataforma no provee asesoramiento legal.</p>
-      <p style="margin-top:.5rem;opacity:.6;font-size:.85rem">&copy; 2026 JurisParaguay</p>
+      <nav class="footer__links" aria-label="Enlaces legales">
+        <a href="privacidad.html">Política de Privacidad</a>
+        <span aria-hidden="true">·</span>
+        <a href="terminos.html">Términos de Uso</a>
+      </nav>
+      <p style="margin-top:.6rem;opacity:.5;font-size:.8rem">&copy; 2026 JurisParaguay</p>
     </div>
   </footer>
 
