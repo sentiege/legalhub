@@ -1,0 +1,1804 @@
+{
+  "id": "ley-7445",
+  "nombre": "Ley N° 7445 – DE LA FUNCIÓN PÚBLICA Y DEL SERVICIO CIVIL",
+  "ley": "Ley N° 7445",
+  "vigente": true,
+  "promulgacion": "18/12/2024",
+  "capitulos": [
+    {
+      "numero": "Preliminar",
+      "titulo": "DISPOSICIONES GENERALES",
+      "articulos": [
+        {
+          "numero": "1",
+          "epigrafe": "Objeto",
+          "texto": [
+            "Establecer las disposiciones generales que rigen la función pública.",
+            "Regular, en específico, la carrera del servicio civil.",
+            "Determinar la competencia regulatoria en la materia sobre las instituciones públicas que se encuentran en el ámbito del Poder Ejecutivo.",
+            "Admitir la competencia regulatoria de municipalidades, Poder Judicial, Poder Legislativo, y demás instituciones autónomas.",
+            "Establecer la competencia regulatoria del Ministerio de Economía y Finanzas en materia de política de remuneraciones.",
+            "Admitir la vigencia y autonomía de las carreras especiales, siendo la carrera del servicio civil residual y subsidiaria."
+          ],
+          "palabrasClave": ["objeto", "función pública", "servicio civil", "competencias", "carreras especiales"]
+        },
+        {
+          "numero": "2",
+          "epigrafe": "Finalidad",
+          "texto": [
+            "Promover la profesionalización de los servidores públicos para lograr mayores niveles de eficiencia y eficacia en las instituciones públicas, promoviendo el desarrollo de los servidores públicos con la misión de ofrecer servicios oportunos y de calidad respetando derechos laborales y principios administrativos."
+          ],
+          "palabrasClave": ["profesionalización", "eficiencia", "eficacia", "servidores públicos", "calidad"]
+        },
+        {
+          "numero": "3",
+          "epigrafe": "Ámbito de aplicación",
+          "texto": [
+            "Aplicable a toda actividad de función y empleo público derivada de nombramiento o contrato en instituciones públicas.",
+            "Excluye a sociedades anónimas con participación mayoritaria del Estado y fuerzas públicas.",
+            "Se rigen por sus propias normas: carrera judicial, docente, diplomática, investigación científica, militar, policial y otras establecidas en leyes especiales.",
+            "El Poder Judicial, Legislativo y cada órgano constitucional autónomo será autoridad de aplicación.",
+            "Los órganos del Poder Ejecutivo deben respetar la ley y las indicaciones del Ministerio de Economía y Finanzas.",
+            "A los funcionarios administrativos sin carrera especial se les aplica la presente ley.",
+            "Las disposiciones de la carrera del servicio civil no son aplicables a empleados públicos ni a carreras especiales."
+          ],
+          "palabrasClave": ["ámbito de aplicación", "exclusiones", "carreras especiales", "autoridad de aplicación"]
+        },
+        {
+          "numero": "4",
+          "epigrafe": "Autoridades de aplicación en materia de función pública",
+          "texto": [
+            "El Ministerio de Economía y Finanzas será la autoridad de aplicación para todas las instituciones públicas del Poder Ejecutivo.",
+            "Las máximas autoridades de municipalidades, Poder Judicial, Poder Legislativo, y demás instituciones autónomas serán autoridades de aplicación en sus respectivos ámbitos."
+          ],
+          "palabrasClave": ["autoridades de aplicación", "Ministerio de Economía y Finanzas", "autonomía"]
+        },
+        {
+          "numero": "5",
+          "epigrafe": "Autoridad rectora en materia de política de remuneraciones",
+          "texto": [
+            "El Ministerio de Economía y Finanzas será la autoridad rectora en materia de política de remuneraciones para todas las instituciones incluidas en el Presupuesto General de la Nación.",
+            "El Ministerio elaborará el reglamento de metodología para valoración de puestos y guías sobre política de remuneraciones.",
+            "La rectoría está limitada a lo previsto en el artículo 123 y no implica determinar el monto del salario."
+          ],
+          "palabrasClave": ["remuneraciones", "rectoría", "Ministerio de Economía y Finanzas", "valoración de puestos"]
+        },
+        {
+          "numero": "6",
+          "epigrafe": "Atribuciones generales de las autoridades de aplicación",
+          "texto": [
+            "Dictar disposiciones operativas y administrativas y reglamentos técnicos.",
+            "Formular reglamentos generales para sus respectivas carreras.",
+            "Formular directrices para la correcta aplicación del plexo normativo.",
+            "Examinar la adecuación de sus carreras a la ley y requerir medidas correctivas.",
+            "Ejercer atribuciones normativas, de planificación, estrategia, gestión, orientación, capacitación, supervisión y control.",
+            "La falta de reglamentación en instituciones autónomas hará que se aplique directamente la del Ministerio de Economía y Finanzas."
+          ],
+          "palabrasClave": ["atribuciones", "reglamentos", "planificación", "supervisión", "control"]
+        },
+        {
+          "numero": "7",
+          "epigrafe": "Atribuciones del Ministerio de Economía y Finanzas para instituciones del Poder Ejecutivo",
+          "texto": [
+            "Dictaminar sobre creación de nuevos puestos, contratos colectivos y concursos públicos que impliquen afectación fiscal.",
+            "Realizar estudios sobre materias de su competencia.",
+            "Prestar asistencia técnica y orientación sobre política de remuneraciones.",
+            "Investigar de oficio o por denuncia contravenciones a la ley.",
+            "Recomendar nulidad de actos administrativos, convenios y contratos violatorios de la ley.",
+            "Requerir información y colaboración a instituciones públicas."
+          ],
+          "palabrasClave": ["atribuciones MEF", "dictamen", "investigación", "nulidad", "remuneraciones"]
+        },
+        {
+          "numero": "8",
+          "epigrafe": "Unidades de Gestión y Desarrollo de las Personas",
+          "texto": [
+            "Cada institución contará con una Unidad de Gestión y Desarrollo de las Personas en su estructura orgánica.",
+            "Su función principal es ejecutar las políticas de gestión de personas conforme a los lineamientos establecidos."
+          ],
+          "palabrasClave": ["Unidades de Gestión", "desarrollo de personas", "gestión de personas"]
+        },
+        {
+          "numero": "9",
+          "epigrafe": "Definiciones",
+          "texto": [
+            "Autoridad institucional: funcionario que ejerce un puesto público de conducción política.",
+            "Cargo: posición asignada en la estructura organizativa aprobada en el presupuesto.",
+            "Cargo de confianza: puesto de libre disposición, sin concurso público.",
+            "Carrera del servicio civil: conjunto orgánico de grupos ocupacionales, niveles y grados.",
+            "Categoría: identificación mediante código presupuestario.",
+            "Carreras de la función pública: distintas carreras del artículo 101 de la Constitución.",
+            "Concurso público: procedimientos técnicos para seleccionar servidores públicos.",
+            "Derecho adquirido: derecho a conservar el sueldo básico del último puesto.",
+            "Directivo público: funcionario sujeto a selección específica del Capítulo IV del Título II.",
+            "Empleado público: persona contratada por tiempo determinado.",
+            "Funcionario público: persona nombrada mediante acto administrativo para ocupar un cargo.",
+            "Función pública: conjunto de atribuciones y actividades realizadas en instituciones públicas.",
+            "Grado: ordenamiento horizontal que permite reconocimiento salarial por buen desempeño.",
+            "Grupo ocupacional: clasificación que integra cargos con características similares.",
+            "Instituciones públicas del Poder Ejecutivo: organismos que dependen de la Presidencia.",
+            "Nivel: ordenamiento vertical de cargos según complejidad y responsabilidad.",
+            "Puesto: área de trabajo dentro de la carrera civil.",
+            "Servidores públicos: denominación genérica que comprende a funcionarios y empleados.",
+            "Promoción: progresión horizontal en el mismo nivel.",
+            "Ascenso: progresión vertical a través de concursos."
+          ],
+          "palabrasClave": ["definiciones", "cargo", "puesto", "servidor público", "carrera", "concurso"]
+        }
+      ]
+    },
+    {
+      "numero": "Preliminar",
+      "titulo": "PRINCIPIOS RECTORES",
+      "articulos": [
+        {
+          "numero": "10",
+          "epigrafe": "Principios rectores",
+          "texto": [
+            "Legalidad: los actos se ajustarán a la Constitución y leyes.",
+            "Igualdad de derechos: aplicación imparcial y objetiva sin discriminación.",
+            "Igualdad de oportunidades: todo ciudadano tiene derecho a ser servidor público por idoneidad.",
+            "Previsión presupuestaria: todo acto supeditado a disponibilidad presupuestaria.",
+            "Eficiencia y eficacia: cumplimiento de fines con uso eficiente de recursos.",
+            "Mérito: acceso, permanencia y progresión basados en aptitud, actitud y desempeño.",
+            "Probidad y ética: actuación transparente, ética y objetiva."
+          ],
+          "palabrasClave": ["principios", "legalidad", "igualdad", "mérito", "ética", "eficiencia"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo I - De las reglas de la función pública",
+      "articulos": [
+        {
+          "numero": "11",
+          "epigrafe": "Sujetos excluidos",
+          "texto": [
+            "Los servidores de carreras especiales se rigen por sus regímenes especiales.",
+            "Están excluidos de la mayoría de disposiciones, excepto principios rectores:",
+            "Senadores, diputados, gobernadores, intendentes y cargos de elección popular.",
+            "Presidente y Vicepresidente de la República.",
+            "Ministros del Poder Ejecutivo.",
+            "Secretarios ejecutivos de la Presidencia.",
+            "Presidente y miembros del directorio de la Banca Central.",
+            "Presidente y miembros de entidades financieras oficiales.",
+            "Procurador General de la República.",
+            "Ministros de la Corte Suprema de Justicia.",
+            "Fiscal General del Estado.",
+            "Defensor General.",
+            "Síndico General.",
+            "Ministros del Tribunal Superior de Justicia Electoral.",
+            "Defensor del Pueblo y Adjunto.",
+            "Contralor y Subcontralor General de la República.",
+            "Presidentes y directores de entidades descentralizadas."
+          ],
+          "palabrasClave": ["excluidos", "cargos de conducción política", "elección popular"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo II - Requisitos e inhabilidades para el acceso",
+      "articulos": [
+        {
+          "numero": "12",
+          "epigrafe": "Requisitos mínimos",
+          "texto": [
+            "Tener nacionalidad paraguaya.",
+            "Contar con mayoría de edad.",
+            "Poseer idoneidad y capacidad para el puesto.",
+            "Hallarse en pleno goce de derechos civiles y políticos."
+          ],
+          "palabrasClave": ["requisitos", "nacionalidad", "mayoría de edad", "idoneidad"]
+        },
+        {
+          "numero": "13",
+          "epigrafe": "Inhabilidades",
+          "texto": [
+            "Cumplir pena privativa de libertad.",
+            "Condena por hechos punibles contra el Estado.",
+            "Condena por hechos punibles de naturaleza electoral.",
+            "Inhabilitación para ocupar puestos públicos.",
+            "Gozar de jubilación (excepto cargos de conducción política, confianza, directivos o docencia).",
+            "Declarado incapaz en proceso judicial.",
+            "Acogido a planes de retiro voluntario (excepto cargos de conducción política, confianza, directivos o docencia).",
+            "La jubilación es incompatible con salario público, salvo docencia e investigación.",
+            "Quienes accedan a función pública siendo jubilados no aportarán nuevamente."
+          ],
+          "palabrasClave": ["inhabilidades", "condena", "jubilación", "retiro voluntario", "incompatibilidad"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo III - Ingreso a la función pública",
+      "articulos": [
+        {
+          "numero": "14",
+          "epigrafe": "Mecanismo de ingreso",
+          "texto": [
+            "El concurso público es la única vía de ingreso a la función pública.",
+            "El ingreso en transgresión a la ley será nulo, sin importar el tiempo transcurrido.",
+            "Los concursos deberán considerar únicamente el primer grado del nivel correspondiente.",
+            "Exceptuados: asesores y cargos de confianza previstos en leyes especiales."
+          ],
+          "palabrasClave": ["concurso público", "ingreso", "nulidad", "asesores", "cargos de confianza"]
+        },
+        {
+          "numero": "15",
+          "epigrafe": "Del ingreso y la progresión",
+          "texto": [
+            "Los postulantes deberán reunir los requisitos previstos en la ley y las bases de convocatoria."
+          ],
+          "palabrasClave": ["ingreso", "progresión", "requisitos"]
+        },
+        {
+          "numero": "16",
+          "epigrafe": "Designación de Asesores por funcionarios de conducción política",
+          "texto": [
+            "Los funcionarios de conducción política pueden tener hasta 3 asesores nombrados sin concurso.",
+            "Deben acreditar 5 años de experiencia profesional efectiva.",
+            "Los funcionarios de carrera designados como asesores conservan sus derechos adquiridos.",
+            "El incumplimiento será mal desempeño y el beneficiado quedará inhabilitado por 5 años.",
+            "No aplica al Presidente de la República."
+          ],
+          "palabrasClave": ["asesores", "conducción política", "experiencia", "inhabilitación"]
+        },
+        {
+          "numero": "17",
+          "epigrafe": "Prohibición de nepotismo y uso indebido de influencia",
+          "texto": [
+            "No podrán ser designados para cargos de confianza: cónyuge, concubino o parientes hasta 4° de consanguinidad o 2° de afinidad de quienes ejerzan conducción política.",
+            "Los funcionarios de conducción política no podrán influir en designaciones en otra institución."
+          ],
+          "palabrasClave": ["nepotismo", "cargos de confianza", "influencia", "prohibición"]
+        },
+        {
+          "numero": "18",
+          "epigrafe": "Período de prueba",
+          "texto": [
+            "El nombramiento será provisorio durante 6 meses.",
+            "Cualquiera de las partes puede terminar la relación sin causa y sin responsabilidad pecuniaria."
+          ],
+          "palabrasClave": ["período de prueba", "provisorio", "terminación"]
+        },
+        {
+          "numero": "19",
+          "epigrafe": "Período de evaluación",
+          "texto": [
+            "Luego del período de prueba y hasta adquirir estabilidad, el funcionario pasa al período de evaluación.",
+            "Cualquiera de las partes puede terminar la relación sin causa, pero con derecho a preaviso e indemnización."
+          ],
+          "palabrasClave": ["período de evaluación", "indemnización", "preaviso"]
+        },
+        {
+          "numero": "20",
+          "epigrafe": "Estabilidad laboral",
+          "texto": [
+            "Derecho a no ser desvinculado sin justa causa y a conservar el cargo.",
+            "Se adquiere con: ingreso por concurso público y 2 años ininterrumpidos de servicio.",
+            "Los funcionarios estables siguen sujetos a evaluación de desempeño y régimen disciplinario."
+          ],
+          "palabrasClave": ["estabilidad laboral", "concurso público", "2 años", "justa causa"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo IV - Evaluación de desempeño",
+      "articulos": [
+        {
+          "numero": "21",
+          "epigrafe": "Periodicidad y alcance",
+          "texto": [
+            "La evaluación de desempeño tiene periodicidad anual y es obligatoria para todos los servidores públicos."
+          ],
+          "palabrasClave": ["evaluación de desempeño", "anual", "obligatoria"]
+        },
+        {
+          "numero": "22",
+          "epigrafe": "Criterios básicos",
+          "texto": [
+            "Los factores y metas deben ser objetivos, medibles, verificables y relacionados con el puesto.",
+            "El servidor debe conocer anticipadamente el procedimiento y metas."
+          ],
+          "palabrasClave": ["criterios", "objetivos", "metas", "transparencia"]
+        },
+        {
+          "numero": "23",
+          "epigrafe": "De la evaluación",
+          "texto": [
+            "La calificación será comunicada al servidor, quien puede negarse a firmar justificando su decisión.",
+            "Escala de calificaciones: Distinguido, Bueno, Regular, Reprobado.",
+            "Se establecerá un porcentaje máximo de personas que podrán obtener calificación de 'Distinguido'."
+          ],
+          "palabrasClave": ["calificación", "escala", "Distinguido", "Bueno", "Regular", "Reprobado"]
+        },
+        {
+          "numero": "24",
+          "epigrafe": "Régimen recursivo de la evaluación del desempeño",
+          "texto": [
+            "El servidor puede solicitar el rechazo de la evaluación a la Unidad de Gestión y Desarrollo de las Personas.",
+            "En 20 días hábiles la Unidad debe rechazar o ratificar la evaluación.",
+            "Si se ratifica, el servidor puede interponer recurso jerárquico ante la máxima autoridad.",
+            "El recurso no tendrá efecto suspensivo."
+          ],
+          "palabrasClave": ["recursos", "rechazo", "ratificación", "jerárquico"]
+        },
+        {
+          "numero": "25",
+          "epigrafe": "Uso de los resultados de la evaluación de desempeño",
+          "texto": [
+            "Los resultados se emplean para: ascensos, promociones, movilidad, capacitación, estímulos y renovación contractual.",
+            "No puede ser utilizada para desvinculación automática ni para imponer sanción directa."
+          ],
+          "palabrasClave": ["resultados", "ascensos", "promociones", "capacitación"]
+        },
+        {
+          "numero": "26",
+          "epigrafe": "Estímulos no monetarios",
+          "texto": [
+            "Las autoridades pueden diseñar esquemas de estímulos no monetarios por productividad para quienes obtengan calificación de 'Distinguido' o 'Bueno'."
+          ],
+          "palabrasClave": ["estímulos", "productividad", "Distinguido", "Bueno"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo V - Condiciones generales de trabajo",
+      "secciones": [
+        {
+          "nombre": "Sección I - Jornada laboral y permisos",
+          "articulos": [
+            {
+              "numero": "27",
+              "epigrafe": "Duración máxima de la jornada ordinaria",
+              "texto": [
+                "La jornada ordinaria no podrá exceder de 40 horas semanales.",
+                "Las ampliaciones para extender el descanso semanal no constituirán trabajo extraordinario."
+              ],
+              "palabrasClave": ["jornada laboral", "40 horas", "descanso semanal"]
+            },
+            {
+              "numero": "28",
+              "epigrafe": "Del trabajo extraordinario y su remuneración",
+              "texto": [
+                "Horas extraordinarias: después de la jornada ordinaria, máximo 3 horas diarias y 8 semanales.",
+                "Las remuneraciones se sujetarán a las normas presupuestarias.",
+                "Se rigen por el Código del Trabajo en días feriados, asuetos, horario nocturno y labores insalubres."
+              ],
+              "palabrasClave": ["horas extraordinarias", "remuneración", "Código del Trabajo"]
+            },
+            {
+              "numero": "29",
+              "epigrafe": "Permisos especiales sin goce de sueldo",
+              "texto": [
+                "Para prestar servicios en otra institución (hasta 2 años).",
+                "Para ejercer funciones en organismos internacionales (hasta 4 años).",
+                "Para estudios de postgrado (hasta 2 años).",
+                "Para ejercer cargos electivos y de conducción política.",
+                "Los permisos pueden renovarse por un período igual.",
+                "Se produce vacancia en el puesto.",
+                "Al término, podrá ocupar vacancia si está disponible o recibir indemnización."
+              ],
+              "palabrasClave": ["permisos", "sin goce de sueldo", "vacancia", "indemnización"]
+            },
+            {
+              "numero": "30",
+              "epigrafe": "Permisos especiales con goce de sueldo para capacitación",
+              "texto": [
+                "Para funcionarios estables para estudios de postgrado.",
+                "Plazo máximo de 6 años.",
+                "Debe reintegrarse por tiempo mínimo del doble de la duración del permiso.",
+                "Si no cumple, debe reembolsar los gastos realizados por el Estado.",
+                "La Procuraduría General iniciará acciones para el recupero de costos."
+              ],
+              "palabrasClave": ["permisos", "con goce de sueldo", "capacitación", "postgrado", "reembolso"]
+            },
+            {
+              "numero": "31",
+              "epigrafe": "Ausencias por razones de salud",
+              "texto": [
+                "Debe justificar con certificado médico.",
+                "El permiso no excederá 120 días corridos por ejercicio fiscal.",
+                "Para dolencias extremas, adicional de 120 días con junta médica.",
+                "Para empleados públicos, no excederá la vigencia del contrato."
+              ],
+              "palabrasClave": ["ausencias", "salud", "certificado médico", "120 días"]
+            },
+            {
+              "numero": "32",
+              "epigrafe": "Invalidez temporal o permanente declarada por junta médica",
+              "texto": [
+                "Agotado el plazo, debe reincorporarse.",
+                "Si no es factible, se solicita junta médica al Ministerio de Salud.",
+                "El afectado puede: acogerse a beneficios previsionales, retiro voluntario o indemnización.",
+                "Puede solicitar suspensión de la relación laboral hasta su reincorporación.",
+                "Durante la suspensión percibirá pensión transitoria por invalidez laboral temporal."
+              ],
+              "palabrasClave": ["invalidez", "junta médica", "suspensión", "indemnización", "pensión"]
+            }
+          ]
+        },
+        {
+          "nombre": "Sección II - Seguridad social",
+          "articulos": [
+            {
+              "numero": "33",
+              "epigrafe": "Régimen de seguridad social",
+              "texto": [
+                "La ley establecerá el régimen del seguro social con beneficios de salud, jubilaciones y pensiones.",
+                "Financiación a cargo de funcionarios y del Estado.",
+                "La información será de libre acceso para los titulares."
+              ],
+              "palabrasClave": ["seguridad social", "jubilaciones", "pensiones", "salud"]
+            }
+          ]
+        },
+        {
+          "nombre": "Sección III - Movilidad laboral",
+          "articulos": [
+            {
+              "numero": "34",
+              "epigrafe": "Traslados",
+              "texto": [
+                "Los funcionarios estables pueden solicitar traslado dentro de la misma institución o a otra.",
+                "Solo será posible dentro de la misma carrera.",
+                "El funcionario en puesto jerárquico debe ser reasignado a categoría profesional."
+              ],
+              "palabrasClave": ["traslados", "movilidad", "carrera", "jerárquico"]
+            },
+            {
+              "numero": "35",
+              "epigrafe": "Traslado por razones de mejor servicio",
+              "texto": [
+                "Dispuesto por autoridad competente, debe ser a puesto igual o similar.",
+                "Debe estar debidamente motivado y fundado."
+              ],
+              "palabrasClave": ["traslado", "mejor servicio", "motivado"]
+            },
+            {
+              "numero": "36",
+              "epigrafe": "Traslado a otro municipio",
+              "texto": [
+                "Por mutuo acuerdo entre funcionario e institución por razones de servicio.",
+                "Si es a más de 50 km y por más de 30 días, se pagará: pasajes, flete y bonificación de un mes de remuneración."
+              ],
+              "palabrasClave": ["municipio", "traslado", "remuneración", "gastos"]
+            }
+          ]
+        },
+        {
+          "nombre": "Sección IV - Gestión de la capacitación",
+          "articulos": [
+            {
+              "numero": "37",
+              "epigrafe": "Capacitación",
+              "texto": [
+                "Los servidores tienen derecho a capacitarse.",
+                "Será criterio central en concursos, evaluaciones y progresión."
+              ],
+              "palabrasClave": ["capacitación", "derecho", "concursos", "progresión"]
+            },
+            {
+              "numero": "38",
+              "epigrafe": "Necesidades de capacitación",
+              "texto": [
+                "Las instituciones evaluarán anualmente necesidades de capacitación basadas en: descripción del puesto, metas de gestión, evaluaciones, recomendación del superior y opinión del servidor."
+              ],
+              "palabrasClave": ["necesidades de capacitación", "metas", "evaluaciones"]
+            },
+            {
+              "numero": "39",
+              "epigrafe": "Plan anual de capacitación",
+              "texto": [
+                "Las instituciones formularán su plan anual de capacitación.",
+                "Las del Poder Ejecutivo remitirán sus planes al MEF para ser consolidados.",
+                "El Gobierno Nacional podrá consolidar a través del INAP."
+              ],
+              "palabrasClave": ["plan anual", "capacitación", "MEF", "INAP"]
+            }
+          ]
+        },
+        {
+          "nombre": "Sección V - Gestión del bienestar y clima laboral",
+          "articulos": [
+            {
+              "numero": "40",
+              "epigrafe": "Encuestas y diagnósticos de bienestar y clima laboral",
+              "texto": [
+                "Las Unidades de Desarrollo y Gestión realizarán encuestas y diagnósticos integrales.",
+                "Deben incluir consultas a los servidores públicos y respetar el anonimato."
+              ],
+              "palabrasClave": ["bienestar", "clima laboral", "encuestas", "diagnósticos"]
+            }
+          ]
+        },
+        {
+          "nombre": "Sección VI - Regímenes especiales",
+          "articulos": [
+            {
+              "numero": "41",
+              "epigrafe": "Establecimiento de regímenes especiales",
+              "texto": [
+                "Las instituciones establecerán regímenes especiales para grupos afectados por desigualdades injustas.",
+                "Se aplicará puntaje adicional a postulantes con discapacidad o indígenas.",
+                "En caso de duda, prevalecerá el criterio más favorable a sus derechos."
+              ],
+              "palabrasClave": ["regímenes especiales", "desigualdades", "discapacidad", "pueblos indígenas"]
+            },
+            {
+              "numero": "42",
+              "epigrafe": "Control y monitoreo",
+              "texto": [
+                "La autoridad en materia de función pública verificará y monitoreará el cumplimiento.",
+                "Cualquier persona puede presentar denuncia."
+              ],
+              "palabrasClave": ["control", "monitoreo", "denuncia"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo VI - Derechos individuales",
+      "articulos": [
+        {
+          "numero": "43",
+          "epigrafe": "Derechos individuales básicos",
+          "texto": [
+            "Percibir remuneraciones.",
+            "Aguinaldo anual.",
+            "Vacaciones anuales remuneradas (acumulables por 2 años).",
+            "Permisos y descansos.",
+            "Descanso semanal de 24 horas.",
+            "Seguridad social.",
+            "Renunciar al puesto.",
+            "Interponer recursos administrativos y acciones judiciales.",
+            "Igualdad de oportunidades y trato.",
+            "No ser discriminado.",
+            "Prestar servicios en el lugar de nombramiento.",
+            "Ser evaluado e informado de los resultados.",
+            "Organizarse con fines sociales, económicos, culturales o gremiales.",
+            "Participar en huelgas con limitaciones."
+          ],
+          "palabrasClave": ["derechos individuales", "remuneración", "aguinaldo", "vacaciones", "seguridad social"]
+        },
+        {
+          "numero": "44",
+          "epigrafe": "Derechos individuales regidos por el Código del Trabajo y leyes especiales",
+          "texto": [
+            "Duración mínima de vacaciones.",
+            "Beneficios económicos adicionales.",
+            "Protección a la servidora en estado de gravidez y lactancia.",
+            "Licencias remuneradas por matrimonio, paternidad y fallecimiento de familiares."
+          ],
+          "palabrasClave": ["Código del Trabajo", "vacaciones", "gravidez", "licencias"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo VII - Derechos colectivos",
+      "articulos": [
+        {
+          "numero": "45",
+          "epigrafe": "Derecho de sindicalización",
+          "texto": [
+            "Los servidores públicos tienen derecho a organizarse en sindicatos.",
+            "No alcanza a miembros de Fuerzas Armadas y Policiales.",
+            "Las relaciones colectivas se rigen por el Código del Trabajo.",
+            "Elecciones con voto universal, libre, igual y secreto, fiscalizado por el TSJE.",
+            "El MTESS remitirá copia de la resolución de reconocimiento a la autoridad en función pública."
+          ],
+          "palabrasClave": ["sindicalización", "sindicatos", "Código del Trabajo", "TSJE"]
+        },
+        {
+          "numero": "46",
+          "epigrafe": "Derecho a huelga",
+          "texto": [
+            "Los servidores tienen derecho a huelga como medida extrema.",
+            "No alcanza a Fuerzas Armadas y Policiales.",
+            "Se rige por el Código del Trabajo y debe respetar servicios imprescindibles.",
+            "La declaración de legalidad se tramita por recurso de amparo ante la jurisdicción del trabajo."
+          ],
+          "palabrasClave": ["huelga", "servicios imprescindibles", "amparo", "Código del Trabajo"]
+        },
+        {
+          "numero": "47",
+          "epigrafe": "Servicios públicos imprescindibles",
+          "texto": [
+            "Atención sanitaria y hospitalaria.",
+            "Producción y distribución de agua potable, energía eléctrica, gas.",
+            "Pago de remuneraciones, pensiones y haberes jubilatorios.",
+            "Sistema de pagos y liquidación de valores.",
+            "Recolección y disposición de residuos.",
+            "Seguridad vial.",
+            "Otros que determinen las autoridades."
+          ],
+          "palabrasClave": ["servicios imprescindibles", "salud", "agua", "energía", "pagos"]
+        },
+        {
+          "numero": "48",
+          "epigrafe": "Conflictos colectivos",
+          "texto": [
+            "Competencia exclusiva del Juzgado en lo Laboral.",
+            "Instancia obligatoria de conciliación ante el MTESS.",
+            "El MTESS puede proponer fórmula conciliatoria.",
+            "Plazo máximo de 10 días corridos, prorrogable por 5 días.",
+            "La resolución de huelga debe comunicarse con 5 días de antelación.",
+            "Se instalará comisión tripartita para última conciliación."
+          ],
+          "palabrasClave": ["conflictos colectivos", "conciliación", "MTESS", "huelga"]
+        },
+        {
+          "numero": "49",
+          "epigrafe": "Negociación colectiva",
+          "texto": [
+            "Los contratos colectivos se rigen por la ley de negociación colectiva.",
+            "No se pueden acordar beneficios no previstos en el Presupuesto General de la Nación.",
+            "No se pueden acordar incrementos salariales violando reglas macrofiscales."
+          ],
+          "palabrasClave": ["negociación colectiva", "contratos colectivos", "presupuesto", "reglas macrofiscales"]
+        },
+        {
+          "numero": "50",
+          "epigrafe": "Representación. Informe previo. Nulidad.",
+          "texto": [
+            "En las instituciones del Poder Ejecutivo interviene representación designada por decreto.",
+            "Todos los contratos colectivos deben contar con informe favorable del MEF.",
+            "La homologación se realiza ante el MTESS.",
+            "Serán nulos los contratos que violen las previsiones de la ley."
+          ],
+          "palabrasClave": ["representación", "informe MEF", "homologación", "nulidad"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo VIII - Obligaciones y prohibiciones",
+      "articulos": [
+        {
+          "numero": "51",
+          "epigrafe": "Obligaciones",
+          "texto": [
+            "Cumplir diligentemente los deberes.",
+            "Realizar personalmente el trabajo.",
+            "Privilegiar los intereses del Estado.",
+            "Asistir puntualmente.",
+            "Observar instrucciones de superiores jerárquicos.",
+            "Guardar secreto profesional.",
+            "Observar probidad administrativa.",
+            "Concurrir a citación como testigo en sumario administrativo.",
+            "Someterse a evaluaciones.",
+            "Permanecer en el puesto tras renuncia por hasta 30 días.",
+            "Cumplir disposiciones sobre incompatibilidad.",
+            "Mejorar continuamente sus competencias.",
+            "Superar evaluaciones de desempeño.",
+            "Informar sobre riesgos para objetivos institucionales.",
+            "Denunciar actos delictivos o irregularidades.",
+            "No emitir opiniones en nombre de la institución sin autorización.",
+            "Actuar con imparcialidad y neutralidad política.",
+            "Velar por la economía y conservación del patrimonio público."
+          ],
+          "palabrasClave": ["obligaciones", "deberes", "probidad", "secreto profesional", "evaluaciones"]
+        },
+        {
+          "numero": "52",
+          "epigrafe": "Prohibiciones generales",
+          "texto": [
+            "Utilizar autoridad para presionar sobre otros servidores.",
+            "Realizar actividades políticas partidarias en dependencias.",
+            "Usar autoridad para influir en elecciones.",
+            "Ocupar tiempo laboral para fines ajenos.",
+            "Vestir insignias proselitistas en instalaciones.",
+            "Recibir obsequios o comisiones para ejecutar actos.",
+            "Discriminar en la atención de asuntos.",
+            "Intervenir en obtención de beneficios del Estado.",
+            "Aceptar obsequios de subordinados.",
+            "Entregar obsequios a superiores.",
+            "Mantener vínculos con fiscalizados para obtener beneficios.",
+            "Obtener beneficios de contratos o comisiones.",
+            "Efectuar trámites para terceros (excepto abogados en representación institucional).",
+            "Dirigir, asesorar o prestar servicios a concesionarios o proveedores.",
+            "Retirar documentos sin autorización.",
+            "Ejercer industria relacionada con la institución.",
+            "Aceptar comisiones de otros Estados sin autorización.",
+            "Desempeñar funciones violando normas de doble remuneración.",
+            "Generar situaciones de riesgo laboral.",
+            "Ejercer violencia laboral.",
+            "Nombrar parientes en puestos de confianza.",
+            "Ejercer injerencia en procesos de selección."
+          ],
+          "palabrasClave": ["prohibiciones", "nepotismo", "corrupción", "conflicto de intereses", "violencia laboral"]
+        },
+        {
+          "numero": "53",
+          "epigrafe": "Doble remuneración e incompatibilidades",
+          "texto": [
+            "Ningún servidor puede percibir más de una remuneración del Estado.",
+            "Excepción: docencia o investigación científica compatible.",
+            "Personal de salud puede percibir más de una remuneración sin superposición de jornada.",
+            "Los abogados no pueden reclamar honorarios por representación procesal.",
+            "Incompatible: percepción de pensiones no contributivas con remuneraciones del Estado."
+          ],
+          "palabrasClave": ["doble remuneración", "incompatibilidades", "docencia", "salud", "abogados"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo IX - Responsabilidad administrativa",
+      "articulos": [
+        {
+          "numero": "54",
+          "epigrafe": "Responsabilidad administrativa",
+          "texto": [
+            "Los servidores incurren en responsabilidad administrativa por incumplimiento de deberes y prohibiciones.",
+            "Se aplican sanciones disciplinarias determinadas en las leyes.",
+            "Supletoriamente: Ley de Procedimientos Administrativos y Código Procesal Penal."
+          ],
+          "palabrasClave": ["responsabilidad administrativa", "sanciones", "Procedimientos Administrativos"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo X - Finalización del vínculo y reingreso",
+      "articulos": [
+        {
+          "numero": "55",
+          "epigrafe": "Finalización del vínculo jurídico",
+          "texto": [
+            "Fallecimiento.",
+            "Renuncia.",
+            "Jubilación obligatoria (edad y años de aporte).",
+            "Mutuo acuerdo mediante planes de retiro.",
+            "Pérdida o renuncia de nacionalidad paraguaya.",
+            "Condena penal firme con privación de libertad mayor a 2 años.",
+            "Condena penal firme por hechos contra el Estado.",
+            "Inhabilitación legal determinada en sumario administrativo.",
+            "Destitución por faltas disciplinarias.",
+            "Falta de reintegro tras permiso sin goce de sueldo.",
+            "La condena penal o prisión preventiva produce suspensión de la relación de trabajo."
+          ],
+          "palabrasClave": ["finalización", "renuncia", "jubilación", "condena", "destitución"]
+        },
+        {
+          "numero": "56",
+          "epigrafe": "Renuncia",
+          "texto": [
+            "Debe manifestarse por escrito y ser aceptada expresamente.",
+            "Se considera aceptada si no hay pronunciamiento en 10 días hábiles.",
+            "La renuncia no interrumpe el sumario administrativo en curso.",
+            "Si el sumario concluye con destitución, se recalifica la desvinculación."
+          ],
+          "palabrasClave": ["renuncia", "sumario administrativo", "destitución"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo XI - Régimen disciplinario",
+      "articulos": [
+        {
+          "numero": "57",
+          "epigrafe": "Régimen disciplinario",
+          "texto": [
+            "Aplicable a toda relación de función o empleo público sin catálogo de infracciones en norma con rango de ley."
+          ],
+          "palabrasClave": ["régimen disciplinario", "infracciones"]
+        },
+        {
+          "numero": "58",
+          "epigrafe": "Sanciones",
+          "texto": [
+            "Los funcionarios incurren en responsabilidad por incumplimiento de deberes o prohibiciones.",
+            "Se aplicarán considerando circunstancias atenuantes y agravantes."
+          ],
+          "palabrasClave": ["sanciones", "atenuantes", "agravantes"]
+        },
+        {
+          "numero": "59",
+          "epigrafe": "Faltas leves",
+          "texto": [
+            "Asistencias tardías o irregulares.",
+            "Inobservancia de instrucciones del superior.",
+            "Retirar documentos sin autorización.",
+            "No informar irregularidades.",
+            "Negligencia en el desempeño.",
+            "Dos ausencias injustificadas en el mes.",
+            "Incumplimiento de deberes sin entidad suficiente para ser grave."
+          ],
+          "palabrasClave": ["faltas leves", "asistencias", "negligencia", "ausencias"]
+        },
+        {
+          "numero": "60",
+          "epigrafe": "Sanciones a las faltas leves",
+          "texto": [
+            "Apercibimiento por escrito.",
+            "Multa de 1 a 5 días de remuneración."
+          ],
+          "palabrasClave": ["apercibimiento", "multa"]
+        },
+        {
+          "numero": "61",
+          "epigrafe": "Faltas graves",
+          "texto": [
+            "Ausencia injustificada a partir del tercer día consecutivo.",
+            "Abandono de tareas.",
+            "Actos de acoso o discriminación.",
+            "Reiteración de faltas leves.",
+            "Reincidencia en faltas leves.",
+            "Violencia laboral.",
+            "Actos contra la administración pública: cohecho, corrupción, tráfico de influencias.",
+            "Incumplimiento de servicios esenciales.",
+            "Violación de secreto profesional.",
+            "No concurrir a citación como testigo.",
+            "Aceptar obsequios de subordinados.",
+            "Entregar obsequios a superiores.",
+            "Generar situaciones de riesgo laboral.",
+            "Nombrar parientes en puestos de confianza.",
+            "Nombrar asesores ilegalmente.",
+            "Patrocinar trámites para terceros.",
+            "Aceptar comisiones de otros Estados sin autorización.",
+            "Violar normas de doble remuneración."
+          ],
+          "palabrasClave": ["faltas graves", "corrupción", "acoso", "abandono", "secreto profesional"]
+        },
+        {
+          "numero": "62",
+          "epigrafe": "Sanciones a las faltas graves",
+          "texto": [
+            "Suspensión del derecho a progresión (hasta 3 años).",
+            "Suspensión sin goce de sueldo (hasta 90 días).",
+            "Destitución con inhabilitación (hasta 5 años).",
+            "Las faltas de los incisos g) y h) serán sancionadas con destitución."
+          ],
+          "palabrasClave": ["suspensión", "destitución", "inhabilitación"]
+        },
+        {
+          "numero": "63",
+          "epigrafe": "Recurso ante sanciones por faltas leves",
+          "texto": [
+            "Las sanciones son aplicadas por la Unidad de Gestión sin sumario previo.",
+            "El funcionario puede interponer recurso de reconsideración en 10 días hábiles.",
+            "Se ordenará apertura de sumario administrativo."
+          ],
+          "palabrasClave": ["recurso", "reconsideración", "sumario administrativo"]
+        },
+        {
+          "numero": "64",
+          "epigrafe": "Aplicación de sanciones por faltas graves",
+          "texto": [
+            "Las sanciones se aplican previo sumario administrativo por la máxima autoridad.",
+            "Se remitirán antecedentes a la jurisdicción penal cuando corresponda."
+          ],
+          "palabrasClave": ["sumario administrativo", "máxima autoridad", "jurisdicción penal"]
+        },
+        {
+          "numero": "65",
+          "epigrafe": "Sumario administrativo",
+          "texto": [
+            "Procedimiento para investigación de faltas graves y leves (a solicitud).",
+            "Se tramita según disposiciones de la ley y reglamentación."
+          ],
+          "palabrasClave": ["sumario administrativo", "investigación"]
+        },
+        {
+          "numero": "66",
+          "epigrafe": "Instrucción del sumario. Remisión de antecedentes. Comunicación.",
+          "texto": [
+            "La instrucción es dispuesta por la máxima autoridad.",
+            "Se remiten antecedentes al Viceministerio de Capital Humano.",
+            "Si no hay identificación de responsables, se inicia investigación."
+          ],
+          "palabrasClave": ["instrucción", "Viceministerio de Capital Humano", "investigación"]
+        },
+        {
+          "numero": "67",
+          "epigrafe": "Presunción de inocencia",
+          "texto": [
+            "La instrucción del sumario no afecta la carrera del funcionario.",
+            "La inocencia se presume hasta resolución definitiva.",
+            "No obsta al ascenso o promoción."
+          ],
+          "palabrasClave": ["presunción de inocencia", "carrera", "ascenso"]
+        },
+        {
+          "numero": "68",
+          "epigrafe": "Medidas preventivas",
+          "texto": [
+            "La máxima autoridad puede adoptar medidas preventivas durante el sumario.",
+            "Cesarán al concluir el sumario con resolución firme."
+          ],
+          "palabrasClave": ["medidas preventivas", "cautelares"]
+        },
+        {
+          "numero": "69",
+          "epigrafe": "Inicio del sumario administrativo. Dictamen del juez instructor y resolución.",
+          "texto": [
+            "La máxima autoridad indica objeto y sujetos, remite al Viceministerio para designar juez instructor.",
+            "La institución designa un abogado como acusador.",
+            "El juez instructor emite dictamen en 60 días hábiles (prorrogable).",
+            "El dictamen debe ser fundado y contener: hechos, análisis de pruebas, calificación de conducta, circunstancias personales, disposiciones aplicables.",
+            "La máxima autoridad resuelve en 30 días hábiles.",
+            "Si no resuelve, se considera sobreseído.",
+            "La resolución se notifica en 10 días hábiles.",
+            "Los recursos no tienen efecto suspensivo.",
+            "El juez que no emite dictamen incurre en falta grave."
+          ],
+          "palabrasClave": ["juez instructor", "dictamen", "plazos", "resolución", "sobreseimiento"]
+        },
+        {
+          "numero": "70",
+          "epigrafe": "Aplicación supletoria",
+          "texto": [
+            "El procedimiento sumarial se aplica supletoriamente a instituciones no del Poder Ejecutivo sin procedimiento especial.",
+            "Supletoriamente: Ley de Procedimientos Administrativos y Código Procesal Penal."
+          ],
+          "palabrasClave": ["supletoriedad", "Procedimientos Administrativos", "Código Procesal Penal"]
+        },
+        {
+          "numero": "71",
+          "epigrafe": "Carácter independiente del sumario administrativo",
+          "texto": [
+            "El sumario administrativo es independiente de cualquier otro proceso."
+          ],
+          "palabrasClave": ["independencia", "sumario administrativo"]
+        },
+        {
+          "numero": "72",
+          "epigrafe": "Sanción administrativa",
+          "texto": [
+            "La sanción administrativa se aplica sin perjuicio de responsabilidad civil y penal.",
+            "La inhabilitación se notifica al MEF para registro en el Sistema Integrado de Administración de Recursos Humanos."
+          ],
+          "palabrasClave": ["sanción administrativa", "inhabilitación", "registro"]
+        },
+        {
+          "numero": "73",
+          "epigrafe": "Extinción de la acción disciplinaria",
+          "texto": [
+            "Fallecimiento del funcionario sumariado.",
+            "Prescripción de las faltas."
+          ],
+          "palabrasClave": ["extinción", "fallecimiento", "prescripción"]
+        },
+        {
+          "numero": "74",
+          "epigrafe": "Prescripción de las faltas",
+          "texto": [
+            "Faltas graves: 3 años.",
+            "Faltas leves: 1 año.",
+            "El plazo comienza: para leves, desde el día de la falta; para graves, desde que la falta es advertida.",
+            "Se interrumpe con la notificación de apertura del sumario."
+          ],
+          "palabrasClave": ["prescripción", "plazos", "interrupción"]
+        },
+        {
+          "numero": "75",
+          "epigrafe": "Prescripción de la ejecución de la sanción disciplinaria",
+          "texto": [
+            "2 años de quedar firme la resolución, excepto destitución que es imprescriptible."
+          ],
+          "palabrasClave": ["ejecución", "prescripción", "destitución"]
+        },
+        {
+          "numero": "76",
+          "epigrafe": "Revocación judicial de la destitución",
+          "texto": [
+            "En caso de revocación, la institución debe reincorporar al funcionario en primera vacancia o crearla.",
+            "Si no es posible en 6 meses, puede optar por indemnización.",
+            "Doble indemnización solo para funcionarios con 10+ años de antigüedad."
+          ],
+          "palabrasClave": ["revocación", "reincorporación", "indemnización", "10 años"]
+        }
+      ]
+    },
+    {
+      "numero": "I",
+      "titulo": "DE LA FUNCIÓN PÚBLICA",
+      "subtitulo": "Capítulo XII - Régimen especial del contrato de empleo público",
+      "articulos": [
+        {
+          "numero": "77",
+          "epigrafe": "Empleado Público",
+          "texto": [
+            "Las instituciones pueden contratar personas físicas para necesidades temporales, inusuales o excepcionales.",
+            "El empleado público no forma parte de la carrera del servicio civil.",
+            "Adquiere estabilidad tras 10 años de servicio ininterrumpido.",
+            "En caso de desvinculación por razones presupuestarias, se aplica indemnización según antigüedad.",
+            "Se puede determinar procedimiento de selección para servicio auxiliar (hasta 30 jornales mínimos)."
+          ],
+          "palabrasClave": ["empleado público", "contrato temporal", "estabilidad 10 años", "indemnización"]
+        },
+        {
+          "numero": "78",
+          "epigrafe": "Necesidades temporales de excepcional interés para la comunidad",
+          "texto": [
+            "Combatir brotes epidémicos.",
+            "Realizar censos, encuestas o eventos electorales.",
+            "Atender situaciones de emergencia pública.",
+            "Ejecutar servicios profesionales especializados."
+          ],
+          "palabrasClave": ["necesidades temporales", "emergencia", "epidemias", "censos"]
+        },
+        {
+          "numero": "79",
+          "epigrafe": "Selección",
+          "texto": [
+            "La contratación se realiza mediante concurso público.",
+            "Excepcionalmente, en emergencia nacional, se puede contratar en forma directa."
+          ],
+          "palabrasClave": ["selección", "concurso público", "emergencia"]
+        },
+        {
+          "numero": "80",
+          "epigrafe": "Condiciones mínimas del contrato",
+          "texto": [
+            "Contrato por tiempo determinado, máximo 12 meses.",
+            "Pueden renovarse con disponibilidad presupuestaria y evaluación de desempeño.",
+            "Todas las contrataciones deben estar en el Presupuesto General de la Nación."
+          ],
+          "palabrasClave": ["contrato", "12 meses", "renovación", "presupuesto"]
+        },
+        {
+          "numero": "81",
+          "epigrafe": "Funciones específicas",
+          "texto": [
+            "No pueden desarrollar funciones distintas a las contratadas, bajo pena de nulidad y responsabilidad."
+          ],
+          "palabrasClave": ["funciones", "nulidad", "responsabilidad"]
+        },
+        {
+          "numero": "82",
+          "epigrafe": "Del análisis permanente de las necesidades que motivan la contratación",
+          "texto": [
+            "La autoridad dictaminará si las necesidades han perdido su naturaleza temporal.",
+            "La contratación previa no da derecho a designación, pero puede ser criterio de selección."
+          ],
+          "palabrasClave": ["análisis", "necesidades temporales", "criterio de selección"]
+        },
+        {
+          "numero": "83",
+          "epigrafe": "Obligación de preavisar",
+          "texto": [
+            "La administración y el empleado tienen obligación de preaviso.",
+            "Plazos y efectos según Código del Trabajo."
+          ],
+          "palabrasClave": ["preaviso", "Código del Trabajo"]
+        },
+        {
+          "numero": "84",
+          "epigrafe": "Régimen de seguridad social",
+          "texto": [
+            "Durante la vigencia del contrato, institución y empleado aportan a la seguridad social.",
+            "Si pasa a funcionario público, la antigüedad se computa desde el primer aporte."
+          ],
+          "palabrasClave": ["seguridad social", "aportes", "antigüedad"]
+        },
+        {
+          "numero": "85",
+          "epigrafe": "Derechos reconocidos",
+          "texto": [
+            "El contrato puede incluir: descansos, aguinaldo, seguridad social y otros beneficios autorizados en el presupuesto."
+          ],
+          "palabrasClave": ["derechos", "descansos", "aguinaldo", "seguridad social"]
+        },
+        {
+          "numero": "86",
+          "epigrafe": "Incompatibilidades",
+          "texto": [
+            "No puede acceder por concurso interno a puestos de Jefatura, Coordinación o similares.",
+            "No puede ocupar interinatos, cargos de directivos públicos ni cargos de confianza."
+          ],
+          "palabrasClave": ["incompatibilidades", "Jefatura", "directivos", "confianza"]
+        },
+        {
+          "numero": "87",
+          "epigrafe": "Obligaciones y prohibiciones",
+          "texto": [
+            "Aplican las mismas obligaciones y prohibiciones que para funcionarios públicos.",
+            "Las faltas leves y graves constituyen incumplimientos contractuales."
+          ],
+          "palabrasClave": ["obligaciones", "prohibiciones", "faltas"]
+        },
+        {
+          "numero": "88",
+          "epigrafe": "Controversias",
+          "texto": [
+            "Competencia exclusiva del fuero contencioso administrativo.",
+            "Prescripción: 60 días para destitución o despido injustificado; 12 meses para demás casos."
+          ],
+          "palabrasClave": ["controversias", "contencioso administrativo", "prescripción"]
+        },
+        {
+          "numero": "89",
+          "epigrafe": "Terminación del contrato de empleo público",
+          "texto": [
+            "Razones estipuladas en el contrato.",
+            "Causales de finalización para funcionarios públicos.",
+            "Mutuo consentimiento formalizado.",
+            "Imposibilidad material.",
+            "Caso fortuito o fuerza mayor.",
+            "Vencimiento del plazo (sin alcanzar 10 años).",
+            "Extinción de las condiciones que motivaron la contratación."
+          ],
+          "palabrasClave": ["terminación", "contrato", "causales", "vencimiento"]
+        },
+        {
+          "numero": "90",
+          "epigrafe": "Contratación civil",
+          "texto": [
+            "Las instituciones pueden contratar personas físicas o jurídicas mediante contratos civiles.",
+            "Se rigen por la Ley de Contrataciones Públicas y el Código Civil."
+          ],
+          "palabrasClave": ["contratación civil", "Ley de Contrataciones Públicas", "Código Civil"]
+        }
+      ]
+    },
+    {
+      "numero": "II",
+      "titulo": "DE LA CARRERA DEL SERVICIO CIVIL",
+      "subtitulo": "Capítulo I - De las reglas de la carrera del servicio civil",
+      "articulos": [
+        {
+          "numero": "91",
+          "epigrafe": "Reglamentación de la carrera del servicio civil",
+          "texto": [
+            "La carrera del servicio civil será reglamentada por la autoridad en materia de función pública correspondiente."
+          ],
+          "palabrasClave": ["carrera del servicio civil", "reglamentación"]
+        },
+        {
+          "numero": "92",
+          "epigrafe": "Sujetos alcanzados",
+          "texto": [
+            "Aplicable a todos los funcionarios públicos que no integren carreras especiales."
+          ],
+          "palabrasClave": ["sujetos alcanzados", "funcionarios públicos"]
+        },
+        {
+          "numero": "93",
+          "epigrafe": "Sujetos excluidos",
+          "texto": [
+            "Carrera judicial.",
+            "Carrera docente (todos los niveles).",
+            "Carrera diplomática y consular.",
+            "Carrera de investigación científica y tecnológica.",
+            "Carrera militar.",
+            "Carrera policial.",
+            "Otras establecidas en leyes especiales."
+          ],
+          "palabrasClave": ["excluidos", "carreras especiales"]
+        }
+      ]
+    },
+    {
+      "numero": "II",
+      "titulo": "DE LA CARRERA DEL SERVICIO CIVIL",
+      "subtitulo": "Capítulo II - Desarrollo de la carrera del servicio civil",
+      "secciones": [
+        {
+          "nombre": "Sección I - Organización y estructura de la carrera",
+          "articulos": [
+            {
+              "numero": "94",
+              "epigrafe": "Organización de la carrera",
+              "texto": [
+                "La carrera se organiza jerárquicamente en grupos ocupacionales, cargos, puestos, niveles y grados."
+              ],
+              "palabrasClave": ["organización", "grupos ocupacionales", "niveles", "grados"]
+            },
+            {
+              "numero": "95",
+              "epigrafe": "Estructura de cargos y puestos",
+              "texto": [
+                "Mandos medios: puestos jerárquicos debajo de directivos.",
+                "Profesionales: requieren título universitario.",
+                "Técnicos: requieren título terciario no universitario.",
+                "Apoyo: soporte técnico o administrativo.",
+                "Servicios auxiliares: operativos de menor complejidad.",
+                "Hasta 4 niveles y 4 grados por grupo ocupacional."
+              ],
+              "palabrasClave": ["estructura", "mandos medios", "profesionales", "técnicos", "apoyo", "servicios auxiliares"]
+            },
+            {
+              "numero": "96",
+              "epigrafe": "Perfiles de puestos",
+              "texto": [
+                "Las instituciones diseñarán perfiles de puestos incluyendo denominación, descripción de tareas, relaciones funcionales, productos esperados y requisitos."
+              ],
+              "palabrasClave": ["perfiles", "descripción de tareas", "requisitos"]
+            }
+          ]
+        },
+        {
+          "nombre": "Sección II - Criterios y plazos de concursos públicos",
+          "articulos": [
+            {
+              "numero": "97",
+              "epigrafe": "Criterios para la realización de concursos",
+              "texto": [
+                "Para cubrir vacantes de niveles y grados iniciales.",
+                "Para nuevos cargos.",
+                "Cuando se haya declarado desierto el concurso interno.",
+                "Las instituciones del Poder Ejecutivo necesitan autorización del MEF."
+              ],
+              "palabrasClave": ["concursos", "criterios", "vacantes", "autorización MEF"]
+            },
+            {
+              "numero": "98",
+              "epigrafe": "Plazo de ejecución de los concursos",
+              "texto": [
+                "Los procesos deben finalizar en los plazos establecidos.",
+                "Los puestos no concursados en 2 ejercicios fiscales pueden ser reubicados o suprimidos.",
+                "La falta de publicidad invalida el nombramiento."
+              ],
+              "palabrasClave": ["plazos", "publicidad", "nulidad"]
+            }
+          ]
+        },
+        {
+          "nombre": "Sección III - Progresión en la carrera",
+          "articulos": [
+            {
+              "numero": "99",
+              "epigrafe": "Progresión en la carrera",
+              "texto": [
+                "Los funcionarios estables tienen derecho a participar en concursos para ascensos y promociones.",
+                "Cada evento de progresión genera derechos no acumulables."
+              ],
+              "palabrasClave": ["progresión", "ascensos", "promociones"]
+            },
+            {
+              "numero": "100",
+              "epigrafe": "Ascensos",
+              "texto": [
+                "Pasar a un cargo de mayor nivel dentro del mismo grupo ocupacional.",
+                "Requisitos: cumplir perfil del puesto, calificación de 'Bueno' en últimas 2 evaluaciones, ganar concurso interno."
+              ],
+              "palabrasClave": ["ascenso", "requisitos", "evaluaciones", "concurso interno"]
+            },
+            {
+              "numero": "101",
+              "epigrafe": "Promociones",
+              "texto": [
+                "Avanzar de grado dentro del mismo cargo y nivel.",
+                "Requisitos: cumplir perfil, 4 años de permanencia, calificación de 'Bueno' en últimas 2 evaluaciones."
+              ],
+              "palabrasClave": ["promoción", "requisitos", "4 años", "evaluaciones"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "numero": "II",
+      "titulo": "DE LA CARRERA DEL SERVICIO CIVIL",
+      "subtitulo": "Capítulo III - Cargos de confianza",
+      "articulos": [
+        {
+          "numero": "102",
+          "epigrafe": "Sujetos del régimen de cargo de confianza",
+          "texto": [
+            "Viceministros, gerentes y similares jerárquicamente debajo de conducción política.",
+            "Secretarios con rango de ministros, directores y coordinadores del Gabinete Civil.",
+            "Embajadores, cónsules y representantes ante organizaciones internacionales.",
+            "Asesores.",
+            "Directores de comisiones y bancadas del Poder Legislativo.",
+            "Directores de Administración y Finanzas, Gabinete, Secretaría General y Asesoría Jurídica."
+          ],
+          "palabrasClave": ["cargos de confianza", "libre designación", "remoción"]
+        },
+        {
+          "numero": "103",
+          "epigrafe": "Nombramiento y remoción",
+          "texto": [
+            "Selección directa, ajustándose al perfil del puesto.",
+            "Nombramiento por decreto (Poder Ejecutivo) o resolución (demás instituciones).",
+            "No genera estabilidad ni indemnización.",
+            "Cesa automáticamente al cesar la autoridad para la que presta función."
+          ],
+          "palabrasClave": ["nombramiento", "remoción", "sin estabilidad", "sin indemnización"]
+        }
+      ]
+    },
+    {
+      "numero": "II",
+      "titulo": "DE LA CARRERA DEL SERVICIO CIVIL",
+      "subtitulo": "Capítulo IV - Sistema de directivos públicos",
+      "articulos": [
+        {
+          "numero": "104",
+          "epigrafe": "Sistema de directivos públicos",
+          "texto": [
+            "Se crea el sistema de directivos públicos, con selección por concurso público transparente."
+          ],
+          "palabrasClave": ["directivos públicos", "concurso público", "transparencia"]
+        },
+        {
+          "numero": "105",
+          "epigrafe": "Alcance y estructura de puestos del sistema de directivos públicos",
+          "texto": [
+            "Comprende directores generales y directores.",
+            "Se dividen en niveles según: número de unidades bajo dirección, alcance territorial, complejidad, cantidad de personal a cargo, dimensión de recursos públicos."
+          ],
+          "palabrasClave": ["alcance", "directores generales", "niveles"]
+        },
+        {
+          "numero": "106",
+          "epigrafe": "Permanencia y egreso",
+          "texto": [
+            "Seleccionados por 3 años, renovables por igual período, máximo 9 años.",
+            "Período de prueba de 3 a 6 meses.",
+            "Egreso por: vencimiento, renuncia, remoción, asunción de cargo electivo, destitución, fallecimiento, discapacidad.",
+            "La destitución antes del término no genera indemnización."
+          ],
+          "palabrasClave": ["permanencia", "egreso", "3 años", "renovación", "destitución"]
+        },
+        {
+          "numero": "107",
+          "epigrafe": "Funcionarios de carrera en puestos del sistema de directivos públicos",
+          "texto": [
+            "Conservan derechos adquiridos y vuelven al último puesto al cesar.",
+            "Conservan % del salario del puesto directivo: 80% si permaneció 2 períodos, 100% si 3 períodos.",
+            "Si el último puesto era de mandos medios, pasa al nivel más alto de profesionales."
+          ],
+          "palabrasClave": ["funcionarios de carrera", "derechos adquiridos", "porcentaje salarial"]
+        }
+      ]
+    },
+    {
+      "numero": "II",
+      "titulo": "DE LA CARRERA DEL SERVICIO CIVIL",
+      "subtitulo": "Capítulo V - Programas especiales",
+      "articulos": [
+        {
+          "numero": "108",
+          "epigrafe": "Programas especiales",
+          "texto": [
+            "Programas de pasantías e innovadores públicos, regidos por disposiciones especiales."
+          ],
+          "palabrasClave": ["programas especiales", "pasantías", "innovadores públicos"]
+        },
+        {
+          "numero": "109",
+          "epigrafe": "Programas de pasantías",
+          "texto": [
+            "Diseñados y supervisados por la autoridad en función pública.",
+            "No originan vínculo laboral.",
+            "No pueden cubrir vacantes o reemplazar servidores."
+          ],
+          "palabrasClave": ["pasantías", "no laboral", "no reemplazo"]
+        },
+        {
+          "numero": "110",
+          "epigrafe": "Clasificación de los programas de pasantías",
+          "texto": [
+            "Programa para becarios: por período igual al de la beca.",
+            "Programa de formación profesional: hasta 1 año, prorrogable por 1 año."
+          ],
+          "palabrasClave": ["becarios", "formación profesional"]
+        },
+        {
+          "numero": "111",
+          "epigrafe": "Programa de innovadores públicos",
+          "texto": [
+            "Hasta 3 innovadores con alto potencial y conocimientos técnicos en ámbito digital.",
+            "Duración máxima de 3 ejercicios fiscales, improrrogable."
+          ],
+          "palabrasClave": ["innovadores públicos", "digital", "3 años"]
+        },
+        {
+          "numero": "112",
+          "epigrafe": "Selección",
+          "texto": [
+            "Proceso específico de selección, dependiente de disponibilidad presupuestaria."
+          ],
+          "palabrasClave": ["selección", "presupuesto"]
+        },
+        {
+          "numero": "113",
+          "epigrafe": "Inhabilidades",
+          "texto": [
+            "Niños, niñas y adolescentes.",
+            "Personas vinculadas a institución como empleado o funcionario.",
+            "Beneficiarios que no culminaron becas.",
+            "Servidores que no cumplieron con la obligación de prestar servicios.",
+            "Servidores destituidos con inhabilitación."
+          ],
+          "palabrasClave": ["inhabilidades", "becas", "destitución"]
+        },
+        {
+          "numero": "114",
+          "epigrafe": "De la certificación",
+          "texto": [
+            "Las instituciones deben entregar certificado de pasantía con funciones y duración."
+          ],
+          "palabrasClave": ["certificación", "pasantía"]
+        },
+        {
+          "numero": "115",
+          "epigrafe": "De la valoración de las pasantías",
+          "texto": [
+            "Las pasantías tendrán ponderación preferencial en concursos públicos."
+          ],
+          "palabrasClave": ["valoración", "ponderación", "concursos"]
+        },
+        {
+          "numero": "116",
+          "epigrafe": "De la sujeción de los pasantes e innovadores públicos al sistema disciplinario",
+          "texto": [
+            "Están sujetos al sistema disciplinario y a las incompatibilidades de los empleados públicos."
+          ],
+          "palabrasClave": ["sistema disciplinario", "incompatibilidades"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DISPOSICIONES ESPECIALES",
+      "subtitulo": "Capítulo I - Política de remuneraciones",
+      "articulos": [
+        {
+          "numero": "117",
+          "epigrafe": "Remuneración",
+          "texto": [
+            "Conjunto de retribuciones para retribuir la prestación de servicios, con objetivo de captar, mantener y desarrollar personal efectivo."
+          ],
+          "palabrasClave": ["remuneración", "retribución", "captación", "desarrollo"]
+        },
+        {
+          "numero": "118",
+          "epigrafe": "Estructura de las remuneraciones",
+          "texto": [
+            "Se estructura según la ley de presupuesto, la política de remuneraciones del MEF y normas reglamentarias."
+          ],
+          "palabrasClave": ["estructura", "presupuesto", "política de remuneraciones"]
+        },
+        {
+          "numero": "119",
+          "epigrafe": "Gestión de la remuneración",
+          "texto": [
+            "Conjunto de principios, normas y lineamientos que regulan la política de remuneraciones."
+          ],
+          "palabrasClave": ["gestión", "principios", "normas"]
+        },
+        {
+          "numero": "120",
+          "epigrafe": "Principios generales",
+          "texto": [
+            "Competitividad y productividad.",
+            "Equidad: a diferente exigencia, diferente remuneración; a similar exigencia, similar remuneración.",
+            "Consistencia interna.",
+            "Responsabilidad fiscal.",
+            "Remuneración de referencia: la del Presidente de la República.",
+            "Cálculo salarial técnico: conocimientos, experiencia, peso relativo, discrecionalidad, planificación, complejidad, disponibilidad, peligrosidad, responsabilidad.",
+            "Remuneración global.",
+            "Transparencia: publicación en portal de empleo público."
+          ],
+          "palabrasClave": ["principios", "equidad", "responsabilidad fiscal", "transparencia"]
+        },
+        {
+          "numero": "121",
+          "epigrafe": "Escala salarial",
+          "texto": [
+            "Cada cargo y puesto tiene asignada una remuneración global según valoración.",
+            "El conjunto conforma la escala salarial."
+          ],
+          "palabrasClave": ["escala salarial", "remuneración global"]
+        },
+        {
+          "numero": "122",
+          "epigrafe": "Designaciones internas",
+          "texto": [
+            "El funcionario que desempeña interinamente un puesto vacante percibe la remuneración del puesto jerárquico.",
+            "El interinazgo no puede exceder 2 ejercicios fiscales."
+          ],
+          "palabrasClave": ["interinazgo", "remuneración", "2 años"]
+        },
+        {
+          "numero": "123",
+          "epigrafe": "Rectoría",
+          "texto": [
+            "El MEF es rector en materia de remuneraciones.",
+            "Atribuciones: diseñar políticas, emitir reglamentos de valoración de puestos, realizar estudios salariales, evaluar impacto, emitir informes.",
+            "Las instituciones no incorporadas al PGN determinan su propia rectoría."
+          ],
+          "palabrasClave": ["rectoría", "MEF", "valoración de puestos", "estudios salariales"]
+        },
+        {
+          "numero": "124",
+          "epigrafe": "Participación de la sociedad",
+          "texto": [
+            "Personas o asociaciones pueden elevar comentarios y sugerencias al MEF, sin carácter vinculante."
+          ],
+          "palabrasClave": ["participación", "sugerencias", "no vinculante"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DISPOSICIONES ESPECIALES",
+      "subtitulo": "Capítulo II - Planificación de la fuerza de trabajo",
+      "articulos": [
+        {
+          "numero": "125",
+          "epigrafe": "Objetivo y criterios ordenadores de la planificación",
+          "texto": [
+            "Establecer cantidad óptima y perfil del servidor público.",
+            "Planificación anual con: organización del trabajo, plan de incorporaciones, plan de retiro y desvinculaciones, plan de movilidad.",
+            "La creación de nuevos puestos requiere dictamen favorable del MEF."
+          ],
+          "palabrasClave": ["planificación", "fuerza de trabajo", "organización", "incorporaciones", "retiro", "movilidad"]
+        },
+        {
+          "numero": "126",
+          "epigrafe": "Sistema integrado de información",
+          "texto": [
+            "El Sistema Integrado de Administración de Recursos Humanos debe estar interconectado en plataforma centralizada.",
+            "Todas las instituciones deben proveer y actualizar información."
+          ],
+          "palabrasClave": ["sistema integrado", "información", "recursos humanos"]
+        },
+        {
+          "numero": "127",
+          "epigrafe": "Instituto Nacional de Administración Pública del Paraguay",
+          "texto": [
+            "Depende del MEF, administra enseñanza y capacitación de funcionarios públicos.",
+            "Puede percibir costos de matrículas y recibir cooperación.",
+            "Puede otorgar becas parciales o totales.",
+            "El Poder Ejecutivo reglamentará su organización."
+          ],
+          "palabrasClave": ["INAP", "capacitación", "formación", "becas"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DISPOSICIONES ESPECIALES",
+      "subtitulo": "Capítulo III - Transparencia en la función pública",
+      "articulos": [
+        {
+          "numero": "128",
+          "epigrafe": "Información pública",
+          "texto": [
+            "El MEF implementará y mantendrá el portal de empleo público y datos abiertos.",
+            "Las instituciones deben publicar todos los llamados a concurso."
+          ],
+          "palabrasClave": ["transparencia", "portal de empleo", "datos abiertos", "concursos"]
+        },
+        {
+          "numero": "129",
+          "epigrafe": "Sistema de denuncias",
+          "texto": [
+            "El MEF coordinará un sistema de denuncias anónimas y seguras sobre irregularidades."
+          ],
+          "palabrasClave": ["denuncias", "anónimas", "irregularidades", "corrupción"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DISPOSICIONES ESPECIALES",
+      "subtitulo": "Capítulo IV - Revisión y sanción de actos irregulares",
+      "articulos": [
+        {
+          "numero": "130",
+          "epigrafe": "Nulidades",
+          "texto": [
+            "Los actos en contravención a la ley serán nulos.",
+            "La acción para declarar nulidad no prescribe.",
+            "La nulidad no altera la eficacia de actos previos del servidor."
+          ],
+          "palabrasClave": ["nulidad", "imprescriptible", "actos previos"]
+        },
+        {
+          "numero": "131",
+          "epigrafe": "Causas de nulidad",
+          "texto": [
+            "Sanción de nulidad expresa.",
+            "Dictado contra expresa prohibición de ley.",
+            "Inobservancia del concurso público.",
+            "Inobservancia total de otros procedimientos.",
+            "Demás causales del artículo 20 de la Ley de Procedimientos Administrativos."
+          ],
+          "palabrasClave": ["causas de nulidad", "concurso", "procedimientos"]
+        },
+        {
+          "numero": "132",
+          "epigrafe": "Legitimación",
+          "texto": [
+            "Puede declararse por acción de lesividad de la entidad o la Procuraduría General.",
+            "También puede declararse de oficio por autoridad judicial."
+          ],
+          "palabrasClave": ["legitimación", "lesividad", "Procuraduría", "de oficio"]
+        },
+        {
+          "numero": "133",
+          "epigrafe": "Legislación aplicable",
+          "texto": [
+            "Ley de Procedimientos Administrativos, Código Procesal Civil y Código Civil, en marco de principios del derecho público."
+          ],
+          "palabrasClave": ["legislación aplicable", "Procedimientos Administrativos", "derecho público"]
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "DISPOSICIONES ESPECIALES",
+      "subtitulo": "Capítulo V - Recursos, acciones judiciales y pagos",
+      "articulos": [
+        {
+          "numero": "134",
+          "epigrafe": "Régimen de los recursos administrativos",
+          "texto": [
+            "Régimen establecido en la Ley de Procedimientos Administrativos."
+          ],
+          "palabrasClave": ["recursos administrativos", "Procedimientos Administrativos"]
+        },
+        {
+          "numero": "135",
+          "epigrafe": "Competencia sobre las acciones litigiosas",
+          "texto": [
+            "Competencia de la Jurisdicción Contencioso-Administrativa.",
+            "Tribunales Electorales para funcionarios municipales o departamentales.",
+            "Ejecución de sumas de dinero ante el fuero civil."
+          ],
+          "palabrasClave": ["competencia", "contencioso administrativo", "Tribunales Electorales"]
+        },
+        {
+          "numero": "136",
+          "epigrafe": "Acción de resarcimiento y de repetición",
+          "texto": [
+            "El Estado puede demandar a servidores por daños o disminuciones patrimoniales.",
+            "Prescribe a los 2 años de realizado el pago o determinada la disminución."
+          ],
+          "palabrasClave": ["resarcimiento", "repetición", "daños", "prescripción"]
+        },
+        {
+          "numero": "137",
+          "epigrafe": "Competencia",
+          "texto": [
+            "El fuero competente es el civil."
+          ],
+          "palabrasClave": ["competencia", "civil"]
+        },
+        {
+          "numero": "138",
+          "epigrafe": "Pago y dictamen previo",
+          "texto": [
+            "La institución debe analizar si el pago es regular o irregular y remitir a la Contraloría.",
+            "Si es irregular, se remite a la Procuraduría para acción de repetición."
+          ],
+          "palabrasClave": ["pago", "dictamen", "Contraloría", "Procuraduría"]
+        }
+      ]
+    },
+    {
+      "numero": "IV",
+      "titulo": "DISPOSICIONES FINALES Y TRANSITORIAS",
+      "articulos": [
+        {
+          "numero": "139",
+          "epigrafe": "Cronograma de implementación del sistema de directivos públicos",
+          "texto": [
+            "Implementación en 2 años.",
+            "Los funcionarios en puestos directivos de confianza continuarán hasta los concursos."
+          ],
+          "palabrasClave": ["cronograma", "directivos públicos", "2 años", "concursos"]
+        },
+        {
+          "numero": "140",
+          "epigrafe": "Gradualidad de la valoración de puestos",
+          "texto": [
+            "Valoración de puestos de manera gradual para incorporación de funcionarios existentes."
+          ],
+          "palabrasClave": ["gradualidad", "valoración de puestos"]
+        },
+        {
+          "numero": "141",
+          "epigrafe": "Situación del empleado público",
+          "texto": [
+            "Los empleados actuales continúan hasta finalización del contrato.",
+            "Los nuevos contratos deben adaptarse a la ley.",
+            "Los empleados con 10+ años de antigüedad y enfermedad impredecible reciben doble indemnización."
+          ],
+          "palabrasClave": ["empleados actuales", "contratos nuevos", "10 años", "indemnización"]
+        },
+        {
+          "numero": "142",
+          "epigrafe": "Análisis situacional y adecuación progresiva",
+          "texto": [
+            "Las instituciones deben analizar contratos vigentes para determinar si requieren personal permanente.",
+            "Las necesidades permanentes deben ser atendidas por funcionarios públicos."
+          ],
+          "palabrasClave": ["análisis situacional", "adecuación", "personal permanente"]
+        },
+        {
+          "numero": "143",
+          "epigrafe": "Programa de retiro voluntario",
+          "texto": [
+            "Para contratados con 10+ años de servicio y 60+ años de edad.",
+            "Aplicable por única vez, con disponibilidad presupuestaria."
+          ],
+          "palabrasClave": ["retiro voluntario", "10 años", "60 años"]
+        },
+        {
+          "numero": "144",
+          "epigrafe": "Funcionarios en puestos directivos o inferiores de confianza",
+          "texto": [
+            "Continúan hasta que se realicen los concursos (plazo máximo 1 año).",
+            "Los funcionarios de carrera conservan derechos adquiridos."
+          ],
+          "palabrasClave": ["directivos de confianza", "concursos", "1 año"]
+        },
+        {
+          "numero": "145",
+          "epigrafe": "Planificación inicial",
+          "texto": [
+            "En 1 año, todas las instituciones evaluarán necesidades reales de capital humano y proyecciones a futuro."
+          ],
+          "palabrasClave": ["planificación inicial", "1 año", "capital humano"]
+        },
+        {
+          "numero": "146",
+          "epigrafe": "Vigencia y reglamentación",
+          "texto": [
+            "Vigencia a los 6 meses de su publicación.",
+            "Reglamentación por la autoridad en función pública con implementación gradual."
+          ],
+          "palabrasClave": ["vigencia", "6 meses", "reglamentación", "gradual"]
+        },
+        {
+          "numero": "147",
+          "epigrafe": "Abrogaciones y derogaciones",
+          "texto": [
+            "Abrogada la Ley N° 1.626/2000 y sus modificatorias.",
+            "Derogadas todas las disposiciones contrarias.",
+            "Las remisiones a la ley abrogada se entienden hechas a la presente ley."
+          ],
+          "palabrasClave": ["abrogaciones", "derogaciones", "Ley 1.626/2000"]
+        },
+        {
+          "numero": "148",
+          "epigrafe": "Comunicación al Poder Ejecutivo",
+          "texto": [
+            "Comuníquese al Poder Ejecutivo."
+          ],
+          "palabrasClave": ["comunicación", "Poder Ejecutivo"]
+        }
+      ]
+    }
+  ],
+  "resumen_ejecutivo": {
+    "objeto": "Establecer disposiciones generales para la función pública y regular la carrera del servicio civil en Paraguay.",
+    "alcance": "Aplica a toda actividad de función y empleo público, con exclusiones para sociedades anónimas del Estado, fuerzas públicas y carreras especiales.",
+    "principios_rectores": ["Legalidad", "Igualdad", "Mérito", "Eficiencia", "Probidad", "Previsión presupuestaria"],
+    "ingreso": "Concurso público como única vía, con excepciones para cargos de confianza y asesores.",
+    "estabilidad": "Se adquiere con 2 años de servicio y concurso público.",
+    "estructura_carrera": "Grupos ocupacionales (Mandos medios, Profesionales, Técnicos, Apoyo, Servicios auxiliares) con niveles y grados.",
+    "progresion": "Ascensos por concurso interno y promociones por antigüedad y desempeño.",
+    "evaluacion": "Anual, con calificaciones de Distinguido a Reprobado, usada para ascensos, promociones y capacitación.",
+    "remuneraciones": "Rectoría del MEF, basada en principios de equidad, responsabilidad fiscal y cálculo técnico.",
+    "autoridades": "MEF para el Poder Ejecutivo; cada institución autónoma para sí misma.",
+    "transparencia": "Portal de empleo público, sistema de denuncias anónimas y publicación de concursos.",
+    "vigencia": "6 meses después de su publicación en la Gaceta Oficial."
+  }
+}
