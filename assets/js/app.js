@@ -27,7 +27,6 @@ const CODIGOS = [
   { id:'codigo-aduanero',              nombre:'Código Aduanero',                         path:'codigos/codigoaduanero/codigo_aduanero_completo.json' },
   { id:'codigo-mineria',               nombre:'Código de Minería',                       path:'codigos/codigomineria/codigo_minero_completo.json' },
   { id:'codigo-sanitario',             nombre:'Código Sanitario',                        path:'codigos/codigosanitario/codigo_sanitario_completo.json' },
-  // NUEVO: Constitución Nacional en el índice global
   { id:'constitucion-nacional',        nombre:'Constitución Nacional',                   path:'codigos/constitucion/constitucion_nacional.json' },
 ];
 const PREVIEW = 20;
@@ -135,27 +134,56 @@ async function cargarIndice() {
 }
 
 /* ── Render grid ── */
+const LIMITE_LEYES = 3;
+
 function renderGrid(cats) {
   const grid = document.getElementById('categorias-grid');
   if (!grid) return;
   const filtradas = cats.filter(c => c.codigos && c.codigos.length);
-  if (!filtradas.length) {
-    grid.innerHTML = '';
-    return;
-  }
-  grid.innerHTML = filtradas.map(cat => `
-    <div class="cat-section">
-      <div class="cat-section__title" style="background:${cat.color}">${esc(cat.nombre)}</div>
-      <div class="cat-list">
-        ${cat.codigos.map(c => `
-          <a href="${c.internalUrl}" class="cat-item" data-id="${c.id}">
-            <span class="cat-item__nombre">${esc(c.nombre)}</span>
-            <span class="cat-item__ley">${esc(c.ley)}</span>
-          </a>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
+  if (!filtradas.length) { grid.innerHTML = ''; return; }
+
+  grid.innerHTML = filtradas.map(cat => {
+    const codigos = cat.codigos.filter(c => !c.esLey);
+    const leyes   = cat.codigos.filter(c =>  c.esLey);
+
+    const itemHtml = c => `
+      <a href="${c.internalUrl}" class="cat-item${c.esLey?' cat-item--ley':''}" data-id="${c.id}">
+        <span class="cat-item__nombre">${esc(c.nombre)}</span>
+        <span class="cat-item__ley">${esc(c.ley)}</span>
+      </a>`;
+
+    const leyesVisibles = leyes.slice(0, LIMITE_LEYES).map(itemHtml).join('');
+    const leyesOcultas  = leyes.slice(LIMITE_LEYES).map(itemHtml).join('');
+    const resto = leyes.length - LIMITE_LEYES;
+
+    return `
+      <div class="cat-section">
+        <div class="cat-section__title" style="background:${cat.color}">${esc(cat.nombre)}</div>
+        <div class="cat-list">${codigos.map(itemHtml).join('')}</div>
+        ${leyes.length ? `
+          <div class="cat-list__divider">Leyes relacionadas (${leyes.length})</div>
+          <div class="cat-list cat-list--leyes">
+            ${leyesVisibles}
+            ${leyesOcultas ? `<div class="cat-list--collapsed" hidden>${leyesOcultas}</div>` : ''}
+          </div>
+          ${resto > 0 ? `<button type="button" class="cat-ver-mas" data-resto="${resto}">&#9660; Ver ${resto} más</button>` : ''}
+        ` : ''}
+      </div>`;
+  }).join('');
+
+  grid.querySelectorAll('.cat-ver-mas').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lista   = btn.previousElementSibling;
+      const oculto  = lista.querySelector('.cat-list--collapsed');
+      if (!oculto) return;
+      const cerrado = oculto.hidden;
+      oculto.hidden = !cerrado;
+      const resto   = parseInt(btn.dataset.resto, 10);
+      btn.textContent = cerrado
+        ? '▴ Ocultar'
+        : `▾ Ver ${resto} más`;
+    });
+  });
 }
 
 /* ── Mostrar / ocultar grid ── */
@@ -290,7 +318,6 @@ function renderResultados(matches, rawQ, qn) {
     c.appendChild(sec);
   }
 
-  // Agregar resultados de leyes al final
   const leyesMatches = buscarLeyes(rawQ, norm(rawQ));
   if (leyesMatches.length > 0) {
     renderResultadosLeyes(leyesMatches, rawQ, c);
@@ -335,12 +362,10 @@ function ejecutarBusqueda(q) {
     return;
   }
   if (!matches.length && leyesMatches.length) {
-    // Solo hay resultados de leyes
     const c = document.getElementById('resultados-container');
     if (c) { c.innerHTML = ''; renderResultadosLeyes(leyesMatches, q, c); }
     return;
   }
-  // Hay artículos (y posiblemente leyes también — se agregan dentro de renderResultados)
   renderResultados(matches, q, qn);
 }
 
