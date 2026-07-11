@@ -158,14 +158,19 @@ function renderGrid(cats) {
   `).join('');
 }
 
-/* ── Mostrar / ocultar grid ── */
+/* ── Mostrar / ocultar grid y sección leyes ── */
 function mostrarGrid() {
   const grid = document.getElementById('categorias-grid');
   if (grid) grid.style.display = '';
+  const secLeyes = document.getElementById('seccion-leyes');
+  if (secLeyes) secLeyes.style.display = '';
 }
 function ocultarGrid() {
   const grid = document.getElementById('categorias-grid');
   if (grid) grid.style.display = 'none';
+  // La sección de leyes se oculta en modo búsqueda; los resultados van en #resultados-container
+  const secLeyes = document.getElementById('seccion-leyes');
+  if (secLeyes) secLeyes.style.display = 'none';
 }
 
 /* ── Limpiar ── */
@@ -186,14 +191,52 @@ function buscarArticulos(q, qn) {
     art.texto.some(t => norm(t).includes(qn))
   );
   console.log(`"${q}": ${matches.length} resultados de ${INDICE.length}`);
-  if (!matches.length) {
-    setStatus(`🔍 No se encontraron artículos que mencionen «<strong>${esc(q)}</strong>».<br><small>Índice: ${INDICE.length} artículos.</small>`);
-    return;
-  }
-  renderResultados(matches, q, qn);
+  return matches;
 }
 
-/* ── Render resultados ── */
+/* ── Búsqueda leyes ── */
+function buscarLeyes(q, qn) {
+  if (typeof window._leyesData === 'undefined') return [];
+  return window._leyesData.filter(ley => {
+    const titulo = norm(ley.acapite || '');
+    const numLey = norm(String(ley.numeroLey || ''));
+    return titulo.includes(qn) || numLey.includes(qn);
+  });
+}
+
+/* ── Render resultados leyes ── */
+function renderResultadosLeyes(leyes, rawQ, contenedor) {
+  const sec = document.createElement('div');
+  sec.className = 'jp-leyes-resultados';
+
+  sec.innerHTML = `<h3>📜 ${leyes.length} ley${leyes.length !== 1 ? 'es' : ''} que mencionan &ldquo;<em>${esc(rawQ)}</em>&rdquo;</h3>`;
+
+  const lista = document.createElement('div');
+  const mostrar = leyes.slice(0, 20);
+  mostrar.forEach(ley => {
+    const item = document.createElement('a');
+    const href = ley.appURL
+      ? `template_lector.html?id=${ley.idProyecto}&ley=${ley.numeroLey}`
+      : (ley.appURL || '#');
+    item.href = href;
+    item.className = 'jp-ley-item';
+    const fecha = ley.fechaPromulgacion ? ` — ${ley.fechaPromulgacion}` : '';
+    item.innerHTML = `
+      <div class="jp-ley-item__num">Ley N.° ${esc(String(ley.numeroLey || '—'))}</div>
+      <div class="jp-ley-item__titulo">${hl(ley.acapite || '(Sin título)', rawQ)}</div>
+      <div class="jp-ley-item__meta">Promulgación${fecha}${ley.tipoPromulgacion ? ' · ' + esc(ley.tipoPromulgacion) : ''}</div>`;
+    lista.appendChild(item);
+  });
+
+  if (leyes.length === 0) {
+    lista.innerHTML = '<p class="jp-leyes-no-resultados">No se encontraron leyes para esta búsqueda.</p>';
+  }
+
+  sec.appendChild(lista);
+  contenedor.appendChild(sec);
+}
+
+/* ── Render resultados artículos ── */
 function renderResultados(matches, rawQ, qn) {
   const c = document.getElementById('resultados-container');
   if (!c) return;
@@ -251,6 +294,12 @@ function renderResultados(matches, rawQ, qn) {
     }
     c.appendChild(sec);
   }
+
+  // Agregar resultados de leyes al final
+  const leyesMatches = buscarLeyes(rawQ, norm(rawQ));
+  if (leyesMatches.length > 0) {
+    renderResultadosLeyes(leyesMatches, rawQ, c);
+  }
 }
 
 function pintarArts(lista, arts, qn, rawQ, desde, hasta) {
@@ -277,14 +326,27 @@ function pintarArts(lista, arts, qn, rawQ, desde, hasta) {
 function ejecutarBusqueda(q) {
   const qn = norm(q);
   limpiar();
-  // Ocultar el grid de categorías mientras hay búsqueda activa
   ocultarGrid();
   if (!LISTO) {
     setStatus('⏳ Cargando artículos… aparecerán automáticamente.');
     QUERY_PENDIENTE = q;
     return;
   }
-  buscarArticulos(q, qn);
+  const matches = buscarArticulos(q, qn);
+  const leyesMatches = buscarLeyes(q, qn);
+
+  if (!matches.length && !leyesMatches.length) {
+    setStatus(`🔍 No se encontraron artículos ni leyes que mencionen «<strong>${esc(q)}</strong>».<br><small>Índice: ${INDICE.length} artículos.</small>`);
+    return;
+  }
+  if (!matches.length && leyesMatches.length) {
+    // Solo hay resultados de leyes
+    const c = document.getElementById('resultados-container');
+    if (c) { c.innerHTML = ''; renderResultadosLeyes(leyesMatches, q, c); }
+    return;
+  }
+  // Hay artículos (y posiblemente leyes también — se agregan dentro de renderResultados)
+  renderResultados(matches, q, qn);
 }
 
 function buscar() {
