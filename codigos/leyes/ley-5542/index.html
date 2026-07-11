@@ -393,20 +393,25 @@
 
     // ─── METADATA DINÁMICA ──────────────────────────────────────────────────
     function codeFullTitle() {
-      if (DATA && DATA.codigo) return DATA.codigo + (DATA.pais ? ` del ${DATA.pais}` : ' del Paraguay');
-      return 'Ley — JurisParaguay';
+      if (!DATA) return 'JurisParaguay';
+      if (DATA.codigo) return DATA.codigo + (DATA.pais ? ` del ${DATA.pais}` : ' del Paraguay');
+      if (DATA.nombre) return DATA.nombre;
+      return 'JurisParaguay';
     }
     function codeSubtitle() {
-      if (DATA && DATA.ley) return `Ley N° ${DATA.ley} · República del ${DATA.pais || 'Paraguay'}`;
-      return 'República del Paraguay';
+      if (!DATA) return 'República del Paraguay';
+      const leyLabel = DATA.ley || DATA.codigo || '';
+      return leyLabel
+        ? `${leyLabel} · República del ${DATA.pais || 'Paraguay'}`
+        : `República del ${DATA.pais || 'Paraguay'}`;
     }
     function applyMeta() {
       if (!DATA) return;
       const fullTitle = codeFullTitle(), subtitle = codeSubtitle();
-      document.title = `${DATA.codigo || 'Ley'} — JurisParaguay`;
+      document.title = `${DATA.codigo || DATA.ley || 'Ley'} — JurisParaguay`;
       const el = id => document.getElementById(id);
-      if (el('appTitle'))    el('appTitle').textContent    = DATA.codigo || fullTitle;
-      if (el('appSubtitle')) el('appSubtitle').textContent = subtitle;
+      if (el('appTitle'))    el('appTitle').textContent    = DATA.ley || DATA.codigo || fullTitle;
+      if (el('appSubtitle')) el('appSubtitle').textContent = DATA.nombre || subtitle;
       if (el('printOrgName'))el('printOrgName').textContent= fullTitle;
       if (el('printOrgLaw')) el('printOrgLaw').textContent = subtitle;
       if (el('mainTitle'))   el('mainTitle').textContent   = fullTitle;
