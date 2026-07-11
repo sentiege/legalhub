@@ -42,7 +42,7 @@ const CODIGOS = [
   { id:'ley-1535',  nombre:'Ley de Administración Financiera del Estado',      path:'codigos/leyes/ley-1535/ley_1535_administracion_financiera_del_estado.json' },
   { id:'ley-1561',  nombre:'Ley del Sistema Nacional del Ambiente',            path:'codigos/leyes/ley-1561/ley_1561_sistema_nacional_del_ambiente.json' },
   { id:'ley-1863',  nombre:'Estatuto Agrario',                                 path:'codigos/leyes/ley-1863/ley_1863_estatuto_agrario.json' },
-  { id:'ley-2051',  nombre:'Ley de Contrataciones Públicas',                   path:'codigos/leyes/ley-2051/ley_2051_contrataciones_publicas.json' },
+  // ley-2051 pendiente: no tiene JSON aún
   { id:'ley-3966',  nombre:'Ley Orgánica Municipal',                           path:'codigos/leyes/ley-3966/ley_3966_organica_municipal.json' },
   { id:'ley-4868',  nombre:'Ley de Comercio Electrónico',                      path:'codigos/leyes/ley-4868/ley_4868_comercio_electronico.json' },
   { id:'ley-5074',  nombre:'Ley de Obras Públicas (Régimen Especial)',         path:'codigos/leyes/ley-5074/ley_5074.json' },
@@ -255,17 +255,11 @@ function buscarLeyes(q, qn) {
 function renderResultadosLeyes(leyes, rawQ, contenedor) {
   const sec = document.createElement('div');
   sec.className = 'jp-leyes-resultados';
-
   sec.innerHTML = `<h3>📜 ${leyes.length} ley${leyes.length !== 1 ? 'es' : ''} que mencionan &ldquo;<em>${esc(rawQ)}</em>&rdquo;</h3>`;
-
   const lista = document.createElement('div');
-  const mostrar = leyes.slice(0, 20);
-  mostrar.forEach(ley => {
+  leyes.slice(0, 20).forEach(ley => {
     const item = document.createElement('a');
-    const href = ley.appURL
-      ? `template_lector.html?id=${ley.idProyecto}&ley=${ley.numeroLey}`
-      : (ley.appURL || '#');
-    item.href = href;
+    item.href = ley.appURL ? `template_lector.html?id=${ley.idProyecto}&ley=${ley.numeroLey}` : '#';
     item.className = 'jp-ley-item';
     const fecha = ley.fechaPromulgacion ? ` — ${ley.fechaPromulgacion}` : '';
     item.innerHTML = `
@@ -274,11 +268,7 @@ function renderResultadosLeyes(leyes, rawQ, contenedor) {
       <div class="jp-ley-item__meta">Promulgación${fecha}${ley.tipoPromulgacion ? ' · ' + esc(ley.tipoPromulgacion) : ''}</div>`;
     lista.appendChild(item);
   });
-
-  if (leyes.length === 0) {
-    lista.innerHTML = '<p class="jp-leyes-no-resultados">No se encontraron leyes para esta búsqueda.</p>';
-  }
-
+  if (!leyes.length) lista.innerHTML = '<p class="jp-leyes-no-resultados">No se encontraron leyes para esta búsqueda.</p>';
   sec.appendChild(lista);
   contenedor.appendChild(sec);
 }
@@ -341,11 +331,8 @@ function renderResultados(matches, rawQ, qn) {
     }
     c.appendChild(sec);
   }
-
   const leyesMatches = buscarLeyes(rawQ, norm(rawQ));
-  if (leyesMatches.length > 0) {
-    renderResultadosLeyes(leyesMatches, rawQ, c);
-  }
+  if (leyesMatches.length > 0) renderResultadosLeyes(leyesMatches, rawQ, c);
 }
 
 function pintarArts(lista, arts, qn, rawQ, desde, hasta) {
@@ -380,9 +367,8 @@ function ejecutarBusqueda(q) {
   }
   const matches = buscarArticulos(q, qn);
   const leyesMatches = buscarLeyes(q, qn);
-
   if (!matches.length && !leyesMatches.length) {
-    setStatus(`🔍 No se encontraron artículos ni leyes que mencionen «<strong>${esc(q)}</strong>».<br><small>Índice: ${INDICE.length} artículos.</small>`);
+    setStatus(`🔍 No se encontraron resultados para «<strong>${esc(q)}</strong>».<br><small>Índice: ${INDICE.length} artículos.</small>`);
     return;
   }
   if (!matches.length && leyesMatches.length) {
