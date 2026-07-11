@@ -1,7 +1,6 @@
 /* Service Worker raiz — JurisParaguay */
-const CACHE_NAME = 'jurisparaguay-root-v1';
+const CACHE_NAME = 'jurisparaguay-root-v4'; // <-- bump para limpiar caches viejos
 
-// Pre-cachear solo el shell; los JSON se cachean al primer fetch
 const SHELL = [
   '/jurisparaguay/',
   '/jurisparaguay/index.html',
@@ -27,17 +26,27 @@ self.addEventListener('activate', e => {
   self.clients.claim();
 });
 
+/* Verifica que la respuesta sea realmente JSON antes de cachearla */
+function esRespuestaJSON(resp) {
+  const ct = resp.headers.get('content-type') || '';
+  // GitHub Pages sirve .json como text/plain; verificamos que NO sea HTML
+  return !ct.includes('text/html');
+}
+
 self.addEventListener('fetch', e => {
   const url = e.request.url;
 
-  // JSON de codigos: cache-first (son estaticos, cambian poco)
-  if (url.includes('_completo.json') || url.includes('codigo_') && url.endsWith('.json')) {
+  // JSON de codigos: cache-first, pero solo si la respuesta NO es HTML
+  if (url.includes('.json')) {
     e.respondWith(
       caches.open(CACHE_NAME).then(cache =>
         cache.match(e.request).then(cached => {
           if (cached) return cached;
           return fetch(e.request).then(resp => {
-            if (resp.ok) cache.put(e.request, resp.clone());
+            // Solo cachear si es JSON real (no el index.html de GH Pages)
+            if (resp.ok && esRespuestaJSON(resp)) {
+              cache.put(e.request, resp.clone());
+            }
             return resp;
           });
         })
