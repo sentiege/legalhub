@@ -93,6 +93,16 @@
     .ad-slot--bottom { max-width: 970px; min-height: 90px; }
     .ad-slot ins:empty { display: none; }
 
+    /* SEO intro: visible para Google, invisible para el usuario */
+    .seo-intro {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+
     .jp-leyes-resultados { margin-top: 2rem; }
     .jp-leyes-resultados h3 {
       font-size: 1.1rem; font-weight: 700;
@@ -122,6 +132,19 @@
 </head>
 <body>
 
+  <!-- ─── ANUNCIO SUPERIOR (encima del hero / logo) ────────────────────────── -->
+  <div class="container">
+    <div class="ad-slot ad-slot--top">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7710479913401010"
+           data-ad-slot="1111111111"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
   <section class="hero" id="inicio">
     <div class="container">
       <a href="index.html" class="hero__logo-link" title="Inicio">
@@ -135,27 +158,16 @@
     </div>
   </section>
 
-  <!-- ─── ANUNCIO SUPERIOR ──────────────────────────────────────────────── -->
-  <div class="container">
-    <div class="ad-slot ad-slot--top">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-7710479913401010"
-           data-ad-slot="1111111111"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-  </div>
-
   <div id="jp-progress-wrap">
     <span id="jp-progress-text">Cargando índice…</span>
     <div class="jp-progress-track"><div id="jp-progress-bar" style="width:0%"></div></div>
   </div>
 
   <main class="container" id="principal">
-    <section class="seo-intro" aria-label="Sobre JurisParaguay" style="max-width:820px;margin:2rem auto 1.5rem;text-align:center;color:#444;font-size:.97rem;line-height:1.7;">
-      <h1 style="font-size:1.4rem;color:#1a3a5c;margin-bottom:.6rem;">Consulta de Leyes y Códigos del Paraguay</h1>
+
+    <!-- SEO: visible para Google, invisible para el usuario -->
+    <section class="seo-intro" aria-label="Sobre JurisParaguay">
+      <h1>Consulta de Leyes y Códigos del Paraguay</h1>
       <p>JurisParaguay es una plataforma gratuita de consulta jurídica que reúne los principales <strong>códigos y leyes vigentes del Paraguay</strong>: Código Civil, Código Penal, Código Laboral, Código Procesal Civil, Código Procesal Penal, Constitución Nacional y más de 40 leyes especiales. Diseñada para <strong>abogados, estudiantes de derecho y ciudadanos</strong> que necesitan acceder al texto completo de la legislación paraguaya.</p>
     </section>
 
