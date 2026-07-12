@@ -4,12 +4,12 @@
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('/jurisparaguay/sw.js', { scope: '/jurisparaguay/' })
+    .register('/sw.js', { scope: '/' })
     .then(() => console.log('SW registrado'))
     .catch(e => console.warn('SW error:', e));
 }
 
-const BASE = 'https://sentiege.github.io/jurisparaguay';
+const BASE = 'https://www.jurisparaguay.com';
 const CODIGOS = [
   // ── Códigos ──────────────────────────────────────────────────────────────────
   { id:'codigo-civil',                 nombre:'Código Civil',                            path:'codigos/codigocivil/codigo_civil_completo.json' },
