@@ -3,8 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JurisParaguay — Derecho Paraguayo</title>
-  <meta name="description" content="Plataforma de consulta de códigos legales vigentes del Paraguay para juristas y litigantes." />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SEO PRIMARIO
+  ════════════════════════════════════════════════════════════ -->
+  <title>JurisParaguay | Códigos y Leyes del Paraguay — Consulta Jurídica Gratuita</title>
+  <meta name="description" content="Consultá gratuitamente el Código Civil, Penal, Laboral, Procesal y más de 40 leyes vigentes del Paraguay. Plataforma jurídica para abogados, estudiantes y ciudadanos." />
+  <meta name="keywords" content="
+    leyes Paraguay, códigos legales Paraguay, derecho paraguayo, legislación paraguaya,
+    Código Civil Paraguay, Código Penal Paraguay, Código Laboral Paraguay,
+    Código Procesal Civil Paraguay, Código Procesal Penal Paraguay,
+    Código Electoral Paraguay, Código Aduanero Paraguay, Código Aeronáutico Paraguay,
+    Constitución Nacional Paraguay, consulta jurídica Paraguay,
+    abogados Paraguay, estudio jurídico Paraguay, jurisprudencia Paraguay,
+    leyes vigentes Paraguay, normativa paraguaya, texto legal Paraguay,
+    artículos del código civil Paraguay, derechos laborales Paraguay,
+    contratos Paraguay, herencia Paraguay, divorcio Paraguay, adopción Paraguay,
+    marcas Paraguay, propiedad intelectual Paraguay, comercio electrónico Paraguay,
+    contrataciones públicas Paraguay, función pública Paraguay,
+    impuestos Paraguay, ley tributaria Paraguay, IVA Paraguay, IRE Paraguay,
+    municipalidades Paraguay, ley orgánica municipal Paraguay,
+    medio ambiente Paraguay, impacto ambiental Paraguay,
+    reforma agraria Paraguay, estatuto agrario Paraguay,
+    protección consumidor Paraguay, defensa del consumidor Paraguay,
+    violencia contra la mujer Paraguay, femicidio Paraguay,
+    niñez y adolescencia Paraguay, derechos del niño Paraguay,
+    bancos y financieras Paraguay, ley de bancos Paraguay,
+    obras públicas Paraguay, contrataciones del Estado Paraguay,
+    JurisParaguay, consulta legal gratuita Paraguay, buscador de leyes Paraguay
+  " />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="author" content="JurisParaguay" />
+  <meta name="language" content="es" />
+  <meta name="geo.region" content="PY" />
+  <meta name="geo.country" content="Paraguay" />
+  <link rel="canonical" href="https://www.jurisparaguay.com/" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OPEN GRAPH (Facebook, WhatsApp, LinkedIn)
+  ════════════════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.jurisparaguay.com/" />
+  <meta property="og:title" content="JurisParaguay | Códigos y Leyes del Paraguay" />
+  <meta property="og:description" content="Consultá gratuitamente el Código Civil, Penal, Laboral, Procesal y más de 40 leyes vigentes del Paraguay. Buscador jurídico para abogados, estudiantes y ciudadanos." />
+  <meta property="og:image" content="https://www.jurisparaguay.com/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="JurisParaguay — Derecho Paraguayo" />
+  <meta property="og:locale" content="es_PY" />
+  <meta property="og:site_name" content="JurisParaguay" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TWITTER / X CARD
+  ════════════════════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JurisParaguay | Códigos y Leyes del Paraguay" />
+  <meta name="twitter:description" content="Consultá gratuitamente el Código Civil, Penal, Laboral y más de 40 leyes vigentes del Paraguay." />
+  <meta name="twitter:image" content="https://www.jurisparaguay.com/logo.png" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCHEMA.ORG — Datos estructurados para Google
+  ════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JurisParaguay",
+    "url": "https://www.jurisparaguay.com/",
+    "description": "Plataforma gratuita de consulta de códigos y leyes vigentes del Paraguay para abogados, estudiantes y ciudadanos.",
+    "inLanguage": "es",
+    "publisher": {
+      "@type": "Organization",
+      "name": "JurisParaguay",
+      "url": "https://www.jurisparaguay.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.jurisparaguay.com/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.jurisparaguay.com/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "JurisParaguay",
+    "url": "https://www.jurisparaguay.com/",
+    "description": "Consulta gratuita de códigos y leyes vigentes del Paraguay.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Paraguay"
+    },
+    "availableLanguage": "Spanish",
+    "serviceType": "Consulta jurídica y legislación paraguaya"
+  }
+  </script>
+
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     .hero {
@@ -69,12 +172,12 @@
   <section class="hero" id="inicio">
     <div class="container">
       <a href="index.html" class="hero__logo-link" title="Inicio">
-        <img src="logo.png" alt="JurisParaguay" class="hero__logo" />
+        <img src="logo.png" alt="JurisParaguay — Códigos y Leyes del Paraguay" class="hero__logo" />
       </a>
       <p class="hero__tagline">El derecho paraguayo, al alcance de todos</p>
       <div class="search-bar">
-        <input type="search" id="searchInput" placeholder="Buscar código, ley o artículo…" autocomplete="off" />
-        <button onclick="buscar()">&#128269; Buscar</button>
+        <input type="search" id="searchInput" placeholder="Buscar código, ley o artículo…" autocomplete="off" aria-label="Buscar leyes y códigos del Paraguay" />
+        <button onclick="buscar()" aria-label="Buscar">&#128269; Buscar</button>
       </div>
     </div>
   </section>
@@ -85,6 +188,11 @@
   </div>
 
   <main class="container" id="principal">
+    <!-- Texto SEO visible para Google -->
+    <section class="seo-intro" aria-label="Sobre JurisParaguay" style="max-width:820px;margin:2rem auto 1.5rem;text-align:center;color:#444;font-size:.97rem;line-height:1.7;">
+      <h1 style="font-size:1.4rem;color:#1a3a5c;margin-bottom:.6rem;">Consulta de Leyes y Códigos del Paraguay</h1>
+      <p>JurisParaguay es una plataforma gratuita de consulta jurídica que reúne los principales <strong>códigos y leyes vigentes del Paraguay</strong>: Código Civil, Código Penal, Código Laboral, Código Procesal Civil, Código Procesal Penal, Constitución Nacional y más de 40 leyes especiales. Diseñada para <strong>abogados, estudiantes de derecho y ciudadanos</strong> que necesitan acceder al texto completo de la legislación paraguaya.</p>
+    </section>
     <div id="categorias-grid" class="categorias-grid"></div>
     <div id="resultados-container"></div>
   </main>
