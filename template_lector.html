@@ -6,6 +6,13 @@
   <title>Código — JurisParaguay</title>
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#1f3147" />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GOOGLE ADSENSE
+       IMPORTANTE: reemplazá ca-pub-XXXXXXXXXXXXXXXXX con tu Publisher ID real.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
   <style>
     :root {
       --bg: #f7f3ea;
@@ -152,6 +159,15 @@
     .pager button:hover:not(:disabled) { background: var(--accent-gold-soft); border-color: var(--accent-gold); }
     .pager button:disabled { opacity: 0.35; cursor: default; }
 
+    /* ── AdSense en el lector ── */
+    .ad-slot-reader {
+      max-width: 860px;
+      margin: 14px auto;
+      background: transparent;
+    }
+    /* Ocultar espacio en blanco si el anuncio no cargó */
+    .ad-slot-reader ins:empty { display: none; }
+
     /* ── Audio Player ── */
     .audio-player { grid-column: 2; grid-row: 3; background: linear-gradient(135deg, #1a2d45, #243650); border-top: 1px solid rgba(148,163,184,0.3); padding: 10px 18px; display: flex; flex-direction: column; gap: 7px; box-shadow: 0 -4px 16px rgba(15,23,42,0.18); }
     .player-top { display: flex; align-items: center; gap: 10px; min-width: 0; }
@@ -181,7 +197,7 @@
     /* ── Print ── */
     @media print {
       body { display: block !important; height: auto !important; overflow: visible !important; background: #fff !important; }
-      .sidebar, .header, .audio-player, .tags-overlay, .top-pager { display: none !important; }
+      .sidebar, .header, .audio-player, .tags-overlay, .top-pager, .ad-slot-reader { display: none !important; }
       .main { padding: 0 !important; overflow: visible !important; }
       .reader-group { max-width: 100% !important; gap: 20px; }
       .reader-card { box-shadow: none !important; border: 1px solid #ccc !important; border-radius: 0 !important; padding: 0 !important; }
@@ -281,6 +297,7 @@
       <button id="btnPrev" type="button" disabled>← Art. anterior</button>
       <button id="btnNext" type="button" disabled>Art. siguiente →</button>
     </div>
+
     <div class="reader-group" id="readerGroup">
       <div class="reader-card card-primary">
         <div class="print-header">
@@ -303,6 +320,17 @@
           <div>Fuente: CSJ – IIJ, edición digital · JurisParaguay 2026</div>
         </footer>
       </div>
+    </div>
+
+    <!-- ─── ANUNCIO EN EL LECTOR (debajo de los artículos, antes del player) ─ -->
+    <div class="ad-slot-reader">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+           data-ad-slot="4444444444"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </main>
 
@@ -337,10 +365,8 @@
   </div>
 
   <script>
-    // ─── ÚNICA LÍNEA A CAMBIAR POR CÓDIGO ───────────────────────────────────
     const JSON_FILE = document.body.dataset.json || 'codigo_completo.json';
     const jsonUrl   = new URL(JSON_FILE, window.location.href).href;
-    // ────────────────────────────────────────────────────────────────────────
 
     const CARDS_PER_PAGE = 3;
     let DATA = null, FLAT = [], currentIdx = 0;
@@ -379,7 +405,6 @@
     const playerSpeedVal    = document.getElementById('playerSpeedVal');
     const playerVoice       = document.getElementById('playerVoice');
 
-    // ─── PWA ────────────────────────────────────────────────────────────────
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
     window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstallPrompt = e; btnInstall.classList.add('visible'); });
     window.addEventListener('appinstalled', () => { btnInstall.classList.remove('visible'); deferredInstallPrompt = null; });
@@ -399,7 +424,6 @@
     tagsOverlay.addEventListener('click', e => { if (e.target === tagsOverlay) tagsOverlay.classList.remove('open'); });
     hamburger.addEventListener('click', () => sidebar.classList.toggle('open'));
 
-    // ─── METADATA DINÁMICA ──────────────────────────────────────────────────
     function codeFullTitle() {
       if (DATA && DATA.codigo) return DATA.codigo + (DATA.pais ? ` del ${DATA.pais}` : ' del Paraguay');
       return 'Código — JurisParaguay';
@@ -421,7 +445,6 @@
       document.querySelector('aside[aria-label]')?.setAttribute('aria-label', `Índice — ${DATA.codigo || fullTitle}`);
     }
 
-    // ─── TAGS PANEL ─────────────────────────────────────────────────────────
     function openTagsPanel() {
       if (!FLAT.length) return;
       const { articulo } = FLAT[currentIdx];
@@ -446,7 +469,6 @@
       tagsOverlay.classList.add('open');
     }
 
-    // ─── UTILS ──────────────────────────────────────────────────────────────
     function normalize(str) { return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
     function highlight(str, query) {
       if (!query) return str;
@@ -461,14 +483,13 @@
       }).join(' ');
     }
 
-    // ─── EXTRACCIÓN RECURSIVA ────────────────────────────────────────────────
     function deepExtractArticulos(node, ctx, out) {
       if (!node || typeof node !== 'object') return;
       if ('numero' in node && (node.texto || node.epigrafe !== undefined)) { out.push({ ...ctx, articulo: node }); return; }
       const LIBRO_KEYS  = ['libros', 'libro'];
       const TITULO_KEYS = ['titulos', 'titulo', 'partes', 'parte', 'secciones', 'seccion', 'libros_internos'];
       const CAP_KEYS    = ['capitulos', 'capitulo', 'subcapitulos', 'subcapitulo'];
-      const ART_KEYS    = ['articulos', 'articulo', 'arts', 'items', 'art\u00edculos'];
+      const ART_KEYS    = ['articulos', 'articulo', 'arts', 'items', 'artículos'];
       let handled = false;
       for (const k of LIBRO_KEYS) {
         if (Array.isArray(node[k]) && node[k].length) {
@@ -509,27 +530,17 @@
       return min === max ? `${min}` : `${min}-${max}`;
     }
 
-    // ─── BUILD FLAT ──────────────────────────────────────────────────────────
     function buildFlat(data) {
       const raw = [];
       const libroRoot = { id: 'libro-1', nombre: data.codigo || 'Código', numero: 1 };
-      deepExtractArticulos(data, {
-        libro:    libroRoot,
-        titulo:   { id: 'titulo-1', nombre: 'General', numero: 1 },
-        capitulo: { id: 'cap-1',    nombre: 'General', numero: 1 }
-      }, raw);
+      deepExtractArticulos(data, { libro: libroRoot, titulo: { id: 'titulo-1', nombre: 'General', numero: 1 }, capitulo: { id: 'cap-1', nombre: 'General', numero: 1 } }, raw);
       const KNOWN = new Set(['codigo','ley','pais','fecha','titulos','libros','titulo','libro','capitulos','capitulo','articulos','articulo']);
       Object.keys(data).forEach(key => {
         if (KNOWN.has(key)) return;
         const val = data[key];
         if (Array.isArray(val) && val.length && val.every(a => a && typeof a === 'object' && 'numero' in a)) {
           const nombre = humanize(key);
-          val.forEach(art => raw.push({
-            libro:    libroRoot,
-            titulo:   { id: `extra-${key}`, nombre, numero: null, kicker: 'Sección' },
-            capitulo: { id: `extra-${key}-c1`, nombre, numero: 1 },
-            articulo: art
-          }));
+          val.forEach(art => raw.push({ libro: libroRoot, titulo: { id: `extra-${key}`, nombre, numero: null, kicker: 'Sección' }, capitulo: { id: `extra-${key}-c1`, nombre, numero: 1 }, articulo: art }));
         }
       });
       raw.sort((a, b) => (a.articulo.numero || 0) - (b.articulo.numero || 0));
@@ -537,7 +548,6 @@
       return raw.filter(e => { const n = e.articulo.numero; if (seen.has(n)) return false; seen.add(n); return true; });
     }
 
-    // ─── RENDER CARDS ────────────────────────────────────────────────────────
     function buildCard(entry, isPrimary) {
       const { titulo, capitulo, articulo } = entry;
       const textos = articulo.texto || [];
@@ -548,19 +558,14 @@
         ? textos.map(p => `<p>${p}</p>`).join('')
         : `<div class="article-empty"><div class="article-empty-icon">📄</div><p>El texto de este artículo aún no ha sido cargado en el JSON.</p></div>`;
       card.innerHTML = `
-        ${isPrimary ? `<div class="print-header">
-          <img class="print-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" />
-          <div class="print-org"><strong>${codeFullTitle()}</strong><br>${codeSubtitle()}<br>Fuente: CSJ – IIJ · JurisParaguay 2026</div>
-        </div>` : ''}
+        ${isPrimary ? `<div class="print-header"><img class="print-logo" src="../../logo.png" alt="JurisParaguay" onerror="this.style.display='none'" /><div class="print-org"><strong>${codeFullTitle()}</strong><br>${codeSubtitle()}<br>Fuente: CSJ – IIJ · JurisParaguay 2026</div></div>` : ''}
         <header class="article-header">
           <div class="article-number">Artículo ${articulo.numero}</div>
           <h2 class="article-title">${articulo.epigrafe || `Artículo ${articulo.numero}`}</h2>
           <p class="article-subtitle">${titulo.nombre} · Capítulo ${capitulo.numero} — ${capitulo.nombre}</p>
         </header>
         <div class="article-body">${bodyHtml}</div>
-        <footer class="article-footer">
-          <div>Fuente: CSJ – IIJ, edición digital · JurisParaguay 2026</div>
-        </footer>`;
+        <footer class="article-footer"><div>Fuente: CSJ – IIJ, edición digital · JurisParaguay 2026</div></footer>`;
       return card;
     }
 
@@ -575,7 +580,6 @@
       btnNext.disabled = startIdx + CARDS_PER_PAGE >= FLAT.length;
     }
 
-    // ─── RENDER SIDEBAR ──────────────────────────────────────────────────────
     function renderSidebar() {
       sidebarTree.innerHTML = '';
       const GRUPO = 3;
@@ -589,25 +593,17 @@
         if (!capMap.has(capitulo.id)) capMap.set(capitulo.id, { meta: capitulo, entries: [] });
         capMap.get(capitulo.id).entries.push(entry);
       });
-
       libros.forEach(({ meta: libro, titulos }) => {
-        const groupTitle = document.createElement('div');
-        groupTitle.className = 'tree-group-title';
-        groupTitle.textContent = libro.nombre;
-        sidebarTree.appendChild(groupTitle);
-
+        const groupTitle = document.createElement('div'); groupTitle.className = 'tree-group-title'; groupTitle.textContent = libro.nombre; sidebarTree.appendChild(groupTitle);
         titulos.forEach(({ meta: titulo, caps }) => {
-          const allArts = [];
-          caps.forEach(({ entries }) => allArts.push(...entries.map(e => e.articulo)));
+          const allArts = []; caps.forEach(({ entries }) => allArts.push(...entries.map(e => e.articulo)));
           if (!allArts.length) return;
-
           const block = document.createElement('section'); block.className = 'title-block';
           const head = document.createElement('button'); head.className = 'title-head'; head.type = 'button'; head.setAttribute('aria-expanded', 'false');
           const kickerLabel = titulo.kicker || `Título ${titulo.numero}`;
           head.innerHTML = `<div class="title-head-main"><span class="title-kicker">${kickerLabel}</span><span class="title-name">${titulo.nombre}</span><span class="title-range">Arts. ${computeRango(allArts,'')}</span></div><span class="title-chevron">›</span>`;
           head.addEventListener('click', () => { const open = block.classList.toggle('open'); head.setAttribute('aria-expanded', String(open)); });
           block.appendChild(head);
-
           const chList = document.createElement('div'); chList.className = 'chapter-list';
           caps.forEach(({ meta: cap, entries }) => {
             const capBlock = document.createElement('div'); capBlock.className = 'chapter-block';
@@ -615,7 +611,6 @@
             capHead.innerHTML = `<div class="chapter-head-main"><span class="chapter-name">Cap. ${cap.numero} — ${cap.nombre}</span><span class="chapter-range">Arts. ${computeRango(entries.map(e=>e.articulo),'')}</span></div><span class="chapter-chevron">›</span>`;
             capHead.addEventListener('click', () => { const open = capBlock.classList.toggle('open'); capHead.setAttribute('aria-expanded', String(open)); });
             capBlock.appendChild(capHead);
-
             const artGroupList = document.createElement('div'); artGroupList.className = 'art-group-list';
             for (let i = 0; i < entries.length; i += GRUPO) {
               const slice = entries.slice(i, i + GRUPO);
@@ -624,21 +619,14 @@
               const nums = slice.map(e => e.articulo.numero);
               const numsLabel = nums.length === 1 ? `Art. ${nums[0]}` : `Arts. ${nums[0]}–${nums[nums.length-1]}`;
               const epigs = slice.map(e => e.articulo.epigrafe || `Art. ${e.articulo.numero}`).join(' · ');
-              const btn = document.createElement('button');
-              btn.className = 'art-group-btn'; btn.type = 'button'; btn.dataset.firstIdx = flatIdx;
+              const btn = document.createElement('button'); btn.className = 'art-group-btn'; btn.type = 'button'; btn.dataset.firstIdx = flatIdx;
               btn.innerHTML = `<span class="art-group-nums">${numsLabel}</span><span class="art-group-epigs">${epigs}</span>`;
-              btn.addEventListener('click', () => {
-                setActiveGroupBtn(btn);
-                if (flatIdx !== -1) showArticleByIdx(flatIdx);
-                if (window.innerWidth <= 900) sidebar.classList.remove('open');
-              });
+              btn.addEventListener('click', () => { setActiveGroupBtn(btn); if (flatIdx !== -1) showArticleByIdx(flatIdx); if (window.innerWidth <= 900) sidebar.classList.remove('open'); });
               artGroupList.appendChild(btn);
             }
-            capBlock.appendChild(artGroupList);
-            chList.appendChild(capBlock);
+            capBlock.appendChild(artGroupList); chList.appendChild(capBlock);
           });
-          block.appendChild(chList);
-          sidebarTree.appendChild(block);
+          block.appendChild(chList); sidebarTree.appendChild(block);
         });
       });
     }
@@ -650,22 +638,16 @@
         if (isNaN(firstIdx)) return;
         const covers = idx >= firstIdx && idx <= Math.min(firstIdx + CARDS_PER_PAGE - 1, FLAT.length - 1);
         btn.classList.toggle('active', covers);
-        if (covers) {
-          btn.closest('.chapter-block')?.classList.add('open');
-          btn.closest('.title-block')?.classList.add('open');
-          btn.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-        }
+        if (covers) { btn.closest('.chapter-block')?.classList.add('open'); btn.closest('.title-block')?.classList.add('open'); btn.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
       });
     }
 
-    // ─── HASH & STORAGE ──────────────────────────────────────────────────────
     function getHashArtNum() { const h = window.location.hash.replace('#art-','').trim(); return h ? parseInt(h,10) : null; }
     function setHashFromIdx(idx) { if (!FLAT.length) return; history.replaceState(null, '', '#art-' + FLAT[idx].articulo.numero); }
     function storageKey() { return 'lastIdx_' + (DATA && DATA.ley ? DATA.ley : window.location.pathname); }
     function savePosition(idx) { try { localStorage.setItem(storageKey(), idx); } catch(e) {} }
     function loadPosition()    { try { return parseInt(localStorage.getItem(storageKey()), 10) || 0; } catch(e) { return 0; } }
 
-    // ─── LOAD DATA ───────────────────────────────────────────────────────────
     async function loadData() {
       try {
         const res = await fetch(jsonUrl, { cache: 'no-store' });
@@ -687,7 +669,6 @@
       }
     }
 
-    // ─── TTS / VOICES ────────────────────────────────────────────────────────
     function initVoices() {
       function populate() {
         voices = speechSynthesis.getVoices().filter(v => v.lang.startsWith('es'));
@@ -704,32 +685,14 @@
     function getSelectedVoice() { return voices[parseInt(playerVoice.value, 10)] || null; }
     playerSpeed.addEventListener('input', () => { playerSpeedVal.textContent = parseFloat(playerSpeed.value).toFixed(1) + '×'; });
 
-    // ─── MEDIA SESSION + AUDIO BACKGROUND (pantalla bloqueada) ──────────────
-    // Un <audio> silencioso en loop mantiene activa la sesión de audio del OS,
-    // lo que evita que Android/iOS suspendan el SpeechSynthesis al bloquear pantalla.
-    // El audio es 1 segundo de silencio en base64 (no consume datos ni batería extra).
     let _silentAudio = null;
-
     function keepAudioSessionAlive() {
       if (_silentAudio) { _silentAudio.play().catch(() => {}); return; }
-      // 1 segundo de silencio MP3 en base64
-      const b64 = 'data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsgU291bmQgRWZmZWN0cyBMaWJyYXJ5AB' +
-        'RDT00AAAACAA//uUZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAE' +
-        'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' +
-        'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' +
-        'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' +
-        'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' +
-        'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' +
-        'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==';
-      _silentAudio = new Audio(b64);
-      _silentAudio.loop = true;
-      _silentAudio.volume = 0.001;
+      const b64 = 'data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsgU291bmQgRWZmZWN0cyBMaWJyYXJ5ABRDT00AAAACAA//uUZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==';
+      _silentAudio = new Audio(b64); _silentAudio.loop = true; _silentAudio.volume = 0.001;
       _silentAudio.play().catch(() => {});
     }
-
-    function stopAudioSession() {
-      if (_silentAudio) { _silentAudio.pause(); }
-    }
+    function stopAudioSession() { if (_silentAudio) { _silentAudio.pause(); } }
 
     function registrarMediaSession(articulo) {
       if (!('mediaSession' in navigator)) return;
@@ -737,9 +700,7 @@
         title:  `Art. ${articulo.numero}${articulo.epigrafe ? ' — ' + articulo.epigrafe : ''}`,
         artist: DATA ? (DATA.codigo || 'JurisParaguay') : 'JurisParaguay',
         album:  'JurisParaguay · Códigos Legales',
-        artwork: [
-          { src: '../../logo.png', sizes: '512x512', type: 'image/png' }
-        ]
+        artwork: [{ src: '../../logo.png', sizes: '512x512', type: 'image/png' }]
       });
       navigator.mediaSession.setActionHandler('play',          () => { if (ttsPaused) ttsResume(); else if (!ttsPlaying) ttsPlay(currentIdx); });
       navigator.mediaSession.setActionHandler('pause',         () => ttsPause());
@@ -772,7 +733,6 @@
       navigator.clipboard.writeText(txt).then(() => { btnCopyText.textContent = '✅ Copiado'; setTimeout(() => { btnCopyText.textContent = 'Copiar texto'; }, 2000); }).catch(() => alert('No se pudo copiar al portapapeles.'));
     });
 
-    // ─── SEARCH ──────────────────────────────────────────────────────────────
     let searchDebounce = null;
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.trim();
@@ -810,7 +770,6 @@
     }
     function hideSearchResults() { searchResults.classList.remove('visible'); searchResults.innerHTML = ''; sidebarTree.style.display = ''; }
 
-    // ─── TTS PLAYER ──────────────────────────────────────────────────────────
     function speakArticle(idx) {
       if (!window.speechSynthesis) return;
       speechSynthesis.cancel();
@@ -820,11 +779,8 @@
       showArticleByIdx(idx, true);
       document.querySelectorAll('.reader-card.card-primary .article-body p').forEach((p,i) => { p.classList.remove('tts-reading'); if (i===0) p.classList.add('tts-reading'); });
       updatePlayerInfo(idx);
-
-      // Mantener sesión de audio activa (para pantalla bloqueada)
       keepAudioSessionAlive();
       registrarMediaSession(articulo);
-
       const textos = articulo.texto || [];
       if (!textos.length) { setTimeout(() => { if (ttsPlaying) speakArticle(idx + 1); }, 300); return; }
       const heading = articulo.epigrafe ? `Artículo número ${articulo.numero}. ${articulo.epigrafe}.` : `Artículo número ${articulo.numero}.`;
@@ -844,40 +800,30 @@
       playerStop.disabled = false; playerPrev.disabled = false; playerNext.disabled = false; playerSkipBack.disabled = false; playerSkipFwd.disabled = false;
       speakArticle(ttsStartIdx);
     }
-
     function ttsPause() {
       if (speechSynthesis.speaking && !speechSynthesis.paused) {
-        speechSynthesis.pause();
-        ttsPaused = true;
+        speechSynthesis.pause(); ttsPaused = true;
         playerPlay.textContent = '▶'; playerPlay.title = 'Reanudar';
         if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
       }
     }
-
     function ttsResume() {
       if (speechSynthesis.paused) {
-        speechSynthesis.resume();
-        ttsPaused = false;
+        speechSynthesis.resume(); ttsPaused = false;
         playerPlay.textContent = '⏸'; playerPlay.title = 'Pausar';
         if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing';
       }
     }
-
     function ttsStop() {
-      speechSynthesis.cancel();
-      ttsPlaying = false; ttsPaused = false;
+      speechSynthesis.cancel(); ttsPlaying = false; ttsPaused = false;
       stopAudioSession();
       playerPlay.textContent = '▶'; playerPlay.title = 'Reproducir';
       playerStop.disabled = true; playerPrev.disabled = true; playerNext.disabled = true; playerSkipBack.disabled = true; playerSkipFwd.disabled = true;
       playerProgressFill.style.width = '0%';
       playerTitle.textContent = 'Sin reproducción activa'; playerSubtitle.textContent = 'Presioná ▶ para comenzar'; playerCounter.textContent = '';
       document.querySelectorAll('.tts-reading').forEach(p => p.classList.remove('tts-reading'));
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.playbackState = 'none';
-        navigator.mediaSession.metadata = null;
-      }
+      if ('mediaSession' in navigator) { navigator.mediaSession.playbackState = 'none'; navigator.mediaSession.metadata = null; }
     }
-
     function updatePlayerInfo(idx) {
       if (!FLAT.length) return;
       const { articulo, titulo, capitulo } = FLAT[idx];
@@ -886,7 +832,6 @@
       playerCounter.textContent  = `${idx + 1} / ${FLAT.length}`;
       playerProgressFill.style.width = (FLAT.length > 1 ? (idx / (FLAT.length - 1)) * 100 : 100).toFixed(1) + '%';
     }
-
     function updatePlayerControls() { const a = ttsPlaying; playerStop.disabled=!a; playerPrev.disabled=!a; playerNext.disabled=!a; playerSkipBack.disabled=!a; playerSkipFwd.disabled=!a; }
 
     playerPlay.addEventListener('click', () => {
